@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Glow Studio — Beauty Reel</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&family=Playfair+Display:ital,wght@1,500&display=swap">
+<style>
+/* Code render of the Glow Studio reel, built from 07_Storyboard/storyboard.md (1080x1920, 15 s) */
+:root{--blush:#F6D6C8;--rose:#C98E7A;--cocoa:#3A2620;--cream:#FFF6F0;--gold:#D9A86C}
+html,body{margin:0;width:1080px;height:1920px;overflow:hidden;background:var(--blush);font-family:Montserrat,system-ui,sans-serif;color:var(--cocoa)}
+.sc{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;clip-path:circle(0% at 50% 50%)}
+.sc.first{clip-path:none}
+.s1{background:var(--blush)}
+.s2{background:var(--cocoa);color:var(--cream)}
+.s3{background:var(--cream)}
+.s4{background:var(--blush)}
+.s5{background:var(--rose);color:var(--cream)}
+.glow{display:flex;font-weight:800;font-size:250px;line-height:.9;letter-spacing:-.02em}
+.glow span{display:inline-block}
+.studio{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:500;font-size:150px;line-height:1;margin-top:-20px}
+.sub{margin-top:60px;font-weight:500;font-size:34px;letter-spacing:.42em;padding-left:.42em}
+.sub b{color:var(--gold);font-weight:500}
+.wedo{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:80px;color:var(--gold);margin-bottom:40px}
+.list{display:grid;gap:18px;justify-items:center}
+.item{position:relative;font-weight:800;font-size:150px;line-height:1.05;letter-spacing:-.02em;padding:0 50px}
+.item span{position:relative;z-index:1}
+.pill{position:absolute;inset:6px 0;border-radius:120px;background:var(--rose);transform-origin:0 50%}
+.off{position:relative;font-weight:800;font-size:330px;letter-spacing:-.05em;line-height:1;color:var(--rose)}
+.off svg{position:absolute;left:-90px;top:-110px;width:calc(100% + 180px);height:calc(100% + 220px);overflow:visible}
+.first-visit{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-size:76px;margin-top:70px}
+.kicker{font-weight:500;font-size:32px;letter-spacing:.3em;margin-bottom:40px;padding-left:.3em}
+.h{font-weight:800;font-size:110px;letter-spacing:-.03em;margin-bottom:60px}
+.cards{display:grid;gap:30px;width:860px}
+.card{display:flex;justify-content:space-between;align-items:center;background:var(--cream);border-radius:40px;padding:44px 50px;box-shadow:0 30px 60px -30px rgba(58,38,32,.35)}
+.card b{font-weight:800;font-size:52px;letter-spacing:-.02em}
+.card small{display:block;font-weight:500;font-size:28px;opacity:.6;margin-top:6px}
+.card span{font-weight:800;font-size:60px;color:var(--rose);letter-spacing:-.02em}
+.logo{display:flex;flex-direction:column;align-items:center}
+.logo .glow{font-size:190px}
+.logo .studio{font-size:116px}
+.btn{margin-top:110px;background:var(--cream);color:var(--cocoa);font-weight:800;font-size:54px;letter-spacing:.06em;padding:40px 90px;border-radius:100px}
+.handle{margin-top:60px;font-weight:500;font-size:40px;opacity:.85}
+</style></head>
+<body>
+<section class="sc s1 first" id="s1">
+  <div class="glow" id="glow"><span>G</span><span>L</span><span>O</span><span>W</span></div>
+  <div class="studio" id="studio">studio</div>
+  <div class="sub" id="sub">BEAUTY BAR <b>·</b> KYIV</div>
+</section>
+<section class="sc s2" id="s2">
+  <div class="wedo" id="wedo">we do</div>
+  <div class="list">
+    <div class="item"><span>Brows</span></div>
+    <div class="item"><div class="pill" id="pill"></div><span>Lashes</span></div>
+    <div class="item"><span>Skin</span></div>
+  </div>
+</section>
+<section class="sc s3" id="s3">
+  <div class="off" id="off"><span>-20%</span>
+    <svg viewBox="0 0 100 100" preserveAspectRatio="none"><path id="circle" d="M58 6 C 22 2, 4 30, 6 54 C 8 82, 40 98, 66 92 C 92 86, 98 58, 92 34 C 86 14, 66 4, 40 10" fill="none" stroke="#3A2620" stroke-width="1.6" stroke-linecap="round" vector-effect="non-scaling-stroke" style="stroke-width:10px"/></svg>
+  </div>
+  <div class="first-visit" id="fv">on your first visit</div>
+</section>
+<section class="sc s4" id="s4">
+  <div class="kicker" id="pk">PRICE LIST</div>
+  <div class="h" id="ph">Glow menu</div>
+  <div class="cards">
+    <div class="card"><div><b>Brow lamination</b><small>shape · tint · care</small></div><span>900 ₴</span></div>
+    <div class="card"><div><b>Lash lift</b><small>keratin · 6 weeks</small></div><span>1100 ₴</span></div>
+    <div class="card"><div><b>Glow facial</b><small>cleanse · peel · mask</small></div><span>1400 ₴</span></div>
+  </div>
+</section>
+<section class="sc s5" id="s5">
+  <div class="logo" id="logo"><div class="glow"><span>GLOW</span></div><div class="studio">studio</div></div>
+  <div class="btn" id="btn">BOOK NOW</div>
+  <div class="handle" id="handle">@glowstudio.kyiv</div>
+</section>
+<script>
+function build(){
+  const wipe=(id,at)=>tl.fromTo(id,{clipPath:'circle(0% at 50% 60%)'},{clipPath:'circle(130% at 50% 60%)',duration:.7,ease:'expo.inOut',immediateRender:false},at);
+  const tl=gsap.timeline({paused:true});
+  // 0–3 s intro
+  tl.from('#glow span',{y:-900,rotate:()=>gsap.utils.random(-25,25),duration:.9,stagger:.12,ease:'bounce.out'},.1)
+    .from('#studio',{scale:.4,opacity:0,duration:.8,ease:'back.out(2)'},.9)
+    .from('#sub',{letterSpacing:'1.2em',opacity:0,duration:1,ease:'expo.out'},1.4);
+  // 3–6.5 s services
+  wipe('#s2',2.9);
+  tl.from('#wedo',{y:40,opacity:0,duration:.6,ease:'power3.out'},3.4)
+    .from('#s2 .item span',{yPercent:110,opacity:0,duration:.6,stagger:.2,ease:'expo.out'},3.6)
+    .from('#pill',{scaleX:0,duration:.6,ease:'expo.inOut',immediateRender:false},4.6)
+    .to('#s2 .item:nth-child(2)',{scale:1.08,duration:.4,yoyo:true,repeat:1,ease:'sine.inOut'},5.2);
+  // 6.5–10 s offer
+  wipe('#s3',6.3);
+  tl.from('#off',{scale:0,rotate:-12,duration:.8,ease:'back.out(2.6)'},6.8)
+    .fromTo('#circle',{strokeDasharray:400,strokeDashoffset:400},{strokeDashoffset:0,duration:1,ease:'power2.inOut',immediateRender:false},7.5)
+    .from('#fv',{y:40,opacity:0,duration:.6,ease:'power3.out'},8.2)
+    .to('#off',{rotate:-3,duration:1.4,ease:'sine.inOut'},8.4);
+  // 10–13 s price list
+  wipe('#s4',9.8);
+  tl.from('#pk,#ph',{y:40,opacity:0,duration:.6,stagger:.1,ease:'power3.out'},10.2)
+    .from('#s4 .card',{x:1100,duration:.8,stagger:.25,ease:'expo.out'},10.5);
+  // 13–15 s end card
+  wipe('#s5',12.8);
+  tl.from('#logo',{scale:.6,opacity:0,duration:.8,ease:'back.out(2)'},13.1)
+    .from('#btn',{y:60,opacity:0,duration:.6,ease:'expo.out'},13.5)
+    .to('#btn',{scale:1.07,duration:.35,yoyo:true,repeat:3,ease:'sine.inOut'},14.0)
+    .from('#handle',{opacity:0,duration:.5},13.8);
+  window.TL=tl; window.DUR=15;
+}
+window.BUILD=build;
+if(!window.__RENDER) document.fonts.ready.then(()=>{build(); window.TL.repeat(-1).play();});
+</script>
+</body></html>

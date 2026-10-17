@@ -2,6 +2,9 @@
 
 1920×1080 · 20 s · 30 fps · H.264
 
+**Render preview:** [`06_Renders/flowly-app-promo.mp4`](06_Renders/flowly-app-promo.mp4) · a browser version of the animation built from the storyboard lives in `02_Scripts/preview.html`.
+
+
 ## Quick start
 
 1. Install the fonts from `04_Fonts/FONTS.md`.

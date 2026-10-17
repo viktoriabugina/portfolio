@@ -2,6 +2,9 @@
 
 1080×1920 · 15 s · 30 fps · H.264 (Instagram Reels / TikTok)
 
+**Render preview:** [`06_Renders/glow-studio-reel.mp4`](06_Renders/glow-studio-reel.mp4) · a browser version of the animation built from the storyboard lives in `02_Scripts/preview.html`.
+
+
 ## Quick start
 
 1. Install the fonts from `04_Fonts/FONTS.md`.

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Nordhaus — Logo Animation</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@500&display=swap">
+<style>
+/* Nordhaus residential developer — trim-path line draw, fill wipe, mark-to-lockup move */
+:root{--navy:#0E1B2C;--navy2:#16273D;--gold:#E3B26A;--sand:#F3E7D3}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:var(--navy);font-family:Syne,system-ui,sans-serif;color:var(--sand)}
+.bg{position:absolute;inset:0;background:radial-gradient(800px 600px at 50% 50%,#1C3350,transparent 70%)}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(243,231,211,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(243,231,211,.05) 1px,transparent 1px);background-size:60px 60px}
+.stage{position:absolute;inset:0;display:grid;place-items:center}
+.lock{display:flex;align-items:center;gap:60px}
+.mark{width:240px;height:240px;flex:none}
+.wordwrap{overflow:hidden}
+.word{font-weight:800;font-size:112px;letter-spacing:.02em;line-height:1;white-space:nowrap}
+.sub{margin-top:22px;font-family:"DM Sans",system-ui,sans-serif;font-weight:500;font-size:26px;letter-spacing:.42em;color:var(--gold);white-space:nowrap}
+.rule{height:3px;background:var(--gold);margin-top:26px;transform-origin:0 50%}
+</style></head>
+<body>
+<div class="bg"></div><div class="grid" id="grid"></div>
+<div class="stage" id="stage">
+  <div class="lock" id="lock">
+    <svg class="mark" id="mark" viewBox="0 0 300 300">
+      <clipPath id="houseClip"><path d="M40 270 V140 L150 50 L260 140 V270 Z"/></clipPath>
+      <rect id="fill" x="0" y="0" width="300" height="300" fill="#E3B26A" clip-path="url(#houseClip)"/>
+      <path id="window" d="M118 270 V200 a32 32 0 0 1 64 0 V270" fill="#0E1B2C"/>
+      <g fill="none" stroke="#F3E7D3" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+        <path id="base" d="M10 270 H290"/>
+        <path id="walls" d="M40 270 V140 M260 270 V140"/>
+        <path id="roof" d="M24 154 L150 50 L276 154"/>
+        <path id="chim" d="M210 92 V60 H236 V114"/>
+      </g>
+    </svg>
+    <div>
+      <div class="wordwrap"><div class="word" id="word">NORDHAUS</div></div>
+      <div class="rule" id="rule"></div>
+      <div class="sub" id="sub">RESIDENTIAL DEVELOPMENT</div>
+    </div>
+  </div>
+</div>
+<script>
+function build(){
+  const tl=gsap.timeline({paused:true});
+  const draw=(sel,at,dur)=>{document.querySelectorAll(sel).forEach(p=>{const L=p.getTotalLength();tl.fromTo(p,{strokeDasharray:L,strokeDashoffset:L},{strokeDashoffset:0,duration:dur,ease:'power3.inOut',immediateRender:true},at);});};
+  const lock=document.getElementById('lock'), mark=document.getElementById('mark');
+  const col=document.getElementById('word').parentElement.parentElement; col.style.width=col.offsetWidth+'px';
+  gsap.set(lock,{x:0}); const r=mark.getBoundingClientRect(); const dx=window.innerWidth/2-(r.left+r.width/2);
+  gsap.set(lock,{x:dx}); gsap.set('#mark',{scale:1.35}); window.DX=dx;
+  tl.from('#grid',{opacity:0,duration:1},0);
+  draw('#base',.2,.7); draw('#walls',.6,.6); draw('#roof',1.0,.8); draw('#chim',1.5,.5);
+  tl.fromTo('#fill',{attr:{y:300}},{attr:{y:0},duration:.8,ease:'expo.inOut',immediateRender:true},1.9)
+    .from('#window',{scaleY:0,transformOrigin:'50% 100%',duration:.6,ease:'back.out(2.4)'},2.4)
+    .to('#mark',{scale:1,duration:.9,ease:'expo.inOut'},2.9)
+    .to(lock,{x:0,duration:.9,ease:'expo.inOut'},2.9)
+    .from('#word',{yPercent:110,duration:.9,ease:'expo.out'},3.3)
+    .from('#word',{letterSpacing:'.4em',duration:1.4,ease:'expo.out'},3.3)
+    .from('#rule',{scaleX:0,duration:.8,ease:'expo.inOut'},3.8)
+    .from('#sub',{opacity:0,y:20,duration:.7,ease:'power3.out'},4.1)
+    .to('#stage',{scale:1.04,duration:2,ease:'sine.inOut'},4.2);
+  window.TL=tl; window.DUR=6.2;
+}
+window.BUILD=build;
+if(!window.__RENDER) document.fonts.ready.then(()=>{build(); window.TL.repeat(-1).repeatDelay(.6).play();});
+</script>
+</body></html>

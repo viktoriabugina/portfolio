@@ -16,6 +16,9 @@ Portfolio of web design, front-end and motion design work.
 | 🎬 | [Flowly — logo reveal](motion/01-flowly-logo-reveal/) | After Effects: shape layers, mattes, expressions |
 | 🎬 | [Glow Studio — Reel 9:16](motion/02-glow-studio-reel-9x16/) | Kinetic typography for Instagram Reels |
 | 🎬 | [Flowly — app promo](motion/03-flowly-app-promo/) | UI animation, explainer structure |
+| 🎬 | [Zesta — logo animation](motion/04-zesta-logo-animation/) | Squash & stretch, shape morph, letter bounce |
+| 🎬 | [Nordhaus — logo animation](motion/05-nordhaus-logo-animation/) | Trim-path line draw, fill wipe, lockup |
+| 🎬 | [Petalé — logo animation](motion/06-petale-logo-animation/) | Petal bloom with overshoot, swash draw |
 
 Trained in UX/UI & landing pages, HTML/CSS/JS front-end and motion design in After Effects with practicing freelance mentors.
 
@@ -25,7 +28,7 @@ Trained in UX/UI & landing pages, HTML/CSS/JS front-end and motion design in Aft
 git init
 git lfs install            # for .aep and video files (see .gitattributes)
 git add .
-git commit -m "Portfolio: 7 websites + 3 motion projects"
+git commit -m "Portfolio: 7 websites + 6 motion projects"
 git branch -M main
 git remote add origin https://github.com/<your-username>/portfolio.git
 git push -u origin main

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Zesta — Logo Animation</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&display=swap">
+<style>
+/* Zesta juice bar — bouncy logo animation: squash & stretch drop, slice split, leaf pop, letter bounce */
+:root{--cream:#FFF2D9;--orange:#FF7A1A;--deep:#E85D00;--green:#2FA84F;--ink:#2B1B0E}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:var(--cream);font-family:Unbounded,system-ui,sans-serif;color:var(--ink)}
+.stage{position:absolute;inset:0}
+.floor{position:absolute;left:0;right:0;top:700px;height:2px}
+.ballwrap{position:absolute;left:960px;top:560px;width:0;height:0}
+.ball{position:absolute;left:-140px;top:-140px;width:280px;height:280px;border-radius:50%;background:var(--orange);transform-origin:50% 100%}
+.slice{position:absolute;left:-140px;top:-140px;width:280px;height:280px;opacity:0}
+.leaf{position:absolute;left:10px;top:-205px;width:110px;height:70px;transform-origin:0% 100%}
+.shadow{position:absolute;left:-120px;top:150px;width:240px;height:28px;border-radius:50%;background:rgba(43,27,14,.12)}
+.splash i{position:absolute;left:-14px;top:-14px;width:28px;height:28px;border-radius:50%;background:var(--orange)}
+.word{position:absolute;left:0;right:0;top:470px;display:flex;justify-content:center;font-weight:800;font-size:230px;letter-spacing:-.04em;line-height:1}
+.word span{display:inline-block;transform-origin:50% 100%}
+.word .o{color:transparent;width:.62em}
+.tag{position:absolute;left:0;right:0;top:760px;text-align:center;font-weight:500;font-size:40px;letter-spacing:.35em;padding-left:.35em;color:var(--deep)}
+</style></head>
+<body>
+<div class="stage" id="stage">
+  <div class="word" id="word"><span>z</span><span>e</span><span>s</span><span>t</span><span class="o">a</span></div>
+  <div class="ballwrap" id="bw">
+    <div class="shadow" id="shadow"></div>
+    <div class="splash" id="splash"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="ball" id="ball"></div>
+    <svg class="slice" id="slice" viewBox="-140 -140 280 280">
+      <circle r="140" fill="#FF7A1A"/><circle r="118" fill="#FFB25C"/>
+      <g stroke="#FFF2D9" stroke-width="10" stroke-linecap="round" id="seg">
+        <line x1="0" y1="0" x2="0" y2="-108"/><line x1="0" y1="0" x2="0" y2="-108" transform="rotate(60)"/><line x1="0" y1="0" x2="0" y2="-108" transform="rotate(120)"/>
+        <line x1="0" y1="0" x2="0" y2="-108" transform="rotate(180)"/><line x1="0" y1="0" x2="0" y2="-108" transform="rotate(240)"/><line x1="0" y1="0" x2="0" y2="-108" transform="rotate(300)"/>
+      </g>
+      <circle r="16" fill="#FFF2D9"/>
+    </svg>
+    <svg class="leaf" id="leaf" viewBox="0 0 110 70"><path d="M4 66 C 10 20, 60 0, 106 8 C 96 46, 50 70, 4 66 Z" fill="#2FA84F"/><path d="M8 62 C 40 44, 70 26, 100 12" stroke="#1F8A3D" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
+  </div>
+  <div class="tag" id="tag">FRESH PRESSED DAILY</div>
+</div>
+<script>
+function build(){
+  const tl=gsap.timeline({paused:true});
+  const ball='#ball', bw='#bw';
+  gsap.set(bw,{x:0,y:-760});
+  // drop + squash/stretch bounces
+  tl.to(bw,{y:0,duration:.55,ease:'power2.in'},.1)
+    .fromTo(ball,{scaleX:.82,scaleY:1.22},{scaleX:1.35,scaleY:.62,duration:.1,ease:'power1.out'},.65)
+    .fromTo('#shadow',{scaleX:.3,opacity:0},{scaleX:1.1,opacity:1,duration:.55,ease:'power2.in'},.1)
+    .to(ball,{scaleX:.9,scaleY:1.12,duration:.16,ease:'power1.out'},.75)
+    .to(bw,{y:-300,duration:.38,ease:'power2.out'},.75)
+    .to('#shadow',{scaleX:.55,opacity:.5,duration:.38,ease:'power2.out'},.75)
+    .to(ball,{scaleX:1,scaleY:1,duration:.2},.95)
+    .to(bw,{y:0,duration:.34,ease:'power2.in'},1.13)
+    .to('#shadow',{scaleX:1.1,opacity:1,duration:.34,ease:'power2.in'},1.13)
+    .to(ball,{scaleX:1.18,scaleY:.84,duration:.08},1.47)
+    .to(ball,{scaleX:1,scaleY:1,duration:.4,ease:'elastic.out(1,.35)'},1.55)
+    .to(bw,{y:-60,duration:.22,ease:'power2.out'},1.5).to(bw,{y:0,duration:.2,ease:'power2.in'},1.72)
+    // juice splash on the big landing
+    .fromTo('#splash i',{x:0,y:120,scale:1,opacity:1},{x:i=>[-260,-170,-80,90,180,270][i],y:i=>[-60,-170,-230,-220,-150,-40][i],scale:0,duration:.75,ease:'power2.out',stagger:0},.66)
+    // ball turns into a slice (spin + segment draw)
+    .to(ball,{opacity:0,duration:.01},2.05)
+    .set('#slice',{opacity:1},2.05)
+    .fromTo('#slice',{rotate:-120,scale:.9},{rotate:0,scale:1,duration:.8,ease:'back.out(2)'},2.05)
+    .from('#seg line',{attr:{y2:0},duration:.5,stagger:.05,ease:'power3.out'},2.15)
+    .from('#leaf',{scale:0,rotate:-60,duration:.6,ease:'back.out(3)'},2.55)
+    // slice moves into the "a" slot, letters bounce up
+    .to(bw,{x:()=>{const o=document.querySelector('.word .o').getBoundingClientRect();return o.left+o.width/2-960},y:62,scale:.56,duration:.8,ease:'expo.inOut'},3.0)
+    .to('#shadow',{opacity:0,duration:.3},3.0)
+    .from('#word span:not(.o)',{y:240,scaleY:.4,opacity:0,duration:.7,stagger:.08,ease:'back.out(2.4)'},3.25)
+    .from('#tag',{letterSpacing:'1em',opacity:0,duration:.9,ease:'expo.out'},3.9)
+    .to('#slice',{rotate:360,duration:2.4,ease:'power1.inOut'},4.0)
+    .to('#stage',{scale:1.04,duration:2,ease:'sine.inOut'},4.0);
+  window.TL=tl; window.DUR=6.4;
+}
+window.BUILD=build;
+if(!window.__RENDER) document.fonts.ready.then(()=>{build(); window.TL.repeat(-1).repeatDelay(.6).play();});
+</script>
+</body></html>

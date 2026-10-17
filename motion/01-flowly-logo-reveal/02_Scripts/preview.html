@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Flowly — Logo Reveal</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;800&display=swap">
+<style>
+/* Code render of the Flowly logo reveal, built 1:1 from 07_Storyboard/storyboard.md */
+:root{--ink:#121117;--violet:#5B3DF5;--lime:#D4F86B;--grey:#A9A7B0}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:var(--ink);font-family:Manrope,system-ui,sans-serif}
+.glow{position:absolute;inset:0;background:radial-gradient(900px 600px at 50% 48%,rgba(91,61,245,.28),transparent 70%)}
+.scene{position:absolute;inset:0;display:grid;place-items:center}
+.lockup{position:relative;display:flex;align-items:flex-end;gap:44px}
+.mark{position:relative;display:flex;align-items:flex-end;gap:18px;height:220px}
+.bar{width:54px;border-radius:27px;transform-origin:50% 100%}
+.ring{position:absolute;left:50%;top:50%;width:300px;height:300px;margin:-150px 0 0 -150px;border-radius:50%;border:18px solid var(--lime);box-sizing:border-box;opacity:0}
+.word-mask{overflow:hidden;height:230px;display:flex;align-items:flex-end}
+.word{font-weight:800;font-size:212px;line-height:.86;color:#fff;letter-spacing:-.045em;padding-bottom:6px}
+.word i{font-style:normal;color:var(--lime)}
+.tag{position:absolute;left:0;right:0;top:calc(50% + 150px);text-align:center;font-weight:500;font-size:44px;color:var(--grey);letter-spacing:-.01em}
+.tag span{display:inline-block;margin:0 .14em}
+.tag b{font-weight:500;color:#fff}
+.line{position:absolute;left:50%;top:calc(50% + 228px);width:520px;height:6px;margin-left:-260px;border-radius:3px;background:var(--lime);transform-origin:0 50%}
+</style></head>
+<body>
+<div class="glow"></div>
+<div class="scene" id="scene">
+  <div class="lockup" id="lockup">
+    <div class="mark" id="mark">
+      <div class="ring" id="ring"></div>
+      <div class="bar" style="height:96px;background:var(--violet)"></div>
+      <div class="bar" style="height:220px;background:var(--violet)"></div>
+      <div class="bar" style="height:150px;background:var(--lime)"></div>
+    </div>
+    <div class="word-mask"><div class="word" id="word">Flowly<i>.</i></div></div>
+  </div>
+  <div class="tag" id="tag"><span>Your</span><span>team's</span><span>routine,</span><span><b>on</b></span><span><b>autopilot</b></span></div>
+  <div class="line" id="line"></div>
+</div>
+<script>
+const word=document.getElementById('word'), mark=document.getElementById('mark');
+// start: mark centered on screen, wordmark hidden behind the matte
+const shift=()=> (word.parentElement.offsetWidth+44)/2;
+function build(){
+const tl=gsap.timeline({paused:true});
+tl.set('#lockup',{x:shift()})
+  .set(word,{xPercent:-105})
+  .from('.bar',{scaleY:0,duration:.7,stagger:.18,ease:'back.out(2.4)'},.15)
+  .fromTo('#ring',{scale:.15,opacity:1,borderWidth:26},{scale:1.9,opacity:0,borderWidth:0,duration:1.1,ease:'expo.out',immediateRender:false},.55)
+  .to('#lockup',{x:0,duration:.9,ease:'expo.inOut'},1.5)
+  .to(word,{xPercent:0,duration:.85,ease:'expo.out'},1.62)
+  .from('#tag span',{y:40,opacity:0,duration:.55,stagger:.13,ease:'power3.out'},2.5)
+  .from('#line',{scaleX:0,duration:.8,ease:'expo.inOut'},3.0)
+  .fromTo('#scene',{scale:1},{scale:1.06,duration:2.2,ease:'sine.inOut'},3.8);
+window.TL=tl; window.DUR=6;
+}
+window.BUILD=build;
+// in a browser: build and loop; the renderer sets __RENDER and calls BUILD() itself
+if(!window.__RENDER) document.fonts.ready.then(()=>{build(); window.TL.repeat(-1).repeatDelay(.5).play();});
+</script>
+</body></html>

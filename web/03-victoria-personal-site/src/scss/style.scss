@@ -183,3 +183,8 @@ em { font-style: italic; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .hero__line, [data-reveal] { opacity: 1; transform: none; }
 }
+
+// Motion renders (MP4 loops)
+.work__media--video { background: #1C1A22; video { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .8s cubic-bezier(.2,.8,.2,1); } }
+.work__media--reel { background: #C98E7A; video { object-fit: contain; } }
+.work:hover .work__media--video video { transform: scale(1.04); }

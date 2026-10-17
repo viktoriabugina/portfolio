@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Petalé — Logo Animation</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@1,500;1,600&family=DM+Sans:wght@500&display=swap">
+<style>
+/* Petalé skin & brow atelier — radial petal bloom with overshoot, liquid ring, serif wordmark and swash */
+:root{--blush:#F8E3E8;--rose:#D9577E;--pink:#F29BB4;--plum:#4A1D33;--cream:#FFF8F4}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:var(--blush);font-family:Fraunces,Georgia,serif;color:var(--plum)}
+.stage{position:absolute;inset:0}
+.flower{position:absolute;left:960px;top:540px;width:0;height:0}
+.flower svg{position:absolute;left:-200px;top:-200px;width:400px;height:400px;overflow:visible}
+.ring{position:absolute;left:-230px;top:-230px;width:460px;height:460px;border-radius:50%;border:6px solid var(--rose);box-sizing:border-box;opacity:0}
+.drop{position:absolute;left:-24px;top:-24px;width:48px;height:48px;border-radius:50%;background:var(--rose)}
+.word{position:absolute;left:0;right:0;top:640px;text-align:center;font-style:italic;font-weight:600;font-size:200px;line-height:1;letter-spacing:-.02em}
+.word span{display:inline-block}
+.swash{position:absolute;left:50%;top:860px;width:520px;height:60px;margin-left:-260px;overflow:visible}
+.tag{position:absolute;left:0;right:0;top:940px;text-align:center;font-family:"DM Sans",system-ui,sans-serif;font-weight:500;font-size:30px;letter-spacing:.45em;padding-left:.45em;color:var(--rose)}
+</style></head>
+<body>
+<div class="stage" id="stage">
+  <div class="flower" id="flower">
+    <div class="ring" id="ring"></div>
+    <svg viewBox="-200 -200 400 400" id="petals">
+      <g id="pg">
+        <ellipse class="p" cx="0" cy="-92" rx="58" ry="96" fill="#D9577E"/>
+        <ellipse class="p" cx="0" cy="-92" rx="58" ry="96" fill="#F29BB4" transform="rotate(72)"/>
+        <ellipse class="p" cx="0" cy="-92" rx="58" ry="96" fill="#D9577E" transform="rotate(144)"/>
+        <ellipse class="p" cx="0" cy="-92" rx="58" ry="96" fill="#F29BB4" transform="rotate(216)"/>
+        <ellipse class="p" cx="0" cy="-92" rx="58" ry="96" fill="#D9577E" transform="rotate(288)"/>
+      </g>
+      <circle id="core" r="46" fill="#4A1D33"/>
+      <circle id="dot" r="14" fill="#FFF8F4"/>
+    </svg>
+    <div class="drop" id="drop"></div>
+  </div>
+  <div class="word" id="word"><span>p</span><span>e</span><span>t</span><span>a</span><span>l</span><span>é</span></div>
+  <svg class="swash" viewBox="0 0 520 60"><path id="swash" d="M10 40 C 120 10, 200 58, 270 30 S 420 6, 510 26" fill="none" stroke="#D9577E" stroke-width="7" stroke-linecap="round"/></svg>
+  <div class="tag" id="tag">SKIN &amp; BROW ATELIER</div>
+</div>
+<script>
+function build(){
+  const tl=gsap.timeline({paused:true});
+  gsap.set('#flower',{y:0,scale:1});
+  // a drop falls and splashes into a ring
+  tl.fromTo('#drop',{y:-700,scaleY:1.4},{y:0,scaleY:1,duration:.55,ease:'power2.in',immediateRender:true},.1)
+    .to('#drop',{scale:0,duration:.25,ease:'power2.in'},.65)
+    .fromTo('#ring',{scale:.1,opacity:1},{scale:1.4,opacity:0,duration:1,ease:'expo.out',immediateRender:false},.65)
+    // petals bloom one by one with overshoot
+    .fromTo('.p',{scale:0,transformOrigin:'50% 100%'},{scale:1,duration:.75,stagger:.11,ease:'back.out(2.6)',immediateRender:true},.75)
+    .fromTo('#pg',{rotate:-90},{rotate:0,duration:1.4,ease:'expo.out',immediateRender:true},.75)
+    .fromTo('#core',{scale:0},{scale:1,duration:.5,ease:'back.out(3)',immediateRender:true},1.35)
+    .fromTo('#dot',{scale:0},{scale:1,duration:.4,ease:'back.out(3)',immediateRender:true},1.6)
+    // flower rises and shrinks to make room for the wordmark
+    .to('#flower',{y:-175,scale:.78,duration:.9,ease:'expo.inOut'},2.3)
+    .from('#word span',{y:90,opacity:0,rotate:8,duration:.7,stagger:.07,ease:'back.out(2)'},2.7)
+    .fromTo('#swash',{strokeDasharray:560,strokeDashoffset:560},{strokeDashoffset:0,duration:.9,ease:'power2.inOut',immediateRender:true},3.3)
+    .from('#tag',{opacity:0,letterSpacing:'1em',duration:.9,ease:'expo.out'},3.7)
+    .to('#pg',{rotate:36,duration:2.4,ease:'sine.inOut'},3.8)
+    .to('#stage',{scale:1.035,duration:2.2,ease:'sine.inOut'},4.0);
+  window.TL=tl; window.DUR=6.2;
+}
+window.BUILD=build;
+if(!window.__RENDER) document.fonts.ready.then(()=>{build(); window.TL.repeat(-1).repeatDelay(.6).play();});
+</script>
+</body></html>
