@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Routa Business</title>
+<meta name="description" content="Routa — corporate rides with company policy built in. Concept landing page.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&family=DM+Mono:wght@500&display=swap">
+<style>
+/* Layout: hero with a live phone (route drawing on a map), pinned scrollytelling phone, finance dashboard, city ticker. Single cool-light look with signal orange. */
+:root{
+  --bg:#ECEFF5; --surface:#FFFFFF; --ink:#0B1430; --muted:#58617C; --line:#D4D9E4;
+  --orange:#FF5A1F; --orange-soft:#FFE6DA; --navy:#0B1430; --map:#E3E7EF; --road:#FFFFFF; --green:#1C9D6C;
+  --display:"Unbounded", "Arial Black", system-ui, sans-serif;
+  --body:"Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"DM Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+p{margin:0}
+h1,h2,h3{margin:0;font-family:var(--display);font-weight:700;letter-spacing:-.03em;line-height:1.02;text-wrap:balance}
+.wrap{max-width:1220px;margin-inline:auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+.tagline{font:500 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--orange);display:inline-flex;gap:8px;align-items:center}
+.tagline::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--orange)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 26px;border-radius:16px;font:600 15px/1 var(--body);border:0;cursor:pointer;transition:transform .2s, box-shadow .2s, background .2s}
+.btn-o{background:var(--orange);color:#fff;box-shadow:0 10px 30px -10px rgba(255,90,31,.7)}
+.btn-o:hover{transform:translateY(-2px);box-shadow:0 16px 36px -12px rgba(255,90,31,.8)}
+.btn-n{background:var(--surface);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.btn-n:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+
+header{position:sticky;top:env(safe-area-inset-top, 0px);z-index:30;padding-top:12px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--bg)}
+.nav{height:64px;display:flex;align-items:center;gap:24px;background:color-mix(in srgb,var(--surface) 86%,transparent);backdrop-filter:blur(16px);border-radius:20px;padding-inline:20px 10px;box-shadow:0 1px 0 var(--line), 0 10px 30px -20px rgba(11,20,48,.3)}
+.logo{display:flex;gap:10px;align-items:center;font:700 18px var(--display);letter-spacing:-.04em}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0 0 0 auto;padding:0;font-weight:500;color:var(--muted);font-size:15px}
+.nav ul a:hover{color:var(--ink)}
+.nav .btn{height:44px;padding:0 18px;border-radius:12px}
+@media (max-width:860px){.nav ul{display:none}.nav .btn{margin-left:auto}}
+
+/* hero */
+.hero{padding-block:56px 80px}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(38px,5.2vw,70px)}
+.hero h1 .hl{color:var(--orange)}
+.hero .lead{color:var(--muted);font-size:19px;max-width:31em;margin-top:24px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.mini-stats{display:flex;flex-wrap:wrap;gap:32px;margin-top:40px}
+.mini-stats div b{font:700 26px var(--display);letter-spacing:-.03em;display:block}
+.mini-stats div span{font-size:14px;color:var(--muted)}
+@media (max-width:960px){.hero-grid{grid-template-columns:1fr}}
+
+.stage{position:relative;display:grid;place-items:center;min-height:620px}
+.stage .disc{position:absolute;width:min(520px,100%);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,var(--orange-soft) 0,transparent 68%)}
+.phone{position:relative;width:300px;max-width:100%;aspect-ratio:300/610;border-radius:46px;background:var(--navy);padding:12px;box-shadow:0 50px 90px -30px rgba(11,20,48,.55)}
+.screen{position:relative;width:100%;height:100%;border-radius:36px;overflow:hidden;background:var(--map)}
+.notch{position:absolute;top:10px;left:50%;translate:-50% 0;width:90px;height:26px;border-radius:20px;background:var(--navy);z-index:5}
+.map{position:absolute;inset:0;width:100%;height:100%}
+.sheet{position:absolute;left:10px;right:10px;bottom:10px;background:var(--surface);border-radius:24px;padding:16px;box-shadow:0 -10px 30px -10px rgba(11,20,48,.2);z-index:4}
+.sheet .eta{display:flex;justify-content:space-between;align-items:center}
+.sheet .eta b{font:700 18px var(--display);letter-spacing:-.03em}
+.sheet .eta span{font:500 11px var(--mono);background:var(--orange-soft);color:var(--orange);padding:5px 8px;border-radius:8px}
+.driver{display:flex;gap:12px;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);font-size:13px}
+.driver .av{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#FFB089,var(--orange));flex:none}
+.driver small{color:var(--muted);display:block}
+.plate{margin-left:auto;font:500 11px var(--mono);border:1.5px solid var(--ink);border-radius:6px;padding:3px 6px;white-space:nowrap}
+.bill{margin-top:12px;font-size:12px;display:flex;justify-content:space-between;color:var(--muted);background:var(--bg);border-radius:12px;padding:10px 12px}
+.bill b{color:var(--ink)}
+.chipf{position:absolute;background:var(--surface);border-radius:18px;padding:14px 16px;box-shadow:0 20px 40px -20px rgba(11,20,48,.45);font-size:13px;display:flex;gap:12px;align-items:center;z-index:6}
+.chipf b{display:block;font:600 14px var(--body)}
+.chipf small{color:var(--muted)}
+.chipf .ic{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;flex:none}
+.cf1{left:0;top:90px}.cf2{right:0;bottom:30px}
+@media (max-width:520px){.cf1{left:-6px;top:20px}.cf2{right:-6px;bottom:40px}.stage{min-height:560px}}
+
+/* logos/ticker */
+.ticker{background:var(--navy);color:#fff;overflow:hidden;padding-block:22px}
+.ticker .row{display:flex;gap:48px;width:max-content;animation:tick 40s linear infinite}
+.ticker span{font:500 22px var(--display);letter-spacing:-.02em;white-space:nowrap;display:flex;align-items:center;gap:48px}
+.ticker span::after{content:"";width:8px;height:8px;border-radius:2px;background:var(--orange)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+section.block{padding-block:110px}
+.head{display:grid;gap:18px;max-width:760px;margin-bottom:56px}
+.head h2{font-size:clamp(30px,4vw,52px)}
+.head p{color:var(--muted);font-size:18px;max-width:36em}
+
+/* scrollytelling */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.story-phone{position:sticky;top:110px;height:min(640px,calc(100vh - 140px));display:grid;place-items:center;align-self:start}
+.story-phone .phone{width:280px}
+.scr{position:absolute;inset:0;padding:54px 18px 18px;display:flex;flex-direction:column;gap:12px;background:var(--surface);opacity:0;transition:opacity .5s, transform .5s;transform:scale(1.04)}
+.scr.on{opacity:1;transform:none}
+.scr h4{margin:0;font:700 17px var(--display);letter-spacing:-.03em}
+.scr .card{border-radius:16px;background:var(--bg);padding:14px;font-size:13px;display:grid;gap:6px}
+.scr .card.o{background:var(--orange);color:#fff}
+.scr .card .r{display:flex;justify-content:space-between;gap:8px}
+.scr .seg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}
+.scr .seg span{border-radius:12px;padding:10px 6px;text-align:center;font-size:12px;background:var(--bg)}
+.scr .seg span.sel{background:var(--ink);color:#fff}
+.scr .barl{height:8px;border-radius:9px;background:var(--line);overflow:hidden}
+.scr .barl i{display:block;height:100%;background:var(--orange)}
+.story-steps{display:grid}
+.sstep{min-height:70vh;display:flex;flex-direction:column;justify-content:center;gap:16px;opacity:.35;transition:opacity .4s}
+.sstep.on{opacity:1}
+.sstep .k{font:500 13px var(--mono);color:var(--orange)}
+.sstep h3{font-size:clamp(26px,3vw,40px)}
+.sstep p{color:var(--muted);font-size:18px;max-width:28em}
+.sstep ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;color:var(--ink)}
+.sstep li::before{content:"✓";color:var(--orange);font-weight:700;margin-right:10px}
+@media (max-width:900px){.story{grid-template-columns:1fr}.story-phone{display:none}.sstep{min-height:auto;opacity:1;padding-block:28px;border-top:1px solid var(--line)}}
+
+/* finance dashboard */
+.fin{display:grid;grid-template-columns:1.3fr 1fr;gap:20px}
+.panel{background:var(--surface);border-radius:26px;padding:28px;box-shadow:0 1px 0 var(--line);min-width:0}
+.panel h3{font-size:20px}
+.ph{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:22px}
+.ph span{font:500 12px var(--mono);color:var(--muted)}
+.dept{display:grid;gap:16px}
+.dept .r{display:grid;grid-template-columns:110px 1fr 80px;gap:14px;align-items:center;font-size:14px}
+.dept .r b{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.dept .track{height:12px;border-radius:9px;background:var(--bg);overflow:hidden}
+.dept .track i{display:block;height:100%;border-radius:9px;background:var(--ink)}
+.dept .r:first-child .track i{background:var(--orange)}
+.trips{width:100%;border-collapse:collapse;font-size:14px}
+.trips td{padding:12px 0;border-top:1px solid var(--line)}
+.trips td:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.trips small{display:block;color:var(--muted);font-size:12px}
+.st{font:500 11px var(--mono);padding:4px 8px;border-radius:8px;background:#DFF3EA;color:var(--green)}
+.st.f{background:var(--orange-soft);color:var(--orange)}
+.big{background:var(--navy);color:#fff;grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:36px}
+.big div b{font:700 clamp(32px,4vw,52px)/1 var(--display);letter-spacing:-.04em;display:block;font-variant-numeric:tabular-nums}
+.big div span{opacity:.7;display:block;margin-top:8px}
+@media (max-width:900px){.fin{grid-template-columns:1fr}.big{grid-template-columns:1fr}.dept .r{grid-template-columns:90px 1fr 64px}}
+
+/* steps */
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;counter-reset:s}
+.how div{background:var(--surface);border-radius:26px;padding:30px;display:grid;gap:14px;align-content:start;box-shadow:0 1px 0 var(--line)}
+.how div::before{counter-increment:s;content:"0" counter(s);font:700 44px/1 var(--display);color:var(--orange);letter-spacing:-.04em}
+.how h3{font-size:22px}
+.how p{color:var(--muted)}
+@media (max-width:900px){.how{grid-template-columns:1fr}}
+
+/* cta */
+.cta{background:var(--orange);color:#fff;border-radius:36px;padding:clamp(36px,6vw,72px);display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;overflow:hidden;position:relative}
+.cta h2{font-size:clamp(32px,4.6vw,60px)}
+.cta p{opacity:.9;font-size:18px;margin-top:16px;max-width:30em}
+.stores{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.store{background:var(--navy);color:#fff;border-radius:14px;padding:10px 18px;display:flex;flex-direction:column;line-height:1.2}
+.store small{font-size:11px;opacity:.7}.store b{font-size:17px;font-weight:600}
+.qr{justify-self:end;background:#fff;border-radius:24px;padding:18px;width:200px;max-width:100%;display:grid;gap:10px;color:var(--ink);text-align:center;font-size:13px}
+.qr canvas{width:100%;aspect-ratio:1;image-rendering:pixelated}
+@media (max-width:820px){.cta{grid-template-columns:1fr}.qr{justify-self:start}}
+footer{padding-block:48px;color:var(--muted);font-size:14px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+.foot .c{font:500 12px var(--mono)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<meta property="og:title" content="Routa Business">
+<meta property="og:image" content="preview/cover-desktop.jpg">
+</head>
+<body>
+
+
+<header>
+  <nav class="wrap" aria-label="Main"><div class="nav">
+    <a class="logo" href="#hero"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="30" rx="9" fill="#FF5A1F"/><path d="M8 20c4 0 4-10 8-10s4 6 6 6" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round"/><circle cx="22" cy="16" r="2.4" fill="#fff"/></svg>routa<span style="color:var(--muted);font-weight:500">business</span></a>
+    <ul><li><a href="#story">For employees</a></li><li><a href="#finance">For finance</a></li><li><a href="#how">How it works</a></li></ul>
+    <a class="btn btn-o" href="#cta">Book a demo</a>
+  </div></nav>
+</header>
+
+<main>
+<section class="hero wrap" id="hero">
+  <div class="hero-grid">
+    <div>
+      <span class="tagline">Corporate mobility · 14 cities</span>
+      <h1 style="margin-top:22px">Business rides with your <span class="hl">travel policy</span> built in.</h1>
+      <p class="lead">Your team books cars in one tap. Routa checks the policy, charges the right cost center and sends finance one invoice a month. No receipts, no reimbursements.</p>
+      <div class="ctas"><a class="btn btn-o" href="#cta">Book a 20-min demo</a><a class="btn btn-n" href="#story">See the app</a></div>
+      <div class="mini-stats">
+        <div><b>−31%</b><span>average ride spend</span></div>
+        <div><b>4 min</b><span>median pickup time</span></div>
+        <div><b>1</b><span>invoice per month</span></div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="disc" aria-hidden="true"></div>
+      <div class="phone" role="img" aria-label="Routa app: a car on its way along a route, driver details and the ride billed to the Marketing cost center">
+        <div class="screen">
+          <div class="notch"></div>
+          <svg class="map" viewBox="0 0 276 586" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="276" height="586" fill="#E3E7EF"/>
+            <g fill="#D7DCE6"><rect x="20" y="40" width="70" height="90" rx="8"/><rect x="110" y="30" width="60" height="60" rx="8"/><rect x="190" y="50" width="70" height="110" rx="8"/><rect x="30" y="160" width="90" height="70" rx="8"/><rect x="150" y="190" width="100" height="60" rx="8"/><rect x="10" y="270" width="80" height="100" rx="8"/><rect x="120" y="290" width="70" height="80" rx="8"/><rect x="210" y="290" width="60" height="120" rx="8"/></g>
+            <rect x="160" y="100" width="40" height="60" rx="10" fill="#CDE8D9"/>
+            <path d="M0 145h276M0 255h276M100 0v586M140 0v380M200 0v586M0 385h276" stroke="#fff" stroke-width="12"/>
+            <path d="M0 145h276M0 255h276M100 0v586M140 0v380M200 0v586M0 385h276" stroke="#EEF1F6" stroke-width="1" stroke-dasharray="6 6"/>
+            <path id="route" d="M60 90 L60 145 L140 145 L140 255 L200 255 L200 330" stroke="#FF5A1F" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="60" cy="90" r="9" fill="#0B1430"/><circle cx="60" cy="90" r="4" fill="#fff"/>
+            <g transform="translate(200 330)"><circle r="16" fill="#FF5A1F" opacity=".2"/><circle r="8" fill="#FF5A1F"/></g>
+            <g id="car"><rect x="-10" y="-7" width="20" height="14" rx="4" fill="#0B1430"/><rect x="2" y="-5" width="5" height="10" rx="2" fill="#fff" opacity=".7"/></g>
+          </svg>
+          <div class="sheet">
+            <div class="eta"><b>Arriving in 4 min</b><span>COMFORT</span></div>
+            <div class="driver"><span class="av" aria-hidden="true"></span><div>Oleh M.<small>Octavia · 4.96★</small></div><span class="plate">AA 4521 KT</span></div>
+            <div class="bill"><span>Billed to</span><b>Marketing · Aurora launch</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="chipf cf1" aria-hidden="true"><span class="ic" style="background:#DFF3EA"><svg width="18" height="18" viewBox="0 0 18 18"><path d="M4 9.5l3 3 7-7" stroke="#1C9D6C" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg></span><div><b>Within policy</b><small>Comfort · max €35</small></div></div>
+      <div class="chipf cf2" aria-hidden="true"><span class="ic" style="background:var(--orange-soft)"><svg width="18" height="18" viewBox="0 0 18 18"><rect x="3" y="2" width="12" height="14" rx="2" stroke="#FF5A1F" stroke-width="1.8" fill="none"/><path d="M6 7h6M6 10h4" stroke="#FF5A1F" stroke-width="1.8" stroke-linecap="round"/></svg></span><div><b>October invoice</b><small>212 rides · €4,318</small></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-label="Cities">
+  <div class="row"><span>Kyiv</span><span>Lviv</span><span>Warsaw</span><span>Kraków</span><span>Berlin</span><span>Prague</span><span>Vienna</span><span aria-hidden="true">Kyiv</span><span aria-hidden="true">Lviv</span><span aria-hidden="true">Warsaw</span><span aria-hidden="true">Kraków</span><span aria-hidden="true">Berlin</span><span aria-hidden="true">Prague</span><span aria-hidden="true">Vienna</span></div>
+</div>
+
+<section class="block wrap" id="story">
+  <div class="head"><span class="tagline">For employees</span><h2>Feels like a personal ride app. Bills like a company account.</h2></div>
+  <div class="story">
+    <div class="story-phone" aria-hidden="true">
+      <div class="phone"><div class="screen" style="background:var(--surface)">
+        <div class="notch"></div>
+        <div class="scr on" data-i="0"><h4>Where to?</h4><div class="card"><div class="r"><span>Office · Podil</span><b>Saved</b></div></div><div class="card"><div class="r"><span>Airport KBP</span><b>Saved</b></div></div><div class="seg"><span>Economy</span><span class="sel">Comfort</span><span>Business</span></div><div class="card o"><div class="r"><span>Comfort · 18 min</span><b>€14.20</b></div></div></div>
+        <div class="scr" data-i="1"><h4>Trip purpose</h4><div class="card"><div class="r"><span>Cost center</span><b>Marketing</b></div></div><div class="card"><div class="r"><span>Project</span><b>Aurora launch</b></div></div><div class="card"><div class="r"><span>Note</span><b>Client meeting</b></div></div><div class="card o"><div class="r"><span>Policy check</span><b>Approved</b></div></div></div>
+        <div class="scr" data-i="2"><h4>Your car</h4><div class="card"><div class="r"><span>Oleh · Octavia</span><b>4 min</b></div></div><div class="card"><span>Share live trip with</span><b>Anna (assistant)</b></div><div class="card"><div class="r"><span>Safety line</span><b>24/7</b></div></div></div>
+        <div class="scr" data-i="3"><h4>October</h4><div class="card"><div class="r"><span>Rides</span><b>18</b></div><div class="barl"><i style="width:60%"></i></div><div class="r"><span>Budget used</span><b>€312 / €520</b></div></div><div class="card"><div class="r"><span>Receipts to file</span><b>0</b></div></div><div class="card o"><div class="r"><span>Out of pocket</span><b>€0</b></div></div></div>
+      </div></div>
+    </div>
+    <div class="story-steps">
+      <div class="sstep on" data-i="0"><span class="k">01 · Book</span><h3>Pick a destination, the class is pre-set.</h3><p>Saved places for the office, airport and client sites. Classes outside policy simply don't show up.</p></div>
+      <div class="sstep" data-i="1"><span class="k">02 · Tag</span><h3>One tap to say what the trip was for.</h3><p>Cost center and project are remembered per person, so finance gets clean data without chasing anyone.</p><ul><li>Required fields set by admins</li><li>Approvals only for exceptions</li></ul></div>
+      <div class="sstep" data-i="2"><span class="k">03 · Ride</span><h3>Vetted drivers, live trip sharing.</h3><p>Every driver passes document and vehicle checks. Late-night rides can be shared with a manager or assistant automatically.</p></div>
+      <div class="sstep" data-i="3"><span class="k">04 · Forget it</span><h3>No receipts. No expense reports.</h3><p>The ride is already on the company invoice. Employees see their own monthly budget and nothing else to fill in.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block wrap" id="finance" style="padding-top:20px">
+  <div class="head"><span class="tagline">For finance</span><h2>Every ride, coded and reconciled before month-end.</h2><p>Budgets per team, live spend, and an invoice your accounting system can import as-is.</p></div>
+  <div class="fin">
+    <div class="panel reveal">
+      <div class="ph"><h3>Spend by department</h3><span>OCT · €18,940</span></div>
+      <div class="dept">
+        <div class="r"><span>Sales</span><span class="track"><i style="width:86%"></i></span><b>€6,120</b></div>
+        <div class="r"><span>Marketing</span><span class="track"><i style="width:61%"></i></span><b>€4,318</b></div>
+        <div class="r"><span>Operations</span><span class="track"><i style="width:48%"></i></span><b>€3,402</b></div>
+        <div class="r"><span>Engineering</span><span class="track"><i style="width:39%"></i></span><b>€2,770</b></div>
+        <div class="r"><span>Leadership</span><span class="track"><i style="width:33%"></i></span><b>€2,330</b></div>
+      </div>
+    </div>
+    <div class="panel reveal">
+      <div class="ph"><h3>Latest rides</h3><span>LIVE</span></div>
+      <div style="overflow-x:auto"><table class="trips">
+        <tr><td>Anna K.<small>Office → KBP Airport</small></td><td><span class="st">OK</span></td><td>€28.40</td></tr>
+        <tr><td>Dmytro M.<small>Client site → Office</small></td><td><span class="st">OK</span></td><td>€11.90</td></tr>
+        <tr><td>Lena S.<small>Hotel → Venue, 23:40</small></td><td><span class="st f">Flagged</span></td><td>€41.00</td></tr>
+        <tr><td>Jonas P.<small>Office → Train station</small></td><td><span class="st">OK</span></td><td>€9.60</td></tr>
+      </table></div>
+    </div>
+    <div class="panel big reveal">
+      <div><b><span class="count" data-to="31">31</span>%</b><span>lower ride spend after policy rollout</span></div>
+      <div><b><span class="count" data-to="6">6</span> h</b><span>saved by finance every month</span></div>
+      <div><b><span class="count" data-to="0">0</span></b><span>paper receipts to collect</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block wrap" id="how" style="padding-top:0">
+  <div class="head"><span class="tagline">Setup</span><h2>Live for your whole team in one afternoon.</h2></div>
+  <div class="how">
+    <div class="reveal"><h3>Invite your team</h3><p>Upload a CSV or connect Google Workspace. People get an invite link and their company profile is ready.</p></div>
+    <div class="reveal"><h3>Set the policy</h3><p>Allowed classes, hours, monthly limits and required fields per team. Change them any time.</p></div>
+    <div class="reveal"><h3>Ride and relax</h3><p>Rides start the same day. Finance gets one consolidated invoice with VAT on the 1st.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="cta">
+  <div class="cta">
+    <div>
+      <h2>Give your team better rides and your CFO fewer receipts.</h2>
+      <p>Free for the first 30 days. No minimum spend, no setup fee.</p>
+      <div class="stores"><a class="store" href="#hero"><small>Download on the</small><b>App Store</b></a><a class="store" href="#hero"><small>Get it on</small><b>Google Play</b></a></div>
+    </div>
+    <div class="qr"><canvas id="qr" width="25" height="25" aria-label="Decorative QR-style pattern"></canvas><span>Scan to try the app</span></div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap foot"><span>© Routa Business</span><span class="c">Concept project · Design &amp; development by Victoria</span></div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  // decorative QR-style pattern
+  var c=document.getElementById('qr'),x=c.getContext('2d'),n=25,seed=7;
+  function rnd(){seed=(seed*9301+49297)%233280;return seed/233280}
+  x.fillStyle='#fff';x.fillRect(0,0,n,n);x.fillStyle='#0B1430';
+  for(var i=0;i<n;i++)for(var j=0;j<n;j++){if(rnd()>.52)x.fillRect(i,j,1,1)}
+  [[0,0],[n-7,0],[0,n-7]].forEach(function(p){x.fillStyle='#0B1430';x.fillRect(p[0],p[1],7,7);x.fillStyle='#fff';x.fillRect(p[0]+1,p[1]+1,5,5);x.fillStyle='#FF5A1F';x.fillRect(p[0]+2,p[1]+2,3,3)});
+
+  // scrollytelling screens (works without GSAP too)
+  var steps=document.querySelectorAll('.sstep'),scrs=document.querySelectorAll('.scr');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var i=e.target.dataset.i;
+      steps.forEach(function(s){s.classList.toggle('on',s.dataset.i===i)});scrs.forEach(function(s){s.classList.toggle('on',s.dataset.i===i)});}})},{rootMargin:'-45% 0px -45% 0px'});
+    steps.forEach(function(s){io.observe(s)});
+  }
+
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var car=document.getElementById('car');
+  if(reduce||!window.gsap){car.setAttribute('transform','translate(140 200) rotate(90)');return;}
+  gsap.registerPlugin(ScrollTrigger,MotionPathPlugin);
+  if(window.Lenis){var lenis=new Lenis({lerp:.1});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-90});}});});}
+
+  var route=document.getElementById('route'),len=route.getTotalLength();
+  var tl=gsap.timeline({defaults:{ease:'power4.out'}});
+  tl.from('.hero h1',{y:40,duration:1})
+    .from('.hero .lead,.hero .ctas,.mini-stats',{y:24,duration:.8,stagger:.1},'-=.6')
+    .from('.phone',{y:100,rotate:-6,duration:1.3},'-=.9')
+    .fromTo(route,{strokeDasharray:len,strokeDashoffset:len},{strokeDashoffset:0,duration:1.6,ease:'power2.inOut'},'-=.6')
+    .from('.sheet',{yPercent:120,duration:.9},'-=1')
+    .from('.cf1',{x:-40,scale:.8,duration:.8},'-=.6')
+    .from('.cf2',{x:40,scale:.8,duration:.8},'-=.6');
+  gsap.to(car,{motionPath:{path:route,align:route,alignOrigin:[.5,.5],autoRotate:true},duration:7,ease:'none',repeat:-1,delay:1.4});
+  gsap.to('.cf1',{y:-12,duration:2.8,repeat:-1,yoyo:true,ease:'sine.inOut',delay:2});
+  gsap.to('.cf2',{y:10,duration:3.2,repeat:-1,yoyo:true,ease:'sine.inOut',delay:2});
+
+  gsap.utils.toArray('.head h2').forEach(function(h){gsap.from(h,{y:50,duration:1,scrollTrigger:{trigger:h,start:'top 90%',once:true}})});
+  gsap.utils.toArray('.reveal').forEach(function(el,i){gsap.from(el,{y:50,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 92%',once:true}})});
+  gsap.from('.dept .track i',{scaleX:0,transformOrigin:'left',duration:1.3,stagger:.1,ease:'power3.out',scrollTrigger:{trigger:'.dept',start:'top 85%',once:true}});
+  document.querySelectorAll('.count').forEach(function(el){var to=+el.dataset.to,o={v:0};gsap.to(o,{v:to,duration:1.8,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 92%',once:true},onUpdate:function(){el.textContent=Math.round(o.v)}})});
+  gsap.from('.cta',{scale:.92,borderRadius:80,duration:1.2,ease:'power3.out',scrollTrigger:{trigger:'.cta',start:'top 90%',once:true}});
+  // phone tilt on pointer
+  var st=document.querySelector('.stage');
+  st.addEventListener('pointermove',function(e){var r=st.getBoundingClientRect(),dx=(e.clientX-r.left)/r.width-.5,dy=(e.clientY-r.top)/r.height-.5;gsap.to('.stage .phone',{rotateY:dx*14,rotateX:-dy*10,transformPerspective:900,duration:.6})});
+  st.addEventListener('pointerleave',function(){gsap.to('.stage .phone',{rotateY:0,rotateX:0,duration:.8})});
+})();
+</script>
+
+</body>
+</html>

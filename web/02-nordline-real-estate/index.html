@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nordline Residences — homes where the forest begins</title>
+  <meta name="description" content="Residential complex next to a pine forest, 20 minutes from the city. Concept landing page by Victoria.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#" class="logo">Nordline<small>Residences</small></a>
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <a href="#about" class="nav__link">About</a>
+      <a href="#apartments" class="nav__link">Apartments</a>
+      <a href="#calculator" class="nav__link">Instalment</a>
+      <a href="#location" class="nav__link">Location</a>
+      <a href="#progress" class="nav__link">Progress</a>
+    </nav>
+    <a href="tel:+380441234567" class="header__phone">+38 044 123 45 67</a>
+    <button class="btn btn--small header__btn" data-modal-open>Book a visit</button>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <p class="hero__kicker">Business class · Handover Q3 2027</p>
+        <h1 class="hero__title">Homes where <em>the forest begins</em></h1>
+        <p class="hero__text">Three low-rise buildings with private courtyards, 300 metres from a pine forest and 20 minutes from the city centre.</p>
+        <div class="hero__buttons">
+          <a href="#apartments" class="btn">Choose an apartment</a>
+          <button class="btn btn--outline" data-modal-open>Book a visit</button>
+        </div>
+      </div>
+      <figure class="hero__visual">
+        <img src="img/building.svg" alt="Illustration of Nordline Residences buildings among pine trees" width="900" height="620">
+        <figcaption class="hero__badge"><b>0%</b> instalment<br>for 36 months</figcaption>
+      </figure>
+    </div>
+    <div class="container">
+      <ul class="stats">
+        <li><b>3</b><span>buildings, 7–12 floors</span></li>
+        <li><b>286</b><span>apartments from 38 m²</span></li>
+        <li><b>1.2 ha</b><span>car-free courtyard</span></li>
+        <li><b>300 m</b><span>to the pine forest</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow">Why Nordline</p>
+        <h2 class="section__title">Quiet architecture, <em>thoughtful details</em></h2>
+      </div>
+      <div class="benefits">
+        <article class="benefit"><span class="benefit__n">01</span><h3>Courtyard without cars</h3><p>Parking is underground, so the yard belongs to children, gardens and evening walks.</p></article>
+        <article class="benefit"><span class="benefit__n">02</span><h3>Ceilings up to 3.1 m</h3><p>Panoramic windows and tall ceilings fill every room with soft northern light.</p></article>
+        <article class="benefit"><span class="benefit__n">03</span><h3>Autonomous energy</h3><p>Solar panels, a backup generator and a water well keep homes running during outages.</p></article>
+        <article class="benefit"><span class="benefit__n">04</span><h3>Everything nearby</h3><p>School, kindergarten, a café and a fitness studio on the ground floors.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- APARTMENTS -->
+  <section class="section section--sand" id="apartments">
+    <div class="container">
+      <div class="section__head section__head--row">
+        <div>
+          <p class="eyebrow">Apartments</p>
+          <h2 class="section__title">Find <em>your</em> layout</h2>
+        </div>
+        <div class="filter" role="group" aria-label="Filter by number of rooms">
+          <button class="filter__btn is-active" data-rooms="all">All</button>
+          <button class="filter__btn" data-rooms="1">1 room</button>
+          <button class="filter__btn" data-rooms="2">2 rooms</button>
+          <button class="filter__btn" data-rooms="3">3 rooms</button>
+        </div>
+      </div>
+      <div class="apartments" id="apartments-list" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="section" id="calculator">
+    <div class="container calc">
+      <div class="calc__intro">
+        <p class="eyebrow">Instalment</p>
+        <h2 class="section__title">0% instalment, <em>no bank</em></h2>
+        <p class="calc__text">Pay from 30% upfront and split the rest over up to 36 months directly with the developer.</p>
+      </div>
+      <form class="calc__box" id="calc" onsubmit="return false">
+        <div class="range">
+          <div class="range__head"><label for="price">Apartment price</label><output id="price-out">$90,000</output></div>
+          <input type="range" id="price" min="45000" max="180000" step="1000" value="90000">
+        </div>
+        <div class="range">
+          <div class="range__head"><label for="down">Down payment</label><output id="down-out">30%</output></div>
+          <input type="range" id="down" min="30" max="90" step="5" value="30">
+        </div>
+        <div class="range">
+          <div class="range__head"><label for="term">Term</label><output id="term-out">24 months</output></div>
+          <input type="range" id="term" min="6" max="36" step="6" value="24">
+        </div>
+        <div class="calc__result">
+          <div><span>Monthly payment</span><b id="monthly">$2,625</b></div>
+          <div><span>Upfront</span><b id="upfront">$27,000</b></div>
+        </div>
+        <button type="button" class="btn btn--block" data-modal-open>Get a personal offer</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="section section--dark" id="location">
+    <div class="container location">
+      <div>
+        <p class="eyebrow eyebrow--light">Location</p>
+        <h2 class="section__title">Nature at the door, <em>city within reach</em></h2>
+        <ul class="distances">
+          <li><span>Pine forest &amp; lake</span><b>4 min walk</b></li>
+          <li><span>School &amp; kindergarten</span><b>on site</b></li>
+          <li><span>Railway station</span><b>7 min drive</b></li>
+          <li><span>City centre</span><b>20 min drive</b></li>
+          <li><span>Shopping mall</span><b>10 min drive</b></li>
+        </ul>
+      </div>
+      <div class="map" aria-hidden="true">
+        <svg viewBox="0 0 480 400" fill="none">
+          <rect width="480" height="400" rx="24" fill="#2A4134"/>
+          <path d="M0 260 C120 230 180 300 300 250 S440 200 480 220" stroke="#3E5C49" stroke-width="26"/>
+          <path d="M60 0 L140 400 M0 120 L480 90 M330 0 L300 400" stroke="#4A6A55" stroke-width="3"/>
+          <circle cx="110" cy="80" r="70" fill="#3E6A4C" opacity=".7"/><circle cx="60" cy="150" r="50" fill="#3E6A4C" opacity=".7"/>
+          <ellipse cx="400" cy="320" rx="60" ry="34" fill="#6F8FA0" opacity=".6"/>
+          <circle cx="240" cy="190" r="36" fill="#B8794B" opacity=".25" class="map__pulse"/>
+          <circle cx="240" cy="190" r="12" fill="#B8794B"/><circle cx="240" cy="190" r="4" fill="#F3EEE6"/>
+          <text x="262" y="182" fill="#F3EEE6" font-family="Inter, sans-serif" font-size="14" font-weight="600">Nordline</text>
+          <text x="70" y="70" fill="#C9D3C8" font-family="Inter, sans-serif" font-size="12">Pine forest</text>
+          <text x="370" y="368" fill="#C9D3C8" font-family="Inter, sans-serif" font-size="12">Lake</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRESS -->
+  <section class="section" id="progress">
+    <div class="container">
+      <div class="section__head">
+        <p class="eyebrow">Construction progress</p>
+        <h2 class="section__title">On schedule, <em>month after month</em></h2>
+      </div>
+      <ol class="timeline">
+        <li class="timeline__item is-done"><span class="timeline__date">Q2 2025</span><h3>Foundation</h3><div class="bar"><i style="--p:100%"></i></div></li>
+        <li class="timeline__item is-done"><span class="timeline__date">Q1 2026</span><h3>Frame · Building A</h3><div class="bar"><i style="--p:100%"></i></div></li>
+        <li class="timeline__item is-current"><span class="timeline__date">Q4 2026</span><h3>Facades &amp; windows</h3><div class="bar"><i style="--p:64%"></i></div></li>
+        <li class="timeline__item"><span class="timeline__date">Q3 2027</span><h3>Handover of keys</h3><div class="bar"><i style="--p:0%"></i></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--sand" id="contact">
+    <div class="container contact">
+      <div>
+        <h2 class="section__title">Visit the <em>show apartment</em></h2>
+        <p class="contact__text">Leave your number — a manager will call you back within 15 minutes and book a convenient time.</p>
+      </div>
+      <form class="form" data-form novalidate>
+        <div class="form__field">
+          <label for="c-name">Your name</label>
+          <input id="c-name" name="name" type="text" autocomplete="name" required minlength="2">
+          <span class="form__error"></span>
+        </div>
+        <div class="form__field">
+          <label for="c-phone">Phone</label>
+          <input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="+38 (0__) ___-__-__" data-phone required>
+          <span class="form__error"></span>
+        </div>
+        <button type="submit" class="btn btn--block">Request a call</button>
+        <p class="form__success" hidden>Thank you! We'll call you shortly.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <a href="#" class="logo logo--light">Nordline<small>Residences</small></a>
+    <p>Concept project · Design &amp; front-end by Victoria · Fictional developer</p>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+  <div class="modal__overlay" data-modal-close></div>
+  <div class="modal__box">
+    <button class="modal__close" aria-label="Close" data-modal-close>×</button>
+    <h2 class="modal__title" id="modal-title">Book a visit</h2>
+    <p class="modal__sub" id="modal-sub">Choose a time to see the show apartment.</p>
+    <form class="form" data-form novalidate>
+      <div class="form__field">
+        <label for="m-name">Your name</label>
+        <input id="m-name" name="name" type="text" autocomplete="name" required minlength="2">
+        <span class="form__error"></span>
+      </div>
+      <div class="form__field">
+        <label for="m-phone">Phone</label>
+        <input id="m-phone" name="phone" type="tel" autocomplete="tel" placeholder="+38 (0__) ___-__-__" data-phone required>
+        <span class="form__error"></span>
+      </div>
+      <button type="submit" class="btn btn--block">Send request</button>
+      <p class="form__success" hidden>Thank you! We'll call you shortly.</p>
+    </form>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

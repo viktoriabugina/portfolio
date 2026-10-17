@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flowly — AI workspace that runs your team's routine</title>
+  <meta name="description" content="Flowly turns messy requests into clear tasks, assigns owners and keeps projects moving. Concept landing page by Victoria.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#" class="logo" aria-label="Flowly home">
+      <span class="logo__mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      Flowly
+    </a>
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <a href="#features" class="nav__link">Features</a>
+      <a href="#how" class="nav__link">How it works</a>
+      <a href="#pricing" class="nav__link">Pricing</a>
+      <a href="#faq" class="nav__link">FAQ</a>
+      <a href="#start" class="btn btn--dark nav__cta">Start free</a>
+    </nav>
+    <div class="header__actions">
+      <a href="#start" class="header__login">Log in</a>
+      <a href="#start" class="btn btn--dark">Start free</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <span class="pill"><span class="pill__dot"></span>New: AI meeting notes → tasks</span>
+        <h1 class="hero__title">Your team's routine, <em>on autopilot</em></h1>
+        <p class="hero__text">Flowly turns messy requests from Slack, email and calls into clear tasks — with owners, deadlines and status updates that write themselves.</p>
+        <div class="hero__buttons">
+          <a href="#start" class="btn btn--accent btn--lg">Start 14-day trial</a>
+          <a href="#how" class="btn btn--ghost btn--lg"><span class="play" aria-hidden="true"></span>See how it works</a>
+        </div>
+        <ul class="hero__proof">
+          <li><strong>6.5h</strong> saved per person weekly</li>
+          <li><strong>2,400+</strong> teams onboarded</li>
+        </ul>
+      </div>
+
+      <!-- Dashboard mockup built with HTML/CSS -->
+      <div class="mock" aria-hidden="true">
+        <div class="mock__window">
+          <aside class="mock__side">
+            <span class="mock__logo"></span>
+            <span class="mock__nav is-active"></span><span class="mock__nav"></span><span class="mock__nav"></span><span class="mock__nav"></span>
+          </aside>
+          <div class="mock__main">
+            <div class="mock__top">
+              <div>
+                <p class="mock__label">This week</p>
+                <p class="mock__big">128 tasks</p>
+              </div>
+              <span class="mock__badge">+24%</span>
+            </div>
+            <div class="chart">
+              <span style="--h:40%"></span><span style="--h:62%"></span><span style="--h:48%"></span><span style="--h:80%"></span><span style="--h:56%"></span><span style="--h:92%" class="is-hi"></span><span style="--h:70%"></span>
+            </div>
+            <ul class="mock__tasks">
+              <li><i class="check is-done"></i><span>Update onboarding flow</span><b class="tag tag--violet">Design</b></li>
+              <li><i class="check is-done"></i><span>Q4 report for investors</span><b class="tag tag--lime">Finance</b></li>
+              <li><i class="check"></i><span>Fix checkout bug on iOS</span><b class="tag tag--rose">Dev</b></li>
+            </ul>
+          </div>
+        </div>
+        <div class="float-card float-card--ai">
+          <span class="float-card__icon">✦</span>
+          <div><b>AI created 5 tasks</b><small>from "Monday sync" call</small></div>
+        </div>
+        <div class="float-card float-card--team">
+          <span class="avatars"><i style="--c:#5B3DF5">A</i><i style="--c:#F2715E">M</i><i style="--c:#1F9D77">K</i></span>
+          <small>3 people on it</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="container logos">
+      <p>Trusted by fast-moving teams</p>
+      <ul class="logos__list">
+        <li>northwind</li><li>Lumen&amp;Co</li><li>orbitly</li><li>KAVA</li><li>pinepeak</li><li>Solace</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">Features</span>
+        <h2 class="section__title">Everything your team needs. <em>Nothing it doesn't.</em></h2>
+      </div>
+      <div class="features">
+        <article class="feature feature--wide feature--dark">
+          <span class="feature__num">01</span>
+          <h3>Requests in. Tasks out.</h3>
+          <p>Connect Slack, Gmail and Zoom. Flowly reads the context and creates tasks with the right owner and due date.</p>
+          <div class="flow-demo" aria-hidden="true">
+            <span class="flow-demo__msg">"Can someone redo the pricing page by Fri?"</span>
+            <span class="flow-demo__arrow">→</span>
+            <span class="flow-demo__task"><i class="check"></i>Redesign pricing page · <b>Fri</b></span>
+          </div>
+        </article>
+        <article class="feature">
+          <span class="feature__num">02</span>
+          <h3>Status updates write themselves</h3>
+          <p>A weekly digest for every project — no more "any updates?" pings.</p>
+        </article>
+        <article class="feature">
+          <span class="feature__num">03</span>
+          <h3>Workload at a glance</h3>
+          <p>See who is overloaded before deadlines slip, and rebalance in one drag.</p>
+        </article>
+        <article class="feature feature--accent feature--wide">
+          <span class="feature__num">04</span>
+          <h3>Private by default</h3>
+          <p>SOC 2 Type II, EU data residency and granular permissions for every workspace.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS (tabs) -->
+  <section class="section section--tint" id="how">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">How it works</span>
+        <h2 class="section__title">Up and running <em>in one afternoon</em></h2>
+      </div>
+      <div class="tabs" data-tabs>
+        <div class="tabs__nav" role="tablist">
+          <button class="tabs__btn is-active" role="tab" aria-selected="true" data-tab="0"><span>1</span>Connect your tools</button>
+          <button class="tabs__btn" role="tab" aria-selected="false" data-tab="1"><span>2</span>Set your rules</button>
+          <button class="tabs__btn" role="tab" aria-selected="false" data-tab="2"><span>3</span>Let Flowly run</button>
+        </div>
+        <div class="tabs__panels">
+          <div class="tabs__panel is-active" role="tabpanel">
+            <h3>Plug in where work already happens</h3>
+            <p>Two clicks for Slack, Gmail, Google Calendar, Zoom, Notion and 40+ more integrations. No migration, no new habits.</p>
+            <ul class="chips"><li>Slack</li><li>Gmail</li><li>Zoom</li><li>Notion</li><li>Calendar</li><li>+40</li></ul>
+          </div>
+          <div class="tabs__panel" role="tabpanel">
+            <h3>Tell Flowly how your team works</h3>
+            <p>Who owns design requests? What counts as urgent? Describe it in plain English — Flowly turns it into routing rules.</p>
+            <ul class="chips"><li>"Design → Anna"</li><li>"Bugs = high priority"</li><li>"Reports due Mondays"</li></ul>
+          </div>
+          <div class="tabs__panel" role="tabpanel">
+            <h3>Focus on the work, not the admin</h3>
+            <p>Tasks appear, owners get notified, and managers get one clean digest every Friday afternoon.</p>
+            <ul class="chips"><li>Auto-assign</li><li>Smart reminders</li><li>Weekly digest</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section__head section__head--center">
+        <span class="eyebrow">Pricing</span>
+        <h2 class="section__title">Simple plans that <em>grow with you</em></h2>
+        <div class="toggle" data-billing>
+          <span class="toggle__label is-active" data-period="monthly">Monthly</span>
+          <button class="toggle__switch" aria-label="Switch to yearly billing" aria-pressed="false"><span></span></button>
+          <span class="toggle__label" data-period="yearly">Yearly <b>−20%</b></span>
+        </div>
+      </div>
+      <div class="pricing">
+        <article class="plan">
+          <h3 class="plan__name">Starter</h3>
+          <p class="plan__desc">For small teams getting organised.</p>
+          <p class="plan__price"><span class="plan__amount" data-monthly="0" data-yearly="0">$0</span>/user/mo</p>
+          <ul class="plan__list"><li>Up to 5 users</li><li>2 integrations</li><li>Basic AI task creation</li></ul>
+          <a href="#start" class="btn btn--ghost btn--block">Start free</a>
+        </article>
+        <article class="plan plan--featured">
+          <span class="plan__badge">Most popular</span>
+          <h3 class="plan__name">Team</h3>
+          <p class="plan__desc">For growing teams that ship weekly.</p>
+          <p class="plan__price"><span class="plan__amount" data-monthly="12" data-yearly="9.6">$12</span>/user/mo</p>
+          <ul class="plan__list"><li>Unlimited users</li><li>All integrations</li><li>Weekly AI digests</li><li>Workload view</li></ul>
+          <a href="#start" class="btn btn--accent btn--block">Start 14-day trial</a>
+        </article>
+        <article class="plan">
+          <h3 class="plan__name">Business</h3>
+          <p class="plan__desc">For companies with security needs.</p>
+          <p class="plan__price"><span class="plan__amount" data-monthly="24" data-yearly="19.2">$24</span>/user/mo</p>
+          <ul class="plan__list"><li>Everything in Team</li><li>SSO &amp; audit log</li><li>EU data residency</li><li>Dedicated manager</li></ul>
+          <a href="#start" class="btn btn--ghost btn--block">Talk to sales</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="section section--dark">
+    <div class="container quote">
+      <p class="quote__text">“We stopped losing requests in Slack threads. Flowly feels like hiring a project coordinator who never sleeps.”</p>
+      <div class="quote__author">
+        <span class="quote__avatar">MR</span>
+        <div><b>Maya Reyes</b><small>Head of Operations, Lumen&amp;Co</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container faq">
+      <div class="section__head">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="section__title">Questions, <em>answered</em></h2>
+      </div>
+      <div class="accordion">
+        <details class="accordion__item" open>
+          <summary>Do I need to move my tasks from another tool?</summary>
+          <p>No. Flowly works on top of the tools you already use and can sync with Jira, Asana and Trello.</p>
+        </details>
+        <details class="accordion__item">
+          <summary>How does the AI decide who owns a task?</summary>
+          <p>It uses the routing rules you write in plain English, plus who handled similar requests before. You can always reassign.</p>
+        </details>
+        <details class="accordion__item">
+          <summary>Is my data used to train AI models?</summary>
+          <p>Never. Your workspace data stays private and is only used to run your own automations.</p>
+        </details>
+        <details class="accordion__item">
+          <summary>Can I cancel anytime?</summary>
+          <p>Yes — monthly plans can be cancelled in one click, and yearly plans are refunded pro rata.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FORM -->
+  <section class="section" id="start">
+    <div class="container">
+      <div class="cta">
+        <div class="cta__content">
+          <h2 class="cta__title">Give your team <em>6 hours back</em> every week</h2>
+          <p>14-day free trial. No credit card required.</p>
+        </div>
+        <form class="form" id="signup" novalidate>
+          <div class="form__field">
+            <label for="email" class="visually-hidden">Work email</label>
+            <input type="email" id="email" name="email" placeholder="Work email" autocomplete="email" required>
+            <span class="form__error" aria-live="polite"></span>
+          </div>
+          <button type="submit" class="btn btn--accent btn--lg">Get started</button>
+          <p class="form__success" hidden>🎉 Check your inbox — your workspace is ready.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <a href="#" class="logo logo--light"><span class="logo__mark" aria-hidden="true"><i></i><i></i><i></i></span>Flowly</a>
+    <p class="footer__note">Concept project · Design &amp; front-end by Victoria · Fictional brand</p>
+    <p class="footer__copy">© 2026 Flowly</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "nordline-real-estate",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Nordline Residences — real estate landing (HTML, SCSS, vanilla JS)",
+  "scripts": {
+    "build": "sass src/scss/style.scss css/style.css --style=compressed --no-source-map",
+    "watch": "sass --watch src/scss/style.scss css/style.css"
+  },
+  "devDependencies": { "sass": "^1.80.0" }
+}

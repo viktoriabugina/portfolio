@@ -1,0 +1,105 @@
+@use 'variables' as *;
+
+// ===== Buttons =====
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 11px 20px;
+  border-radius: 999px;
+  font-weight: 700; font-size: 15px;
+  border: 1.5px solid transparent;
+  transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+  white-space: nowrap;
+  &:hover { transform: translateY(-2px); }
+
+  &--dark { background: $ink; color: #fff; &:hover { box-shadow: 0 10px 24px -10px rgba($ink, .6); } }
+  &--accent { background: $violet; color: #fff; &:hover { box-shadow: 0 12px 28px -10px rgba($violet, .7); } }
+  &--ghost { border-color: $line; background: $surface; &:hover { border-color: $ink; } }
+  &--lg { padding: 15px 26px; font-size: 16px; }
+  &--block { width: 100%; }
+}
+
+.play {
+  width: 22px; height: 22px; border-radius: 50%; background: $ink; position: relative;
+  &::after {
+    content: ''; position: absolute; left: 8px; top: 6px;
+    border-left: 8px solid #fff; border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+  }
+}
+
+// ===== Logo =====
+.logo {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-weight: 800; font-size: 21px; letter-spacing: -.02em;
+  &__mark {
+    display: grid; grid-template-columns: repeat(3, 6px); gap: 3px; align-items: end; height: 22px;
+    i { display: block; width: 6px; border-radius: 3px; background: $violet; }
+    i:nth-child(1) { height: 10px; }
+    i:nth-child(2) { height: 22px; }
+    i:nth-child(3) { height: 15px; background: $lime; }
+  }
+  &--light { color: #fff; }
+}
+
+// ===== Small UI =====
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px 6px 10px; border-radius: 999px;
+  background: $surface; border: 1px solid $line;
+  font-size: 13px; font-weight: 600;
+  &__dot { width: 8px; height: 8px; border-radius: 50%; background: $green; box-shadow: 0 0 0 4px rgba($green, .15); }
+}
+
+.eyebrow {
+  display: inline-block; margin-bottom: 14px;
+  font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: $violet;
+}
+
+.check {
+  flex: 0 0 auto; width: 18px; height: 18px; border-radius: 6px; border: 1.5px solid $line; position: relative;
+  &.is-done { background: $violet; border-color: $violet; }
+  &.is-done::after {
+    content: ''; position: absolute; left: 5px; top: 2px; width: 5px; height: 9px;
+    border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg);
+  }
+}
+
+.tag {
+  margin-left: auto; padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 700;
+  &--violet { background: $violet-soft; color: $violet; }
+  &--lime { background: rgba($lime, .5); color: #4b5e12; }
+  &--rose { background: rgba($rose, .15); color: #C24A38; }
+}
+
+.chips {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px;
+  li { padding: 8px 14px; border-radius: 999px; background: $surface; border: 1px solid $line; font-size: 14px; font-weight: 600; }
+}
+
+.avatars {
+  display: flex;
+  i {
+    width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center;
+    background: var(--c); color: #fff; font-size: 12px; font-style: normal; font-weight: 700;
+    border: 2px solid #fff; margin-left: -8px;
+    &:first-child { margin-left: 0; }
+  }
+}
+
+// ===== Burger =====
+.burger {
+  width: 44px; height: 44px; border-radius: 50%; border: 1px solid $line; background: $surface;
+  display: grid; place-items: center; position: relative; z-index: 20;
+  span, span::before, span::after {
+    display: block; width: 18px; height: 2px; background: $ink; border-radius: 2px; transition: transform .3s ease, opacity .3s;
+  }
+  span { position: relative; }
+  span::before, span::after { content: ''; position: absolute; left: 0; }
+  span::before { top: -6px; }
+  span::after { top: 6px; }
+  &[aria-expanded='true'] {
+    span { background: transparent; }
+    span::before { transform: translateY(6px) rotate(45deg); }
+    span::after { transform: translateY(-6px) rotate(-45deg); }
+  }
+  @include up(lg) { display: none; }
+}

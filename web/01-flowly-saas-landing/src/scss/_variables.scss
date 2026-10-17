@@ -1,0 +1,29 @@
+@use 'sass:map';
+// ===== Design tokens =====
+$bg: #F6F5F2;
+$surface: #FFFFFF;
+$ink: #121117;
+$muted: #6B6A75;
+$line: #E4E2DC;
+$violet: #5B3DF5;
+$violet-soft: #ECE8FF;
+$lime: #D4F86B;
+$rose: #F2715E;
+$green: #1F9D77;
+
+$font: 'Manrope', system-ui, sans-serif;
+$serif: 'Instrument Serif', Georgia, serif;
+
+$radius-sm: 10px;
+$radius: 20px;
+$radius-lg: 32px;
+
+$container: 1200px;
+$shadow: 0 24px 60px -24px rgba(18, 17, 23, .25);
+
+// ===== Breakpoints (mobile-first) =====
+$bp: (sm: 576px, md: 768px, lg: 1024px, xl: 1280px);
+
+@mixin up($key) {
+  @media (min-width: map.get($bp, $key)) { @content; }
+}

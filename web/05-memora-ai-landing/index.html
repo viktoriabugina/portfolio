@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Memora</title>
+<meta name="description" content="Memora — AI notes for every meeting. Concept landing page.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: oversized serif headline over a wide live app window; pinned stacking cards; horizontal use-case rail. Single warm-dark look. */
+:root{
+  --bg:#131115; --surface:#1C191F; --raise:#25212A; --line:#322D37; --ink:#F4EDE3; --muted:#A49B93;
+  --amber:#FF9D4A; --teal:#8DD3C5; --rose:#F07C8C;
+  --display:"Instrument Serif", "Times New Roman", Georgia, serif;
+  --body:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+p{margin:0}
+h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
+.wrap{max-width:1240px;margin-inline:auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+.label{font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--amber)}
+.btn{display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 24px;border-radius:14px;font:600 15px/1 var(--body);border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:background .25s,border-color .25s,transform .25s}
+.btn:hover{border-color:var(--muted)}
+.btn-amber{background:var(--amber);border-color:var(--amber);color:#1A1208}
+.btn-amber:hover{background:#FFB273;border-color:#FFB273}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* nav */
+header{position:sticky;top:env(safe-area-inset-top, 0px);z-index:30;background:color-mix(in srgb,var(--bg) 80%,transparent);backdrop-filter:blur(14px)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--bg)}
+.nav{height:74px;display:flex;align-items:center;gap:28px}
+.logo{display:flex;align-items:center;gap:10px;font:400 28px/1 var(--display);letter-spacing:-.01em}
+.nav ul{display:flex;gap:28px;margin:0 0 0 auto;padding:0;list-style:none;color:var(--muted);font-weight:500;font-size:15px}
+.nav ul a:hover{color:var(--ink)}
+.nav .btn{height:42px;padding:0 18px}
+@media (max-width:820px){.nav ul{display:none}.nav .btn{margin-left:auto}}
+
+/* hero */
+.hero{padding-block:72px 0;position:relative}
+.glow{position:absolute;width:720px;height:720px;left:50%;top:-180px;translate:-50% 0;background:radial-gradient(circle,rgba(255,157,74,.22),transparent 62%);filter:blur(20px);pointer-events:none}
+.hero-top{display:grid;grid-template-columns:1.9fr 1fr;gap:48px;align-items:end;position:relative}
+.hero h1{font-family:var(--display);font-size:clamp(54px,7.4vw,112px);line-height:.94;letter-spacing:-.025em}
+.hero h1 em{color:var(--amber)}
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em}
+.hero h1 .w>span{display:inline-block}
+.hero-side{display:grid;gap:24px;padding-bottom:12px}
+.hero-side p{color:var(--muted);font-size:18px;max-width:28em}
+.hero-side .row{display:flex;flex-wrap:wrap;gap:12px}
+.rating{display:flex;gap:10px;align-items:center;font-size:14px;color:var(--muted)}
+.dots{display:flex}
+.dots i{width:28px;height:28px;border-radius:50%;border:2px solid var(--bg);margin-left:-8px;display:block}
+.dots i:first-child{margin-left:0}
+@media (max-width:900px){.hero-top{grid-template-columns:1fr;gap:28px}}
+
+/* app window */
+.app{margin-top:64px;background:var(--surface);border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 60px 120px -40px rgba(0,0,0,.7);position:relative}
+.app-bar{display:flex;align-items:center;gap:16px;padding:14px 20px;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
+.lights{display:flex;gap:6px}.lights i{width:11px;height:11px;border-radius:50%;background:var(--line);display:block}
+.rec{display:flex;align-items:center;gap:8px;color:var(--ink);margin-left:auto;font:500 12px var(--mono)}
+.rec b{width:8px;height:8px;border-radius:50%;background:var(--rose);animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+.wave{display:flex;gap:3px;align-items:center;height:22px}
+.wave i{width:3px;border-radius:2px;background:var(--amber);height:30%;animation:wv 1.1s ease-in-out infinite}
+@keyframes wv{50%{height:100%}}
+.app-body{display:grid;grid-template-columns:1.15fr 1fr;min-height:420px}
+.pane{padding:24px 26px;min-width:0}
+.pane+.pane{border-left:1px solid var(--line);background:var(--raise)}
+.pane h4{margin:0 0 18px;font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between}
+.line{display:grid;grid-template-columns:auto 1fr;gap:12px;margin-bottom:16px;font-size:15px}
+.who{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font:600 12px var(--body);color:#141114}
+.line small{display:block;font:400 11px var(--mono);color:var(--muted);margin-bottom:2px}
+.line p{color:var(--ink)}
+.caret{display:inline-block;width:2px;height:1em;background:var(--amber);vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1) infinite}
+.sum h5{margin:0 0 10px;font:400 26px/1.1 var(--display)}
+.sum ul{margin:0 0 20px;padding-left:18px;color:var(--muted);display:grid;gap:6px;font-size:14px}
+.todo{display:grid;gap:10px}
+.task{display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px}
+.box{width:18px;height:18px;border-radius:6px;border:1.5px solid var(--muted);flex:none}
+.task.done .box{background:var(--teal);border-color:var(--teal)}
+.task span:nth-child(2){flex:1;min-width:0}
+.tag{font:500 11px var(--mono);color:var(--muted);white-space:nowrap}
+@media (max-width:820px){.app-body{grid-template-columns:1fr}.pane+.pane{border-left:0;border-top:1px solid var(--line)}}
+
+/* integrations */
+.works{padding-block:64px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;color:var(--muted)}
+.works .apps{display:flex;flex-wrap:wrap;gap:12px}
+.works .apps span{border:1px solid var(--line);border-radius:99px;padding:10px 18px;color:var(--ink);font-weight:500}
+
+section.block{padding-block:110px}
+.sec-head{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
+.sec-head h2{font-family:var(--display);font-size:clamp(42px,6vw,80px);line-height:.96;letter-spacing:-.02em}
+.sec-head h2 em{color:var(--amber)}
+.sec-head p{color:var(--muted);font-size:18px;max-width:30em}
+@media (max-width:820px){.sec-head{grid-template-columns:1fr;gap:16px}}
+
+/* ask */
+.ask{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:32px;min-width:0}
+.search{display:flex;align-items:center;gap:12px;border:1px solid var(--line);background:var(--bg);border-radius:14px;padding:16px 18px;font-size:16px}
+.search svg{flex:none}
+.answer{margin-top:20px;display:grid;gap:14px}
+.answer p{font-size:17px;line-height:1.55}
+.answer mark{background:rgba(255,157,74,.16);color:var(--ink);border-radius:4px;padding:0 3px}
+.cite{display:flex;flex-wrap:wrap;gap:8px}
+.cite span{font:500 12px var(--mono);border:1px solid var(--line);border-radius:8px;padding:6px 10px;color:var(--muted)}
+.cite span b{color:var(--teal);font-weight:500}
+.big-quote{font:400 clamp(30px,3.4vw,46px)/1.08 var(--display);letter-spacing:-.01em}
+.big-quote em{color:var(--teal)}
+.panel .list{margin-top:28px;display:grid;gap:14px;color:var(--muted)}
+.panel .list div{display:flex;gap:14px;align-items:baseline;border-top:1px solid var(--line);padding-top:14px}
+.panel .list b{font:500 12px var(--mono);color:var(--amber);min-width:56px}
+@media (max-width:900px){.ask{grid-template-columns:1fr}}
+
+/* stacking cards */
+.stack{display:grid;gap:24px}
+.scard{position:sticky;top:110px;border-radius:28px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;border:1px solid var(--line);min-height:380px;transform-origin:center top}
+.scard:nth-child(1){background:#1E1A21}
+.scard:nth-child(2){background:#231E26;top:130px}
+.scard:nth-child(3){background:#29232C;top:150px}
+.scard h3{font:400 clamp(34px,4vw,54px)/1 var(--display);letter-spacing:-.015em}
+.scard p{color:var(--muted);margin-top:16px;font-size:17px;max-width:30em}
+.scard .num{font:500 12px var(--mono);color:var(--amber);letter-spacing:.14em;margin-bottom:18px;display:block}
+.vis{background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;gap:10px;min-width:0}
+.vis .r{display:flex;justify-content:space-between;gap:12px;font-size:14px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.vis .r:last-child{border-bottom:0;padding-bottom:0}
+.pill{font:500 11px var(--mono);padding:4px 9px;border-radius:99px;background:rgba(141,211,197,.14);color:var(--teal);white-space:nowrap}
+.pill.a{background:rgba(255,157,74,.14);color:var(--amber)}
+.lock{display:grid;place-items:center;aspect-ratio:1.6;max-width:100%}
+@media (max-width:820px){.scard{grid-template-columns:1fr;position:relative;top:0!important}}
+
+/* use cases rail */
+.rail-sec{overflow:hidden}
+.rail{display:flex;gap:20px;width:max-content;padding-inline:max(20px, calc((100vw - 1240px)/2 + 20px))}
+.case{width:min(380px,78vw);aspect-ratio:3/4;max-width:100%;border-radius:24px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line);position:relative;overflow:hidden;flex:none}
+.case h3{font:400 40px/1 var(--display)}
+.case p{color:var(--muted);font-size:15px}
+.case .k{font:500 12px var(--mono);color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.case .orb{position:absolute;width:260px;height:260px;border-radius:50%;right:-80px;top:-60px;filter:blur(30px);opacity:.55}
+@media (max-width:820px){.rail{overflow-x:auto;width:auto;scroll-snap-type:x mandatory;padding-bottom:12px}.case{scroll-snap-align:start}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:44px 24px 44px 0}
+.stat+.stat{border-left:1px solid var(--line);padding-left:32px}
+.stat b{font:400 clamp(56px,7vw,96px)/1 var(--display);display:block;font-variant-numeric:tabular-nums}
+.stat span{color:var(--muted)}
+@media (max-width:720px){.stats{grid-template-columns:1fr}.stat+.stat{border-left:0;border-top:1px solid var(--line);padding-left:0}}
+
+/* pricing */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.plan{border:1px solid var(--line);background:var(--surface);border-radius:22px;padding:32px;display:flex;flex-direction:column;gap:18px}
+.plan.hot{border-color:var(--amber);background:linear-gradient(180deg,rgba(255,157,74,.1),var(--surface) 40%)}
+.plan h3{font:400 34px/1 var(--display)}
+.plan .pr{font:400 64px/1 var(--display)}
+.plan .pr small{font:500 15px var(--body);color:var(--muted)}
+.plan ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;color:var(--muted);font-size:15px}
+.plan li::before{content:"→";color:var(--amber);margin-right:10px}
+.plan .btn{margin-top:auto;justify-content:center}
+@media (max-width:900px){.plans{grid-template-columns:1fr}}
+
+/* cta */
+.cta{text-align:left;padding-block:120px 80px;position:relative}
+.cta h2{font:400 clamp(56px,10vw,150px)/.9 var(--display);letter-spacing:-.03em}
+.cta h2 em{color:var(--amber)}
+.cta .row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:40px}
+.cta .row p{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding-block:32px;color:var(--muted);font-size:14px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+.foot .c{font:400 12px var(--mono)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<meta property="og:title" content="Memora">
+<meta property="og:image" content="preview/cover-desktop.jpg">
+</head>
+<body>
+
+
+<div class="grain" aria-hidden="true"></div>
+<header>
+  <nav class="wrap nav" aria-label="Main">
+    <a class="logo" href="#hero"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="12" fill="#FF9D4A"/><path d="M7 15v-4M10.5 18V8M14 16v-6M17.5 14v-2" stroke="#131115" stroke-width="2" stroke-linecap="round"/></svg>Memora</a>
+    <ul><li><a href="#ask">Ask</a></li><li><a href="#flow">Workflow</a></li><li><a href="#cases">Use cases</a></li><li><a href="#pricing">Pricing</a></li></ul>
+    <a class="btn btn-amber" href="#pricing">Try it free</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero wrap" id="hero">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="hero-top">
+    <h1 id="heroTitle">Every meeting, <em>remembered</em> for you.</h1>
+    <div class="hero-side">
+      <p>Memora joins your calls, writes the transcript, pulls out decisions and sends action items to the right person before the meeting ends.</p>
+      <div class="row"><a class="btn btn-amber" href="#pricing">Start free — 10 meetings</a><a class="btn" href="#ask">Watch it work</a></div>
+      <div class="rating"><span class="dots" aria-hidden="true"><i style="background:#FF9D4A"></i><i style="background:#8DD3C5"></i><i style="background:#F07C8C"></i><i style="background:#F4EDE3"></i></span>Used by 1,900 product and sales teams</div>
+    </div>
+  </div>
+
+  <div class="app" role="img" aria-label="Memora app recording a meeting: live transcript on the left, AI summary and action items on the right">
+    <div class="app-bar">
+      <span class="lights" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>Q4 launch sync · 6 people</span>
+      <span class="wave" aria-hidden="true"><i style="animation-delay:-.2s"></i><i style="animation-delay:-.5s"></i><i style="animation-delay:-.1s"></i><i style="animation-delay:-.7s"></i><i style="animation-delay:-.3s"></i><i style="animation-delay:-.9s"></i><i style="animation-delay:-.4s"></i></span>
+      <span class="rec"><b></b>REC 23:41</span>
+    </div>
+    <div class="app-body">
+      <div class="pane">
+        <h4><span>Live transcript</span><span>EN</span></h4>
+        <div id="transcript">
+          <div class="line"><span class="who" style="background:#FF9D4A">AK</span><div><small>Anna · 21:02</small><p>So the beta is stable. I'd like to open the waitlist on November 4th.</p></div></div>
+          <div class="line"><span class="who" style="background:#8DD3C5">DM</span><div><small>Dmytro · 21:15</small><p>Pricing page isn't final. Can design get it to me by Thursday?</p></div></div>
+          <div class="line"><span class="who" style="background:#F07C8C">LS</span><div><small>Lena · 21:30</small><p>Yes, Thursday works. I'll also send the onboarding emails for review.</p></div></div>
+          <div class="line"><span class="who" style="background:#F4EDE3">JP</span><div><small>Jonas · 21:48</small><p>Then November 4th it is. Let's lock it.</p></div></div>
+        </div>
+      </div>
+      <div class="pane sum">
+        <h4><span>Summary</span><span style="color:var(--teal)">● generating</span></h4>
+        <h5>Waitlist opens Nov 4</h5>
+        <ul id="sumList"><li>Beta is stable, launch date confirmed by the team.</li><li>Pricing page is the only blocker.</li><li>Onboarding emails go to review this week.</li></ul>
+        <div class="todo" id="todo">
+          <div class="task done"><span class="box"></span><span>Lock launch date: Nov 4</span><span class="tag">Jonas</span></div>
+          <div class="task"><span class="box"></span><span>Final pricing page design</span><span class="tag">Lena · Thu</span></div>
+          <div class="task"><span class="box"></span><span>Review onboarding emails</span><span class="tag">Dmytro · Fri</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap works" aria-label="Integrations">
+  <span>Joins the calls you already have</span>
+  <div class="apps"><span>Zoom</span><span>Google Meet</span><span>Microsoft Teams</span><span>Slack huddles</span><span>In-person</span></div>
+</section>
+
+<section class="block wrap" id="ask">
+  <div class="sec-head">
+    <h2>Ask your meetings <em>anything.</em></h2>
+    <p>Every call becomes searchable memory. Ask a question in plain words and get the answer with links to the exact moment it was said.</p>
+  </div>
+  <div class="ask">
+    <div class="panel">
+      <div class="search"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6.5" stroke="#A49B93" stroke-width="1.6" fill="none"/><path d="M14 14l4 4" stroke="#A49B93" stroke-width="1.6" stroke-linecap="round"/></svg><span id="q">What did we decide about the Q4 launch?</span><span class="caret" aria-hidden="true"></span></div>
+      <div class="answer" id="answer">
+        <p>The team agreed to open the waitlist on <mark>November 4</mark>. The only blocker is the pricing page, which Lena will deliver on Thursday.</p>
+        <div class="cite"><span><b>Q4 launch sync</b> · 21:02</span><span><b>Q4 launch sync</b> · 21:48</span><span><b>Design weekly</b> · 08:15</span></div>
+      </div>
+    </div>
+    <div class="panel">
+      <p class="big-quote">Search across <em>months</em> of calls in the time it takes to type the question.</p>
+      <div class="list">
+        <div><b>0.8 s</b><span>average answer time across 1,000 meetings</span></div>
+        <div><b>32</b><span>languages transcribed and translated</span></div>
+        <div><b>100%</b><span>of answers link to the source moment</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block wrap" id="flow" style="padding-top:0">
+  <div class="sec-head">
+    <h2>From talk to <em>done</em>, without the follow-up email.</h2>
+    <p>What happens in the 60 seconds after you hang up.</p>
+  </div>
+  <div class="stack">
+    <article class="scard">
+      <div><span class="num">STEP 1 · TRANSCRIBE</span><h3>Speakers named, filler removed.</h3><p>Memora knows who said what, even when people talk over each other, and cleans out the "ums" so the transcript reads like notes.</p></div>
+      <div class="vis"><div class="r"><span>Anna Kowal</span><span class="pill">38% talk time</span></div><div class="r"><span>Dmytro Melnyk</span><span class="pill">24% talk time</span></div><div class="r"><span>Lena Schmidt</span><span class="pill">21% talk time</span></div><div class="r"><span>Jonas Petersen</span><span class="pill">17% talk time</span></div></div>
+    </article>
+    <article class="scard">
+      <div><span class="num">STEP 2 · SUMMARIZE</span><h3>Decisions first, details below.</h3><p>Summaries follow the template your team picks: sales discovery, 1:1, sprint review or interview scorecard.</p></div>
+      <div class="vis"><div class="r"><span>Decision</span><span class="pill a">Waitlist on Nov 4</span></div><div class="r"><span>Risk</span><span class="pill a">Pricing page late</span></div><div class="r"><span>Template</span><span class="pill">Product sync</span></div></div>
+    </article>
+    <article class="scard">
+      <div><span class="num">STEP 3 · SEND</span><h3>Action items land where work happens.</h3><p>Tasks go to Linear, Jira, Asana or Notion with an owner and a due date. The recap goes to Slack. Nobody has to write it.</p></div>
+      <div class="vis"><div class="r"><span>→ Linear</span><span class="pill">2 issues created</span></div><div class="r"><span>→ Slack #launch</span><span class="pill">recap posted</span></div><div class="r"><span>→ HubSpot</span><span class="pill">deal notes synced</span></div></div>
+    </article>
+  </div>
+</section>
+
+<section class="block rail-sec" id="cases">
+  <div class="wrap sec-head"><h2>Made for the meetings <em>you actually have.</em></h2><p>Each use case comes with its own summary template.</p></div>
+  <div class="rail" id="rail">
+    <div class="case" style="background:#1E1A21"><span class="orb" style="background:#FF9D4A"></span><span class="k">Sales</span><div><h3>Discovery calls</h3><p style="margin-top:12px">Budget, timeline and objections pulled into your CRM automatically.</p></div></div>
+    <div class="case" style="background:#1E1A21"><span class="orb" style="background:#8DD3C5"></span><span class="k">Management</span><div><h3>Weekly 1:1s</h3><p style="margin-top:12px">Running notes per person, so last month's promise doesn't get lost.</p></div></div>
+    <div class="case" style="background:#1E1A21"><span class="orb" style="background:#F07C8C"></span><span class="k">Hiring</span><div><h3>Interviews</h3><p style="margin-top:12px">Scorecards filled from the conversation, with quotes as evidence.</p></div></div>
+    <div class="case" style="background:#1E1A21"><span class="orb" style="background:#F4EDE3"></span><span class="k">Product</span><div><h3>User research</h3><p style="margin-top:12px">Tag pains and requests across 50 interviews and see the patterns.</p></div></div>
+    <div class="case" style="background:#1E1A21"><span class="orb" style="background:#FF9D4A"></span><span class="k">Engineering</span><div><h3>Stand-ups</h3><p style="margin-top:12px">Blockers flagged to the lead before the call is over.</p></div></div>
+  </div>
+</section>
+
+<section class="wrap" aria-label="Numbers">
+  <div class="stats">
+    <div class="stat"><b><span class="count" data-to="4.6" data-dec="1">4.6</span>h</b><span>saved per person every week</span></div>
+    <div class="stat"><b><span class="count" data-to="97">97</span>%</b><span>transcription accuracy in English</span></div>
+    <div class="stat"><b><span class="count" data-to="0">0</span></b><span>recordings used to train models</span></div>
+  </div>
+</section>
+
+<section class="block wrap" id="pricing">
+  <div class="sec-head"><h2>Simple plans, <em>no minutes</em> to count.</h2><p>Every plan includes unlimited transcript storage and search.</p></div>
+  <div class="plans">
+    <div class="plan"><h3>Free</h3><div class="pr">$0</div><ul><li>10 meetings per month</li><li>AI summaries</li><li>Search last 30 days</li></ul><a class="btn" href="#hero">Get started</a></div>
+    <div class="plan hot"><h3>Pro</h3><div class="pr">$12<small> / user / mo</small></div><ul><li>Unlimited meetings</li><li>Ask across all meetings</li><li>Custom summary templates</li><li>Linear, Jira &amp; Notion sync</li></ul><a class="btn btn-amber" href="#hero">Start 14-day trial</a></div>
+    <div class="plan"><h3>Team</h3><div class="pr">$20<small> / user / mo</small></div><ul><li>Everything in Pro</li><li>CRM sync &amp; analytics</li><li>SSO and admin controls</li><li>EU data residency</li></ul><a class="btn" href="#hero">Contact sales</a></div>
+  </div>
+</section>
+
+<section class="wrap cta">
+  <h2>Stop taking <em>notes.</em><br>Start talking.</h2>
+  <div class="row"><a class="btn btn-amber" href="#pricing">Try Memora free</a><p>Works with Zoom, Meet and Teams in under two minutes.</p></div>
+</section>
+</main>
+
+<footer><div class="wrap foot"><span>© Memora</span><span class="c">Concept project · Design &amp; development by Victoria</span></div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  // split headline into words
+  var h=document.getElementById('heroTitle');
+  (function split(node){
+    Array.from(node.childNodes).forEach(function(n){
+      if(n.nodeType===3){var frag=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(function(t){if(!t)return;if(/^\s+$/.test(t)){frag.appendChild(document.createTextNode(t));return;}var w=document.createElement('span');w.className='w';w.innerHTML='<span>'+t+'</span>';frag.appendChild(w);});node.replaceChild(frag,n);}
+      else if(n.nodeType===1) split(n);
+    });
+  })(h);
+
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!window.gsap) return;
+  gsap.registerPlugin(ScrollTrigger);
+  if(window.Lenis){var lenis=new Lenis({lerp:.09});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-80});}});});}
+
+  var tl=gsap.timeline({defaults:{ease:'expo.out'}});
+  tl.from('#heroTitle .w>span',{yPercent:115,rotate:4,duration:1.3,stagger:.06})
+    .from('.hero-side>*',{y:24,duration:1,stagger:.1},'-=1')
+    .from('.app',{y:80,scale:.96,duration:1.4},'-=.9');
+
+  // transcript replay loop
+  var lines=Array.from(document.querySelectorAll('#transcript .line')),
+      sums=Array.from(document.querySelectorAll('#sumList li')),
+      tasks=Array.from(document.querySelectorAll('#todo .task'));
+  function play(){
+    var t=gsap.timeline({delay:.4,onComplete:function(){gsap.delayedCall(3.5,play)}});
+    t.set(lines.concat(sums,tasks),{autoAlpha:0,y:10});
+    tasks.forEach(function(k,i){if(i)k.classList.remove('done')});
+    lines.forEach(function(l,i){
+      var p=l.querySelector('p'),full=p.dataset.full||(p.dataset.full=p.textContent),o={n:0};
+      t.to(l,{autoAlpha:1,y:0,duration:.35});
+      t.to(o,{n:full.length,duration:full.length*.022,ease:'none',onUpdate:function(){p.innerHTML=full.slice(0,Math.round(o.n))+'<span class="caret"></span>'},onComplete:function(){p.textContent=full}});
+      if(sums[i]) t.to(sums[i],{autoAlpha:1,y:0,duration:.4},'<.3');
+    });
+    t.to(tasks,{autoAlpha:1,y:0,duration:.4,stagger:.25});
+    t.add(function(){tasks[1].classList.add('done')},'+=.6');
+  }
+  play();
+
+  // search typing
+  var q=document.getElementById('q'),qt=q.textContent;
+  ScrollTrigger.create({trigger:'#ask',start:'top 70%',once:true,onEnter:function(){
+    var o={n:0};q.textContent='';
+    gsap.timeline().to(o,{n:qt.length,duration:1.6,ease:'none',onUpdate:function(){q.textContent=qt.slice(0,Math.round(o.n))}})
+      .from('#answer>*',{y:20,autoAlpha:0,duration:.6,stagger:.15});
+  }});
+
+  // section headings
+  gsap.utils.toArray('.sec-head h2').forEach(function(el){gsap.from(el,{y:60,duration:1.2,ease:'expo.out',scrollTrigger:{trigger:el,start:'top 90%',once:true}});});
+
+  // stacking cards shrink as next one arrives
+  if(innerWidth>820){
+    var cards=gsap.utils.toArray('.scard');
+    cards.forEach(function(c,i){if(i===cards.length-1)return;
+      gsap.to(c,{scale:.94-(cards.length-i)*.01,filter:'brightness(.7)',ease:'none',scrollTrigger:{trigger:cards[i+1],start:'top 85%',end:'top 140px',scrub:true}});});
+
+    // horizontal rail
+    var rail=document.getElementById('rail');
+    gsap.to(rail,{x:function(){return -(rail.scrollWidth-innerWidth)},ease:'none',
+      scrollTrigger:{trigger:'.rail-sec',start:'top top',end:function(){return '+='+(rail.scrollWidth-innerWidth)},scrub:1,pin:true,invalidateOnRefresh:true}});
+  }
+
+  // counters
+  document.querySelectorAll('.count').forEach(function(el){var to=+el.dataset.to,dec=+el.dataset.dec||0,o={v:0};
+    gsap.to(o,{v:to,duration:2,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 92%',once:true},onUpdate:function(){el.textContent=o.v.toFixed(dec)}});});
+
+  gsap.from('.plan',{y:60,duration:1,stagger:.12,ease:'expo.out',scrollTrigger:{trigger:'.plans',start:'top 85%',once:true}});
+  gsap.from('.cta h2',{y:80,duration:1.4,ease:'expo.out',scrollTrigger:{trigger:'.cta',start:'top 85%',once:true}});
+})();
+</script>
+
+</body>
+</html>

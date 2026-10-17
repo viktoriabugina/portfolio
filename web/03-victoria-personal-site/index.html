@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Victoria — Web Designer, Developer &amp; Motion Designer</title>
+  <meta name="description" content="I design, build and animate landing pages and brands. Figma, HTML/CSS/JS, Framer, After Effects.">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container header__inner">
+    <a href="#" class="logo">victoria<span>.</span></a>
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+    </nav>
+    <a href="#contact" class="btn btn--light header__cta"><span class="dot"></span>Available for projects</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <p class="hero__hi">Hi, I'm Victoria — I make websites people remember</p>
+      <h1 class="hero__title">
+        <span class="hero__line">Design.</span>
+        <span class="hero__line hero__line--outline">Code.</span>
+        <span class="hero__line hero__line--accent">Motion.</span>
+      </h1>
+      <div class="hero__bottom">
+        <p class="hero__text">I design landing pages in Figma, build them with clean HTML/CSS/JS or Framer, and bring brands to life with motion in After Effects. One person, zero handoff gaps.</p>
+        <a href="#work" class="btn btn--accent">See my work ↓</a>
+      </div>
+    </div>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Figma</span><i>✦</i><span>HTML / SCSS</span><i>✦</i><span>JavaScript</span><i>✦</i><span>GSAP</span><i>✦</i><span>Framer</span><i>✦</i><span>Webflow</span><i>✦</i><span>After Effects</span><i>✦</i><span>Responsive</span><i>✦</i>
+        <span>Figma</span><i>✦</i><span>HTML / SCSS</span><i>✦</i><span>JavaScript</span><i>✦</i><span>GSAP</span><i>✦</i><span>Framer</span><i>✦</i><span>Webflow</span><i>✦</i><span>After Effects</span><i>✦</i><span>Responsive</span><i>✦</i>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="container">
+      <div class="section__head">
+        <h2 class="section__title">Selected work</h2>
+        <div class="tabs" role="group" aria-label="Filter projects">
+          <button class="tabs__btn is-active" data-filter="all">All</button>
+          <button class="tabs__btn" data-filter="web">Web</button>
+          <button class="tabs__btn" data-filter="motion">Motion</button>
+        </div>
+      </div>
+
+      <div class="works">
+        <a class="work work--big" data-type="web" href="../01-flowly-saas-landing/index.html">
+          <div class="work__media"><img src="img/works/flowly.jpg" alt="Flowly SaaS landing page" loading="lazy" width="1200" height="750"></div>
+          <div class="work__info"><h3>Flowly — AI SaaS landing</h3><p>UX/UI · Front-end · Pricing toggle, tabs, form validation</p></div>
+        </a>
+        <a class="work work--big" data-type="web" href="../02-nordline-real-estate/index.html">
+          <div class="work__media"><img src="img/works/nordline.jpg" alt="Nordline Residences real estate landing" loading="lazy" width="1200" height="750"></div>
+          <div class="work__info"><h3>Nordline — residential complex</h3><p>Web design · Front-end · Apartment filter, instalment calculator</p></div>
+        </a>
+        <a class="work work--big" data-type="web" href="../04-ledgerly-fintech-saas/index.html">
+          <div class="work__media"><img src="img/works/ledgerly.jpg" alt="Ledgerly finance automation SaaS landing page" loading="lazy" width="1200" height="750"></div>
+          <div class="work__info"><h3>Ledgerly — fintech SaaS</h3><p>UX/UI · Front-end · Animated dashboard, GSAP scroll motion, pricing toggle</p></div>
+        </a>
+        <a class="work work--big" data-type="web" href="../05-memora-ai-landing/index.html">
+          <div class="work__media"><img src="img/works/memora.jpg" alt="Memora AI meeting notes landing page" loading="lazy" width="1200" height="750"></div>
+          <div class="work__info"><h3>Memora — AI meeting notes</h3><p>UX/UI · Front-end · Live transcript animation, stacking cards, horizontal scroll</p></div>
+        </a>
+        <a class="work work--big" data-type="web" href="../06-routa-mobility-app/index.html">
+          <div class="work__media"><img src="img/works/routa.jpg" alt="Routa corporate ride app landing page" loading="lazy" width="1200" height="750"></div>
+          <div class="work__info"><h3>Routa — corporate rides app</h3><p>UX/UI · Front-end · Route animation, scroll-driven phone screens</p></div>
+        </a>
+        <a class="work work--big" data-type="web" href="../07-kubik-nocode-builder/index.html">
+          <div class="work__media"><img src="img/works/kubik.jpg" alt="Kubik no-code website builder landing page" loading="lazy" width="1200" height="750"></div>
+          <div class="work__info"><h3>Kubik — no-code builder</h3><p>UX/UI · Front-end · Animated editor, responsive preview, 3D tilt cards</p></div>
+        </a>
+        <a class="work" data-type="motion" href="#contact">
+          <div class="work__media work__media--motion work__media--violet"><span class="m-logo"><i></i><i></i><i></i></span></div>
+          <div class="work__info"><h3>Flowly — logo reveal</h3><p>After Effects · 5 s · 16:9</p></div>
+        </a>
+        <a class="work" data-type="motion" href="#contact">
+          <div class="work__media work__media--motion work__media--blush"><span class="m-reel">Glow<br><em>studio</em></span></div>
+          <div class="work__info"><h3>Glow Studio — beauty Reel</h3><p>After Effects · 15 s · 9:16 · kinetic type</p></div>
+        </a>
+        <a class="work" data-type="motion" href="#contact">
+          <div class="work__media work__media--motion work__media--dark"><span class="m-ui"><b></b><b></b><b></b></span></div>
+          <div class="work__info"><h3>Flowly — app promo</h3><p>After Effects · 20 s · UI animation</p></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--light" id="services">
+    <div class="container">
+      <div class="section__head"><h2 class="section__title">What I do</h2></div>
+      <div class="services">
+        <article class="service">
+          <span class="service__n">01</span>
+          <h3>Web design</h3>
+          <p>Landing pages and websites in Figma — structure, copy hierarchy and a visual style that sells.</p>
+          <ul><li>Landing pages</li><li>Redesigns</li><li>UI kits</li></ul>
+        </article>
+        <article class="service">
+          <span class="service__n">02</span>
+          <h3>Development</h3>
+          <p>Pixel-perfect, responsive HTML/SCSS/JS — or Framer and Webflow when you want to edit it yourself.</p>
+          <ul><li>HTML / SCSS / JS</li><li>Framer</li><li>Webflow</li></ul>
+        </article>
+        <article class="service">
+          <span class="service__n">03</span>
+          <h3>Motion design</h3>
+          <p>Logo animations, product promos and Reels in After Effects with clean timing and smooth easing.</p>
+          <ul><li>Logo reveal</li><li>Promo videos</li><li>Reels 9:16</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="process">
+    <div class="container">
+      <div class="section__head"><h2 class="section__title">How we'll work</h2></div>
+      <ol class="process">
+        <li><b>Brief</b><p>A short call or questionnaire — goals, audience, references.</p></li>
+        <li><b>Structure</b><p>Wireframe or storyboard you approve before any design.</p></li>
+        <li><b>Design</b><p>Full design in Figma or style frames for animation.</p></li>
+        <li><b>Build &amp; launch</b><p>Code or animation, testing on every device, handoff.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--light" id="about">
+    <div class="container about">
+      <h2 class="section__title">About me</h2>
+      <div class="about__text">
+        <p>I'm a designer who also codes and animates. I trained with practicing freelancers in three directions — UX/UI and landing page design, HTML/CSS/JS front-end, and motion design in After Effects — and combined them into one service.</p>
+        <p>I work with startups, beauty &amp; wellness brands and real estate developers. I speak English, Ukrainian and Russian.</p>
+        <ul class="tools"><li>Figma</li><li>HTML</li><li>SCSS</li><li>JavaScript</li><li>Framer</li><li>Webflow</li><li>WordPress</li><li>After Effects</li><li>Photoshop</li><li>Git</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <p class="contact__kicker">Have a project in mind?</p>
+      <a href="mailto:hello@yourdomain.com" class="contact__mail">Let's talk →</a>
+      <ul class="contact__links">
+        <li><a href="https://www.upwork.com/" target="_blank" rel="noopener">Upwork</a></li>
+        <li><a href="https://www.behance.net/" target="_blank" rel="noopener">Behance</a></li>
+        <li><a href="https://github.com/" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://t.me/" target="_blank" rel="noopener">Telegram</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <span>© <span id="year">2026</span> Victoria</span>
+    <span>Designed &amp; coded by me</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

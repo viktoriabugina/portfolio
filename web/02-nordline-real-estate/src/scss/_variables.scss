@@ -1,0 +1,20 @@
+@use 'sass:map';
+
+$sand: #F3EEE6;
+$sand-2: #E9E1D4;
+$ink: #1D2621;
+$muted: #6E7068;
+$line: #DDD4C6;
+$green: #2F4A3A;
+$green-dark: #1F3127;
+$terra: #B8794B;
+$white: #FFFDF9;
+
+$display: 'Cormorant Garamond', Georgia, serif;
+$font: 'Inter', system-ui, sans-serif;
+
+$container: 1240px;
+$radius: 4px;
+
+$bp: (sm: 576px, md: 768px, lg: 1024px, xl: 1280px);
+@mixin up($key) { @media (min-width: map.get($bp, $key)) { @content; } }
