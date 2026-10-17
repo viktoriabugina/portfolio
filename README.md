@@ -2,6 +2,8 @@
 
 Portfolio of web design, front-end and motion design work.
 
+**Live site:** https://viktoriabugina.github.io/portfolio/ · **Hire me:** [Upwork](https://www.upwork.com/freelancers/~0108ed036a1d592a49)
+
 | | Project | What it shows |
 |---|---|---|
 | 🌐 | [Flowly — SaaS landing](web/01-flowly-saas-landing/) | UX/UI, HTML/SCSS/JS, pricing toggle, tabs, validation |
