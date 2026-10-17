@@ -233,3 +233,12 @@ em { font-style: italic; color: $terra; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .bar i { transform: none; }
 }
+
+// ===== Fluid layout / mobile fixes =====
+body { overflow-x: hidden; }
+html, body { overflow-x: clip; }
+img, svg, video { max-width: 100%; }
+.calc > *, .location > *, .hero__inner > * { min-width: 0; }
+.calc__box { padding: clamp(20px, 6vw, 44px); }
+.calc__result { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+.calc__result b { overflow-wrap: anywhere; }

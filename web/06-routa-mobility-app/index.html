@@ -159,6 +159,14 @@ footer{padding-block:48px;color:var(--muted);font-size:14px}
 .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 .foot .c{font:500 12px var(--mono)}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+/* Fluid layout / mobile fixes */
+body{overflow-x:hidden}
+html,body{overflow-x:clip}
+.hero-grid>*,.story>*,.fin>*{min-width:0}
+.hero h1{font-size:clamp(32px,9vw,70px)}
+@media (max-width:520px){.cf2{right:4px}.cf1{left:4px}}
+@media (max-width:420px){.logo span{display:none}.nav{gap:12px;padding-inline:14px 8px}.nav .btn{padding:0 14px;font-size:14px}.big{padding:24px}.panel{padding:20px}}
 </style>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <meta property="og:title" content="Routa Business">

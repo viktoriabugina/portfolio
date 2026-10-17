@@ -3,3 +3,13 @@
 @use 'base';
 @use 'components';
 @use 'sections';
+
+// ===== Fluid layout / mobile fixes =====
+body { overflow-x: hidden; }
+html, body { overflow-x: clip; }
+img, svg, video { max-width: 100%; }
+.hero__inner > *, .mock, .mock__main { min-width: 0; }
+.hero__title { font-size: clamp(34px, 9vw, 76px); overflow-wrap: break-word; }
+.hero__proof { flex-wrap: wrap; gap: 16px 28px; }
+.mock__tasks li { min-width: 0; overflow-wrap: anywhere; }
+@media (max-width: 400px) { .mock__window { grid-template-columns: 44px 1fr; } .mock__main { padding: 16px; } }

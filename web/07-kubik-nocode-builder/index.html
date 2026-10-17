@@ -173,6 +173,16 @@ section.block{padding-block:110px}
 footer{border-top:1px solid var(--line);padding-block:30px;color:var(--muted);font-size:14px}
 .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+/* Fluid layout / mobile fixes */
+body{overflow-x:hidden}
+html,body{overflow-x:clip}
+.hero-top>*,.sh>*,.feats>*{min-width:0}
+.hero h1{font-size:clamp(38px,11vw,100px);overflow-wrap:break-word}
+.sh h2{font-size:clamp(30px,9vw,76px);overflow-wrap:break-word}
+.cta h2{font-size:clamp(56px,18vw,200px)}
+@media (max-width:560px){.b-top .url{display:none}.b-top{gap:8px}}
+@media (max-width:420px){.resp{padding:14px}.resp-ctrl .w{margin-left:0;width:100%}.plan{padding:24px}}
 </style>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <meta property="og:title" content="Kubik Builder">

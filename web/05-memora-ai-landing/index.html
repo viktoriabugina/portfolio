@@ -175,6 +175,16 @@ footer{border-top:1px solid var(--line);padding-block:32px;color:var(--muted);fo
 .foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 .foot .c{font:400 12px var(--mono)}
 @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+
+/* Fluid layout / mobile fixes */
+body{overflow-x:hidden}
+html,body{overflow-x:clip}
+.hero{overflow:clip}
+.glow{width:min(720px,140vw);height:min(720px,140vw)}
+.hero-top>*,.ask>*,.sec-head>*{min-width:0}
+.hero h1{font-size:clamp(46px,13vw,112px)}
+.sec-head h2{font-size:clamp(36px,10vw,80px)}
+@media (max-width:420px){.pane{padding:18px 16px}.task{flex-wrap:wrap}.cta h2{font-size:clamp(46px,14vw,150px)}}
 </style>
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <meta property="og:title" content="Memora">
