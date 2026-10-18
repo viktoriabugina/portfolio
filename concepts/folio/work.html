@@ -9,68 +9,78 @@
 <meta property="og:title" content="Work | Freja Lind">
 <meta property="og:description" content="All projects: print and digital work, filterable by software and tools.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#FF48B0">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Ccircle cx='11' cy='15' r='10' fill='%230078BF'/%3E%3Ccircle cx='19' cy='15' r='10' fill='%23FF48B0' style='mix-blend-mode:multiply'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23C8B9FF'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Georgia' font-style='italic' font-size='20' fill='%23151515'%3EF%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=3">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=7">
 <style>
-.ph{padding:clamp(30px,5vw,70px) 0 20px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.ph h1{font-size:clamp(90px,17vw,260px);font-stretch:75%;font-variation-settings:"opsz" 96,"wdth" 75;letter-spacing:-.01em;line-height:.82}
-.ph .sticker{width:104px;height:104px;margin-bottom:10px}
-.bar{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:10px 0 30px;padding:14px 0;border-block:2px solid var(--ink)}
-.filt{display:flex;flex-wrap:wrap;gap:8px;min-width:0}
-.filt button,.view button{border:2px solid var(--ink);background:var(--white);border-radius:999px;padding:7px 15px;font-weight:600;cursor:pointer;transition:background .2s,color .2s;font-size:15px}
-.filt button[aria-pressed="true"]{background:var(--pink);border-color:var(--pink)}
-.view{display:flex;gap:6px}
-.view button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.ln{display:block;overflow:hidden;padding-bottom:.06em}.ln>span{display:inline-block}
+
+.ph{padding:clamp(36px,6vw,80px) 0 clamp(20px,3vw,30px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:18px}
+.ph h1{font-size:clamp(64px,11vw,170px)}
+.ph h1 sup{font-family:var(--sans);font-size:.16em;vertical-align:top;margin-left:8px;letter-spacing:0;color:var(--muted)}
+.bar{display:flex;gap:14px;align-items:center;justify-content:space-between;margin-bottom:clamp(24px,3vw,36px)}
+.filt{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;min-width:0}
 .filt::-webkit-scrollbar{display:none}
-@media (max-width:639px){.bar{flex-wrap:nowrap;flex-direction:column;align-items:stretch}.filt{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(var(--gut)*-1);padding-inline:var(--gut)}.filt button{flex:none}.view{align-self:flex-end}}
-.grid{display:grid;gap:clamp(22px,3vw,40px) clamp(16px,2vw,28px);padding-bottom:clamp(60px,8vw,100px);align-items:start}
+.filt button,.view button{flex:none;border:0;background:var(--panel);border-radius:999px;padding:8px 16px;font-size:14px;cursor:pointer;transition:background .2s,color .2s}
+.filt button:hover,.view button:hover{background:var(--panel-2)}
+.filt button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.view{display:flex;gap:4px;background:var(--panel);border-radius:999px;padding:3px;flex:none}
+.view button{background:none;padding:6px 14px}
+.view button[aria-pressed="true"]{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+@media (max-width:639px){.bar{flex-direction:column;align-items:stretch}.filt{margin-inline:calc(var(--gut)*-1);padding-inline:var(--gut)}.view{align-self:flex-end}}
+.grid{display:grid;gap:clamp(28px,3vw,44px) clamp(14px,1.8vw,24px)}
 @media (min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media (min-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}.grid .tile:nth-child(3n+2){margin-top:70px}}
-.tile{display:grid;gap:12px}
-.tile .duo{border-radius:22px;aspect-ratio:4/3.3;border:2px solid var(--ink);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
-.tile:nth-child(3n+1) .duo{aspect-ratio:4/5}
-.tile:hover .duo{transform:translate(-5px,-5px) rotate(-1deg);box-shadow:6px 6px 0 var(--ink)}
-.tile h2{font-size:clamp(26px,2.4vw,34px);font-stretch:85%;font-variation-settings:"opsz" 96,"wdth" 85}
-.tile .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-.tile .yr{font-family:var(--display);font-weight:800;margin-right:4px}
-.list{list-style:none;border-top:2px solid var(--ink);margin-bottom:clamp(60px,8vw,100px)}
-.list a{display:grid;grid-template-columns:1fr auto;gap:6px 20px;align-items:center;padding:20px 6px;border-bottom:1.5px solid var(--ink);transition:background .25s,padding .35s var(--ease)}
-.list a:hover{background:var(--yellow);padding-left:18px}
-.list h2{font-size:clamp(28px,4vw,56px);font-stretch:85%;font-variation-settings:"opsz" 96,"wdth" 85}
-.list .yr{font-family:var(--display);font-weight:800;font-size:20px}
+@media (min-width:1100px){.grid{grid-template-columns:repeat(12,1fr)}.grid .tile{grid-column:span 4}.grid .tile:nth-child(5n+1),.grid .tile:nth-child(5n+2){grid-column:span 6}}
+.tile{display:grid;gap:12px;align-content:start}
+.tile .frame{aspect-ratio:4/3}
+.grid .tile:nth-child(5n+1) .frame,.grid .tile:nth-child(5n+2) .frame{aspect-ratio:16/10}
+.tile:hover img{transform:scale(1.04)}
+.tile__meta{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.tile h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,2.2vw,34px);line-height:1.05;letter-spacing:-.01em}
+.tile:hover h2{font-style:italic}
+.tile .yr{color:var(--muted);font-size:14px}
+.tile .tools{display:flex;flex-wrap:wrap;gap:6px}
+.list{list-style:none;border-top:1px solid var(--line)}
+.list a{display:grid;grid-template-columns:1fr auto;gap:6px 18px;align-items:center;padding:20px 4px;border-bottom:1px solid var(--line);transition:padding .35s var(--ease),background .25s}
+.list a:hover{padding-left:16px;background:var(--panel)}
+.list h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.6vw,52px);line-height:1.05}
 .list .meta{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap}
+.list .yr{color:var(--muted)}
 @media (min-width:900px){.list a{grid-template-columns:1.4fr 1fr auto}.list .meta{grid-column:auto}}
-.empty{display:none;padding:50px 0;font-size:20px}
-.cursor{position:fixed;left:0;top:0;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;background:var(--pink);display:grid;place-items:center;font-weight:600;pointer-events:none;z-index:50;transform:scale(0);mix-blend-mode:multiply}
-@media (hover:none){.cursor{display:none}}
+.empty{display:none;padding:50px 0;font-size:18px;color:var(--muted)}
+.peek{position:fixed;left:0;top:0;width:260px;aspect-ratio:4/3;border-radius:16px;overflow:hidden;pointer-events:none;z-index:30;opacity:0;transform:translate(-50%,-50%)}
+.peek img{width:100%;height:100%;object-fit:cover}
+@media (hover:none){.peek{display:none}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="ribbon" role="note"><b>Portfolio website concept</b> by Victoria V. The name, projects and images are placeholders. <a href="admin.html">Try the CMS demo</a></div>
-<header class="hdr"><div class="wrap hdr__in"><a class="me" href="index.html"><svg viewBox="0 0 30 30" aria-hidden="true"><circle cx="11" cy="15" r="10" fill="#0078BF"/><circle cx="19" cy="15" r="10" fill="#FF48B0" style="mix-blend-mode:multiply"/></svg>Freja Lind</a><nav class="nav" aria-label="Main"><a href="work.html" aria-current="page">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><button class="burger" aria-expanded="false" aria-label="Open menu">Menu</button></div></header>
-<nav class="drawer" aria-label="Mobile"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+<div class="ribbon" role="note"><b>Portfolio website concept</b> by Victoria V. Name, projects and images are placeholders. <a href="admin.html">Try the CMS demo</a></div>
+<header class="hdr"><div class="wrap hdr__in"><a class="me" href="index.html"><b>Freja Lind</b><span>Graphic design</span></a><nav class="nav" aria-label="Main"><a href="work.html" aria-current="page">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><a class="btn btn--ink cta" href="contact.html">Say hello</a><button class="burger" aria-expanded="false" aria-label="Open menu">Menu</button></div></header>
+<nav class="drawer" aria-label="Mobile"><a href="work.html" aria-current="page">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html">About</a><a href="contact.html">Contact</a><a class="btn btn--ink" href="contact.html">Say hello</a></nav>
 <main id="main">
 <div class="wrap">
-  <section class="ph"><h1><span class="inked"><span class="l1">Work</span><span class="l2" aria-hidden="true">Work</span></span></h1><div class="sticker" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="c" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs><text font-size="12" font-weight="600" letter-spacing="1" font-family="Instrument Sans"><textPath href="#c">PRINT · DIGITAL · PROJECTS · </textPath></text></svg><b><span id="n"></span></b></div></section>
+  <section class="ph"><h1 class="display"><span class="ln"><span>Selected <em>work</em><sup id="n"></sup></span></span></h1><p class="k" style="max-width:34ch">Print and digital projects from my first two years. Filter by type or by the software I used.</p></section>
   <div class="bar"><div class="filt" id="filt" role="group" aria-label="Filter by type or tool"></div><div class="view" role="group" aria-label="Layout"><button type="button" aria-pressed="true" data-v="grid">Grid</button><button type="button" aria-pressed="false" data-v="list">List</button></div></div>
   <div class="grid" id="grid"></div>
   <ul class="list" id="list" hidden></ul>
   <p class="empty" id="empty">No projects use this tool yet. Try another filter.</p>
 </div>
-<div class="cursor" id="cur" aria-hidden="true">View</div>
+<div class="peek" id="peek" aria-hidden="true"><img alt="" id="peekImg"></div>
 </main>
-<footer class="foot"><div class="wrap"><a class="big inked" href="contact.html"><span class="l1">Say hello</span><span class="l2" aria-hidden="true">Say hello</span></a><div class="foot__in"><span>© 2026 Freja Lind, graphic design student</span><span><a href="work.html">Work</a>&nbsp;&nbsp;<a href="proofs.html">Yearly proofs</a>&nbsp;&nbsp;<a href="about.html">About</a></span></div></div></footer>
+<footer class="foot"><div class="wrap">
+  <div class="foot__big"><a class="display" href="contact.html">Let’s make <em>something.</em></a><a class="btn btn--ink" href="contact.html">Get in touch <i>→</i></a></div>
+  <div class="foot__in"><span>© 2026 Freja Lind, graphic design student in Copenhagen</span><nav aria-label="Footer"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html">About</a></nav></div>
+</div></footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>window.gsap && gsap.registerPlugin(ScrollTrigger);</script>
-<script src="assets/projects.js?v=3"></script>
-<script src="assets/site.js?v=3"></script>
+<script src="assets/projects.js?v=7"></script>
+<script src="assets/site.js?v=7"></script>
 <script>
 
 (function(){
@@ -79,31 +89,30 @@
   const tools = ['All', 'Print', 'Digital', ...new Set(P.flatMap(p => p.tools))];
   let cur = 'All', view = 'grid';
   $('filt').innerHTML = tools.map((t, i) => `<button type="button" aria-pressed="${!i}">${esc(t)}</button>`).join('');
+  const tags = p => p.tools.map(x => '<span class="tag">' + esc(x) + '</span>').join('');
   const render = () => {
     const L = P.filter(p => cur === 'All' || p.kind === cur || p.tools.includes(cur));
     $('grid').hidden = view !== 'grid'; $('list').hidden = view !== 'list';
-    $('grid').innerHTML = L.map((p, i) => `<a class="tile" href="project.html?id=${esc(p.id)}"><div class="duo duo--${INKS[i % 3]}"><img src="${projSrc(p, 800)}" alt="${esc(p.title)}" loading="lazy" width="800" height="640"></div><h2>${esc(p.title)}</h2><div class="meta"><span class="yr">${esc(p.year)}</span><span class="tag tag--${p.kind === 'Print' ? 'pink' : 'blue'}">${esc(p.kind)}</span>${p.tools.map(x => '<span class="tag">' + esc(x) + '</span>').join('')}</div></a>`).join('');
-    $('list').innerHTML = L.map(p => `<li><a href="project.html?id=${esc(p.id)}"><h2>${esc(p.title)}</h2><span class="meta"><span class="tag tag--${p.kind === 'Print' ? 'pink' : 'blue'}">${esc(p.kind)}</span>${p.tools.map(x => '<span class="tag">' + esc(x) + '</span>').join('')}</span><span class="yr">${esc(p.year)}</span></a></li>`).join('');
+    $('grid').innerHTML = L.map(p => `<a class="tile" href="project.html?id=${esc(p.id)}"><div class="frame"><img src="${projSrc(p, 1000)}" alt="${esc(p.title)}" loading="lazy" width="1000" height="750"></div><div class="tile__meta"><h2>${esc(p.title)}</h2><span class="yr">${esc(p.year)}</span></div><div class="tools"><span class="tag ${p.kind === 'Print' ? 'tag--lilac' : ''}">${esc(p.kind)}</span>${tags(p)}</div></a>`).join('');
+    $('list').innerHTML = L.map(p => `<li><a href="project.html?id=${esc(p.id)}" data-img="${projSrc(p, 600)}"><h2>${esc(p.title)}</h2><span class="meta"><span class="tag ${p.kind === 'Print' ? 'tag--lilac' : ''}">${esc(p.kind)}</span>${tags(p)}</span><span class="yr">${esc(p.year)}</span></a></li>`).join('');
     $('empty').style.display = L.length ? 'none' : 'block';
-    if (window.gsap && !REDUCE) {
-      const els = view === 'grid' ? $('grid').children : $('list').querySelectorAll('li');
-      gsap.killTweensOf(els);
-      gsap.fromTo(els, {y:36, opacity:0}, {y:0, opacity:1, duration:.6, stagger:.05, ease:'power3.out', clearProps:'opacity,transform'});
-    }
-    window.ScrollTrigger && ScrollTrigger.refresh();
+    if (window.gsap && !REDUCE) { const els = view === 'grid' ? $('grid').children : $('list').querySelectorAll('li'); gsap.killTweensOf(els);
+      gsap.fromTo(els, {y:30, opacity:0}, {y:0, opacity:1, duration:.6, stagger:.05, ease:'power3.out', clearProps:'opacity,transform'}); }
+    bindPeek(); window.ScrollTrigger && ScrollTrigger.refresh();
   };
+  // in list view a preview of the project follows the cursor
+  const peek = $('peek'), pimg = $('peekImg');
+  let xTo, yTo;
+  if (window.gsap && !REDUCE && matchMedia('(hover:hover)').matches) { xTo = gsap.quickTo(peek, 'x', {duration:.4, ease:'power3'}); yTo = gsap.quickTo(peek, 'y', {duration:.4, ease:'power3'});
+    addEventListener('pointermove', e => { xTo(e.clientX); yTo(e.clientY); }, {passive:true}); }
+  function bindPeek(){ if (!xTo) return; $('list').querySelectorAll('a').forEach(a => {
+    a.addEventListener('pointerenter', () => { pimg.src = a.dataset.img; gsap.to(peek, {opacity:1, scale:1, duration:.35}); });
+    a.addEventListener('pointerleave', () => gsap.to(peek, {opacity:0, scale:.9, duration:.25})); }); }
   $('filt').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return;
     $('filt').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); cur = b.textContent; render(); });
   document.querySelector('.view').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return;
     document.querySelectorAll('.view button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); view = b.dataset.v; render(); });
-  render();
-  if (!window.gsap || REDUCE) return;
-  gsap.fromTo('.ph .inked', {'--mx':'50px', '--my':'-20px'}, {'--mx':'6px', '--my':'4px', duration:1.3, ease:'elastic.out(1,.55)', delay:.15});
-  // a "View" ink dot follows the cursor over projects
-  if (matchMedia('(hover: hover)').matches) {
-    const c = $('cur'), x = gsap.quickTo(c, 'x', {duration:.35, ease:'power3'}), y = gsap.quickTo(c, 'y', {duration:.35, ease:'power3'});
-    addEventListener('pointermove', e => { x(e.clientX); y(e.clientY); const on = !!e.target.closest('.tile .duo'); if (on !== c._on) { c._on = on; gsap.to(c, {scale:on ? 1 : 0, duration:.35, ease:on ? 'back.out(2)' : 'power2.in'}); } }, {passive:true});
-  }
+  render(); riseIn('.ph h1 .ln>span');
 })();
 
 </script>

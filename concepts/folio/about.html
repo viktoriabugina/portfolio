@@ -4,81 +4,69 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About | Freja Lind</title>
-<meta name="description" content="About me: a graphic design student who loves type, print and making things move.">
+<meta name="description" content="About me: a graphic design student in Copenhagen who loves type, print and making things move.">
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:title" content="About | Freja Lind">
-<meta property="og:description" content="About me: a graphic design student who loves type, print and making things move.">
+<meta property="og:description" content="About me: a graphic design student in Copenhagen who loves type, print and making things move.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#FF48B0">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Ccircle cx='11' cy='15' r='10' fill='%230078BF'/%3E%3Ccircle cx='19' cy='15' r='10' fill='%23FF48B0' style='mix-blend-mode:multiply'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23C8B9FF'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Georgia' font-style='italic' font-size='20' fill='%23151515'%3EF%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=3">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=7">
 <style>
-.ab{padding:clamp(30px,5vw,70px) 0 clamp(50px,7vw,90px)}
+.ln{display:block;overflow:hidden;padding-bottom:.06em}.ln>span{display:inline-block}
+
+.ab{padding:clamp(36px,6vw,80px) 0 0}
 .ab__grid{display:grid;gap:clamp(30px,5vw,70px);align-items:start}
-.ab h1{font-size:clamp(64px,10vw,160px);font-stretch:78%;font-variation-settings:"opsz" 96,"wdth" 78;line-height:.86;margin:10px 0 26px}
-.ab p{font-size:clamp(18px,1.6vw,22px);max-width:46ch}
+.ab h1{font-size:clamp(60px,9vw,150px);margin-bottom:28px}
+.ab p{font-size:clamp(17px,1.5vw,20px);max-width:46ch}
 .ab p+p{margin-top:16px}
-.portrait{position:relative;border-radius:24px;aspect-ratio:4/5;border:2px solid var(--ink);transform:rotate(-2.5deg)}
-.portrait figcaption{position:absolute;left:16px;bottom:16px;background:var(--yellow);border:2px solid var(--ink);border-radius:999px;padding:6px 14px;font-weight:600;font-size:14px}
-@media (min-width:1024px){.ab__grid{grid-template-columns:1.15fr .85fr}}
-.board{position:relative;margin-top:clamp(40px,6vw,80px);border:2px dashed var(--ink);border-radius:28px;min-height:360px;background:var(--paper-2);overflow:hidden;touch-action:none}
-.board__hint{position:absolute;left:22px;top:18px;font-weight:600;color:var(--muted)}
-.chip{position:absolute;padding:12px 22px;border-radius:999px;border:2px solid var(--ink);font-family:var(--display);font-weight:800;font-size:clamp(20px,2.2vw,30px);cursor:grab;user-select:none;-webkit-user-select:none;box-shadow:3px 3px 0 var(--ink);white-space:nowrap}
-.chip:active{cursor:grabbing}
-.chip--pink{background:var(--pink)}.chip--yellow{background:var(--yellow)}.chip--blue{background:var(--blue);color:#fff}.chip--white{background:var(--white)}
+.portrait{aspect-ratio:4/5;position:relative}
+.portrait figcaption{position:absolute;left:14px;bottom:14px;background:#fff;border-radius:999px;padding:6px 14px;font-size:13.5px}
+@media (min-width:1000px){.ab__grid{grid-template-columns:1.2fr .8fr}.portrait{position:sticky;top:96px}}
+.facts{display:grid;gap:0;margin-top:clamp(36px,5vw,60px);border-top:1px solid var(--line)}
+.facts div{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.facts dt{color:var(--muted)}
+.tools{display:flex;flex-wrap:wrap;gap:8px}
+.tools .tag{font-size:14px;padding:6px 14px}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="ribbon" role="note"><b>Portfolio website concept</b> by Victoria V. The name, projects and images are placeholders. <a href="admin.html">Try the CMS demo</a></div>
-<header class="hdr"><div class="wrap hdr__in"><a class="me" href="index.html"><svg viewBox="0 0 30 30" aria-hidden="true"><circle cx="11" cy="15" r="10" fill="#0078BF"/><circle cx="19" cy="15" r="10" fill="#FF48B0" style="mix-blend-mode:multiply"/></svg>Freja Lind</a><nav class="nav" aria-label="Main"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html" aria-current="page">About</a><a href="contact.html">Contact</a></nav><button class="burger" aria-expanded="false" aria-label="Open menu">Menu</button></div></header>
-<nav class="drawer" aria-label="Mobile"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+<div class="ribbon" role="note"><b>Portfolio website concept</b> by Victoria V. Name, projects and images are placeholders. <a href="admin.html">Try the CMS demo</a></div>
+<header class="hdr"><div class="wrap hdr__in"><a class="me" href="index.html"><b>Freja Lind</b><span>Graphic design</span></a><nav class="nav" aria-label="Main"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html" aria-current="page">About</a><a href="contact.html">Contact</a></nav><a class="btn btn--ink cta" href="contact.html">Say hello</a><button class="burger" aria-expanded="false" aria-label="Open menu">Menu</button></div></header>
+<nav class="drawer" aria-label="Mobile"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html" aria-current="page">About</a><a href="contact.html">Contact</a><a class="btn btn--ink" href="contact.html">Say hello</a></nav>
 <main id="main">
-<section class="ab"><div class="wrap">
-  <div class="ab__grid">
-    <div><span class="k">About</span><h1><span class="inked" data-follow><span class="l1">Hi, I’m Freja.</span><span class="l2" aria-hidden="true">Hi, I’m Freja.</span></span></h1>
-      <p>Placeholder text: I’m a graphic design student who loves type, print and making things move. I work between the screen and the risograph, and I care about design that is clear first and clever second.</p>
-      <p>Placeholder text: I’m in my second year and looking for an internship where I can learn from a small studio.</p>
-      <p style="margin-top:30px"><a class="btn btn--ink" href="contact.html">Get in touch</a></p></div>
-    <figure class="portrait duo duo--blue"><img src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?auto=format&fit=crop&w=900&q=75" alt="Placeholder image for a portrait photo" width="900" height="1125"><figcaption>Your photo here</figcaption></figure>
+<section class="ab"><div class="wrap ab__grid">
+  <div>
+    <h1 class="display"><span class="ln"><span>Hi, I’m <em>Freja.</em></span></span></h1>
+    <p>Placeholder text: I’m a second-year graphic design student in Copenhagen who loves type, print and making things move. I work between the screen and the risograph, and I care about design that is clear first and clever second.</p>
+    <p>Placeholder text: I’m looking for a summer internship where I can learn from a small studio.</p>
+    <dl class="facts">
+      <div><dt>Studying</dt><dd>BA Graphic Design, 2nd year</dd></div>
+      <div><dt>Based in</dt><dd>Copenhagen, Denmark</dd></div>
+      <div><dt>Focus</dt><dd>Typography, editorial, identity, motion</dd></div>
+      <div><dt>Tools</dt><dd class="tools"><span class="tag">InDesign</span><span class="tag">Illustrator</span><span class="tag">Photoshop</span><span class="tag">Figma</span><span class="tag">After Effects</span><span class="tag">Risograph</span><span class="tag">Procreate</span><span class="tag">Blender</span></dd></div>
+    </dl>
+    <p style="margin-top:30px"><a class="btn btn--ink" href="contact.html">Get in touch <i>→</i></a></p>
   </div>
-  <div class="board" id="board" aria-label="Software and tools I use"><span class="board__hint">My toolbox. Drag the stickers around.</span>
-    <span class="chip chip--pink" role="listitem">InDesign</span><span class="chip chip--yellow" role="listitem">Illustrator</span><span class="chip chip--blue" role="listitem">Photoshop</span><span class="chip chip--white" role="listitem">Figma</span><span class="chip chip--pink" role="listitem">After Effects</span><span class="chip chip--yellow" role="listitem">Risograph</span><span class="chip chip--blue" role="listitem">Procreate</span><span class="chip chip--white" role="listitem">Blender</span>
-  </div>
+  <figure class="portrait frame"><img src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?auto=format&fit=crop&w=900&q=75" alt="Placeholder image for a portrait photo" width="900" height="1125"><figcaption>Your photo here</figcaption></figure>
 </div></section>
 </main>
-<footer class="foot"><div class="wrap"><a class="big inked" href="contact.html"><span class="l1">Say hello</span><span class="l2" aria-hidden="true">Say hello</span></a><div class="foot__in"><span>© 2026 Freja Lind, graphic design student</span><span><a href="work.html">Work</a>&nbsp;&nbsp;<a href="proofs.html">Yearly proofs</a>&nbsp;&nbsp;<a href="about.html">About</a></span></div></div></footer>
+<footer class="foot"><div class="wrap">
+  <div class="foot__big"><a class="display" href="contact.html">Let’s make <em>something.</em></a><a class="btn btn--ink" href="contact.html">Get in touch <i>→</i></a></div>
+  <div class="foot__in"><span>© 2026 Freja Lind, graphic design student in Copenhagen</span><nav aria-label="Footer"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html">About</a></nav></div>
+</div></footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>window.gsap && gsap.registerPlugin(ScrollTrigger);</script>
-<script src="assets/projects.js?v=3"></script>
-<script src="assets/site.js?v=3"></script>
+<script src="assets/projects.js?v=7"></script>
+<script src="assets/site.js?v=7"></script>
 <script>
-
-(function(){
-  const board = document.getElementById('board'), chips = [...board.querySelectorAll('.chip')];
-  board.setAttribute('role', 'list');
-  // scatter the stickers, then make them draggable
-  const place = () => { const W = board.clientWidth, H = board.clientHeight;
-    chips.forEach((c, i) => { const cols = W < 600 ? 2 : 4, col = i % cols, row = Math.floor(i / cols);
-      const x = (col + .05 + Math.random() * .25) * (W / cols) + (row % 2 ? W / cols * .25 : 0) - (col === cols - 1 ? c.offsetWidth * .6 : 0);
-      const y = 60 + row * ((H - 90) / Math.ceil(chips.length / cols)) + Math.random() * 20;
-      c.style.left = Math.max(10, Math.min(x, W - c.offsetWidth - 10)) + 'px'; c.style.top = Math.min(y, H - c.offsetHeight - 10) + 'px';
-      if (window.gsap) gsap.set(c, {rotation:gsap.utils.random(-12, 12)}); else c.style.transform = 'rotate(' + (i % 2 ? 6 : -6) + 'deg)'; }); };
-  board.style.minHeight = (innerWidth < 600 ? 480 : 420) + 'px';
-  document.fonts.ready.then(place);
-  if (window.Draggable) { gsap.registerPlugin(Draggable); Draggable.create(chips, {bounds:board, onPress(){ this.target.style.zIndex = ++window.__z || (window.__z = 10); }}); }
-  if (!window.gsap || REDUCE) return;
-  gsap.fromTo('.ab .inked', {'--mx':'50px', '--my':'-20px'}, {'--mx':'6px', '--my':'4px', duration:1.3, ease:'elastic.out(1,.55)', delay:.15});
-  gsap.from('.portrait', {rotate:8, y:40, opacity:0, duration:1, ease:'back.out(1.4)', delay:.2});
-  gsap.from(chips, {scale:0, duration:.6, stagger:.06, ease:'back.out(2.2)', scrollTrigger:{trigger:board, start:'top 80%', once:true}});
-})();
-
+riseIn('.ab h1 .ln>span'); if (window.gsap && !REDUCE) { gsap.from('.portrait', {clipPath:'inset(100% 0 0 0 round 20px)', duration:1.3, ease:'expo.inOut', delay:.1}); gsap.from('.facts > div', {y:16, opacity:0, duration:.6, stagger:.07, delay:.5}); }
 </script>
 </body>
 </html>

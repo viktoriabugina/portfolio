@@ -9,69 +9,79 @@
 <meta property="og:title" content="Yearly proofs | Freja Lind">
 <meta property="og:description" content="One digital and one printed work for each school year, with a downloadable, accessible PDF.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#FF48B0">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Ccircle cx='11' cy='15' r='10' fill='%230078BF'/%3E%3Ccircle cx='19' cy='15' r='10' fill='%23FF48B0' style='mix-blend-mode:multiply'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23C8B9FF'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Georgia' font-style='italic' font-size='20' fill='%23151515'%3EF%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=3">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=7">
 <style>
-.ph{padding:clamp(30px,5vw,70px) 0 clamp(30px,4vw,50px)}
-.ph h1{font-size:clamp(64px,12vw,190px);font-stretch:78%;font-variation-settings:"opsz" 96,"wdth" 78;line-height:.84;margin:10px 0 22px}
-.ph p{font-size:clamp(18px,1.6vw,22px);max-width:52ch}
-.year{display:grid;gap:clamp(22px,3vw,44px);padding:clamp(36px,5vw,64px) 0;border-top:2px solid var(--ink)}
-.year:last-child{margin-bottom:clamp(40px,6vw,70px)}
-.year__n{font-size:clamp(100px,16vw,240px);font-stretch:75%;font-variation-settings:"opsz" 96,"wdth" 75;letter-spacing:-.01em;line-height:.8;letter-spacing:-.01em;margin-bottom:22px}
-.ticket{display:flex;align-items:stretch;border:2px solid var(--ink);border-radius:16px;background:var(--white);max-width:380px;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
-.ticket:hover{transform:translate(-4px,-4px);box-shadow:4px 4px 0 var(--ink)}
-.ticket>span:first-child{padding:16px 18px;display:grid;gap:2px;flex:1}
-.ticket small{color:var(--muted);font-size:14px}
-.ticket__arrow{display:grid;place-items:center;padding:0 18px;border-left:2px dashed var(--ink);font-family:var(--display);font-weight:800;font-size:20px;background:var(--yellow);border-radius:0 14px 14px 0}
-.pair{display:grid;gap:20px}
+.ln{display:block;overflow:hidden;padding-bottom:.06em}.ln>span{display:inline-block}
+
+.ph{padding:clamp(36px,6vw,80px) 0 clamp(26px,4vw,40px);display:grid;gap:20px;align-items:end}
+.ph h1{font-size:clamp(60px,10vw,160px)}
+.ph p{font-size:clamp(17px,1.5vw,20px);color:var(--muted);max-width:46ch}
+@media (min-width:1000px){.ph{grid-template-columns:1.4fr 1fr}}
+.tabs{display:flex;gap:8px;margin-bottom:clamp(22px,3vw,34px);border-bottom:1px solid var(--line)}
+.tabs button{border:0;background:none;font-family:var(--serif);font-size:clamp(40px,5.4vw,80px);line-height:1;padding:0 6px 12px;color:#B9B7B0;cursor:pointer;position:relative;transition:color .3s;letter-spacing:-.02em}
+.tabs button[aria-selected="true"]{color:var(--ink)}
+.tabs button::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--ink);transform:scaleX(0);transition:transform .45s var(--ease)}
+.tabs button[aria-selected="true"]::after{transform:none}
+.pair{display:grid;gap:clamp(14px,2vw,24px)}
 @media (min-width:700px){.pair{grid-template-columns:1fr 1fr}}
-.proof{background:var(--white);border:2px solid var(--ink);border-radius:22px;overflow:hidden}
-.proof .duo{aspect-ratio:4/3;border-bottom:2px solid var(--ink)}
-.proof__txt{padding:18px 20px 22px;display:grid;gap:8px;justify-items:start}
-.proof h3{font-size:30px;font-stretch:85%;font-variation-settings:"opsz" 96,"wdth" 85}
-.proof p{color:var(--muted)}
-@media (min-width:1024px){.year{grid-template-columns:.75fr 1.25fr}.year__side{position:sticky;top:110px;align-self:start}}
+.proof .frame{aspect-ratio:4/3}
+.proof__txt{padding:16px 2px 0;display:grid;gap:6px;justify-items:start}
+.proof h3{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3vw,42px);line-height:1}
+.proof p{color:var(--muted);max-width:44ch}
+.pdf{display:flex;align-items:center;gap:18px;margin-top:clamp(26px,3vw,40px);background:var(--panel);border-radius:var(--r);padding:16px 20px;transition:background .3s}
+.pdf:hover{background:var(--lilac)}
+.pdf__ic{flex:none;width:52px;height:64px;border-radius:8px;background:#fff;display:grid;place-items:center;font-weight:600;font-size:13px;box-shadow:0 2px 6px rgba(0,0,0,.06)}
+.pdf b{display:block;font-weight:500}
+.pdf small{color:var(--muted);font-size:13.5px}
+.pdf__arrow{margin-left:auto;width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;flex:none;transition:transform .3s var(--ease)}
+.pdf:hover .pdf__arrow{transform:translateY(3px)}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="ribbon" role="note"><b>Portfolio website concept</b> by Victoria V. The name, projects and images are placeholders. <a href="admin.html">Try the CMS demo</a></div>
-<header class="hdr"><div class="wrap hdr__in"><a class="me" href="index.html"><svg viewBox="0 0 30 30" aria-hidden="true"><circle cx="11" cy="15" r="10" fill="#0078BF"/><circle cx="19" cy="15" r="10" fill="#FF48B0" style="mix-blend-mode:multiply"/></svg>Freja Lind</a><nav class="nav" aria-label="Main"><a href="work.html">Work</a><a href="proofs.html" aria-current="page">Yearly proofs</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><button class="burger" aria-expanded="false" aria-label="Open menu">Menu</button></div></header>
-<nav class="drawer" aria-label="Mobile"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+<div class="ribbon" role="note"><b>Portfolio website concept</b> by Victoria V. Name, projects and images are placeholders. <a href="admin.html">Try the CMS demo</a></div>
+<header class="hdr"><div class="wrap hdr__in"><a class="me" href="index.html"><b>Freja Lind</b><span>Graphic design</span></a><nav class="nav" aria-label="Main"><a href="work.html">Work</a><a href="proofs.html" aria-current="page">Yearly proofs</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><a class="btn btn--ink cta" href="contact.html">Say hello</a><button class="burger" aria-expanded="false" aria-label="Open menu">Menu</button></div></header>
+<nav class="drawer" aria-label="Mobile"><a href="work.html">Work</a><a href="proofs.html" aria-current="page">Yearly proofs</a><a href="about.html">About</a><a href="contact.html">Contact</a><a class="btn btn--ink" href="contact.html">Say hello</a></nav>
 <main id="main">
 <div class="wrap">
-  <section class="ph"><span class="k">School requirement</span><h1><span class="inked"><span class="l1">Yearly proofs</span><span class="l2" aria-hidden="true">Yearly proofs</span></span></h1><p>Each year I present one digital and one printed work in depth. Every proof can be downloaded as an accessible PDF with tagged headings and alt text.</p></section>
-  <section class="year" aria-labelledby="y2026">
-  <div class="year__side"><h2 class="year__n" id="y2026"><span class="inked"><span class="l1">2026</span><span class="l2" aria-hidden="true">2026</span></span></h2>
-    <a class="ticket" href="assets/pdf/yearly-proof-2026.pdf" download><span><b>Download the 2026 proof</b><small>Accessible PDF, 1 page (sample)</small></span><span class="ticket__arrow" aria-hidden="true">PDF</span></a></div>
-  <div class="pair"><article class="proof"><div class="duo duo--blue"><img src="https://images.unsplash.com/photo-1543487945-139a97f387d5?auto=format&fit=crop&w=900&q=75" alt="Kinetic type poster series on a wall" loading="lazy" width="900" height="675"></div><div class="proof__txt"><span class="tag tag--blue">Digital</span><h3>Type in Motion</h3><p>Kinetic type posters exploring rhythm and spacing, shown as looping screens.</p></div></article><article class="proof"><div class="duo duo--pink"><img src="https://images.unsplash.com/photo-1632062549850-44a0a6eede16?auto=format&fit=crop&w=900&q=75" alt="Open risograph zine held in a hand" loading="lazy" width="900" height="675"></div><div class="proof__txt"><span class="tag tag--pink">Print</span><h3>Riso Zine No. 3</h3><p>24 pages in two spot colours about the city at night.</p></div></article></div>
-</section>
-  <section class="year" aria-labelledby="y2025">
-  <div class="year__side"><h2 class="year__n" id="y2025"><span class="inked"><span class="l1">2025</span><span class="l2" aria-hidden="true">2025</span></span></h2>
-    <a class="ticket" href="assets/pdf/yearly-proof-2025.pdf" download><span><b>Download the 2025 proof</b><small>Accessible PDF, 1 page (sample)</small></span><span class="ticket__arrow" aria-hidden="true">PDF</span></a></div>
-  <div class="pair"><article class="proof"><div class="duo duo--blue"><img src="https://images.unsplash.com/photo-1636247498175-d2a8d052c2b0?auto=format&fit=crop&w=900&q=75" alt="Phone showing a museum wayfinding app" loading="lazy" width="900" height="675"></div><div class="proof__txt"><span class="tag tag--blue">Digital</span><h3>Museum Wayfinding</h3><p>A concept app and signage that plan a 45-minute route.</p></div></article><article class="proof"><div class="duo duo--pink"><img src="https://images.unsplash.com/photo-1636247499180-13285c86be9b?auto=format&fit=crop&w=900&q=75" alt="Blue book with a bakery logo" loading="lazy" width="900" height="675"></div><div class="proof__txt"><span class="tag tag--pink">Print</span><h3>Bakery Identity</h3><p>Wordmark, packaging and menu cards for a neighbourhood bakery.</p></div></article></div>
-</section>
+  <section class="ph"><h1 class="display"><span class="ln"><span>Yearly <em>proofs</em></span></span></h1><p>My school asks for one digital and one printed work each year, shown in depth. Every proof comes with an accessible PDF you can download.</p></section>
+  <div class="tabs" role="tablist" aria-label="School year"><button role="tab" id="t2026" aria-controls="y2026" aria-selected="true" tabindex="0">2026</button><button role="tab" id="t2025" aria-controls="y2025" aria-selected="false" tabindex="-1">2025</button></div>
+  <div class="panel" id="y2026" role="tabpanel" aria-labelledby="t2026">
+  <div class="pair"><article class="proof"><div class="frame"><img src="https://images.unsplash.com/photo-1543487945-139a97f387d5?auto=format&fit=crop&w=1000&q=75" alt="Kinetic type poster series on a wall" width="1000" height="750" loading="lazy"></div><div class="proof__txt"><span class="tag ">Digital</span><h3>Type in Motion</h3><p>Kinetic type posters exploring rhythm and spacing, shown as looping screens in the school foyer.</p></div></article><article class="proof"><div class="frame"><img src="https://images.unsplash.com/photo-1632062549850-44a0a6eede16?auto=format&fit=crop&w=1000&q=75" alt="Open risograph zine held in a hand" width="1000" height="750" loading="lazy"></div><div class="proof__txt"><span class="tag tag--lilac">Print</span><h3>Riso Zine No. 3</h3><p>24 pages in two spot colours about the city at night.</p></div></article></div>
+  <a class="pdf" href="assets/pdf/yearly-proof-2026.pdf" download><span class="pdf__ic" aria-hidden="true">PDF</span><span><b>Download the 2026 proof</b><small>Accessible PDF with tagged headings and alt text, 1 page (sample)</small></span><span class="pdf__arrow" aria-hidden="true">↓</span></a>
+</div><div class="panel" id="y2025" role="tabpanel" aria-labelledby="t2025" hidden>
+  <div class="pair"><article class="proof"><div class="frame"><img src="https://images.unsplash.com/photo-1636247498175-d2a8d052c2b0?auto=format&fit=crop&w=1000&q=75" alt="Phone showing a museum wayfinding app" width="1000" height="750" loading="lazy"></div><div class="proof__txt"><span class="tag ">Digital</span><h3>Museum Wayfinding</h3><p>A concept app and signage that plan a 45-minute route.</p></div></article><article class="proof"><div class="frame"><img src="https://images.unsplash.com/photo-1636247499180-13285c86be9b?auto=format&fit=crop&w=1000&q=75" alt="Blue book with a bakery logo" width="1000" height="750" loading="lazy"></div><div class="proof__txt"><span class="tag tag--lilac">Print</span><h3>Bakery Identity</h3><p>Wordmark, packaging and menu cards for a neighbourhood bakery.</p></div></article></div>
+  <a class="pdf" href="assets/pdf/yearly-proof-2025.pdf" download><span class="pdf__ic" aria-hidden="true">PDF</span><span><b>Download the 2025 proof</b><small>Accessible PDF with tagged headings and alt text, 1 page (sample)</small></span><span class="pdf__arrow" aria-hidden="true">↓</span></a>
+</div>
 </div>
 </main>
-<footer class="foot"><div class="wrap"><a class="big inked" href="contact.html"><span class="l1">Say hello</span><span class="l2" aria-hidden="true">Say hello</span></a><div class="foot__in"><span>© 2026 Freja Lind, graphic design student</span><span><a href="work.html">Work</a>&nbsp;&nbsp;<a href="proofs.html">Yearly proofs</a>&nbsp;&nbsp;<a href="about.html">About</a></span></div></div></footer>
+<footer class="foot"><div class="wrap">
+  <div class="foot__big"><a class="display" href="contact.html">Let’s make <em>something.</em></a><a class="btn btn--ink" href="contact.html">Get in touch <i>→</i></a></div>
+  <div class="foot__in"><span>© 2026 Freja Lind, graphic design student in Copenhagen</span><nav aria-label="Footer"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html">About</a></nav></div>
+</div></footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>window.gsap && gsap.registerPlugin(ScrollTrigger);</script>
-<script src="assets/projects.js?v=3"></script>
-<script src="assets/site.js?v=3"></script>
+<script src="assets/projects.js?v=7"></script>
+<script src="assets/site.js?v=7"></script>
 <script>
 
-if (window.gsap && !REDUCE) {
-  gsap.fromTo('.ph .inked', {'--mx':'50px', '--my':'-20px'}, {'--mx':'6px', '--my':'4px', duration:1.3, ease:'elastic.out(1,.55)', delay:.15});
-  // each year number comes into register as you scroll to it
-  gsap.utils.toArray('.year__n .inked').forEach(n => gsap.fromTo(n, {'--mx':'60px', '--my':'24px'}, {'--mx':'6px', '--my':'4px', ease:'none', scrollTrigger:{trigger:n, start:'top 95%', end:'top 45%', scrub:true}}));
-  inView('.proof');
-}
+(function(){
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  const show = t => { tabs.forEach(x => { const on = x === t; x.setAttribute('aria-selected', String(on)); x.tabIndex = on ? 0 : -1; document.getElementById(x.getAttribute('aria-controls')).hidden = !on; });
+    const panel = document.getElementById(t.getAttribute('aria-controls'));
+    if (window.gsap && !REDUCE) gsap.fromTo(panel.querySelectorAll('.proof, .pdf'), {y:24, opacity:0}, {y:0, opacity:1, duration:.6, stagger:.08, ease:'power3.out', clearProps:'opacity,transform'});
+    window.ScrollTrigger && ScrollTrigger.refresh(); };
+  tabs.forEach((t, i) => { t.addEventListener('click', () => show(t));
+    t.addEventListener('keydown', e => { if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return; const n = tabs[(i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length]; n.focus(); show(n); }); });
+  riseIn('.ph h1 .ln>span');
+})();
 
 </script>
 </body>
