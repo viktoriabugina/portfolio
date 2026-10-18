@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About | Freja Lind</title>
+<meta name="description" content="About me: a graphic design student who loves type, print and making things move.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="About | Freja Lind">
+<meta property="og:description" content="About me: a graphic design student who loves type, print and making things move.">
+<meta name="theme-color" content="#2D4BFF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.ab{padding:clamp(36px,6vw,80px) 0 clamp(60px,8vw,100px)}
+.ab__grid{display:grid;gap:clamp(30px,5vw,70px);align-items:start}
+.ab h1{font-size:clamp(46px,8vw,120px);font-stretch:122%;margin-bottom:24px}
+.ab p{font-size:clamp(18px,1.6vw,21px);max-width:52ch}
+.ab p+p{margin-top:16px}
+.portrait{border-radius:24px;overflow:hidden;aspect-ratio:4/5;background:var(--cobalt);position:relative}
+.portrait img{width:100%;height:100%;object-fit:cover;mix-blend-mode:luminosity;opacity:.85}
+.portrait span{position:absolute;left:16px;bottom:16px;background:var(--lime);border-radius:999px;padding:6px 12px;font-weight:600;font-size:14px}
+.skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.skills .tag{font-size:15px;padding:7px 14px}
+@media (min-width:1024px){.ab__grid{grid-template-columns:1.2fr .8fr}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="ribbon" role="note"><b>Portfolio website concept</b> by Victoria V. The name, projects and images are placeholders. <a href="admin.html" style="text-decoration:underline">Try the CMS demo</a></div>
+<header class="hdr"><div class="wrap hdr__in"><a class="me" href="index.html"><i aria-hidden="true"></i>Freja Lind</a><nav class="nav" aria-label="Main"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html" aria-current="page">About</a><a href="contact.html">Contact</a></nav><button class="burger" aria-expanded="false">Menu</button></div></header>
+<nav class="drawer" aria-label="Mobile"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
+<main id="main">
+<section class="ab"><div class="wrap ab__grid">
+  <div><span class="k">About</span><h1>Hi, I’m Freja.</h1>
+    <p>Placeholder text: I’m a graphic design student who loves type, print and making things move. I work between the screen and the risograph, and I care about design that is clear first and clever second.</p>
+    <p>Placeholder text: currently in my second year, looking for an internship where I can learn from a small studio.</p>
+    <div class="skills"><span class="tag">InDesign</span><span class="tag">Illustrator</span><span class="tag">Photoshop</span><span class="tag">Figma</span><span class="tag">After Effects</span><span class="tag">Risograph</span></div>
+    <p style="margin-top:30px"><a class="btn btn--blue" href="contact.html">Get in touch</a></p></div>
+  <figure class="portrait" data-reveal><img src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?auto=format&fit=crop&w=900&q=75" alt="Placeholder image for a portrait photo"><span>Your photo here</span></figure>
+</div></section>
+</main>
+<footer class="foot"><div class="wrap"><a class="big" href="contact.html">Let’s talk</a><div class="foot__in"><span>© 2026 Freja Lind. Graphic design student.</span><span><a href="work.html">Work</a> · <a href="proofs.html">Yearly proofs</a> · <a href="about.html">About</a></span></div></div></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>window.gsap && gsap.registerPlugin(ScrollTrigger);</script>
+<script src="assets/projects.js"></script>
+<script src="assets/site.js"></script>
+<script>
+reveal();
+</script>
+</body>
+</html>
