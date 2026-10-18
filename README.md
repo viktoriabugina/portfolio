@@ -1,4 +1,4 @@
-# Victoria — Design · Code · Motion
+# BV Studio by Victoria — Design · Code · Motion
 
 Portfolio of web design, front-end and motion design work.
 
@@ -19,6 +19,7 @@ Portfolio of web design, front-end and motion design work.
 | 🎬 | [Zesta — logo animation](motion/04-zesta-logo-animation/) | Squash & stretch, shape morph, letter bounce |
 | 🎬 | [Nordhaus — logo animation](motion/05-nordhaus-logo-animation/) | Trim-path line draw, fill wipe, lockup |
 | 🎬 | [Petalé — logo animation](motion/06-petale-logo-animation/) | Petal bloom with overshoot, swash draw |
+| ✦ | [BV Studio — own brand identity](brand/bv-studio/) + [logo animation](motion/07-bv-studio-logo-animation/) | Monoline monogram, lockup, app icon, trim-path draw |
 
 Trained in UX/UI & landing pages, HTML/CSS/JS front-end and motion design in After Effects with practicing freelance mentors.
 
@@ -43,4 +44,4 @@ Your sites will be live at `https://<your-username>.github.io/portfolio/` (opens
 Each motion folder has `02_Scripts/build_project.jsx`. Run it in After Effects (File → Scripts → Run Script File…) —
 it builds the full project, saves the `.aep` into `01_Project/` and queues the render to `06_Renders/`.
 
-*All brands are fictional; projects are created for the portfolio.*
+*BV Studio is my own brand; all other brands are fictional and created for the portfolio.*

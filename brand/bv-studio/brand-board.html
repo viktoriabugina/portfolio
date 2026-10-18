@@ -1,0 +1,33 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>BV Studio — Brand Board</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600&family=DM+Sans:wght@400;500&display=swap">
+<style>
+:root{--ink:#0f0e0e;--cream:#f4ede4;--peach:#e8b4a0;--mute:#9c948b}
+*{box-sizing:border-box}html,body{margin:0;width:1600px;height:1200px;overflow:hidden;background:var(--ink);color:var(--cream);font-family:"DM Sans",sans-serif}
+.board{position:absolute;inset:56px;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 330px;gap:24px}
+.card{border-radius:28px;background:#181616;position:relative;overflow:hidden;display:grid;place-items:center}
+.hero{grid-column:1/-1;background:radial-gradient(circle at 28% 50%,rgba(232,180,160,.18),rgba(232,180,160,0) 45%),#141212}
+.lock{display:flex;align-items:center;gap:44px}
+.lock svg{width:300px;height:250px}
+.w{font-family:Unbounded;font-weight:600;font-size:112px;letter-spacing:-.03em;line-height:1}
+.by{display:flex;align-items:center;gap:18px;margin-top:20px;font-size:28px;letter-spacing:.32em;color:var(--mute);text-transform:uppercase}
+.by i{width:60px;height:3px;background:var(--peach)}.by b{font-weight:500;color:var(--cream)}
+.lab{position:absolute;left:28px;top:24px;font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+.light{background:var(--cream)}.light .lab{color:#8a8178}
+.light .mini{display:flex;align-items:center;gap:18px;color:var(--ink)}
+.light .mini svg{width:110px;height:92px}
+.light .mini div{font-family:Unbounded;font-weight:600;font-size:40px;letter-spacing:-.03em}
+.icon svg{width:170px;height:170px;filter:drop-shadow(0 20px 40px rgba(232,180,160,.25))}
+.pal{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:84%;margin-top:30px}
+.sw{height:150px;border-radius:18px;padding:14px;display:flex;flex-direction:column;justify-content:flex-end;font-size:14px;letter-spacing:.06em}
+.sw b{font-family:Unbounded;font-weight:600;font-size:16px;letter-spacing:0;margin-bottom:4px}
+</style></head><body><div class="board">
+<div class="card hero"><span class="lab">Logo · primary lockup</span>
+ <div class="lock"><svg viewBox="0 0 120 100" fill="none" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10V88" stroke="#f4ede4"/><circle cx="44" cy="64" r="24" stroke="#f4ede4"/><path d="M62 40L81 88L100 40" stroke="#e8b4a0"/></svg>
+ <div><div class="w">bv studio</div><div class="by"><i></i><span>by <b>Victoria</b></span></div></div></div></div>
+<div class="card icon"><span class="lab">App icon · favicon</span>
+ <svg viewBox="0 0 100 100"><rect width="100" height="100" rx="26" fill="#e8b4a0"/><g fill="none" stroke="#0f0e0e" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"><path d="M22 20V74"/><circle cx="38" cy="58" r="16"/><path d="M58 42L69 74L80 42"/></g></svg></div>
+<div class="card light"><span class="lab">On light</span>
+ <div class="mini"><svg viewBox="0 0 120 100" fill="none" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10V88" stroke="#0f0e0e"/><circle cx="44" cy="64" r="24" stroke="#0f0e0e"/><path d="M62 40L81 88L100 40" stroke="#c98e7a"/></svg><div>bv studio</div></div></div>
+<div class="card"><span class="lab">Palette · Unbounded + DM Sans</span>
+ <div class="pal"><div class="sw" style="background:#0f0e0e;border:1px solid #2a2626"><b>Ink</b>#0F0E0E</div><div class="sw" style="background:#f4ede4;color:#0f0e0e"><b>Cream</b>#F4EDE4</div><div class="sw" style="background:#e8b4a0;color:#0f0e0e"><b>Peach</b>#E8B4A0</div></div></div>
+</div></body></html>

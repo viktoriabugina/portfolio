@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>BV Studio — Logo Animation</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600&family=DM+Sans:wght@500&display=swap">
+<style>
+/* BV Studio by Victoria — monoline monogram: trim-path draw, overshoot on the "v", lockup with wordmark */
+:root{--ink:#0f0e0e;--cream:#f4ede4;--peach:#e8b4a0;--mute:#9c948b}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:var(--ink);color:var(--cream)}
+.stage{position:absolute;inset:0}
+.glow{position:absolute;left:960px;top:540px;width:900px;height:900px;margin:-450px 0 0 -450px;border-radius:50%;
+  background:radial-gradient(circle,rgba(232,180,160,.22),rgba(232,180,160,0) 62%);opacity:0}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(244,237,228,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(244,237,228,.04) 1px,transparent 1px);background-size:120px 120px;background-position:0 60px}
+.lock{position:absolute;left:0;top:0;display:flex;align-items:center;gap:56px}
+.mark{width:384px;height:320px;overflow:visible}
+.mark *{fill:none;stroke-width:13;stroke-linecap:round;stroke-linejoin:round}
+.txt{display:flex;flex-direction:column}
+.word{font-family:Unbounded,system-ui,sans-serif;font-weight:600;font-size:132px;letter-spacing:-.03em;line-height:1;white-space:nowrap;overflow:hidden;padding-bottom:.08em}
+.word span{display:inline-block}
+.by{display:flex;align-items:center;gap:22px;margin-top:22px;font-family:"DM Sans",system-ui,sans-serif;font-weight:500;font-size:34px;letter-spacing:.32em;color:var(--mute);text-transform:uppercase;white-space:nowrap}
+.by i{display:block;width:72px;height:3px;background:var(--peach);transform-origin:left}
+.by b{font-weight:500;color:var(--cream)}
+.dot{position:absolute;width:26px;height:26px;border-radius:50%;background:var(--peach)}
+</style></head>
+<body>
+<div class="stage" id="stage">
+  <div class="grid"></div>
+  <div class="glow" id="glow"></div>
+  <div class="lock" id="lock">
+    <svg class="mark" id="mark" viewBox="0 0 120 100">
+      <path id="stem" d="M20 10V88" stroke="#f4ede4" pathLength="1"/>
+      <circle id="bowl" cx="44" cy="64" r="24" stroke="#f4ede4" pathLength="1" transform="rotate(180 44 64)"/>
+      <g id="vg"><path id="v" d="M62 40L81 88L100 40" stroke="#e8b4a0" pathLength="1"/></g>
+    </svg>
+    <div class="txt" id="txt">
+      <div class="word" id="word"><span>b</span><span>v</span><span>&nbsp;</span><span>s</span><span>t</span><span>u</span><span>d</span><span>i</span><span>o</span></div>
+      <div class="by" id="by"><i id="rule"></i><span>by <b>Victoria</b></span></div>
+    </div>
+  </div>
+  <div class="dot" id="dot"></div>
+</div>
+<script>
+function build(){
+  const lock=document.getElementById('lock'), mark=document.getElementById('mark');
+  gsap.set(lock,{x:0,y:0,scale:1});
+  const W=lock.offsetWidth, H=lock.offsetHeight, mW=mark.getBoundingClientRect().width;
+  const finalX=(1920-W)/2, finalY=(1080-H)/2;
+  // start: mark alone, centred and larger
+  const startX=960-mW/2;
+  gsap.set(lock,{x:startX,y:finalY,transformOrigin:(mW/2)+'px 50%'});
+  gsap.set(['#stem','#bowl','#v'],{strokeDasharray:'1 1',strokeDashoffset:1,opacity:0});
+  gsap.set('#vg',{transformOrigin:'81px 88px'});
+  gsap.set('#dot',{x:960-13,y:-60});
+  const tl=gsap.timeline({paused:true});
+  tl.set('#txt',{opacity:0},0)
+    .fromTo(lock,{scale:1.25},{scale:1.25,duration:.01},0)
+    // a peach dot drops in and becomes the start of the stem
+    .fromTo('#dot',{y:-60,scale:1},{y:finalY+(10/100)*320*1.25-13-30,duration:.5,ease:'power2.in',immediateRender:false},.1)
+    .to('#dot',{scaleY:.6,scaleX:1.35,duration:.08,ease:'power1.out'},.6)
+    .to('#dot',{scale:0,duration:.15},.66)
+    .set('#stem',{opacity:1},.62)
+    .to('#stem',{strokeDashoffset:0,duration:.55,ease:'power3.inOut'},.62)
+    .set('#bowl',{opacity:1},1.0)
+    .to('#bowl',{strokeDashoffset:0,duration:.75,ease:'power3.inOut'},1.0)
+    .to('#glow',{opacity:1,duration:1.2,ease:'sine.out'},1.2)
+    .set('#v',{opacity:1},1.45)
+    .to('#v',{strokeDashoffset:0,duration:.6,ease:'power2.inOut'},1.45)
+    .fromTo('#vg',{scaleY:1},{keyframes:[{scaleY:.82,scaleX:1.08,duration:.12,ease:'power1.out'},{scaleY:1.06,scaleX:.97,duration:.18,ease:'power1.inOut'},{scaleY:1,scaleX:1,duration:.3,ease:'back.out(3)'}],immediateRender:false},2.0)
+    // lockup: mark settles to the left, wordmark rises in
+    .to(lock,{x:finalX,scale:1,duration:1.0,ease:'expo.inOut'},2.55)
+    .set('#txt',{opacity:1},2.95)
+    .from('#word span',{yPercent:110,rotate:6,duration:.7,stagger:.045,ease:'back.out(1.8)'},2.95)
+    .from('#rule',{scaleX:0,duration:.6,ease:'expo.out'},3.45)
+    .from('#by span',{opacity:0,letterSpacing:'.9em',duration:.9,ease:'expo.out'},3.5)
+    .to('#stage',{scale:1.03,duration:2.4,ease:'sine.inOut'},4.0)
+    .to('#glow',{x:-260,duration:2.4,ease:'sine.inOut'},3.0);
+  window.TL=tl; window.DUR=6.5;
+}
+window.BUILD=build;
+if(!window.__RENDER) document.fonts.ready.then(()=>{build(); window.TL.repeat(-1).repeatDelay(.8).play();});
+</script>
+</body></html>

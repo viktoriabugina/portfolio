@@ -36,7 +36,22 @@ em { font-style: italic; }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: #6BD99A; box-shadow: 0 0 0 4px rgba(#6BD99A, .2); animation: blink 2s infinite; }
 @keyframes blink { 50% { opacity: .4; } }
 
-.logo { font-family: $display; font-weight: 800; font-size: 20px; span { color: $blush; } }
+.logo { display: inline-flex; align-items: center; gap: 10px; flex: none; color: $cream;
+  &__mark { width: 40px; height: 34px; flex: none; overflow: visible;
+    path, circle { fill: none; stroke-width: 13; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 1; stroke-dashoffset: 1; animation: logo-draw .7s cubic-bezier(.65,0,.35,1) forwards; }
+    .s1, .s2 { stroke: $cream; }
+    .s1 { animation-delay: .15s; }
+    .s2 { animation-delay: .45s; animation-duration: .8s; }
+    .s3 { stroke: $blush; animation-delay: .85s; transform-origin: 81px 88px; transform-box: view-box; }
+  }
+  &__text { display: flex; flex-direction: column; line-height: 1; white-space: nowrap;
+    b { font-family: $display; font-weight: 600; font-size: 18px; letter-spacing: -.02em; }
+    small { font-size: 10px; letter-spacing: .28em; text-transform: uppercase; color: $muted; margin-top: 5px; }
+  }
+  &:hover .s3 { stroke-dashoffset: 0; animation: logo-bounce .6s cubic-bezier(.3,1.6,.5,1); }
+}
+@keyframes logo-draw { to { stroke-dashoffset: 0; } }
+@keyframes logo-bounce { 0% { transform: scale(1); } 30% { transform: scale(1.08, .82); } 100% { transform: scale(1); } }
 
 // Header
 .header {
@@ -181,6 +196,7 @@ em { font-style: italic; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
+  .logo__mark path, .logo__mark circle { stroke-dashoffset: 0; }
   .hero__line, [data-reveal] { opacity: 1; transform: none; }
 }
 
