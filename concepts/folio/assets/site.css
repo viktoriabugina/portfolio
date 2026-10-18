@@ -34,10 +34,13 @@ h1,h2,h3{font-family:var(--display);font-weight:800;font-stretch:112%;letter-spa
 .nav a:hover{background:var(--bone)}
 .nav a[aria-current="page"]{background:var(--ink);color:#fff}
 .burger{border:1.5px solid var(--ink);background:none;border-radius:999px;padding:8px 16px;font-weight:600;cursor:pointer}
-.drawer{position:fixed;inset:0;z-index:35;background:var(--cobalt);color:#fff;padding:120px var(--gut) 40px;display:flex;flex-direction:column;transform:translateY(-100%);transition:transform .6s cubic-bezier(.65,0,.35,1);visibility:hidden}
+.drawer{position:fixed;inset:0;z-index:35;background:var(--cobalt);color:#fff;padding:170px var(--gut) 40px;display:flex;flex-direction:column;transform:translateY(-100%);transition:transform .6s cubic-bezier(.65,0,.35,1);visibility:hidden}
 .menu-open .drawer{transform:none;visibility:visible}
 .drawer a{font-family:var(--display);font-weight:800;font-stretch:112%;font-size:clamp(40px,11vw,72px);letter-spacing:-.03em;line-height:1.1}
 .menu-open{overflow:hidden}
+.menu-open .hdr{background:var(--cobalt);color:#fff;border-color:transparent}
+.menu-open .me i{background:var(--lime)}
+.menu-open .burger{border-color:#fff}
 @media (min-width:900px){.nav{display:flex}.burger,.drawer{display:none}}
 
 .foot{padding:50px 0 30px;border-top:1px solid var(--line);margin-top:20px}

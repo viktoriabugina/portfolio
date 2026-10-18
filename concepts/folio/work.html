@@ -18,6 +18,8 @@
 .ph h1{font-size:clamp(56px,11vw,170px);font-stretch:125%}
 .ph sup{font-size:.25em;vertical-align:top;color:var(--cobalt);letter-spacing:0}
 .filt{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 28px}
+.filt::-webkit-scrollbar{display:none}
+@media (max-width:639px){.filt{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(var(--gut)*-1);padding-inline:var(--gut)}.filt button{flex:none}}
 .filt button{border:1.5px solid var(--line);background:var(--white);border-radius:999px;padding:8px 16px;font-weight:600;cursor:pointer;transition:all .25s}
 .filt button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
 .grid{display:grid;gap:clamp(18px,2.4vw,30px);padding-bottom:clamp(60px,8vw,100px)}
