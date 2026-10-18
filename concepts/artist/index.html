@@ -75,6 +75,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(23,20,39,.55),transparent 30%,transparent 55%,rgba(23,20,39,.95)),linear-gradient(90deg,rgba(23,20,39,.7),transparent 55%);pointer-events:none}
 .hero__in{height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:clamp(30px,5vw,60px)}
 .hero h1{font-size:clamp(70px,13vw,210px);line-height:.86}
+@media (max-width:700px){.hero__img img{object-position:58% 12%}}
 .hero h1 .ln{display:block;overflow:hidden;padding-bottom:.05em}
 .hero h1 .ln>span{display:inline-block}
 .hero h1 .ln:nth-child(2){padding-left:clamp(0px,8vw,130px)}
@@ -456,8 +457,8 @@ form{display:grid;gap:18px;background:var(--dusk);border-radius:26px;padding:cla
   /* ---------- the spotlight: follows the cursor, wanders on touch screens ---------- */
   const hero = document.querySelector('.hero');
   if (!reduce && window.gsap) {
-    const pos = {x:62, y:38}; const apply = () => { hero.style.setProperty('--x', pos.x + '%'); hero.style.setProperty('--y', pos.y + '%'); };
-    let wander = gsap.to(pos, {keyframes:[{x:45, y:30}, {x:70, y:46}, {x:56, y:26}, {x:62, y:38}], duration:12, repeat:-1, ease:'sine.inOut', onUpdate:apply});
+    const mob = innerWidth < 700, pos = mob ? {x:55, y:26} : {x:62, y:38}; const apply = () => { hero.style.setProperty('--x', pos.x + '%'); hero.style.setProperty('--y', pos.y + '%'); };
+    let wander = gsap.to(pos, {keyframes:mob ? [{x:45, y:22}, {x:62, y:32}, {x:52, y:18}, {x:55, y:26}] : [{x:45, y:30}, {x:70, y:46}, {x:56, y:26}, {x:62, y:38}], duration:12, repeat:-1, ease:'sine.inOut', onUpdate:apply});
     if (matchMedia('(hover:hover) and (pointer:fine)').matches) {
       hero.addEventListener('pointermove', e => { wander.pause(); const r = hero.getBoundingClientRect();
         gsap.to(pos, {x:(e.clientX - r.left) / r.width * 100, y:(e.clientY - r.top) / r.height * 100, duration:.6, ease:'power3.out', onUpdate:apply}); });
