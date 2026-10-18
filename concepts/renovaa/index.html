@@ -75,9 +75,10 @@ h3{font-size:clamp(19px,1.6vw,22px);letter-spacing:-.02em;line-height:1.2}
 .header{position:sticky;top:0;z-index:40;background:rgba(251,248,251,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
 .header.is-scrolled{border-color:var(--line)}
 .header__in{display:flex;align-items:center;gap:20px;height:72px}
+.logo{margin-right:auto}
 .logo img{height:22px;width:auto}
 .nav{display:none}
-.header .btn{min-height:44px;padding:0 20px;font-size:15px;margin-left:auto}
+.header .btn{min-height:44px;padding:0 20px;font-size:15px}
 .burger{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center;cursor:pointer;flex:none}
 .burger span,.burger span::before,.burger span::after{display:block;width:16px;height:1.5px;background:var(--ink);position:relative;transition:transform .3s,background .3s}
 .burger span::before,.burger span::after{content:"";position:absolute;left:0}
@@ -90,7 +91,7 @@ h3{font-size:clamp(19px,1.6vw,22px);letter-spacing:-.02em;line-height:1.2}
 .drawer a{font-family:var(--display);font-weight:700;font-size:34px;letter-spacing:-.03em;padding:6px 0}
 @media (max-width:539px){.header .btn{display:none}}
 @media (min-width:1024px){
-  .nav{display:flex;gap:30px;margin-left:auto;font-size:15px;font-weight:500;color:var(--muted)}
+  .nav{display:flex;gap:30px;font-size:15px;font-weight:500;color:var(--muted)}
   .nav a{transition:color .2s}.nav a:hover{color:var(--plum)}
   .header .btn{margin-left:8px}
   .burger,.drawer{display:none}
