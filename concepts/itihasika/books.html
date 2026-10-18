@@ -3,236 +3,185 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Indian History Books for Kids Ages 3 to 13 | Itihasika</title>
-<meta name="description" content="Illustrated books on Indian history, the Ramayana, the Mahabharata, the Bhagavad Gita and Hindu dharma for kids ages 3 to 13. Paperback, Kindle and PDF.">
+<title>Books for kids on Indian history and heritage | Itihasika</title>
+<meta name="description" content="Illustrated books that introduce children ages 3 to 13 to the heroes, thinkers, festivals and epics of India. Paperback, Kindle and PDF.">
 <meta name="robots" content="noindex, nofollow">
-<meta property="og:title" content="Indian History Books for Kids Ages 3 to 13 | Itihasika">
-<meta property="og:description" content="Illustrated books on Indian history, the Ramayana, the Mahabharata, the Bhagavad Gita and Hindu dharma for kids ages 3 to 13. Paperback, Kindle and PDF.">
+<meta property="og:title" content="Books for kids on Indian history and heritage | Itihasika">
+<meta property="og:description" content="Illustrated books that introduce children ages 3 to 13 to the heroes, thinkers, festivals and epics of India. Paperback, Kindle and PDF.">
 <meta property="og:image" content="https://www.itihasika.com/wp-content/uploads/2025/11/books-1.jpg">
-<meta name="theme-color" content="#FAF3E2">
+<meta name="theme-color" content="#121A2C">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Rozha+One&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css">
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600;700;800&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=4">
 <style>
-.b-hero{padding:clamp(40px,7vw,90px) 0 clamp(30px,4vw,50px)}
-.b-hero__top{display:grid;gap:24px;align-items:end}
-.b-hero h1{font-size:clamp(42px,7vw,104px);margin-top:20px}
-.b-hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
-.b-hero h1 .ln>span{display:inline-block}
-.b-hero .sub{margin-top:8px}
-@media (min-width:1024px){.b-hero__top{grid-template-columns:1.3fr .7fr}}
-.banner{margin-top:clamp(30px,5vw,56px);border-radius:28px;overflow:hidden;border:1.5px solid var(--ink);aspect-ratio:1800/731;background:var(--paper-deep)}
-.banner img{width:100%;height:100%;object-fit:cover}
-
-/* filter */
-.shelfbar{position:sticky;top:72px;z-index:20;background:rgba(250,243,226,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-block:1px solid var(--line)}
-.shelfbar__in{display:flex;align-items:center;gap:14px;min-height:64px;overflow-x:auto;scrollbar-width:none}
-.shelfbar__in::-webkit-scrollbar{display:none}
-.shelfbar .lbl{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);white-space:nowrap}
-.chip{border:1.5px solid var(--ink);background:transparent;border-radius:99px;padding:8px 16px;font-weight:600;font-size:15px;cursor:pointer;white-space:nowrap;transition:background .3s,color .3s}
-.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-@media (max-width:600px){.shelfbar .lbl,.shelfbar .count{display:none}.chip{padding:8px 13px;font-size:14px}}
-.shelfbar .count{margin-left:auto;font-family:var(--f-mono);font-size:12px;color:var(--ink-soft);white-space:nowrap}
-
-/* series */
-.series{padding:clamp(60px,8vw,110px) 0 0}
-.series:last-of-type{padding-bottom:clamp(70px,9vw,120px)}
-.series__head{display:grid;gap:12px;margin-bottom:clamp(30px,4vw,48px);position:relative}
-.series__head .age{font-family:var(--f-mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--peacock)}
-.series__head h2{font-size:clamp(34px,4.6vw,64px)}
-.series__head p{color:var(--ink-soft)}
-.series__head .wm{position:absolute;right:0;top:-30px;font-family:var(--f-deva);font-size:clamp(90px,14vw,190px);line-height:1;color:rgba(222,58,27,.1);pointer-events:none}
-.grid{display:grid;gap:clamp(18px,2.4vw,28px)}
-@media (min-width:600px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media (min-width:1024px){.grid--3{grid-template-columns:repeat(3,1fr)}.grid--4{grid-template-columns:repeat(4,1fr)}}
-.book{display:flex;flex-direction:column;border:1.5px solid var(--ink);border-radius:24px;background:#fff;overflow:hidden;transition:box-shadow .4s var(--ease),transform .4s var(--ease)}
-.book:hover{box-shadow:8px 8px 0 var(--ink);transform:translate(-3px,-3px)}
-.book.is-hidden{display:none}
-.book__cover{position:relative;background:var(--paper-deep);aspect-ratio:1015/760;perspective:900px;overflow:hidden;border-bottom:1.5px solid var(--ink)}
-.book__cover img{width:100%;height:100%;object-fit:contain;padding:14px;transition:transform .6s var(--ease);transform-style:preserve-3d}
-.book__age{position:absolute;left:12px;top:12px;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:var(--paper);border:1.5px solid var(--ink);border-radius:99px;padding:4px 10px}
-.book__body{display:flex;flex-direction:column;gap:8px;padding:20px 20px 22px;flex:1}
-.book h3{font-size:clamp(22px,1.9vw,26px);line-height:1.15}
-.book p{color:var(--ink-soft);font-size:15.5px}
-.formats{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
-.formats span{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;border:1px solid var(--line);border-radius:6px;padding:3px 7px;color:var(--ink-soft)}
-.book__foot{margin-top:auto;padding-top:14px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.book__foot .from{font-family:var(--f-display);font-size:20px}
-.book__foot .from small{font-family:var(--f-body);font-size:13px;color:var(--ink-soft)}
-.book .btn{min-height:44px;padding:0 18px;font-size:15px}
-
-/* picker */
-.picker{background:var(--peacock);color:var(--paper);padding:clamp(70px,9vw,120px) 0}
-.picker__grid{display:grid;gap:30px;align-items:center}
-.picker .eyebrow{color:var(--turmeric)}
-.picker h2{margin-top:16px}
-.picker h2 em{color:var(--turmeric)}
-.ages{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
-.ages button{border:1.5px solid rgba(250,243,226,.5);background:transparent;color:var(--paper);border-radius:99px;padding:10px 18px;font-weight:600;cursor:pointer;transition:background .3s,color .3s}
-.ages button[aria-pressed="true"]{background:var(--paper);color:var(--peacock);border-color:var(--paper)}
-.pick{background:var(--paper);color:var(--ink);border-radius:24px;padding:20px;display:grid;grid-template-columns:120px 1fr;gap:18px;align-items:center;min-height:170px}
-.pick img{border-radius:12px;background:var(--paper-deep);aspect-ratio:1015/760;object-fit:contain;width:100%}
-.pick .stage{font-family:var(--f-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sindoor)}
-.pick h3{font-size:24px;margin:4px 0 6px}
-.pick p{color:var(--ink-soft);font-size:15px}
-.pick a{display:inline-block;margin-top:8px;font-weight:600;border-bottom:1.5px solid var(--sindoor)}
-@media (min-width:1024px){.picker__grid{grid-template-columns:1fr 1fr}}
-@media (max-width:420px){.pick{grid-template-columns:1fr}}
+.hero{background:radial-gradient(ellipse at 75% 55%,#3A2A1E 0%,#1A1A22 55%,#0E1220 100%)}
+.hero::after{background:radial-gradient(ellipse at 20% 50%,rgba(10,10,14,.55),transparent 60%)}
+.hero__grid{display:grid;gap:30px;align-items:center}
+.fan{position:relative;height:clamp(260px,34vw,440px);perspective:1200px}
+.fan img{position:absolute;left:50%;top:50%;width:62%;max-width:440px;transform-origin:50% 120%;filter:drop-shadow(0 30px 30px rgba(0,0,0,.5))}
+.fan .glow{position:absolute;inset:15% 10%;border-radius:50%;background:radial-gradient(circle,rgba(245,197,55,.35),transparent 65%);filter:blur(10px)}
+@media (min-width:1000px){.hero__grid{grid-template-columns:1.05fr .95fr}}
+@media (max-width:999px){.hero__in{padding-bottom:30px}.fan{order:2}}
+.filter{position:sticky;top:76px;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.filter__in{display:flex;align-items:center;gap:8px;padding:12px 0;overflow-x:auto;scrollbar-width:none}
+.filter__in::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 18px;font-weight:600;font-size:13.5px;cursor:pointer;transition:background .2s,border-color .2s}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--yellow);border-color:var(--yellow)}
+.count{margin-left:auto;flex:none;font-size:13px;color:var(--mute)}
+.series .head{justify-items:center}
+.picker__grid{display:grid;gap:clamp(30px,5vw,60px);align-items:center}
+.ages{display:inline-flex;flex-wrap:wrap;gap:0;background:#fff;border-radius:999px;padding:5px;margin-top:26px;box-shadow:var(--shadow)}
+.ages button{border:0;background:none;border-radius:999px;padding:10px 20px;font-weight:600;font-size:14px;cursor:pointer;transition:background .25s}
+.ages button[aria-pressed="true"]{background:var(--yellow)}
+.pick{display:grid;gap:20px;align-items:center;padding:26px}
+.pick img{width:100%;max-width:340px;margin:0 auto;filter:drop-shadow(0 18px 18px rgba(0,0,0,.18))}
+.pick .stage{display:inline-block;background:var(--blue);color:#fff;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:4px 12px}
+.pick h3{font-family:var(--f-serif);font-weight:600;font-size:26px;margin:10px 0 6px}
+.pick p{color:var(--soft);font-size:15px;margin-bottom:16px}
+@media (min-width:640px){.pick{grid-template-columns:1fr 1fr}}
+@media (min-width:1000px){.picker__grid{grid-template-columns:.9fr 1.1fr}}
 </style>
 </head>
 <body>
-<div class="ribbon" role="note"><b>Redesign concept</b> for Itihasika by Victoria V. Not the official website. <a href="index.html">All concept pages</a></div>
-<header class="nav">
-  <div class="wrap nav__in">
-    <a class="brand" href="https://www.itihasika.com/" aria-label="Itihasika home"><span class="deva">इ</span><span class="latin">Itihasika</span></a>
-    <nav class="nav__links" aria-label="Main"><a href="https://www.itihasika.com/">Home</a><a href="about.html">About us</a><a href="books.html" aria-current="page">Books</a><a href="https://www.itihasika.com/movies/">Movies</a><a href="https://www.itihasika.com/courses/">Courses</a><a href="https://www.itihasika.com/time-travel/">Time travel</a><a href="https://www.itihasika.com/contact-us/">Contact us</a></nav>
-    <div class="store" aria-label="Store"><a class="on" href="#">IN</a><a href="#">US</a></div>
-    <a class="cart" href="https://www.itihasika.com/cart/">Cart 0</a>
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="logo" href="index.html" aria-label="Itihasika concept pages"><img src="https://itihasika.com/wp-content/uploads/2018/12/Itihasika-logo-footer-e1558525365471.png" alt="Itihasika" width="92" height="60"><b>TV</b></a>
+    <div class="pill">
+      <nav aria-label="Main"><a href="books.html" aria-current="page">Books</a><a href="https://www.itihasika.com/movies/">Films</a><a href="https://www.itihasika.com/courses/">Courses</a><a href="https://www.itihasika.com/time-travel/">Time travel</a><a href="about.html">About</a><a href="https://www.itihasika.com/">Pricing</a><a href="https://www.itihasika.com/">🎁 Gift membership</a></nav>
+      <div class="social"><a class="s-yt" href="https://www.youtube.com/@itihasika" aria-label="Itihasika on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 7.5v9l7.5-4.5z"/></svg></a><a class="s-ig" href="https://www.instagram.com/itihasika/" aria-label="Itihasika on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2zM17.3 5.5a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zM12 2c-2.7 0-3 0-4.1.1C4 2.3 2.3 4 2.1 7.9 2 9 2 9.3 2 12s0 3 .1 4.1c.2 3.9 1.9 5.6 5.8 5.8 1.1.1 1.4.1 4.1.1s3 0 4.1-.1c3.9-.2 5.6-1.9 5.8-5.8.1-1.1.1-1.4.1-4.1s0-3-.1-4.1C21.7 4 20 2.3 16.1 2.1 15 2 14.7 2 12 2z"/></svg></a><a class="s-x" href="https://x.com/itihasika" aria-label="Itihasika on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 3h3l-6.6 7.6L22 21h-6.1l-4.8-6.2L5.6 21h-3l7.1-8.1L2.2 3h6.2l4.3 5.7zm-1 16.2h1.7L7.3 4.7H5.5z"/></svg></a></div>
+      <a class="btn btn--yellow" href="https://www.itihasika.com/contact-us/">Contact us</a>
+    </div>
     <button class="burger" aria-label="Open menu" aria-expanded="false"><span><i></i><i></i><i></i></span></button>
   </div>
 </header>
-<nav class="menu" aria-label="Mobile"><a href="https://www.itihasika.com/">Home</a><a href="about.html">About us</a><a href="books.html">Books</a><a href="https://www.itihasika.com/movies/">Movies</a><a href="https://www.itihasika.com/courses/">Courses</a><a href="https://www.itihasika.com/time-travel/">Time travel</a><a href="https://www.itihasika.com/contact-us/">Contact us</a><span class="wm" aria-hidden="true">इ</span></nav>
-<main>
-<section class="b-hero">
-  <div class="wrap">
-    <div class="b-hero__top">
+<nav class="menu" aria-label="Mobile"><a href="books.html" aria-current="page">Books</a><a href="https://www.itihasika.com/movies/">Films</a><a href="https://www.itihasika.com/courses/">Courses</a><a href="https://www.itihasika.com/time-travel/">Time travel</a><a href="about.html">About</a><a href="https://www.itihasika.com/">Pricing</a><a href="https://www.itihasika.com/">🎁 Gift membership</a><a class="btn btn--yellow" href="https://www.itihasika.com/contact-us/">Contact us</a></nav>
+<main id="main">
+<section class="hero" aria-labelledby="hero-title">
+  <div class="wrap hero__in">
+    <div class="hero__grid">
       <div>
-        <p class="eyebrow"><span class="deva-n">पुस्तकालय</span> The library</p>
-        <h1 aria-label="Books that build character.">
-          <span class="ln"><span>Books that build</span></span>
-          <span class="ln"><span><em>character.</em></span></span>
-        </h1>
+        <span class="label" style="color:var(--yellow)">The library</span>
+        <h1 class="hero-type" id="hero-title" style="margin-top:18px" aria-label="Stories that build character for curious minds."><span class="ln"><span>Stories that build</span></span><span class="ln"><span><span class="y">character</span> for</span></span><span class="ln"><span><span class="y">curious</span> minds.</span></span></h1>
+        <p class="lead">Illustrated books that introduce children ages 3 to 13 to the heroes, thinkers, festivals and epics of India. In paperback, Kindle and PDF.</p>
+        <div class="hero__cta"><a class="btn btn--yellow" href="#picker">Find the right book</a><a class="btn btn--white" href="#s1" data-jump="young">Ages 3 to 7</a><a class="btn btn--white" href="#s2" data-jump="older">Ages 7 to 13</a></div>
+        <div class="stats"><div><b>10</b><span>Books</span></div><div><b>3,000+</b><span>Books sold</span></div><div><b>3</b><span>Formats</span></div></div>
       </div>
-      <p class="sub rv">Illustrated books that introduce children ages 3 to 13 to the heroes, thinkers, festivals and epics of India. In paperback, Kindle and PDF.</p>
+      <div class="fan" id="fan" aria-hidden="true"><span class="glow"></span><img src="https://www.itihasika.com/wp-content/uploads/2025/06/History-of-India-for-Curious-kids.png" alt="" width="1015" height="760"><img src="https://www.itihasika.com/wp-content/uploads/2025/06/My-Ramayana.png" alt="" width="1015" height="760"><img src="https://www.itihasika.com/wp-content/uploads/2025/06/My-Mahabharata.png" alt="" width="1015" height="760"><img src="https://www.itihasika.com/wp-content/uploads/2025/06/Bhagavad-Gita-for-Kids.png" alt="" width="1015" height="760"><img src="https://www.itihasika.com/wp-content/uploads/2025/06/ABC-of-Indian-history.png" alt="" width="1015" height="760"></div>
     </div>
-    <div class="banner"><img src="https://www.itihasika.com/wp-content/uploads/2025/11/books-1.jpg" alt="Itihasika books for children laid out together" width="1800" height="731"></div>
   </div>
 </section>
 
-<div class="marquee" aria-hidden="true">
-  <div class="marquee__track"><span><b>इतिहास</b> <i>◆</i> History <i>◆</i> <b>धरोहर</b> <i>◆</i> Heritage <i>◆</i> <b>कथा</b> <i>◆</i> Stories <i>◆</i> <b>धर्म</b> <i>◆</i> Dharma <i>◆</i></span><span><b>इतिहास</b> <i>◆</i> History <i>◆</i> <b>धरोहर</b> <i>◆</i> Heritage <i>◆</i> <b>कथा</b> <i>◆</i> Stories <i>◆</i> <b>धर्म</b> <i>◆</i> Dharma <i>◆</i></span></div>
-</div>
+<div class="filter"><div class="wrap filter__in" role="group" aria-label="Filter books by age">
+  <button class="chip" data-f="all" aria-pressed="true">All books</button><button class="chip" data-f="young" aria-pressed="false">Ages 3 to 7</button><button class="chip" data-f="older" aria-pressed="false">Ages 7 to 13</button>
+  <span class="count" id="count" aria-live="polite">10 books</span>
+</div></div>
 
-<div class="shelfbar">
-  <div class="wrap shelfbar__in" role="group" aria-label="Filter books by age">
-    <span class="lbl">Show</span>
-    <button class="chip" data-f="all" aria-pressed="true">All books</button>
-    <button class="chip" data-f="young" aria-pressed="false">Ages 3 to 7</button>
-    <button class="chip" data-f="older" aria-pressed="false">Ages 7 to 13</button>
-    <span class="count" id="count" aria-live="polite">10 books</span>
-  </div>
-</div>
-
-<section class="series" data-group="young" aria-labelledby="s1">
+<section class="sec sec--grey series" data-group="young" aria-labelledby="s1" id="young">
   <div class="wrap">
-    <div class="series__head">
-      <span class="wm" aria-hidden="true">क</span>
-      <span class="age rv">For toddlers: ages 3 to 7</span>
-      <h2 class="rv" data-d="1" id="s1">ABCs of history and heritage</h2>
-      <p class="rv" data-d="2">Build a strong foundation.</p>
-    </div>
-    <div class="grid grid--3">
-      <article class="book rv" data-age="young"><a class="book__cover" href="book.html"><img src="https://www.itihasika.com/wp-content/uploads/2025/06/ABC-of-Indian-history.png" alt="Cover of ABC Activity Book of Indian history" width="1015" height="760" loading="lazy"><span class="book__age">Ages 3–7</span></a>
-        <div class="book__body"><h3>ABC Activity Book of Indian history</h3><p>This engaging alphabet book introduces children ages 3 to 7 to heroes of Indian history.</p><div class="formats"><span>Paperback</span><span>Kindle</span><span>PDF</span></div><div class="book__foot"><span class="from"><small>from </small>$3.99</span><a class="btn btn--solid" href="book.html">Buy now</a></div></div></article>
-      <article class="book rv" data-d="1" data-age="young"><a class="book__cover" href="https://www.itihasika.com/books/abc-of-incredible-india/"><img src="https://www.itihasika.com/wp-content/uploads/2025/06/ABC-of-Incredible-India.png" alt="Cover of ABC Activity Book of Incredible India" width="1015" height="760" loading="lazy"><span class="book__age">Ages 3–7</span></a>
-        <div class="book__body"><h3>ABC Activity Book of Incredible India</h3><p>This engaging alphabet book introduces children ages 3 to 7 to present day Indian culture.</p><div class="formats"><span>Paperback</span><span>Kindle</span><span>PDF</span></div><div class="book__foot"><span class="from"><small>from </small>$3.99</span><a class="btn btn--solid" href="https://www.itihasika.com/books/abc-of-incredible-india/">Buy now</a></div></div></article>
-      <article class="book rv" data-d="2" data-age="young"><a class="book__cover" href="https://www.itihasika.com/books/abc-of-thinkers/"><img src="https://www.itihasika.com/wp-content/uploads/2025/06/ABC-of-Thinkers.png" alt="Cover of ABC Activity Book of Indian Thinkers" width="1015" height="760" loading="lazy"><span class="book__age">Ages 3–7</span></a>
-        <div class="book__body"><h3>ABC Activity Book of Indian Thinkers</h3><p>This engaging alphabet book introduces children ages 3 to 7 to Indian thinkers and philosophers.</p><div class="formats"><span>Paperback</span><span>Kindle</span><span>PDF</span></div><div class="book__foot"><span class="from"><small>from </small>$3.99</span><a class="btn btn--solid" href="https://www.itihasika.com/books/abc-of-thinkers/">Buy now</a></div></div></article>
-      <article class="book rv" data-age="young"><a class="book__cover" href="https://www.itihasika.com/books/abc-of-hindu-dharma/"><img src="https://www.itihasika.com/wp-content/uploads/2025/06/ABC-of-Hindu-Dharma.png" alt="Cover of ABC Activity Book of Hindu Dharma" width="1015" height="760" loading="lazy"><span class="book__age">Ages 3–7</span></a>
-        <div class="book__body"><h3>ABC Activity Book of Hindu Dharma</h3><p>This engaging alphabet book introduces children ages 3 to 7 to concepts of the Hindu faith.</p><div class="formats"><span>Paperback</span><span>Kindle</span><span>PDF</span></div><div class="book__foot"><span class="from"><small>from </small>$3.99</span><a class="btn btn--solid" href="https://www.itihasika.com/books/abc-of-hindu-dharma/">Buy now</a></div></div></article>
-      <article class="book rv" data-d="1" data-age="young"><a class="book__cover" href="https://www.itihasika.com/books/abc-of-festivals/"><img src="https://www.itihasika.com/wp-content/uploads/2025/07/ABC-of-Festivals.png" alt="Cover of ABC Activity Book of Hindu Festivals" width="1015" height="760" loading="lazy"><span class="book__age">Ages 3–7</span></a>
-        <div class="book__body"><h3>ABC Activity Book of Hindu Festivals</h3><p>This engaging alphabet book introduces children ages 3 to 7 to concepts of Hindu festivals.</p><div class="formats"><span>Paperback</span><span>Kindle</span><span>PDF</span></div><div class="book__foot"><span class="from"><small>from </small>$3.99</span><a class="btn btn--solid" href="https://www.itihasika.com/books/abc-of-festivals/">Buy now</a></div></div></article>
-      <article class="book rv" data-d="2" data-age="young"><a class="book__cover" href="https://www.itihasika.com/books/"><img src="https://www.itihasika.com/wp-content/uploads/2025/07/ABC-of-Devtas.png" alt="Cover of ABC Activity Book of Hindu Gods" width="1015" height="760" loading="lazy"><span class="book__age">Ages 3–7</span></a>
-        <div class="book__body"><h3>ABC Activity Book of Hindu Gods</h3><p>This engaging alphabet book introduces children ages 3 to 7 to concepts of Hindu gods.</p><div class="formats"><span>Paperback</span><span>Kindle</span><span>PDF</span></div><div class="book__foot"><span class="from"><small>from </small>$3.99</span><a class="btn btn--solid" href="https://www.itihasika.com/books/">Buy now</a></div></div></article>
+    <div class="head center"><span class="label label--both rv">For toddlers: ages 3 to 7</span><h2 class="serif h2 rv" data-d="1" id="s1">ABCs of history and <em>heritage.</em></h2><p class="sub rv" data-d="2">Build a strong foundation: alphabet activity books with puzzles, mazes and colouring.</p></div>
+    <div class="books">
+      <article class="bk rv" data-age="young"><a class="bk__cover" href="book.html"><span class="age" aria-label="Ages 3–7">AGES<b>3–7</b></span><img src="https://www.itihasika.com/wp-content/uploads/2025/06/ABC-of-Indian-history.png" alt="Cover of ABC Activity Book of Indian history" width="1015" height="760" loading="lazy"></a>
+        <h3><a href="book.html">ABC Activity Book of Indian history</a></h3><p>This engaging alphabet book introduces children ages 3 to 7 to heroes of Indian history.</p><div class="stores"><a class="store" href="book.html"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Global</small><b>$10.99</b></span></a><a class="store" href="book.html"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-india.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon India</small><b>₹424</b></span></a><a class="store" href="book.html"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-kindle.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Kindle</small><b>$4.99</b></span></a><a class="store" href="book.html"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/PDF-version.png" alt="" width="571" height="125" loading="lazy"></i><span><small>PDF Version</small><b>$3.99</b></span></a></div></article>
+      <article class="bk rv" data-d="1" data-age="young"><a class="bk__cover" href="https://www.itihasika.com/books/abc-of-incredible-india/"><span class="age" aria-label="Ages 3–7">AGES<b>3–7</b></span><img src="https://www.itihasika.com/wp-content/uploads/2025/06/ABC-of-Incredible-India.png" alt="Cover of ABC Activity Book of Incredible India" width="1015" height="760" loading="lazy"></a>
+        <h3><a href="https://www.itihasika.com/books/abc-of-incredible-india/">ABC Activity Book of Incredible India</a></h3><p>This engaging alphabet book introduces children ages 3 to 7 to present day Indian culture.</p><div class="stores"><a class="store" href="https://www.itihasika.com/books/abc-of-incredible-india/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Global</small><b>$10.99</b></span></a><a class="store" href="https://www.itihasika.com/books/abc-of-incredible-india/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-india.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon India</small><b>₹424</b></span></a><a class="store" href="https://www.itihasika.com/books/abc-of-incredible-india/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-kindle.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Kindle</small><b>$4.99</b></span></a><a class="store" href="https://www.itihasika.com/books/abc-of-incredible-india/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/PDF-version.png" alt="" width="571" height="125" loading="lazy"></i><span><small>PDF Version</small><b>$3.99</b></span></a></div></article>
+      <article class="bk rv" data-d="2" data-age="young"><a class="bk__cover" href="https://www.itihasika.com/books/abc-of-thinkers/"><span class="age" aria-label="Ages 3–7">AGES<b>3–7</b></span><img src="https://www.itihasika.com/wp-content/uploads/2025/06/ABC-of-Thinkers.png" alt="Cover of ABC Activity Book of Indian Thinkers" width="1015" height="760" loading="lazy"></a>
+        <h3><a href="https://www.itihasika.com/books/abc-of-thinkers/">ABC Activity Book of Indian Thinkers</a></h3><p>This engaging alphabet book introduces children ages 3 to 7 to Indian thinkers and philosophers.</p><div class="stores"><a class="store" href="https://www.itihasika.com/books/abc-of-thinkers/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Global</small><b>$10.99</b></span></a><a class="store" href="https://www.itihasika.com/books/abc-of-thinkers/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-india.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon India</small><b>₹424</b></span></a><a class="store" href="https://www.itihasika.com/books/abc-of-thinkers/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-kindle.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Kindle</small><b>$4.99</b></span></a><a class="store" href="https://www.itihasika.com/books/abc-of-thinkers/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/PDF-version.png" alt="" width="571" height="125" loading="lazy"></i><span><small>PDF Version</small><b>$3.99</b></span></a></div></article>
+      <article class="bk rv" data-d="3" data-age="young"><a class="bk__cover" href="https://www.itihasika.com/books/abc-of-hindu-dharma/"><span class="age" aria-label="Ages 3–7">AGES<b>3–7</b></span><img src="https://www.itihasika.com/wp-content/uploads/2025/06/ABC-of-Hindu-Dharma.png" alt="Cover of ABC Activity Book of Hindu Dharma" width="1015" height="760" loading="lazy"></a>
+        <h3><a href="https://www.itihasika.com/books/abc-of-hindu-dharma/">ABC Activity Book of Hindu Dharma</a></h3><p>This engaging alphabet book introduces children ages 3 to 7 to concepts of the Hindu faith.</p><div class="stores"><a class="store" href="https://www.itihasika.com/books/abc-of-hindu-dharma/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Global</small><b>$10.99</b></span></a><a class="store" href="https://www.itihasika.com/books/abc-of-hindu-dharma/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-india.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon India</small><b>₹424</b></span></a><a class="store" href="https://www.itihasika.com/books/abc-of-hindu-dharma/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-kindle.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Kindle</small><b>$4.99</b></span></a><a class="store" href="https://www.itihasika.com/books/abc-of-hindu-dharma/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/PDF-version.png" alt="" width="571" height="125" loading="lazy"></i><span><small>PDF Version</small><b>$3.99</b></span></a></div></article>
+      <article class="bk rv" data-age="young"><a class="bk__cover" href="https://www.itihasika.com/books/abc-of-festivals/"><span class="age" aria-label="Ages 3–7">AGES<b>3–7</b></span><img src="https://www.itihasika.com/wp-content/uploads/2025/07/ABC-of-Festivals.png" alt="Cover of ABC Activity Book of Hindu Festivals" width="1015" height="760" loading="lazy"></a>
+        <h3><a href="https://www.itihasika.com/books/abc-of-festivals/">ABC Activity Book of Hindu Festivals</a></h3><p>This engaging alphabet book introduces children ages 3 to 7 to concepts of Hindu festivals.</p><div class="stores"><a class="store" href="https://www.itihasika.com/books/abc-of-festivals/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Global</small><b>$10.99</b></span></a><a class="store" href="https://www.itihasika.com/books/abc-of-festivals/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-india.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon India</small><b>₹424</b></span></a><a class="store" href="https://www.itihasika.com/books/abc-of-festivals/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-kindle.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Kindle</small><b>$4.99</b></span></a><a class="store" href="https://www.itihasika.com/books/abc-of-festivals/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/PDF-version.png" alt="" width="571" height="125" loading="lazy"></i><span><small>PDF Version</small><b>$3.99</b></span></a></div></article>
+      <article class="bk rv" data-d="1" data-age="young"><a class="bk__cover" href="https://www.itihasika.com/books/"><span class="age" aria-label="Ages 3–7">AGES<b>3–7</b></span><img src="https://www.itihasika.com/wp-content/uploads/2025/07/ABC-of-Devtas.png" alt="Cover of ABC Activity Book of Hindu Gods" width="1015" height="760" loading="lazy"></a>
+        <h3><a href="https://www.itihasika.com/books/">ABC Activity Book of Hindu Gods</a></h3><p>This engaging alphabet book introduces children ages 3 to 7 to concepts of Hindu gods.</p><div class="stores"><a class="store" href="https://www.itihasika.com/books/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Global</small><b>$10.99</b></span></a><a class="store" href="https://www.itihasika.com/books/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-india.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon India</small><b>₹424</b></span></a><a class="store" href="https://www.itihasika.com/books/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-kindle.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Kindle</small><b>$4.99</b></span></a><a class="store" href="https://www.itihasika.com/books/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/PDF-version.png" alt="" width="571" height="125" loading="lazy"></i><span><small>PDF Version</small><b>$3.99</b></span></a></div></article>
     </div>
   </div>
 </section>
 
-<section class="series" data-group="older" aria-labelledby="s2">
+<section class="sec series" data-group="older" aria-labelledby="s2" id="older">
   <div class="wrap">
-    <div class="series__head">
-      <span class="wm" aria-hidden="true">ख</span>
-      <span class="age rv">For kids and teens: ages 7 to 13</span>
-      <h2 class="rv" data-d="1" id="s2">Pillars of our Civilization</h2>
-      <p class="rv" data-d="2">Establish core truths.</p>
-    </div>
-    <div class="grid grid--4">
-      <article class="book rv" data-age="older"><a class="book__cover" href="https://www.itihasika.com/books/"><img src="https://www.itihasika.com/wp-content/uploads/2025/06/History-of-India-for-Curious-kids.png" alt="Cover of India's history for curious kids" width="1015" height="760" loading="lazy"><span class="book__age">Ages 7–13</span></a>
-        <div class="book__body"><h3>India’s history</h3><p>A must have book for 7 to 13 year olds to understand the true story of their civilizational heritage.</p><div class="formats"><span>Paperback</span><span>Kindle</span><span>PDF</span></div><div class="book__foot"><span class="from"><small>from </small>$3.99</span><a class="btn btn--solid" href="https://www.itihasika.com/books/">Buy now</a></div></div></article>
-      <article class="book rv" data-d="1" data-age="older"><a class="book__cover" href="https://www.itihasika.com/books/my-ramayana/"><img src="https://www.itihasika.com/wp-content/uploads/2025/06/My-Ramayana.png" alt="Cover of My Ramayana" width="1015" height="760" loading="lazy"><span class="book__age">Ages 7–13</span></a>
-        <div class="book__body"><h3>My Ramayana</h3><p>Step into the captivating world of Ramayana, originally written by Rishi Valmiki, with our delightful book!</p><div class="formats"><span>Paperback</span><span>Kindle</span><span>PDF</span></div><div class="book__foot"><span class="from"><small>from </small>$3.99</span><a class="btn btn--solid" href="https://www.itihasika.com/books/my-ramayana/">Buy now</a></div></div></article>
-      <article class="book rv" data-d="2" data-age="older"><a class="book__cover" href="https://www.itihasika.com/books/my-mahabharata/"><img src="https://www.itihasika.com/wp-content/uploads/2025/06/My-Mahabharata.png" alt="Cover of My Mahabharata" width="1015" height="760" loading="lazy"><span class="book__age">Ages 7–13</span></a>
-        <div class="book__body"><h3>My Mahabharata</h3><p>Step into the captivating world of Mahabharata, originally written by Ved Vyasa!</p><div class="formats"><span>Paperback</span><span>Kindle</span><span>PDF</span></div><div class="book__foot"><span class="from"><small>from </small>$3.99</span><a class="btn btn--solid" href="https://www.itihasika.com/books/my-mahabharata/">Buy now</a></div></div></article>
-      <article class="book rv" data-d="3" data-age="older"><a class="book__cover" href="https://www.itihasika.com/books/bhagwat-gita-for-kids/"><img src="https://www.itihasika.com/wp-content/uploads/2025/06/Bhagavad-Gita-for-Kids.png" alt="Cover of The Bhagavad Gita for Kids" width="1015" height="760" loading="lazy"><span class="book__age">Ages 7–13</span></a>
-        <div class="book__body"><h3>The Bhagavad Gita for Kids</h3><p>Discover the timeless wisdom of the holy Gita in a way that’s easy for young hearts to understand.</p><div class="formats"><span>Paperback</span><span>Kindle</span><span>PDF</span></div><div class="book__foot"><span class="from"><small>from </small>$3.99</span><a class="btn btn--solid" href="https://www.itihasika.com/books/bhagwat-gita-for-kids/">Buy now</a></div></div></article>
+    <div class="head center"><span class="label label--both rv">For kids and teens: ages 7 to 13</span><h2 class="serif h2 rv" data-d="1" id="s2">Pillars of our <em>civilization.</em></h2><p class="sub rv" data-d="2">Establish core truths: the true story of India, the epics and the Gita, told for young readers.</p></div>
+    <div class="books books--4">
+      <article class="bk rv" data-age="older"><a class="bk__cover" href="https://www.itihasika.com/books/"><span class="age" aria-label="Ages 7–13">AGES<b>7–13</b></span><img src="https://www.itihasika.com/wp-content/uploads/2025/06/History-of-India-for-Curious-kids.png" alt="Cover of India's history for curious kids" width="1015" height="760" loading="lazy"></a>
+        <h3><a href="https://www.itihasika.com/books/">India’s history</a></h3><p>A must have book for 7 to 13 year olds to understand the true story of their civilizational heritage.</p><div class="stores"><a class="store" href="https://www.itihasika.com/books/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Global</small><b>$10.99</b></span></a><a class="store" href="https://www.itihasika.com/books/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-india.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon India</small><b>₹424</b></span></a><a class="store" href="https://www.itihasika.com/books/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-kindle.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Kindle</small><b>$4.99</b></span></a><a class="store" href="https://www.itihasika.com/books/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/PDF-version.png" alt="" width="571" height="125" loading="lazy"></i><span><small>PDF Version</small><b>$3.99</b></span></a></div></article>
+      <article class="bk rv" data-d="1" data-age="older"><a class="bk__cover" href="https://www.itihasika.com/books/my-ramayana/"><span class="age" aria-label="Ages 7–13">AGES<b>7–13</b></span><img src="https://www.itihasika.com/wp-content/uploads/2025/06/My-Ramayana.png" alt="Cover of My Ramayana" width="1015" height="760" loading="lazy"></a>
+        <h3><a href="https://www.itihasika.com/books/my-ramayana/">My Ramayana</a></h3><p>Step into the captivating world of Ramayana, originally written by Rishi Valmiki, with our delightful book!</p><div class="stores"><a class="store" href="https://www.itihasika.com/books/my-ramayana/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Global</small><b>$10.99</b></span></a><a class="store" href="https://www.itihasika.com/books/my-ramayana/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-india.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon India</small><b>₹424</b></span></a><a class="store" href="https://www.itihasika.com/books/my-ramayana/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-kindle.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Kindle</small><b>$4.99</b></span></a><a class="store" href="https://www.itihasika.com/books/my-ramayana/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/PDF-version.png" alt="" width="571" height="125" loading="lazy"></i><span><small>PDF Version</small><b>$3.99</b></span></a></div></article>
+      <article class="bk rv" data-d="2" data-age="older"><a class="bk__cover" href="https://www.itihasika.com/books/my-mahabharata/"><span class="age" aria-label="Ages 7–13">AGES<b>7–13</b></span><img src="https://www.itihasika.com/wp-content/uploads/2025/06/My-Mahabharata.png" alt="Cover of My Mahabharata" width="1015" height="760" loading="lazy"></a>
+        <h3><a href="https://www.itihasika.com/books/my-mahabharata/">My Mahabharata</a></h3><p>Step into the captivating world of Mahabharata, originally written by Ved Vyasa!</p><div class="stores"><a class="store" href="https://www.itihasika.com/books/my-mahabharata/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Global</small><b>$10.99</b></span></a><a class="store" href="https://www.itihasika.com/books/my-mahabharata/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-india.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon India</small><b>₹424</b></span></a><a class="store" href="https://www.itihasika.com/books/my-mahabharata/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-kindle.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Kindle</small><b>$4.99</b></span></a><a class="store" href="https://www.itihasika.com/books/my-mahabharata/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/PDF-version.png" alt="" width="571" height="125" loading="lazy"></i><span><small>PDF Version</small><b>$3.99</b></span></a></div></article>
+      <article class="bk rv" data-d="3" data-age="older"><a class="bk__cover" href="https://www.itihasika.com/books/bhagwat-gita-for-kids/"><span class="age" aria-label="Ages 7–13">AGES<b>7–13</b></span><img src="https://www.itihasika.com/wp-content/uploads/2025/06/Bhagavad-Gita-for-Kids.png" alt="Cover of The Bhagavad Gita for Kids" width="1015" height="760" loading="lazy"></a>
+        <h3><a href="https://www.itihasika.com/books/bhagwat-gita-for-kids/">The Bhagavad Gita for Kids</a></h3><p>Discover the timeless wisdom of the holy Gita in a way that’s easy for young hearts to understand.</p><div class="stores"><a class="store" href="https://www.itihasika.com/books/bhagwat-gita-for-kids/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Global</small><b>$10.99</b></span></a><a class="store" href="https://www.itihasika.com/books/bhagwat-gita-for-kids/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-india.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon India</small><b>₹424</b></span></a><a class="store" href="https://www.itihasika.com/books/bhagwat-gita-for-kids/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-kindle.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Kindle</small><b>$4.99</b></span></a><a class="store" href="https://www.itihasika.com/books/bhagwat-gita-for-kids/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/PDF-version.png" alt="" width="571" height="125" loading="lazy"></i><span><small>PDF Version</small><b>$3.99</b></span></a></div></article>
     </div>
   </div>
 </section>
 
-<section class="picker" aria-labelledby="picker-title">
+<section class="sec sec--cream" id="picker" aria-labelledby="picker-title">
   <div class="wrap picker__grid">
     <div>
-      <p class="eyebrow rv">Not sure where to start?</p>
-      <h2 class="mid rv" data-d="1" id="picker-title">Pick your child’s age, we’ll pick <em>the first book.</em></h2>
-      <div class="ages rv" data-d="2" role="group" aria-label="Child's age">
-        <button data-pick="0" aria-pressed="true">3 to 5</button>
-        <button data-pick="1" aria-pressed="false">5 to 7</button>
-        <button data-pick="2" aria-pressed="false">7 to 10</button>
-        <button data-pick="3" aria-pressed="false">10 to 13</button>
-      </div>
+      <span class="label rv">Not sure where to start?</span>
+      <h2 class="serif h2 rv" data-d="1" id="picker-title" style="margin-top:14px">Pick your child’s age, we’ll pick <em>the first book.</em></h2>
+      <div class="ages rv" data-d="2" role="group" aria-label="Child's age"><button data-pick="0" aria-pressed="true">3 to 5</button><button data-pick="1" aria-pressed="false">5 to 7</button><button data-pick="2" aria-pressed="false">7 to 10</button><button data-pick="3" aria-pressed="false">10 to 13</button></div>
     </div>
-    <div class="pick rv" data-d="2" id="pick" aria-live="polite"></div>
+    <div class="card pick rv" data-d="2" id="pick" aria-live="polite"></div>
   </div>
 </section>
 </main>
-<section class="join" aria-labelledby="join-title">
-  <span class="wm" aria-hidden="true">२०००</span>
-  <div class="wrap join__grid">
+<section class="chart" aria-labelledby="chart-title">
+  <div class="wrap chart__grid">
     <div>
-      <p class="eyebrow rv">The chronology chart</p>
-      <h2 class="big rv" data-d="1" id="join-title">Get 2,000 years <em>on one page.</em></h2>
-      <p class="rv" data-d="2">Join our mailing list to receive email exclusives and a free picture of the chronology of all Indian kingdoms in the last 2,000 years on a single page.</p>
+      <span class="label rv">Free printable chart</span>
+      <h2 class="serif rv" data-d="1" id="chart-title">Get Bharat’s history<br><em>on one chart.</em></h2>
+      <p class="rv" data-d="2">Join our mailing list and we’ll immediately send you a beautifully designed, high-resolution chronology chart of every major event in Indian history.</p>
+      <form class="jform rv" data-d="2" novalidate>
+        <label class="sr" for="jemail">Your email address</label>
+        <input id="jemail" type="email" placeholder="Your email address" autocomplete="email" required>
+        <button class="btn btn--blue" type="submit">Send it to me</button>
+        <p class="msg" role="status">We respect your inbox. No spam, ever.</p>
+      </form>
     </div>
-    <form class="jform rv" data-d="2" novalidate>
-      <label class="sr" for="jemail" style="position:absolute;left:-9999px">Email</label>
-      <input id="jemail" type="email" placeholder="Your email" autocomplete="email" required>
-      <button class="btn btn--red" type="submit">Send me the chart</button>
-      <p class="msg" role="status"></p>
-    </form>
+    <div class="chart__img rv" data-d="1"><svg viewBox="0 0 520 400" role="img" aria-label="Preview of the free chart: a winding timeline of Indian history">
+<rect width="520" height="400" fill="#F3D8A8"/>
+<text x="260" y="44" text-anchor="middle" font-family="League Spartan, sans-serif" font-weight="700" font-size="30" fill="#2C6C9E">A timeline of Indian history</text>
+<path d="M40 110 H440 a50 50 0 0 1 0 100 H90 a50 50 0 0 0 0 100 H470" fill="none" stroke="#1F4E5F" stroke-width="18" stroke-linecap="round"/>
+<g font-family="Poppins, sans-serif" font-size="9" font-weight="600" fill="#fff"><text x="70" y="113">9000-4000 BCE</text><text x="190" y="113">3000-2000 BCE</text><text x="320" y="113">2300-1300 BCE</text><text x="300" y="213">550 BCE</text><text x="150" y="213">600 BCE-300 CE</text><text x="160" y="313">327 BCE</text><text x="330" y="313">265 BCE</text></g>
+<g fill="#C9A06A" stroke="#7B5A33" stroke-width="1"><rect x="62" y="60" width="34" height="34" rx="3"/><rect x="190" y="60" width="34" height="34" rx="3"/><rect x="330" y="60" width="34" height="34" rx="3"/><rect x="440" y="140" width="34" height="34" rx="3"/><rect x="250" y="150" width="34" height="34" rx="3"/><rect x="110" y="150" width="34" height="34" rx="3"/><rect x="40" y="240" width="34" height="34" rx="3"/><rect x="200" y="250" width="34" height="34" rx="3"/><rect x="360" y="250" width="34" height="34" rx="3"/><rect x="430" y="330" width="34" height="34" rx="3"/></g>
+<g font-family="Poppins, sans-serif" font-size="9.5" fill="#2A2A2A" font-weight="600"><text x="200" y="140">ANCIENT INDIA</text><text x="300" y="350">CLASSICAL INDIA</text></g>
+<text x="500" y="390" text-anchor="end" font-family="Poppins, sans-serif" font-size="12" font-weight="700" fill="#2A2A2A">75</text>
+</svg></div>
   </div>
 </section>
 <footer class="foot">
   <div class="wrap">
     <div class="foot__top">
-      <div class="foot__brand"><span class="deva">इतिहासिका</span><p>The History of India. A Walk Through the Ages of Our Nation.</p></div>
-      <div><h4>Company</h4><ul><li><a href="about.html">About us</a></li><li><a href="https://www.itihasika.com/terms-conditions/">Terms &amp; conditions</a></li><li><a href="https://www.itihasika.com/privacy-policy/">Privacy policy</a></li><li><a href="https://www.itihasika.com/refund-and-cancellation-policy/">Refund and cancellation policy</a></li></ul></div>
-      <div><h4>Explore</h4><ul><li><a href="books.html">Books</a></li><li><a href="https://www.itihasika.com/movies/">Movies</a></li><li><a href="https://www.itihasika.com/courses/">Courses</a></li><li><a href="https://www.itihasika.com/time-travel/">Time travel</a></li></ul></div>
-      <div><h4>Good to know</h4><ul><li><a href="https://www.itihasika.com/">Historical maps</a></li><li><a href="https://www.itihasika.com/contact-us/">Contact us</a></li><li><a href="https://www.itihasika.com/my-account/">Log in</a></li></ul></div>
+      <div><p>Educate, Empower and Inspire. Stories that build character and connection.</p>
+        <div class="soc"><a href="https://www.facebook.com/itihasika" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.3-1.5 1.6-1.5h1.6V3.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1v2.3H7.6V13h2.7v8z"/></svg></a><a href="https://x.com/itihasika" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 3h3l-6.6 7.6L22 21h-6.1l-4.8-6.2L5.6 21h-3l7.1-8.1L2.2 3h6.2l4.3 5.7zm-1 16.2h1.7L7.3 4.7H5.5z"/></svg></a><a href="https://www.instagram.com/itihasika/" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2zM17.3 5.5a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zM12 2c-2.7 0-3 0-4.1.1C4 2.3 2.3 4 2.1 7.9 2 9 2 9.3 2 12s0 3 .1 4.1c.2 3.9 1.9 5.6 5.8 5.8 1.1.1 1.4.1 4.1.1s3 0 4.1-.1c3.9-.2 5.6-1.9 5.8-5.8.1-1.1.1-1.4.1-4.1s0-3-.1-4.1C21.7 4 20 2.3 16.1 2.1 15 2 14.7 2 12 2z"/></svg></a></div></div>
+      <div><h4>Company</h4><ul><li><a href="about.html">About us</a></li><li><a href="https://www.itihasika.com/terms-conditions/">Terms &amp; Conditions</a></li><li><a href="https://www.itihasika.com/privacy-policy/">Privacy Policy</a></li><li><a href="https://www.itihasika.com/refund-and-cancellation-policy/">Refund Policy</a></li></ul></div>
+      <div><h4>Categories</h4><ul><li><a href="https://www.itihasika.com/">History Comics</a></li><li><a href="books.html">Books</a></li><li><a href="https://www.itihasika.com/movies/">Movies</a></li><li><a href="https://www.itihasika.com/courses/">Courses</a></li></ul></div>
+      <div><h4>Good to Know</h4><ul><li><a href="https://www.itihasika.com/time-travel/">Historical Maps (Time Travel)</a></li><li><a href="https://www.itihasika.com/contact-us/">Contact Us</a></li></ul></div>
     </div>
-    <div class="foot__bottom"><span>© 2018–2026 Itihasika. All rights reserved.</span><span>Made for curious kids everywhere</span></div>
+    <p class="foot__bottom">© 2026 Itihasika. All rights reserved.</p>
   </div>
 </footer>
+<p class="concept" role="note"><span><b>Redesign concept</b><span class="x"> by Victoria V., not the official site</span></span><a href="index.html">All pages</a></p>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>window.gsap && gsap.registerPlugin(ScrollTrigger);</script>
-<script src="assets/site.js"></script>
+<script src="assets/site.js?v=4"></script>
 <script>
 (function(){
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  // filter
-  const chips = document.querySelectorAll('.chip'), books = document.querySelectorAll('.book'), count = document.getElementById('count');
-  chips.forEach(c => c.addEventListener('click', () => {
-    const f = c.dataset.f;
-    chips.forEach(x => x.setAttribute('aria-pressed', String(x === c)));
+  // filter by age
+  const chips = document.querySelectorAll('.chip'), count = document.getElementById('count');
+  const setF = f => {
+    chips.forEach(x => x.setAttribute('aria-pressed', String(x.dataset.f === f)));
     document.querySelectorAll('.series').forEach(s => s.hidden = !(f === 'all' || s.dataset.group === f));
-    const n = [...books].filter(b => !b.closest('.series').hidden).length;
-    count.textContent = n + ' books';
-    if (window.ScrollTrigger) ScrollTrigger.refresh();
-    const first = document.querySelector('.series:not([hidden])');
-    if (first && scrollY > first.offsetTop) (window.__lenis ? window.__lenis.scrollTo(first, {offset:-140}) : first.scrollIntoView());
-  }));
+    count.textContent = document.querySelectorAll('.series:not([hidden]) .bk').length + ' books';
+    window.ScrollTrigger && ScrollTrigger.refresh();
+  };
+  const go = el => window.__lenis ? window.__lenis.scrollTo(el, {offset:-150}) : el.scrollIntoView();
+  chips.forEach(c => c.addEventListener('click', () => { setF(c.dataset.f); const first = document.querySelector('.series:not([hidden])'); if (scrollY > first.offsetTop - 200) go(first); }));
+  document.querySelectorAll('[data-jump]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); setF('all'); go(document.getElementById(a.dataset.jump)); }));
+  document.querySelector('a[href="#picker"]').addEventListener('click', e => { e.preventDefault(); go(document.getElementById('picker')); });
 
   // age picker
   const picks = [
@@ -242,27 +191,20 @@
     {stage:'Run', title:'India’s history', text:'The true story of their civilizational heritage, for readers ready to go deep.', img:'https://www.itihasika.com/wp-content/uploads/2025/06/History-of-India-for-Curious-kids.png', href:'https://www.itihasika.com/books/'}
   ];
   const pick = document.getElementById('pick'), ageBtns = document.querySelectorAll('[data-pick]');
-  const show = i => {
-    const p = picks[i];
-    pick.innerHTML = `<img src="${p.img}" alt="Cover of ${p.title}" width="1015" height="760"><div><span class="stage">${p.stage}</span><h3>${p.title}</h3><p>${p.text}</p><a href="${p.href}">See the book</a></div>`;
-    if (window.gsap && !reduce) gsap.from(pick.children, {y:14, opacity:0, duration:.5, stagger:.08, ease:'power2.out'});
-  };
+  const show = i => { const p = picks[i];
+    pick.innerHTML = `<img src="${p.img}" alt="Cover of ${p.title}" width="1015" height="760"><div><span class="stage">${p.stage}</span><h3>${p.title}</h3><p>${p.text}</p><a class="btn btn--blue" href="${p.href}">See the book</a></div>`;
+    if (window.gsap && !REDUCE) gsap.from(pick.children, {y:14, opacity:0, duration:.5, stagger:.08, ease:'power2.out'}); };
   ageBtns.forEach(b => b.addEventListener('click', () => { ageBtns.forEach(x => x.setAttribute('aria-pressed', String(x === b))); show(+b.dataset.pick); }));
   show(0);
 
-  if (!window.gsap || reduce) return;
-  gsap.from('.b-hero h1 .ln > span', {yPercent:110, duration:1.1, stagger:.12, ease:'expo.out'});
-  gsap.from('.banner', {clipPath:'inset(18% 6% 0 6% round 28px)', duration:1.4, ease:'expo.out', delay:.2});
-  gsap.utils.toArray('.series__head .wm').forEach(w => gsap.fromTo(w, {y:40}, {y:-40, ease:'none', scrollTrigger:{trigger:w, start:'top bottom', end:'bottom top', scrub:true}}));
-  // 3D tilt on covers (pointer devices only)
-  if (matchMedia('(hover:hover) and (pointer:fine)').matches) {
-    document.querySelectorAll('.book__cover').forEach(c => {
-      const img = c.querySelector('img');
-      c.addEventListener('pointermove', e => { const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-        gsap.to(img, {rotateY:x * 16, rotateX:-y * 12, scale:1.05, duration:.5, ease:'power2.out'}); });
-      c.addEventListener('pointerleave', () => gsap.to(img, {rotateY:0, rotateX:0, scale:1, duration:.7, ease:'elastic.out(1,.6)'}));
-    });
-  }
+  if (!window.gsap || REDUCE) { document.querySelectorAll('#fan img').forEach((im, i, a) => im.style.transform = `translate(-50%,-50%) rotate(${(i - (a.length - 1) / 2) * 12}deg)`); return; }
+  // the hero moment: the books fan open like a hand of cards, then breathe with the cursor
+  const fan = gsap.utils.toArray('#fan img'), mid = (fan.length - 1) / 2;
+  gsap.set(fan, {xPercent:-50, yPercent:-50});
+  gsap.fromTo(fan, {rotation:0, x:0, y:80, opacity:0}, {rotation:i => (i - mid) * 12, x:i => (i - mid) * 34, y:i => Math.abs(i - mid) * 14, opacity:1, duration:1.3, stagger:.08, ease:'back.out(1.3)', delay:.3});
+  if (matchMedia('(hover:hover)').matches) document.querySelector('.hero').addEventListener('pointermove', e => {
+    const x = e.clientX / innerWidth - .5; gsap.to('#fan', {rotateY:x * 14, rotateX:-(e.clientY / innerHeight - .5) * 8, duration:.8, ease:'power2.out'}); });
+  gsap.to('#fan', {yPercent:14, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
 })();
 </script>
 </body>
