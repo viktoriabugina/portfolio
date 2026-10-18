@@ -164,9 +164,8 @@
     document.getElementById('count').innerHTML = list.length + ' propert' + (list.length === 1 ? 'y' : 'ies') + ' <span>' + (S.city ? 'in ' + S.city : 'across all cities') + '</span>';
     const q = new URLSearchParams(Object.entries({deal:S.deal, city:S.city, type:S.type, beds:S.beds || '', max:S.max || ''}).filter(([, v]) => v));
     history.replaceState(null, '', '?' + q.toString());
-    if (window.gsap && !reduce) gsap.from(res.children, {y:24, opacity:0, duration:.6, stagger:.06, ease:'power3.out'});
-    else res.querySelectorAll('[data-reveal]').forEach(e => e.classList.add('in'));
-    res.querySelectorAll('[data-reveal]').forEach(e => e.classList.add('in'));
+    res.querySelectorAll('[data-reveal]').forEach(e => { e.classList.add('in'); e.style.transition = 'none'; });
+    if (window.gsap && !reduce) gsap.from(res.children, {y:24, opacity:0, duration:.6, stagger:.06, ease:'power3.out', clearProps:'opacity,transform'});
   };
   const update = () => { sync(); render(); };
   document.querySelectorAll('[data-k]').forEach(b => b.addEventListener('click', () => {
