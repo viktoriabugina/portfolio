@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Webflow structure demo | Carousel and code blocks</title>
+<meta name="description" content="Demo of a responsive site structure with an autoplay partial-view infinite photo carousel and syntax-highlighted code blocks, built to be recreated in Webflow.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
+<style>
+:root{--bg:#0E1116;--panel:#161B22;--panel-2:#1F2630;--ink:#E7ECF2;--muted:#8B96A5;--line:rgba(231,236,242,.1);--accent:#7DD3C0;--gut:clamp(16px,4vw,48px);--ease:cubic-bezier(.22,.8,.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{font-family:"Source Sans 3",system-ui,sans-serif;font-size:17px;line-height:1.65;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.container{max-width:1200px;margin:0 auto;padding:0 var(--gut)}
+.note{background:#000;color:var(--muted);font-size:13px;text-align:center;padding:8px var(--gut)}
+.note b{color:var(--ink);font-weight:600}
+h1,h2,h3{font-family:"Inter Tight",system-ui,sans-serif;letter-spacing:-.02em;line-height:1.1}
+.navbar{position:sticky;top:0;z-index:20;background:rgba(14,17,22,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.navbar__in{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{font-family:"Inter Tight";font-weight:700;font-size:19px;text-decoration:none}
+.brand span{color:var(--accent)}
+.navlinks{display:flex;gap:18px;font-size:15px;color:var(--muted)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--ink)}
+@media (max-width:560px){.navlinks{display:none}}
+.hero{padding:clamp(50px,8vw,100px) 0 clamp(30px,4vw,50px)}
+.eyebrow{color:var(--accent);font-weight:600;font-size:14px}
+.hero h1{font-size:clamp(38px,6vw,72px);max-width:16ch;margin:10px 0 16px}
+.hero p{color:var(--muted);max-width:56ch}
+
+/* autoplay partial-view infinite carousel */
+.slider{position:relative;padding:10px 0 clamp(50px,7vw,80px)}
+.slider__mask{overflow:hidden}
+.slider__track{display:flex;gap:clamp(12px,2vw,24px);will-change:transform}
+.slide{flex:0 0 80%;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:var(--panel);position:relative;transition:opacity .5s,transform .6s var(--ease);opacity:.45;transform:scale(.94)}
+.slide.is-active{opacity:1;transform:none}
+@media (min-width:800px){.slide{flex-basis:62%}}
+.slide img{width:100%;height:100%;object-fit:cover}
+.slide figcaption{position:absolute;left:14px;bottom:12px;background:rgba(14,17,22,.75);border-radius:999px;padding:4px 12px;font-size:13.5px}
+.slider__ui{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:18px}
+.slider__ui button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--panel);cursor:pointer}
+.slider__ui button:hover{background:var(--panel-2)}
+.dots{display:flex;gap:8px}
+.dots button{width:9px;height:9px;padding:0;border-radius:50%;border:0;background:var(--line)}
+.dots button[aria-current="true"]{background:var(--accent);width:24px;border-radius:999px}
+.dots button{transition:width .3s,background .3s}
+
+/* syntax-highlighted code blocks */
+.docs{display:grid;gap:clamp(24px,4vw,48px);padding-bottom:clamp(60px,8vw,100px)}
+@media (min-width:960px){.docs{grid-template-columns:.8fr 1.2fr}.docs aside{position:sticky;top:90px;align-self:start}}
+.docs h2{font-size:clamp(28px,3.4vw,40px);margin-bottom:12px}
+.docs aside p{color:var(--muted)}
+.codeblock{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:22px}
+.codeblock__bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+.codeblock__bar b{font-family:"JetBrains Mono";font-weight:500;color:var(--ink)}
+.codeblock__bar button{border:1px solid var(--line);background:var(--panel-2);border-radius:999px;padding:4px 12px;cursor:pointer;font-size:13px}
+.codeblock__bar button:hover{border-color:var(--accent)}
+.codeblock pre[class*=language-]{margin:0;border-radius:0;background:transparent;font-size:14px;max-height:380px}
+code[class*=language-],pre[class*=language-]{font-family:"JetBrains Mono",monospace;text-shadow:none}
+.wf{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;margin-top:22px}
+.wf h3{font-size:18px;margin-bottom:8px}
+.wf ul{padding-left:20px;color:var(--muted);display:grid;gap:6px;font-size:15.5px}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:14px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<p class="note"><b>Demo</b> by Victoria V. of the requested features. In your project it is built natively in Webflow; images are placeholders.</p>
+<nav class="navbar" aria-label="Main"><div class="container navbar__in"><a class="brand" href="#">Project<span>.</span></a><div class="navlinks"><a href="#gallery">Gallery</a><a href="#code">Code</a><a href="#about">About</a></div></div></nav>
+<main>
+<header class="hero"><div class="container"><span class="eyebrow">Site structure demo</span><h1>Clean layout, ready for your content.</h1><p>A responsive structure with the two features you asked for: an autoplay, partial-view, infinitely looping photo slider and syntax-highlighted code blocks. Everything is built with classes you can restyle in the Webflow Designer.</p></div></header>
+
+<section class="slider" id="gallery" aria-roledescription="carousel" aria-label="Photo slider">
+  <div class="slider__mask" id="mask"><div class="slider__track" id="track"></div></div>
+  <div class="container slider__ui"><button type="button" id="prev" aria-label="Previous photo">←</button><div class="dots" id="dots" role="group" aria-label="Choose photo"></div><button type="button" id="next" aria-label="Next photo">→</button><button type="button" id="pp" aria-label="Pause autoplay">❚❚</button></div>
+</section>
+
+<section class="container docs" id="code">
+  <aside><span class="eyebrow">Code blocks</span><h2>Source code that reads well.</h2><p>Each block shows the language and has a Copy button. Highlighting is done by Prism.js, loaded once in the site settings, so any code you paste into a Webflow Code Embed is coloured automatically.</p>
+    <div class="wf"><h3>How it is set up in Webflow</h3><ul><li>Slider: a Collection List (or static images) with a small custom script for the infinite loop and autoplay.</li><li>Code blocks: an Embed element with a pre and code tag; Prism styles it.</li><li>All sizes use rem and percentages, tested on desktop and mobile breakpoints.</li></ul></div></aside>
+  <div>
+    <div class="codeblock"><div class="codeblock__bar"><b>slider.js</b><button type="button" data-copy>Copy</button></div>
+<pre class="line-numbers"><code class="language-javascript">// Infinite autoplay with partial view of the next and previous slides
+const track = document.querySelector('.slider__track');
+const slides = [...track.children];
+let index = 0;
+
+function goTo(i) {
+  index = (i + slides.length) % slides.length;
+  const offset = slides[index].offsetLeft - (track.parentElement.clientWidth - slides[index].clientWidth) / 2;
+  track.style.transform = `translateX(${-offset}px)`;
+  slides.forEach((s, n) =&gt; s.classList.toggle('is-active', n === index));
+}
+
+setInterval(() =&gt; goTo(index + 1), 4000);</code></pre></div>
+    <div class="codeblock"><div class="codeblock__bar"><b>styles.css</b><button type="button" data-copy>Copy</button></div>
+<pre class="line-numbers"><code class="language-css">.slide {
+  flex: 0 0 62%;          /* neighbours peek in on both sides */
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  opacity: .45;
+  transform: scale(.94);
+  transition: opacity .5s, transform .6s;
+}
+.slide.is-active { opacity: 1; transform: none; }</code></pre></div>
+    <div class="codeblock"><div class="codeblock__bar"><b>example.py</b><button type="button" data-copy>Copy</button></div>
+<pre class="line-numbers"><code class="language-python">def fibonacci(n: int) -&gt; list[int]:
+    """Return the first n Fibonacci numbers."""
+    seq = [0, 1]
+    while len(seq) &lt; n:
+        seq.append(seq[-1] + seq[-2])
+    return seq[:n]</code></pre></div>
+  </div>
+</section>
+</main>
+<footer id="about"><div class="container">Placeholder footer. Your content goes here after delivery.</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const photos = [
+    ['1506905925346-21bda4d32df4','Mountain ridge at sunrise'],['1470071459604-3b5ec3a7fe05','Misty forest valley'],['1501785888041-af3ef285b470','Lake between mountains'],
+    ['1469474968028-56623f02e42e','Sunlit field'],['1441974231531-c6227db76b6e','Forest path'],['1500534314209-a25ddb2bd429','Coastline at dusk']
+  ];
+  const track = document.getElementById('track'), mask = document.getElementById('mask'), dots = document.getElementById('dots');
+  const n = photos.length, fig = (p, i) => `<figure class="slide" data-i="${i % n}"><img src="https://images.unsplash.com/photo-${p[0]}?auto=format&fit=crop&w=1400&q=72" alt="${p[1]}" width="1400" height="788" loading="${i < n + 2 && i >= n - 1 ? 'eager' : 'lazy'}" draggable="false"><figcaption>${p[1]}</figcaption></figure>`;
+  // three copies: the middle one is "real", the clones make the loop seamless
+  track.innerHTML = [...photos, ...photos, ...photos].map(fig).join('');
+  const slides = [...track.children];
+  slides.forEach((s, i) => { if (i < n || i >= 2 * n) s.setAttribute('aria-hidden', 'true'); });
+  dots.innerHTML = photos.map((p, i) => `<button type="button" aria-label="Photo ${i + 1}"></button>`).join('');
+  let pos = n, timer = null, paused = reduce;
+  const center = (i, animate) => {
+    const s = slides[i], off = s.offsetLeft - (mask.clientWidth - s.clientWidth) / 2;
+    track.style.transition = animate && !reduce ? 'transform .8s cubic-bezier(.22,.8,.2,1)' : 'none';
+    track.style.transform = `translateX(${-off}px)`;
+    slides.forEach((x, k) => x.classList.toggle('is-active', k === i));
+    [...dots.children].forEach((d, k) => d.setAttribute('aria-current', String(k === i % n)));
+  };
+  const go = i => { pos = i; center(pos, true); };
+  track.addEventListener('transitionend', e => { if (e.target !== track) return; if (pos >= 2 * n) { pos -= n; center(pos, false); } if (pos < n) { pos += n; center(pos, false); } });
+  const start = () => { clearInterval(timer); if (!paused) timer = setInterval(() => go(pos + 1), 4000); };
+  document.getElementById('next').addEventListener('click', () => { go(pos + 1); start(); });
+  document.getElementById('prev').addEventListener('click', () => { go(pos - 1); start(); });
+  [...dots.children].forEach((d, k) => d.addEventListener('click', () => { go(n + k); start(); }));
+  const pp = document.getElementById('pp');
+  const setP = p => { paused = p; pp.textContent = p ? '▶' : '❚❚'; pp.setAttribute('aria-label', p ? 'Start autoplay' : 'Pause autoplay'); start(); };
+  pp.addEventListener('click', () => setP(!paused));
+  mask.addEventListener('pointerenter', () => clearInterval(timer)); mask.addEventListener('pointerleave', start);
+  // swipe
+  let sx = null; mask.addEventListener('pointerdown', e => sx = e.clientX);
+  mask.addEventListener('pointerup', e => { if (sx === null) return; const dx = e.clientX - sx; sx = null; if (Math.abs(dx) > 40) { go(pos + (dx < 0 ? 1 : -1)); start(); } });
+  addEventListener('resize', () => center(pos, false));
+  center(pos, false); setP(paused);
+  addEventListener('load', () => center(pos, false));
+
+  document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', async () => {
+    const code = b.closest('.codeblock').querySelector('code').textContent;
+    try { await navigator.clipboard.writeText(code); b.textContent = 'Copied'; } catch (e) { b.textContent = 'Select to copy'; }
+    setTimeout(() => b.textContent = 'Copy', 1800);
+  }));
+})();
+</script>
+</body>
+</html>

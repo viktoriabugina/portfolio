@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Speakers carousel | Squarespace demo</title>
+<meta name="description" content="A moving, easy-to-update speakers carousel for a Squarespace site: live demo and the code.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+<style>
+:root{--bg:#F7F5F0;--ink:#1D2433;--muted:#5D6575;--line:rgba(29,36,51,.12);--teal:#1F6F78;--sun:#F2B544;--card:#fff;--gut:clamp(16px,4vw,48px);--ease:cubic-bezier(.22,.8,.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+body{font-family:"Public Sans",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--gut)}
+.note{background:var(--ink);color:#C9CEDA;font-size:13px;text-align:center;padding:8px var(--gut)}
+.note b{color:#fff;font-weight:500}
+h1,h2{font-family:Fraunces,Georgia,serif;font-weight:500;letter-spacing:-.01em;line-height:1.08}
+.intro{padding:clamp(40px,6vw,80px) 0 10px}
+.intro h1{font-size:clamp(34px,5vw,60px);max-width:18ch}
+.intro p{color:var(--muted);max-width:60ch;margin-top:14px;font-size:17px}
+
+/* the section as it would look on the client's site */
+.speakers{padding:clamp(40px,6vw,70px) 0 clamp(50px,7vw,90px)}
+.speakers__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;margin-bottom:28px}
+.speakers__head h2{font-size:clamp(30px,4vw,46px)}
+.speakers__head p{color:var(--muted)}
+.ctrl{display:flex;gap:8px}
+.ctrl button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:18px;transition:background .2s,color .2s}
+.ctrl button:hover{background:var(--ink);color:#fff}
+.ctrl button[aria-pressed="true"]{background:var(--teal);color:#fff;border-color:var(--teal)}
+.viewport{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);touch-action:pan-y;cursor:grab}
+.viewport.drag{cursor:grabbing}
+.track{display:flex;gap:20px;width:max-content;will-change:transform;padding:6px 0 12px}
+.card{flex:none;width:clamp(220px,24vw,280px);background:var(--card);border-radius:20px;overflow:hidden;box-shadow:0 10px 26px rgba(29,36,51,.08);user-select:none;-webkit-user-select:none}
+.card__img{aspect-ratio:1/1;background:#E4E0D6;overflow:hidden}
+.card__img img{width:100%;height:100%;object-fit:cover;pointer-events:none;transition:transform .8s var(--ease)}
+.card:hover .card__img img{transform:scale(1.05)}
+.card__body{padding:16px 18px 18px}
+.card h3{font-size:18px;font-weight:600;line-height:1.25}
+.card .role{color:var(--muted);font-size:14px}
+.card .topic{display:inline-block;margin-top:10px;background:#EEF5F5;color:var(--teal);border-radius:999px;padding:3px 10px;font-size:12.5px;font-weight:500}
+
+/* how-to */
+.how{background:#fff;border-radius:28px;padding:clamp(24px,4vw,48px);margin-bottom:clamp(50px,7vw,90px)}
+.how h2{font-size:clamp(28px,3.4vw,40px);margin-bottom:22px}
+.steps{list-style:none;display:grid;gap:16px;counter-reset:s}
+@media (min-width:860px){.steps{grid-template-columns:repeat(3,1fr)}}
+.steps li{counter-increment:s;background:var(--bg);border-radius:18px;padding:22px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--sun);font-weight:600;margin-bottom:12px}
+.steps b{display:block;margin-bottom:4px}
+.steps p{color:var(--muted);font-size:15px}
+.code{margin-top:28px}
+.code__bar{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;margin-bottom:10px}
+.code__bar p{color:var(--muted);font-size:15px;max-width:62ch}
+.copy{border:1px solid var(--ink);background:#fff;border-radius:999px;padding:8px 16px;cursor:pointer;font-weight:500}
+.copy:hover{background:var(--ink);color:#fff}
+pre[class*=language-]{border-radius:16px;margin:0;font-size:13.5px;max-height:420px}
+code[class*=language-],pre[class*=language-]{font-family:"JetBrains Mono",monospace}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<p class="note"><b>Demo</b> by Victoria V. for a Squarespace speakers carousel. Speaker names and photos are placeholders.</p>
+<main>
+<section class="intro"><div class="wrap">
+  <h1>Your speakers, in a moving carousel you can update yourself.</h1>
+  <p>Below is how the section would work on your site: it drifts on its own, pauses when someone hovers or taps, can be dragged or swiped, and has arrow buttons. Underneath: how you add a new speaker in Squarespace, and the small code that makes it move.</p>
+</div></section>
+
+<section class="speakers" aria-labelledby="sp-title"><div class="wrap">
+  <div class="speakers__head"><div><h2 id="sp-title">Our speakers</h2><p>Voices from past and upcoming sessions.</p></div>
+    <div class="ctrl"><button type="button" id="prev" aria-label="Previous speaker">←</button><button type="button" id="pause" aria-label="Pause the carousel" aria-pressed="false">❚❚</button><button type="button" id="next" aria-label="Next speaker">→</button></div></div>
+  <div class="viewport" id="vp" role="region" aria-label="Speakers, moving carousel" tabindex="0"><div class="track" id="track"></div></div>
+</div></section>
+
+<section class="wrap"><div class="how">
+  <h2>Adding a new speaker takes about a minute</h2>
+  <ol class="steps">
+    <li><b>Open the section</b><p>In the Squarespace editor, click the speakers section and choose Edit content. It is a built-in List section set to the Carousel layout.</p></li>
+    <li><b>Add an item</b><p>Click Add item, upload the photo, type the name, title and topic. Drag items to change the order.</p></li>
+    <li><b>Save</b><p>Press Save. The new speaker joins the moving carousel automatically, no code to touch.</p></li>
+  </ol>
+  <div class="code">
+    <div class="code__bar"><p>The movement comes from one small snippet added once in Settings → Advanced → Code Injection. It works with the built-in carousel, so your updates never break it.</p><button class="copy" id="copy" type="button">Copy code</button></div>
+    <pre><code class="language-html" id="snippet">&lt;!-- Speakers carousel: smooth auto-scroll for a Squarespace 7.1 List section (Carousel) --&gt;
+&lt;style&gt;
+  .user-items-list-carousel__slideshow-holder { overflow: hidden; }
+  .user-items-list-carousel__slides { transition: none !important; }
+&lt;/style&gt;
+&lt;script&gt;
+document.addEventListener('DOMContentLoaded', () =&gt; {
+  // Pick the carousel inside the section with the "Speakers" anchor
+  const section = document.querySelector('#speakers');
+  const track = section &amp;&amp; section.querySelector('.user-items-list-carousel__slides');
+  if (!track || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  // Duplicate the slides once so the loop is seamless
+  track.append(...[...track.children].map(slide =&gt; {
+    const copy = slide.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    return copy;
+  }));
+
+  let x = 0, paused = false;
+  const speed = 0.4; // pixels per frame
+  section.addEventListener('mouseenter', () =&gt; paused = true);
+  section.addEventListener('mouseleave', () =&gt; paused = false);
+  section.addEventListener('focusin', () =&gt; paused = true);
+  section.addEventListener('focusout', () =&gt; paused = false);
+
+  (function frame() {
+    if (!paused) {
+      x -= speed;
+      if (-x &gt;= track.scrollWidth / 2) x = 0;
+      track.style.transform = `translateX(${x}px)`;
+    }
+    requestAnimationFrame(frame);
+  })();
+});
+&lt;/script&gt;</code></pre>
+  </div>
+</div></section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const people = [
+    ['Dr. Amara Okafor','Public health researcher','Community wellbeing','1573496359142-b8d87734a5a2'],
+    ['James Whitfield','Podcast producer','Storytelling','1507003211169-0a1dd7228f2d'],
+    ['Lena Morales','Nonprofit director','Policy and advocacy','1580489944761-15a19d654956'],
+    ['Priya Raman','Product designer','Design for access','1544005313-94ddf0286df2'],
+    ['Marcus Bell','Journalist','Local news','1500648767791-00dcc994a43e'],
+    ['Sofia Lindqvist','Educator','Learning online','1438761681033-6461ffad8d80'],
+    ['Daniel Kim','Founder','Small business growth','1506794778202-cad84cf45f1d']
+  ];
+  const track = document.getElementById('track'), vp = document.getElementById('vp');
+  const card = (p, hidden) => `<article class="card"${hidden ? ' aria-hidden="true"' : ''}><div class="card__img"><img src="https://images.unsplash.com/photo-${p[3]}?auto=format&fit=crop&w=500&h=500&q=72" alt="${hidden ? '' : 'Photo of ' + p[0]}" width="500" height="500" loading="lazy" draggable="false"></div><div class="card__body"><h3>${p[0]}</h3><span class="role">${p[1]}</span><br><span class="topic">${p[2]}</span></div></article>`;
+  track.innerHTML = people.map(p => card(p)).join('') + people.map(p => card(p, true)).join('');
+
+  let x = 0, half = 0, paused = reduce, hover = false, target = null;
+  const measure = () => { half = track.scrollWidth / 2; }; measure(); addEventListener('resize', measure); addEventListener('load', measure);
+  const step = () => { const c = track.children[0]; return c.getBoundingClientRect().width + 20; };
+  const wrapX = () => { if (half) { while (-x >= half) x += half; while (x > 0) x -= half; } };
+  // drag / swipe
+  let down = false, sx = 0, ox = 0;
+  vp.addEventListener('pointerdown', e => { down = true; sx = e.clientX; ox = x; target = null; vp.classList.add('drag'); vp.setPointerCapture(e.pointerId); });
+  vp.addEventListener('pointermove', e => { if (!down) return; x = ox + (e.clientX - sx); wrapX(); });
+  const up = () => { down = false; vp.classList.remove('drag'); };
+  vp.addEventListener('pointerup', up); vp.addEventListener('pointercancel', up);
+  vp.addEventListener('pointerenter', () => hover = true); vp.addEventListener('pointerleave', () => hover = false);
+  vp.addEventListener('focusin', () => hover = true); vp.addEventListener('focusout', () => hover = false);
+  const go = d => { target = Math.round(x / step()) * step() - d * step(); };
+  document.getElementById('next').addEventListener('click', () => go(1));
+  document.getElementById('prev').addEventListener('click', () => go(-1));
+  vp.addEventListener('keydown', e => { if (e.key === 'ArrowRight') go(1); if (e.key === 'ArrowLeft') go(-1); });
+  const pb = document.getElementById('pause');
+  const setPause = p => { paused = p; pb.setAttribute('aria-pressed', String(p)); pb.textContent = p ? '▶' : '❚❚'; pb.setAttribute('aria-label', p ? 'Play the carousel' : 'Pause the carousel'); };
+  pb.addEventListener('click', () => setPause(!paused)); setPause(paused);
+  (function frame(){
+    if (target !== null) { x += (target - x) * .14; if (Math.abs(target - x) < .5) { x = target; target = null; } }
+    else if (!paused && !hover && !down) x -= .45;
+    if (target === null) wrapX();
+    track.style.transform = `translate3d(${x}px,0,0)`;
+    requestAnimationFrame(frame);
+  })();
+
+  document.getElementById('copy').addEventListener('click', async e => {
+    const txt = document.getElementById('snippet').textContent;
+    try { await navigator.clipboard.writeText(txt); e.target.textContent = 'Copied'; } catch (err) { e.target.textContent = 'Select and copy'; }
+    setTimeout(() => e.target.textContent = 'Copy code', 2000);
+  });
+})();
+</script>
+</body>
+</html>
