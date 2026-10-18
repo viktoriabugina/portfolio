@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Skin Analysis for Skincare Brand Websites | RENOVAA</title>
+<meta name="description" content="Embed RENOVAA's white-label AI skin analysis in your store: personalised routines built from your catalog, linked straight to your product pages and cart. Plans from $149/month.">
+<!-- Concept preview: keep out of search results. Remove this line on the production site. -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://www.renovaa.net/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RENOVAA">
+<meta property="og:title" content="RENOVAA: AI skin analysis, built into your website">
+<meta property="og:description" content="Analyse each customer's skin, recommend products from your catalog and keep the sale on your site.">
+<meta property="og:url" content="https://www.renovaa.net/">
+<meta property="og:image" content="https://www.renovaa.net/assets/analysis-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#78264b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "RENOVAA",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "White-label AI skin analysis for skincare brand websites, with catalog-built routines and scan-to-purchase analytics.",
+  "url": "https://www.renovaa.net/",
+  "offers": [
+    {"@type": "Offer", "name": "Starter", "price": "149", "priceCurrency": "USD"},
+    {"@type": "Offer", "name": "Growth", "price": "549", "priceCurrency": "USD"}
+  ]
+}
+</script>
+<style>
+:root{
+  --paper:#fbf8fb; --surface:#ffffff; --blush:#f4e8ef; --line:#eadde5;
+  --ink:#18121b; --muted:#6e6470; --plum:#78264b; --plum-dark:#4d1832; --plum-light:#a64b76;
+  --rose:#e9b8cd;
+  --display:"Manrope",system-ui,sans-serif; --body:"DM Sans",system-ui,sans-serif;
+  --gutter:clamp(16px,4vw,40px); --max:1240px;
+  --r-lg:28px; --r-md:18px; --r-sm:12px;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+html,body{overflow-x:clip}
+body{font-family:var(--body);font-size:17px;line-height:1.6;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+img,video,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--plum-light);outline-offset:3px;border-radius:6px}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.035em;line-height:1.02}
+h2{font-size:clamp(34px,5.4vw,64px)}
+h3{font-size:clamp(19px,1.6vw,22px);letter-spacing:-.02em;line-height:1.2}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:var(--plum)}
+.kicker::before{content:"";width:22px;height:2px;border-radius:2px;background:currentColor}
+.lede{font-size:clamp(17px,1.4vw,19px);color:var(--muted);max-width:56ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font-weight:600;font-size:16px;border:1.5px solid transparent;cursor:pointer;transition:transform .3s var(--ease),background .3s,box-shadow .3s,color .3s;white-space:nowrap}
+.btn--plum{background:var(--plum);color:#fff;box-shadow:0 12px 30px rgba(120,38,75,.28)}
+.btn--plum:hover{background:var(--plum-dark);transform:translateY(-2px)}
+.btn--line{border-color:var(--line);background:var(--surface)}
+.btn--line:hover{border-color:var(--plum);color:var(--plum)}
+.btn .play{width:22px;height:22px;border-radius:50%;background:var(--blush);display:grid;place-items:center}
+.btn .play::before{content:"";border-left:7px solid var(--plum);border-top:4.5px solid transparent;border-bottom:4.5px solid transparent;margin-left:2px}
+
+/* concept ribbon */
+.ribbon{background:var(--ink);color:#e9dfe6;font-size:13px;text-align:center;padding:8px var(--gutter)}
+.ribbon b{color:#fff;font-weight:600}
+
+/* header */
+.header{position:sticky;top:0;z-index:40;background:rgba(251,248,251,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+.header.is-scrolled{border-color:var(--line)}
+.header__in{display:flex;align-items:center;gap:20px;height:72px}
+.logo img{height:22px;width:auto}
+.nav{display:none}
+.header .btn{min-height:44px;padding:0 20px;font-size:15px;margin-left:auto}
+.burger{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center;cursor:pointer;flex:none}
+.burger span,.burger span::before,.burger span::after{display:block;width:16px;height:1.5px;background:var(--ink);position:relative;transition:transform .3s,background .3s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-5px}.burger span::after{top:5px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{transform:translateY(5px) rotate(45deg)}
+.burger[aria-expanded="true"] span::after{transform:translateY(-5px) rotate(-45deg)}
+.drawer{position:fixed;inset:0;z-index:35;background:var(--paper);padding:120px var(--gutter) 40px;display:flex;flex-direction:column;gap:6px;opacity:0;visibility:hidden;transition:opacity .35s,visibility 0s .35s}
+.drawer.is-open{opacity:1;visibility:visible;transition-delay:0s}
+.drawer a{font-family:var(--display);font-weight:700;font-size:34px;letter-spacing:-.03em;padding:6px 0}
+@media (max-width:539px){.header .btn{display:none}}
+@media (min-width:1024px){
+  .nav{display:flex;gap:30px;margin-left:auto;font-size:15px;font-weight:500;color:var(--muted)}
+  .nav a{transition:color .2s}.nav a:hover{color:var(--plum)}
+  .header .btn{margin-left:8px}
+  .burger,.drawer{display:none}
+}
+
+/* hero */
+.hero{padding:clamp(40px,7vw,90px) 0 clamp(60px,8vw,110px)}
+.hero__grid{display:grid;gap:clamp(36px,5vw,64px);align-items:center}
+.hero h1{font-size:clamp(44px,7.4vw,92px);margin:20px 0 24px}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .ln span{display:inline-block}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.trust{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:30px;font-size:14px;color:var(--muted)}
+.trust li{list-style:none;display:flex;align-items:center;gap:8px}
+.trust li::before{content:"";width:16px;height:16px;border-radius:50%;background:var(--blush) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%2378264b' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+@media (min-width:1024px){.hero__grid{grid-template-columns:1.08fr .92fr}}
+
+/* scan stage: the signature moment */
+.scan{position:relative;border-radius:var(--r-lg);background:linear-gradient(160deg,#fff 0%,var(--blush) 100%);aspect-ratio:4/4.6;overflow:hidden;isolation:isolate;box-shadow:0 30px 80px rgba(77,24,50,.16)}
+.scan video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.scan__grid{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(120,38,75,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(120,38,75,.07) 1px,transparent 1px);background-size:28px 28px;mask-image:radial-gradient(circle at 50% 42%,#000 30%,transparent 72%);-webkit-mask-image:radial-gradient(circle at 50% 42%,#000 30%,transparent 72%)}
+.scan__beam{position:absolute;left:8%;right:8%;top:12%;height:2px;z-index:2;background:linear-gradient(90deg,transparent,var(--plum-light),transparent);box-shadow:0 0 18px 4px rgba(166,75,118,.45)}
+.scan__corners{position:absolute;inset:7%;z-index:2;pointer-events:none}
+.scan__corners i{position:absolute;width:26px;height:26px;border:2px solid var(--plum)}
+.scan__corners i:nth-child(1){top:0;left:0;border-right:0;border-bottom:0;border-top-left-radius:10px}
+.scan__corners i:nth-child(2){top:0;right:0;border-left:0;border-bottom:0;border-top-right-radius:10px}
+.scan__corners i:nth-child(3){bottom:0;left:0;border-right:0;border-top:0;border-bottom-left-radius:10px}
+.scan__corners i:nth-child(4){bottom:0;right:0;border-left:0;border-top:0;border-bottom-right-radius:10px}
+.pin{position:absolute;z-index:3;width:10px;height:10px;margin:-5px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px var(--plum),0 0 0 9px rgba(120,38,75,.18)}
+.signal{position:absolute;z-index:4;display:flex;align-items:center;gap:10px;padding:9px 14px 9px 10px;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 10px 30px rgba(77,24,50,.15);font-size:13px;line-height:1.2;white-space:nowrap}
+.signal b{font-family:var(--display);font-weight:700;color:var(--plum)}
+.signal .meter{width:34px;height:6px;border-radius:6px;background:var(--line);overflow:hidden}
+.signal .meter i{display:block;height:100%;background:var(--plum);border-radius:inherit;transform-origin:left}
+.routine{position:absolute;z-index:5;left:5%;right:5%;bottom:5%;background:#fff;border-radius:var(--r-md);padding:16px;box-shadow:0 20px 50px rgba(77,24,50,.2)}
+.routine__top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px}
+.routine__top strong{font-family:var(--display);font-size:15px}
+.routine__top span{font-size:12px;color:var(--muted)}
+.routine ol{list-style:none;display:grid;gap:6px}
+.routine li{display:flex;align-items:center;gap:10px;font-size:13.5px;padding:7px 8px;border-radius:10px;background:var(--paper)}
+.routine li em{font-style:normal;width:22px;height:22px;flex:none;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:600;background:var(--blush);color:var(--plum)}
+.routine li .add{margin-left:auto;font-size:12px;font-weight:600;color:var(--plum)}
+.routine__cart{margin-top:10px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px}
+.routine__cart .btn{min-height:38px;padding:0 16px;font-size:13px;box-shadow:none}
+@media (max-width:420px){.routine li:nth-child(3){display:none}.signal{font-size:12px}}
+
+/* journey: scroll-driven rail */
+.journey{padding:clamp(70px,9vw,130px) 0;background:var(--surface);border-block:1px solid var(--line)}
+.journey__head{display:grid;gap:18px;margin-bottom:clamp(36px,5vw,60px)}
+.journey__head p.flow{font-family:var(--display);font-weight:600;font-size:clamp(16px,1.5vw,19px);color:var(--plum)}
+@media (min-width:1024px){.journey__head{grid-template-columns:1.1fr .9fr;align-items:end}}
+.steps-wrap{position:relative}
+.steps{display:grid;gap:14px;list-style:none}
+.rail{position:absolute;left:23px;top:24px;bottom:24px;width:2px;background:var(--line);border-radius:2px}
+.rail i{position:absolute;inset:0;background:linear-gradient(var(--plum-light),var(--plum));transform-origin:top;transform:scaleY(0);border-radius:inherit}
+.step{position:relative;display:grid;grid-template-columns:48px 1fr;gap:16px;align-items:start}
+.step__n{width:48px;height:48px;border-radius:50%;background:var(--surface);border:2px solid var(--line);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:15px;color:var(--muted);transition:background .4s,border-color .4s,color .4s;position:relative;z-index:1}
+.step.is-on .step__n{background:var(--plum);border-color:var(--plum);color:#fff}
+.step__body{padding:6px 0 18px}
+.step__body p{color:var(--muted);margin-top:6px;max-width:44ch}
+.outcomes{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;list-style:none}
+.outcomes li{padding:10px 16px;border-radius:999px;background:var(--blush);color:var(--plum-dark);font-weight:600;font-size:14px}
+@media (min-width:1024px){
+  .steps{grid-template-columns:repeat(5,1fr);gap:20px}
+  .rail{left:24px;right:calc(20% - 4px);top:23px;bottom:auto;width:auto;height:2px}
+  .rail i{transform-origin:left;transform:scaleX(0)}
+  .step{grid-template-columns:1fr;gap:18px}
+}
+
+/* why */
+.why{padding:clamp(70px,9vw,130px) 0}
+.why__grid{display:grid;gap:clamp(30px,5vw,80px)}
+.why__list{list-style:none;border-top:1px solid var(--line)}
+.why__list li{display:grid;grid-template-columns:auto 1fr;gap:6px 20px;padding:26px 0;border-bottom:1px solid var(--line)}
+.why__list .ic{grid-row:span 2;width:46px;height:46px;border-radius:14px;background:var(--blush);display:grid;place-items:center;color:var(--plum)}
+.why__list p{color:var(--muted);max-width:52ch}
+.disclaimer{margin-top:24px;font-size:14px;color:var(--muted);padding:16px 18px;border-radius:var(--r-sm);background:var(--surface);border:1px solid var(--line);max-width:62ch}
+@media (min-width:1024px){.why__grid{grid-template-columns:.85fr 1.15fr}.why__aside{position:sticky;top:110px;align-self:start}}
+
+/* problem: the one dark band */
+.leak{background:var(--plum-dark);color:#f6e9f0;padding:clamp(80px,10vw,140px) 0;position:relative;overflow:hidden}
+.leak::before{content:"";position:absolute;width:70vmax;height:70vmax;right:-30vmax;top:-30vmax;border-radius:50%;background:radial-gradient(circle,rgba(166,75,118,.45),transparent 65%);pointer-events:none}
+.leak .kicker{color:var(--rose)}
+.leak h2{color:#fff;max-width:16ch;margin-top:16px}
+.leak .lede{color:#d9c3cf;margin-top:20px}
+.path{list-style:none;display:grid;gap:12px;margin-top:clamp(40px,6vw,70px);position:relative}
+.path li{display:grid;grid-template-columns:42px 1fr;gap:14px;padding:18px;border-radius:var(--r-md);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+.path .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(255,255,255,.1);color:var(--rose)}
+.path h3{color:#fff;font-size:18px}
+.path p{color:#d3bcc8;font-size:15px;margin-top:4px}
+.path li.lost{background:rgba(0,0,0,.18);border-style:dashed;border-color:rgba(255,255,255,.22)}
+.path li.lost .ic{background:transparent;border:1.5px dashed rgba(255,255,255,.35);color:#fff}
+.losses{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;list-style:none}
+.losses li{padding:9px 16px;border-radius:999px;border:1px dashed rgba(255,255,255,.35);font-size:14px;font-weight:600;color:#f0dbe6;text-decoration:line-through;text-decoration-color:rgba(255,255,255,.45)}
+.stats{display:grid;gap:30px;margin-top:clamp(50px,7vw,90px);padding-top:clamp(36px,5vw,56px);border-top:1px solid rgba(255,255,255,.15)}
+.stat strong{display:block;font-family:var(--display);font-weight:800;font-size:clamp(54px,7vw,88px);letter-spacing:-.05em;line-height:1;color:#fff}
+.stat p{color:#d3bcc8;margin-top:12px;max-width:34ch}
+@media (min-width:768px){.stats{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:1024px){.path{grid-template-columns:repeat(5,1fr)}.path li{grid-template-columns:1fr;align-content:start}}
+
+/* analytics */
+.data{padding:clamp(70px,9vw,130px) 0}
+.data__grid{display:grid;gap:clamp(40px,6vw,80px);align-items:center}
+.checks{list-style:none;display:grid;gap:12px;margin:28px 0 34px}
+.checks li{display:flex;gap:12px;align-items:flex-start}
+.checks li::before{content:"";flex:none;width:22px;height:22px;margin-top:2px;border-radius:7px;background:var(--plum) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+.dash{position:relative;border-radius:var(--r-lg);background:var(--blush);padding:clamp(14px,2.4vw,28px);overflow:hidden}
+.dash img{border-radius:var(--r-md);box-shadow:0 30px 70px rgba(77,24,50,.18);width:100%;height:auto}
+.dash__tag{position:absolute;right:clamp(18px,3vw,36px);bottom:clamp(18px,3vw,36px);background:#fff;border-radius:var(--r-sm);padding:12px 16px;box-shadow:0 14px 34px rgba(77,24,50,.18);font-size:13px;color:var(--muted)}
+.dash__tag strong{display:block;font-family:var(--display);font-size:22px;color:var(--plum);letter-spacing:-.02em}
+@media (min-width:1024px){.data__grid{grid-template-columns:.9fr 1.1fr}}
+
+/* pricing */
+.pricing{padding:clamp(70px,9vw,130px) 0;background:var(--surface);border-top:1px solid var(--line)}
+.pricing__head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:24px;margin-bottom:clamp(36px,5vw,56px)}
+.pricing__head h2{max-width:14ch;margin-top:14px}
+.toggle{display:inline-flex;padding:5px;border-radius:999px;background:var(--paper);border:1px solid var(--line);position:relative}
+.toggle button{position:relative;z-index:1;border:0;background:none;padding:10px 18px;border-radius:999px;font-weight:600;font-size:15px;cursor:pointer;color:var(--muted);transition:color .3s;display:flex;align-items:center;gap:8px}
+.toggle button[aria-pressed="true"]{color:#fff}
+.toggle .save{font-size:12px;padding:2px 8px;border-radius:999px;background:var(--blush);color:var(--plum)}
+.toggle .knob{position:absolute;top:5px;bottom:5px;left:5px;border-radius:999px;background:var(--plum);transition:transform .45s var(--ease),width .45s var(--ease)}
+.plans{display:grid;gap:18px}
+.plan{position:relative;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(24px,3vw,34px);background:var(--paper)}
+.plan--pop{background:var(--ink);color:#f3eaf0;border-color:var(--ink)}
+.plan__badge{position:absolute;top:22px;right:22px;font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;background:var(--plum-light);color:#fff}
+.plan h3{font-size:20px}
+.plan__tag{color:var(--muted);font-size:15px;margin-top:6px}
+.plan--pop .plan__tag{color:#c9b6c1}
+.price{display:flex;align-items:baseline;gap:6px;margin:22px 0 4px}
+.price strong{font-family:var(--display);font-weight:800;font-size:clamp(44px,4.4vw,56px);letter-spacing:-.05em;line-height:1}
+.price span{color:var(--muted)}.plan--pop .price span{color:#c9b6c1}
+.billing{font-size:14px;color:var(--muted);min-height:1.6em}.plan--pop .billing{color:#c9b6c1}
+.feat{list-style:none;display:grid;gap:9px;margin:24px 0;font-size:15px}
+.feat li{display:flex;gap:10px}
+.feat li::before{content:"";flex:none;width:6px;height:6px;margin-top:9px;border-radius:50%;background:var(--plum-light)}
+.feat .ex{margin-top:8px;font-size:13px;font-weight:600;color:var(--plum)}
+.feat .ex::before{display:none}
+.plan--pop .feat .ex{color:var(--rose)}
+.plan__foot{margin-top:auto;padding-top:20px;border-top:1px solid var(--line);font-size:14px;color:var(--muted);display:grid;gap:4px}
+.plan--pop .plan__foot{border-color:rgba(255,255,255,.14);color:#c9b6c1}
+.plan__foot b{color:var(--ink);font-weight:600}.plan--pop .plan__foot b{color:#fff}
+.plan .btn{margin-top:22px;width:100%}
+.plan--pop .btn--line{background:transparent;border-color:rgba(255,255,255,.3);color:#fff}
+@media (min-width:1024px){.plans{grid-template-columns:repeat(3,1fr);align-items:stretch}.plan--pop{transform:translateY(-14px)}}
+
+/* contact */
+.contact{padding:clamp(80px,10vw,140px) 0;background:linear-gradient(180deg,var(--paper),var(--blush))}
+.contact__grid{display:grid;gap:clamp(36px,5vw,70px);align-items:start}
+.contact h2{font-size:clamp(38px,6vw,76px);max-width:13ch;margin-top:16px}
+.contact h2 span{display:block;color:var(--plum)}
+.form{background:#fff;border-radius:var(--r-lg);padding:clamp(22px,3vw,36px);box-shadow:0 30px 80px rgba(77,24,50,.12);display:grid;gap:16px}
+.form .row{display:grid;gap:16px}
+@media (min-width:560px){.form .row{grid-template-columns:1fr 1fr}}
+.field{display:grid;gap:6px;min-width:0}
+.field label{font-size:14px;font-weight:600}
+.field input{width:100%;min-width:0;height:52px;padding:0 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--paper);transition:border-color .2s,background .2s}
+.field input:focus{outline:none;border-color:var(--plum);background:#fff}
+.field.has-error input{border-color:#b3261e}
+.field .err{font-size:13px;color:#b3261e;min-height:0}
+.form .btn{width:100%;margin-top:6px}
+.form__note{font-size:14px;color:var(--plum-dark);background:var(--blush);padding:12px 14px;border-radius:12px;display:none}
+.form__note.is-on{display:block}
+@media (min-width:1024px){.contact__grid{grid-template-columns:1fr 1fr}}
+
+/* footer */
+.footer{background:var(--ink);color:#bfb0b9;padding:56px 0 34px;font-size:15px}
+.footer__top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:28px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer__top img{height:22px;width:auto;filter:brightness(0) invert(1)}
+.footer__top p{margin-top:12px;max-width:34ch}
+.footer nav{display:flex;flex-wrap:wrap;gap:12px 26px}
+.footer nav a:hover{color:#fff}
+.footer__bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:24px;font-size:14px}
+.footer__bottom div{display:flex;gap:18px}
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="ribbon" role="note"><b>Redesign concept</b> for RENOVAA by Victoria V. This is not the official website.</div>
+
+<header class="header" id="top">
+  <div class="wrap header__in">
+    <a href="#top" class="logo" aria-label="RENOVAA home"><img src="https://www.renovaa.net/assets/renovaa-logo-cropped.png" alt="RENOVAA" width="113" height="22"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#journey">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="https://www.renovaa.net/live-demos.html">Try Demo Live</a>
+      <a href="https://www.renovaa.net/about-renovaa.html">About Us</a>
+      <a href="https://www.renovaa.net/partnerships.html">Partnerships</a>
+    </nav>
+    <a href="#contact" class="btn btn--plum">Get started</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span></button>
+  </div>
+</header>
+<nav class="drawer" id="drawer" aria-label="Mobile">
+  <a href="#journey">How it works</a>
+  <a href="#pricing">Pricing</a>
+  <a href="https://www.renovaa.net/live-demos.html">Try Demo Live</a>
+  <a href="https://www.renovaa.net/about-renovaa.html">About Us</a>
+  <a href="https://www.renovaa.net/partnerships.html">Partnerships</a>
+  <a href="#contact" class="btn btn--plum" style="margin-top:20px;font-family:var(--body);font-size:17px">Get started</a>
+</nav>
+
+<main>
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <span class="kicker" data-hero>Personalized software for your customers</span>
+      <h1 aria-label="AI skin analysis, built into your website.">
+        <span class="ln"><span>AI skin analysis,</span></span>
+        <span class="ln"><span>built into</span></span>
+        <span class="ln"><span>your website.</span></span>
+      </h1>
+      <p class="lede" data-hero>Embed RENOVAA directly into your website to analyse each customer’s skin, deliver personalised product recommendations, and turn more visitors into customers.</p>
+      <div class="hero__ctas" data-hero>
+        <a href="#contact" class="btn btn--plum">Get started</a>
+        <a href="https://www.renovaa.net/live-demos.html" class="btn btn--line"><span class="play" aria-hidden="true"></span>Try Demo Live</a>
+      </div>
+      <ul class="trust" data-hero>
+        <li>White-label</li>
+        <li>Dermatologist-validated guidance</li>
+        <li>Designed for rapid deployment</li>
+      </ul>
+    </div>
+
+    <div class="scan" id="scan" aria-label="Illustration: a face being scanned, skin signals detected and a routine built from the store's catalog" role="img">
+      <video src="https://www.renovaa.net/assets/hero-loop.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+      <div class="scan__grid"></div>
+      <div class="scan__corners" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="scan__beam" id="beam" aria-hidden="true"></div>
+      <i class="pin" style="left:38%;top:34%" aria-hidden="true"></i>
+      <i class="pin" style="left:63%;top:30%" aria-hidden="true"></i>
+      <i class="pin" style="left:57%;top:52%" aria-hidden="true"></i>
+      <div class="signal" style="left:5%;top:9%" aria-hidden="true"><span class="meter"><i style="transform:scaleX(.64)"></i></span><span>Hydration <b>64%</b></span></div>
+      <div class="signal" style="right:5%;top:24%" aria-hidden="true"><span class="meter"><i style="transform:scaleX(.4)"></i></span><span>Sensitivity <b>Moderate</b></span></div>
+      <div class="signal" style="left:7%;top:44%" aria-hidden="true"><span class="meter"><i style="transform:scaleX(.55)"></i></span><span>Goal <b>Even tone</b></span></div>
+      <div class="routine" aria-hidden="true">
+        <div class="routine__top"><strong>Your morning routine</strong><span>Built from your catalog</span></div>
+        <ol>
+          <li><em>1</em>Gentle gel cleanser<span class="add">View</span></li>
+          <li><em>2</em>Vitamin C brightening serum<span class="add">View</span></li>
+          <li><em>3</em>Barrier cream SPF 50<span class="add">View</span></li>
+        </ol>
+        <div class="routine__cart"><span>3 products ready</span><span class="btn btn--plum">Add routine to cart</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="journey" id="journey" aria-labelledby="journey-title">
+  <div class="wrap">
+    <div class="journey__head">
+      <div>
+        <span class="kicker">The RENOVAA journey</span>
+        <h2 id="journey-title" style="margin-top:16px">Your AI beauty advisor, inside your store</h2>
+      </div>
+      <div>
+        <p class="flow">Skin analysis → guided routine → your product page → cart.</p>
+        <p class="lede" style="margin-top:10px">Never a generic chatbot. Never a marketplace redirect.</p>
+      </div>
+    </div>
+    <div class="steps-wrap">
+    <span class="rail" aria-hidden="true"><i id="railFill"></i></span>
+    <ol class="steps" id="steps">
+      <li class="step"><span class="step__n">01</span><div class="step__body"><h3>Capture</h3><p>The customer uploads a selfie or uses the live camera with quality checks and facial mapping.</p></div></li>
+      <li class="step"><span class="step__n">02</span><div class="step__body"><h3>Interpret</h3><p>RENOVAA combines visible skin signals with sensitivity, preferences, and declared goals.</p></div></li>
+      <li class="step"><span class="step__n">03</span><div class="step__body"><h3>Match</h3><p>Product logic maps customer needs to your SKUs, priorities, and exclusion rules.</p></div></li>
+      <li class="step"><span class="step__n">04</span><div class="step__body"><h3>Build the routine</h3><p>A clear morning and evening routine is created from your catalog.</p></div></li>
+      <li class="step"><span class="step__n">05</span><div class="step__body"><h3>Convert</h3><p>Every recommendation links directly to your product page and cart.</p></div></li>
+    </ol>
+    </div>
+    <ul class="outcomes" id="outcomes">
+      <li>Sale retained</li><li>First-party data captured</li><li>Relationship strengthened</li>
+    </ul>
+  </div>
+</section>
+
+<section class="why" aria-labelledby="why-title">
+  <div class="wrap why__grid">
+    <div class="why__aside">
+      <span class="kicker">Why brands choose RENOVAA</span>
+      <h2 id="why-title" style="margin-top:16px">Built for the brand, not the platform</h2>
+      <p class="disclaimer">RENOVAA is not a medical device and does not diagnose medical conditions. It provides cosmetic, educational, and commercial guidance.</p>
+    </div>
+    <ul class="why__list">
+      <li><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 4l9 6.5V20H3z"/><path d="M9 20v-6h6v6"/></svg></span><h3>Keep the sale on your website</h3><p>Customer uncertainty is resolved inside your funnel — not on Amazon or inside an external chatbot.</p></li>
+      <li><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 0 0 16z" fill="currentColor"/></svg></span><h3>A true white-label experience</h3><p>Your identity, typography, colors, domain, catalog, and tone of voice.</p></li>
+      <li><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v6c0 4 3 7 7 9 4-2 7-5 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Dermatologist-validated guidance</h3><p>Clinically informed consumer guidance, reviewed before launch and delivered without medical claims.</p></li>
+      <li><span class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3 5 13h6l-1 8 8-10h-6z"/></svg></span><h3>Designed for rapid deployment</h3><p>Transparent plans and streamlined implementation without a traditional enterprise sales cycle.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="leak" id="problem" aria-labelledby="leak-title">
+  <div class="wrap">
+    <span class="kicker">The customer journey today</span>
+    <h2 id="leak-title">How skincare brands lose customers</h2>
+    <p class="lede">The sale is not lost at checkout. It is lost one screen earlier — when an uncertain customer leaves your website to ask somewhere else and never comes back.</p>
+    <ol class="path" id="path">
+      <li><span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18"/></svg></span><div><h3>Visits your website</h3><p>They are unsure about an ingredient, their skin, or which product is right.</p></div></li>
+      <li><span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/></svg></span><div><h3>Takes a screenshot</h3><p>They capture the product page or ingredient list instead of asking your brand.</p></div></li>
+      <li><span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></svg></span><div><h3>Asks external AI</h3><p>“Is this suitable for my skin?” The answer happens outside your website.</p></div></li>
+      <li class="lost"><span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span><div><h3>Gets a generic choice</h3><p>The assistant suggests what appears easiest or most convenient to buy.</p></div></li>
+      <li class="lost"><span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m6 6 12 12M18 6 6 18"/></svg></span><div><h3>Redirected and lost</h3><p>They move to Amazon or a rival, taking the sale and relationship with them.</p></div></li>
+    </ol>
+    <ul class="losses"><li>Sale lost</li><li>Customer data lost</li><li>Relationship lost</li></ul>
+    <div class="stats">
+      <div class="stat"><strong><span class="count" data-to="47">47</span>%</strong><p>Already use AI to support purchase decisions, often outside the brand website.</p></div>
+      <div class="stat"><strong><span class="count" data-to="50">50</span>M+</strong><p>Shopping-related queries are sent to ChatGPT every day.</p></div>
+      <div class="stat"><strong><span class="count" data-to="3">3</span>×</strong><p>Greater consumer trust in retailer-owned AI than third-party AI assistants.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="data" aria-labelledby="data-title">
+  <div class="wrap data__grid">
+    <div>
+      <span class="kicker">Every scan becomes customer intelligence</span>
+      <h2 id="data-title" style="margin-top:16px">Understand what customers need — and what converts.</h2>
+      <p class="lede" style="margin-top:20px">See concern patterns, recommendation performance, scan-to-purchase attribution, repeat journeys, and revenue impact in one dashboard.</p>
+      <ul class="checks">
+        <li>Most common skin concerns</li>
+        <li>Top recommended products</li>
+        <li>Scan-to-product-click conversion</li>
+        <li>Scan-to-purchase attribution</li>
+        <li>Repeat scans and progress journeys</li>
+      </ul>
+      <a href="#contact" class="btn btn--plum">Explore the dashboard</a>
+    </div>
+    <figure class="dash" id="dash">
+      <img src="https://www.renovaa.net/assets/dashboard-preview.png" alt="RENOVAA analytics dashboard showing skin concerns, recommended products and scan-to-purchase attribution" width="1400" height="933" loading="lazy">
+      <figcaption class="dash__tag"><strong>Scan to purchase</strong>Attribution in one view</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="pricing" id="pricing" aria-labelledby="pricing-title">
+  <div class="wrap">
+    <div class="pricing__head">
+      <div>
+        <span class="kicker">Transparent pricing</span>
+        <h2 id="pricing-title">Start quickly. Scale when the data proves it.</h2>
+      </div>
+      <div class="toggle" role="group" aria-label="Billing period">
+        <span class="knob" id="knob" aria-hidden="true"></span>
+        <button type="button" data-bill="monthly" aria-pressed="true">Monthly</button>
+        <button type="button" data-bill="annual" aria-pressed="false">Annual <span class="save">Save 20%</span></button>
+      </div>
+    </div>
+    <div class="plans">
+      <article class="plan">
+        <h3>Starter</h3>
+        <p class="plan__tag">Skin analysis that works on your site</p>
+        <div class="price"><strong data-m="149" data-a="119">$149</strong><span>/mo</span></div>
+        <p class="billing" data-m="Billed monthly" data-a="Billed annually ($1,428/year)">Billed monthly</p>
+        <ul class="feat">
+          <li>1,000 scans/month</li><li>$0.15 per additional scan</li><li>Complete widget + AI model</li><li>Catalog-built routines</li><li>Logo and color customization</li>
+        </ul>
+        <div class="plan__foot"><span><b>Revenue dashboard:</b> total attributed revenue only</span><span><b>Support:</b> standard support</span></div>
+        <a href="https://www.renovaa.net/get-started.html?plan=starter" class="btn btn--line">Choose Starter</a>
+      </article>
+      <article class="plan plan--pop">
+        <span class="plan__badge">Most popular</span>
+        <h3>Growth</h3>
+        <p class="plan__tag">Skin analysis you control and learn from</p>
+        <div class="price"><strong data-m="549" data-a="439">$549</strong><span>/mo</span></div>
+        <p class="billing" data-m="Billed monthly" data-a="Billed annually ($5,268/year)">Billed monthly</p>
+        <ul class="feat">
+          <li>5,000 scans/month</li><li>$0.10 per additional scan</li><li>Complete widget + AI model</li><li>Catalog-built routines</li><li>Logo and color customization</li>
+          <li class="ex">Exclusive to Growth</li><li>Advanced branding and merchandising</li><li>Re-scan journeys and lead capture</li>
+        </ul>
+        <div class="plan__foot"><span><b>Revenue dashboard:</b> full scan-to-purchase attribution, trends, concern breakdown, demographics</span><span><b>Support:</b> priority support</span></div>
+        <a href="https://www.renovaa.net/get-started.html?plan=growth" class="btn btn--plum">Choose Growth</a>
+      </article>
+      <article class="plan">
+        <h3>Enterprise</h3>
+        <p class="plan__tag">Skin analysis as infrastructure</p>
+        <div class="price"><strong>Custom</strong></div>
+        <p class="billing">Starting around $1,500/month</p>
+        <ul class="feat">
+          <li>Custom scan volume</li><li>Volume-based pricing</li><li>Everything in Growth</li>
+          <li class="ex">Exclusive to Enterprise</li><li>Custom AI and recommendation logic</li><li>Margin- and inventory-aware rules</li><li>Fully custom white-label UI</li><li>API for app, kiosk, retail, and CRM</li>
+        </ul>
+        <div class="plan__foot"><span><b>Revenue dashboard:</b> everything in Growth, plus predictive LTV and custom cohort modeling</span><span><b>Support:</b> premium support + dedicated point of contact</span></div>
+        <a href="https://www.renovaa.net/get-started.html?plan=enterprise" class="btn btn--line">Get a personalized plan</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <div class="wrap contact__grid">
+    <div>
+      <span class="kicker">The next era of beauty commerce</span>
+      <h2 id="contact-title">The world of online beauty is reinventing itself. <span>Are you?</span></h2>
+    </div>
+    <form class="form" id="form" novalidate>
+      <div class="row">
+        <div class="field"><label for="fn">First name</label><input id="fn" name="first" autocomplete="given-name" required><span class="err"></span></div>
+        <div class="field"><label for="ln">Last name</label><input id="ln" name="last" autocomplete="family-name" required><span class="err"></span></div>
+      </div>
+      <div class="field"><label for="co">Company name</label><input id="co" name="company" autocomplete="organization" required><span class="err"></span></div>
+      <div class="field"><label for="em">Company email</label><input id="em" name="email" type="email" autocomplete="email" required><span class="err"></span></div>
+      <div class="field"><label for="url">Website URL</label><input id="url" name="url" type="url" inputmode="url" placeholder="https://" autocomplete="url" required><span class="err"></span></div>
+      <button class="btn btn--plum" type="submit">Get started</button>
+      <p class="form__note" id="note" role="status">Thanks! In this concept the form isn’t connected yet. On the live site it would send your request to the RENOVAA team.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div><img src="https://www.renovaa.net/assets/renovaa-logo-cropped.png" alt="RENOVAA" width="113" height="22" loading="lazy"><p>AI skin analysis and personalised routines, built into your website.</p></div>
+      <nav aria-label="Footer">
+        <a href="#journey">How it works</a><a href="#pricing">Pricing</a><a href="https://www.renovaa.net/live-demos.html">Try Demo Live</a><a href="https://www.renovaa.net/partnerships.html">Partnerships</a><a href="https://www.renovaa.net/about-renovaa.html">About Us</a><a href="#contact">Get started</a>
+      </nav>
+    </div>
+    <div class="footer__bottom"><span>© 2026 RENOVAA. All rights reserved.</span><div><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Data processing</a></div></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // menu
+  const burger = document.getElementById('burger'), drawer = document.getElementById('drawer');
+  const setMenu = open => { drawer.classList.toggle('is-open', open); burger.setAttribute('aria-expanded', String(open)); burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); document.body.style.overflow = open ? 'hidden' : ''; };
+  burger.addEventListener('click', () => setMenu(!drawer.classList.contains('is-open')));
+  drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+  const header = document.querySelector('.header');
+  addEventListener('scroll', () => header.classList.toggle('is-scrolled', scrollY > 10), {passive:true});
+
+  // pricing toggle
+  const knob = document.getElementById('knob'), btns = document.querySelectorAll('[data-bill]');
+  const placeKnob = b => { knob.style.width = b.offsetWidth + 'px'; knob.style.transform = `translateX(${b.offsetLeft - 5}px)`; };
+  btns.forEach(b => b.addEventListener('click', () => {
+    const mode = b.dataset.bill;
+    btns.forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    placeKnob(b);
+    document.querySelectorAll('.price strong[data-m]').forEach(el => {
+      const to = +el.dataset[mode === 'annual' ? 'a' : 'm'], from = +el.textContent.replace(/\D/g,'');
+      if (window.gsap && !reduce) { const o = {v:from}; gsap.to(o, {v:to, duration:.6, ease:'power2.out', onUpdate:()=> el.textContent = '$' + Math.round(o.v)}); }
+      else el.textContent = '$' + to;
+    });
+    document.querySelectorAll('.billing[data-m]').forEach(el => el.textContent = el.dataset[mode === 'annual' ? 'a' : 'm']);
+  }));
+  const pressed = document.querySelector('[data-bill][aria-pressed="true"]');
+  placeKnob(pressed); addEventListener('resize', () => placeKnob(document.querySelector('[data-bill][aria-pressed="true"]')));
+  document.fonts && document.fonts.ready.then(() => placeKnob(document.querySelector('[data-bill][aria-pressed="true"]')));
+
+  // form
+  const form = document.getElementById('form');
+  form.addEventListener('submit', e => {
+    e.preventDefault(); let ok = true;
+    form.querySelectorAll('input').forEach(inp => {
+      const f = inp.closest('.field'), err = f.querySelector('.err'); let msg = '';
+      if (!inp.value.trim()) msg = 'Fill in this field.';
+      else if (inp.type === 'email' && !/^\S+@\S+\.\S+$/.test(inp.value)) msg = 'Enter an email like name@brand.com.';
+      else if (inp.type === 'url' && !/^(https?:\/\/)?[\w-]+(\.[\w-]+)+/.test(inp.value)) msg = 'Enter your store address, like brand.com.';
+      f.classList.toggle('has-error', !!msg); err.textContent = msg; if (msg) ok = false;
+    });
+    if (ok) { document.getElementById('note').classList.add('is-on'); form.querySelector('button').textContent = 'Request sent'; }
+    else form.querySelector('.has-error input').focus();
+  });
+
+  if (!window.gsap || reduce) {
+    document.querySelectorAll('.step').forEach(s => s.classList.add('is-on'));
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+
+  // smooth scroll
+  if (window.Lenis) {
+    const lenis = new Lenis({lerp:.1});
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const id = a.getAttribute('href'); if (id.length < 2) return; const t = document.querySelector(id); if (!t) return;
+      e.preventDefault(); lenis.scrollTo(t, {offset:-72});
+    }));
+  }
+
+  // hero: one orchestrated sequence, then the scan keeps living
+  const tl = gsap.timeline({defaults:{ease:'expo.out'}});
+  tl.from('.hero h1 .ln span', {yPercent:110, duration:1.1, stagger:.09})
+    .from('[data-hero]', {y:18, opacity:0, duration:.9, stagger:.08}, .25)
+    .from('.scan', {clipPath:'inset(12% 12% 12% 12% round 28px)', scale:1.04, duration:1.4}, .1)
+    .from('.pin', {scale:0, duration:.5, stagger:.12, ease:'back.out(3)'}, .9)
+    .from('.signal', {y:14, opacity:0, scale:.92, duration:.7, stagger:.18, ease:'back.out(1.8)'}, 1.1)
+    .from('.signal .meter i', {scaleX:0, duration:1, stagger:.18, ease:'power2.out'}, 1.25)
+    .from('.routine', {y:40, opacity:0, duration:.9}, 1.7)
+    .from('.routine li', {x:-14, opacity:0, duration:.5, stagger:.12}, 1.9);
+  gsap.fromTo('#beam', {top:'12%'}, {top:'78%', duration:2.6, ease:'sine.inOut', repeat:-1, yoyo:true});
+  gsap.to('.pin', {scale:1.25, duration:.9, ease:'sine.inOut', repeat:-1, yoyo:true, stagger:{each:.3, from:'random'}, delay:1.6});
+  gsap.to('.signal', {y:'-=6', duration:2.2, ease:'sine.inOut', repeat:-1, yoyo:true, stagger:.4, delay:2});
+
+  // journey rail follows the reader
+  const mm = gsap.matchMedia();
+  const steps = gsap.utils.toArray('.step');
+  const railTrigger = (axis) => ScrollTrigger.create({
+    trigger:'.steps-wrap', start:'top 70%', end:'bottom 55%', scrub:true,
+    onUpdate:self => {
+      gsap.set('#railFill', axis === 'x' ? {scaleX:self.progress} : {scaleY:self.progress});
+      steps.forEach((s,i) => s.classList.toggle('is-on', self.progress >= i / (steps.length - 1) - .02));
+    }
+  });
+  mm.add('(min-width:1024px)', () => { const t = railTrigger('x'); return () => t.kill(); });
+  mm.add('(max-width:1023px)', () => { const t = railTrigger('y'); return () => t.kill(); });
+  gsap.from('#outcomes li', {scrollTrigger:{trigger:'#outcomes', start:'top 88%'}, y:16, opacity:0, duration:.6, stagger:.1, ease:'power2.out'});
+
+  // leak: the path fades as the customer drifts away
+  gsap.from('#path li', {scrollTrigger:{trigger:'#path', start:'top 80%'}, y:24, opacity:0, duration:.7, stagger:.12, ease:'power2.out'});
+  gsap.to('#path li.lost', {scrollTrigger:{trigger:'#path', start:'top 55%', end:'bottom 40%', scrub:true}, opacity:.55});
+  document.querySelectorAll('.count').forEach(el => {
+    const to = +el.dataset.to, o = {v:0};
+    gsap.to(o, {v:to, duration:1.6, ease:'power3.out', scrollTrigger:{trigger:el, start:'top 88%'}, onUpdate:()=> el.textContent = Math.round(o.v)});
+  });
+
+  // dashboard: gentle depth on scroll
+  gsap.fromTo('#dash img', {y:40}, {y:-30, ease:'none', scrollTrigger:{trigger:'#dash', start:'top bottom', end:'bottom top', scrub:true}});
+  gsap.from('.dash__tag', {scrollTrigger:{trigger:'#dash', start:'top 70%'}, y:20, opacity:0, duration:.8, ease:'back.out(1.6)'});
+})();
+</script>
+</body>
+</html>
