@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vesta Estates | Homes, rentals and investment property in Ukraine</title>
+<meta name="description" content="Buy, rent or invest with one agent from the first viewing to the keys. Search verified listings in Kyiv, Lviv, Odesa and Poltava.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Vesta Estates | Homes, rentals and investment property in Ukraine">
+<meta property="og:description" content="Buy, rent or invest with one agent from the first viewing to the keys. Search verified listings in Kyiv, Lviv, Odesa and Poltava.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=72">
+<meta name="theme-color" content="#183A37">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Gloock&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.hero{padding:14px 0 0}
+.hero__frame{position:relative;border-radius:clamp(22px,3vw,36px);overflow:hidden;min-height:clamp(560px,82vh,780px);display:flex;align-items:flex-end;color:#fff;isolation:isolate}
+.hero__frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero__frame::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(15,38,36,.05) 30%,rgba(15,38,36,.72) 100%)}
+.hero__copy{padding:clamp(24px,5vw,64px);padding-bottom:clamp(150px,18vw,170px);max-width:900px}
+.hero h1{font-size:clamp(42px,7vw,96px);line-height:1}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .ln>span{display:inline-block}
+.hero p{margin-top:18px;font-size:clamp(16.5px,1.4vw,19px);max-width:46ch;color:rgba(255,255,255,.85)}
+.hero__badge{position:absolute;right:clamp(16px,3vw,40px);top:clamp(16px,3vw,40px);display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.14);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.28);border-radius:18px;padding:12px 16px;font-size:14px}
+.hero__badge b{display:block;font-family:var(--display);font-weight:400;font-size:22px}
+@media (max-width:520px){.hero__badge{display:none}}
+
+.search{position:relative;z-index:5;margin:-110px auto 0;width:min(1080px,calc(100% - 2*var(--gut)));background:var(--white);border-radius:24px;box-shadow:0 30px 70px rgba(15,38,36,.18);padding:14px}
+.tabs{display:flex;gap:6px;padding:4px 4px 12px}
+.tabs button{border:0;background:none;padding:8px 16px;border-radius:999px;font-weight:600;color:var(--muted);cursor:pointer;transition:background .3s,color .3s}
+.tabs button[aria-pressed="true"]{background:var(--spruce);color:#fff}
+.search__row{display:grid;gap:10px}
+.search .field select,.search .field input{background:var(--paper);border-color:transparent}
+.search .btn{height:50px;align-self:end}
+@media (min-width:860px){.search__row{grid-template-columns:1.2fr 1fr 1fr auto}}
+
+.sec{padding:clamp(80px,10vw,130px) 0}
+.sec__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:clamp(30px,4vw,48px)}
+.sec__head h2{margin-top:12px;max-width:16ch}
+
+/* services bento */
+.bento{display:grid;gap:16px}
+.svc{position:relative;border-radius:var(--r);overflow:hidden;min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(22px,3vw,32px);color:#fff;isolation:isolate}
+.svc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s var(--ease)}
+.svc::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 30%,rgba(15,38,36,.82))}
+.svc:hover img{transform:scale(1.05)}
+.svc h3{font-size:clamp(28px,2.6vw,36px)}
+.svc p{color:rgba(255,255,255,.82);margin-top:8px;max-width:38ch}
+.svc .go{margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-weight:600}
+.svc .go i{width:34px;height:34px;border-radius:50%;background:#fff;color:var(--spruce);display:grid;place-items:center;font-style:normal;transition:transform .4s var(--ease)}
+.svc:hover .go i{transform:rotate(-45deg)}
+.svc--sell{background:var(--brass);color:#fff}
+.svc--sell::after{display:none}
+@media (min-width:900px){.bento{grid-template-columns:1.3fr 1fr 1fr;grid-auto-rows:minmax(300px,auto)}.svc--big{grid-row:span 2}}
+
+/* how */
+.how{background:var(--spruce);color:#e3ebe9}
+.how h2{color:#fff}
+.how .label{color:var(--brass-l)}
+.how .lede{color:#b9c8c4}
+.steps{list-style:none;display:grid;gap:16px;counter-reset:s}
+.steps li{counter-increment:s;border:1px solid rgba(255,255,255,.14);border-radius:var(--r);padding:26px;display:grid;gap:8px;background:rgba(255,255,255,.03)}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--display);font-size:40px;color:var(--brass-l);line-height:1}
+.steps h3{font-family:var(--body);font-weight:600;font-size:19px;color:#fff;letter-spacing:0}
+.steps p{color:#b9c8c4;font-size:15.5px}
+@media (min-width:768px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1100px){.steps{grid-template-columns:repeat(4,1fr)}}
+
+/* sell / valuation */
+.sell__grid{display:grid;gap:clamp(30px,5vw,70px);align-items:center}
+.sell__img{border-radius:var(--r);overflow:hidden;aspect-ratio:4/4.4}
+.sell__img img{width:100%;height:115%;object-fit:cover}
+.val{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,3vw,32px);display:grid;gap:14px;margin-top:26px}
+.val .row{display:grid;gap:14px}
+@media (min-width:560px){.val .row{grid-template-columns:1fr 1fr}}
+@media (min-width:1024px){.sell__grid{grid-template-columns:.9fr 1.1fr}}
+
+/* about */
+.about{background:var(--stone)}
+.about__grid{display:grid;gap:clamp(30px,5vw,70px);align-items:start}
+.about__grid p+p{margin-top:14px}
+.pillars{list-style:none;display:grid;gap:12px}
+.pillars li{display:grid;grid-template-columns:44px 1fr;gap:4px 16px;background:var(--white);border-radius:18px;padding:18px}
+.pillars .ic{grid-row:span 2;width:44px;height:44px;border-radius:12px;background:var(--brass-l);display:grid;place-items:center;color:var(--spruce)}
+.pillars b{font-weight:600}
+.pillars span{color:var(--muted);font-size:15px}
+@media (min-width:1024px){.about__grid{grid-template-columns:1fr 1fr}}
+
+/* contact */
+.contact__grid{display:grid;gap:clamp(30px,5vw,70px);align-items:start}
+.contact .card-form{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,3vw,34px);display:grid;gap:14px}
+.contact .row{display:grid;gap:14px}
+@media (min-width:560px){.contact .row{grid-template-columns:1fr 1fr}}
+.contact ul{list-style:none;display:grid;gap:10px;margin-top:24px}
+.contact ul li{display:flex;gap:12px;align-items:center}
+.contact ul i{width:38px;height:38px;border-radius:50%;background:var(--stone);display:grid;place-items:center;font-style:normal;color:var(--spruce)}
+@media (min-width:1024px){.contact__grid{grid-template-columns:.9fr 1.1fr}}
+</style>
+</head>
+<body>
+<div class="ribbon" role="note"><b>Website concept</b> by Victoria V. for a real estate company. Brand name, listings and photos are placeholders.</div>
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="logo" href="index.html" data-logo aria-label="Vesta Estates home">Vesta</a>
+    <nav class="nav" aria-label="Main"><a href="listings.html?deal=buy">Buy</a><a href="listings.html?deal=rent">Rent</a><a href="listings.html?deal=invest">Invest</a><a href="index.html#sell">Sell</a><a href="index.html#about">About</a></nav>
+    <a class="btn btn--dark" href="index.html#contact">Book a viewing</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+<nav class="drawer" aria-label="Mobile"><a href="listings.html?deal=buy">Buy</a><a href="listings.html?deal=rent">Rent</a><a href="listings.html?deal=invest">Invest</a><a href="index.html#sell">Sell</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a></nav>
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="hero__frame" id="heroFrame">
+      <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=2000&q=75" alt="Modern white villa with a pool at dusk" width="2000" height="1333" fetchpriority="high">
+      <div class="hero__badge" id="heroBadge"><span><b id="listCount">9</b>verified listings</span></div>
+      <div class="hero__copy">
+        <h1 aria-label="Find a home that fits the way you live.">
+          <span class="ln"><span>Find a home that fits</span></span>
+          <span class="ln"><span>the way you live.</span></span>
+        </h1>
+        <p class="hero__p">Buy, rent or invest with one agent from the first viewing to the keys, in Kyiv, Lviv, Odesa and Poltava.</p>
+      </div>
+    </div>
+  </div>
+  <form class="search" id="search" action="listings.html" role="search">
+    <div class="tabs" role="group" aria-label="Deal type">
+      <button type="button" data-deal="buy" aria-pressed="true">Buy</button>
+      <button type="button" data-deal="rent" aria-pressed="false">Rent</button>
+      <button type="button" data-deal="invest" aria-pressed="false">Invest</button>
+    </div>
+    <input type="hidden" name="deal" value="buy">
+    <div class="search__row">
+      <div class="field"><label for="s-city">Location</label><select id="s-city" name="city"><option value="">All cities</option><option>Kyiv</option><option>Lviv</option><option>Odesa</option><option>Poltava</option></select></div>
+      <div class="field"><label for="s-type">Property type</label><select id="s-type" name="type"><option value="">Any type</option><option>Apartment</option><option>House</option><option>Townhouse</option><option>Commercial</option></select></div>
+      <div class="field"><label for="s-max">Max price</label><select id="s-max" name="max"><option value="">No limit</option><option value="150000">$150,000</option><option value="300000">$300,000</option><option value="500000">$500,000</option><option value="1000000">$1,000,000</option></select></div>
+      <button class="btn btn--dark" type="submit">Search homes</button>
+    </div>
+  </form>
+</section>
+
+<section class="sec" aria-labelledby="feat-title">
+  <div class="wrap">
+    <div class="sec__head">
+      <div><span class="label">Featured</span><h2 id="feat-title">New on the market this week</h2></div>
+      <a class="btn btn--line" href="listings.html">See all listings</a>
+    </div>
+    <div class="cards cards--3" id="featured"></div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0" aria-labelledby="svc-title" id="services">
+  <div class="wrap">
+    <div class="sec__head"><div><span class="label">What we do</span><h2 id="svc-title">One team for buyers, sellers and investors</h2></div></div>
+    <div class="bento">
+      <a class="svc svc--big" href="listings.html?deal=buy" data-reveal><img src="https://images.unsplash.com/photo-1642976975710-1d8890dbf5ab?auto=format&fit=crop&w=1200&q=72" alt="" loading="lazy"><h3>Buy a home</h3><p>Verified listings, honest pricing advice and a lawyer-checked deal from offer to keys.</p><span class="go">Browse homes <i>↗</i></span></a>
+      <a class="svc" href="listings.html?deal=rent" data-reveal><img src="https://images.unsplash.com/photo-1757524492552-d47a66a2b63e?auto=format&fit=crop&w=900&q=72" alt="" loading="lazy"><h3>Rent</h3><p>Furnished and long-term rentals, viewed and checked by us first.</p><span class="go">See rentals <i>↗</i></span></a>
+      <a class="svc" href="listings.html?deal=invest" data-reveal><img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=72" alt="" loading="lazy"><h3>Invest</h3><p>Leased commercial space and rental homes with the numbers worked out.</p><span class="go">View investments <i>↗</i></span></a>
+      <a class="svc svc--sell" href="#sell" data-reveal style="grid-column:1/-1;min-height:220px"><h3>Selling? Get a free valuation in 24 hours</h3><p>We’ll compare recent sales nearby and tell you a realistic price, not just a flattering one.</p><span class="go">Request a valuation <i>↗</i></span></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec how" id="how" aria-labelledby="how-title">
+  <div class="wrap">
+    <div class="sec__head"><div><span class="label">How we work</span><h2 id="how-title">From first call to keys, in four clear steps</h2></div><p class="lede">You always know what happens next and who is responsible for it.</p></div>
+    <ol class="steps">
+      <li data-reveal><h3>Tell us what you need</h3><p>A 15-minute call about budget, area and must-haves. We send a shortlist the same day.</p></li>
+      <li data-reveal><h3>View the best options</h3><p>In person or by video, with a written summary of every property you see.</p></li>
+      <li data-reveal><h3>Negotiate and check</h3><p>We negotiate the price and our lawyer checks documents and ownership history.</p></li>
+      <li data-reveal><h3>Sign and move in</h3><p>We prepare the contract, attend the signing and hand you the keys.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="sell" aria-labelledby="sell-title">
+  <div class="wrap sell__grid">
+    <div class="sell__img" data-reveal><img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1100&q=72" alt="Two-storey house with a modern facade" loading="lazy" id="sellImg"></div>
+    <div>
+      <span class="label">For sellers</span>
+      <h2 id="sell-title" style="margin-top:12px">What is your home worth today?</h2>
+      <p class="lede" style="margin-top:14px">Share a few details and an agent will send a valuation based on recent sales in your area within 24 hours.</p>
+      <form class="val" data-validate novalidate>
+        <div class="row">
+          <div class="field"><label for="v-addr">Address</label><input id="v-addr" required autocomplete="street-address"><span class="msg"></span></div>
+          <div class="field"><label for="v-type">Property type</label><select id="v-type"><option>Apartment</option><option>House</option><option>Townhouse</option><option>Commercial</option></select></div>
+        </div>
+        <div class="row">
+          <div class="field"><label for="v-area">Area, m²</label><input id="v-area" type="number" inputmode="numeric" min="10" required><span class="msg"></span></div>
+          <div class="field"><label for="v-phone">Phone</label><input id="v-phone" type="tel" autocomplete="tel" placeholder="+380" required><span class="msg"></span></div>
+        </div>
+        <button class="btn btn--brass" type="submit">Get my valuation</button>
+        <p class="note-ok" role="status">Thanks! An agent will send your valuation within 24 hours. (Concept: the form is not connected.)</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="sec about" id="about" aria-labelledby="about-title">
+  <div class="wrap about__grid">
+    <div>
+      <span class="label">About us</span>
+      <h2 id="about-title" style="margin-top:12px">A local agency that does the checking for you</h2>
+      <p class="lede" style="margin-top:16px">Placeholder copy: tell your story here in two or three short paragraphs, who founded the agency, which cities you work in and what you do differently.</p>
+    </div>
+    <ul class="pillars">
+      <li data-reveal><span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v6c0 4 3 7 7 9 4-2 7-5 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span><b>Every listing is verified</b><span>We visit the property and check the documents before it goes online.</span></li>
+      <li data-reveal><span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span><b>One agent, start to finish</b><span>No hand-offs: the person you meet first is with you at the signing.</span></li>
+      <li data-reveal><span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></span><b>Prices backed by data</b><span>Valuations and offers are based on real recent sales, which we show you.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec contact" id="contact" aria-labelledby="contact-title">
+  <div class="wrap contact__grid">
+    <div>
+      <span class="label">Contact</span>
+      <h2 id="contact-title" style="margin-top:12px">Book a viewing or ask a question</h2>
+      <p class="lede" style="margin-top:14px">We reply within one working hour, Monday to Saturday.</p>
+      <ul><li><i aria-hidden="true">☎</i>+380 00 000 00 00</li><li><i aria-hidden="true">✉</i>hello@vesta.example</li><li><i aria-hidden="true">⌖</i>Poltava, Ukraine</li></ul>
+    </div>
+    <form class="card-form" data-validate novalidate>
+      <div class="row">
+        <div class="field"><label for="c-name">Name</label><input id="c-name" autocomplete="name" required><span class="msg"></span></div>
+        <div class="field"><label for="c-phone">Phone</label><input id="c-phone" type="tel" autocomplete="tel" placeholder="+380" required><span class="msg"></span></div>
+      </div>
+      <div class="field"><label for="c-email">Email</label><input id="c-email" type="email" autocomplete="email" required><span class="msg"></span></div>
+      <div class="field"><label for="c-msg">Message</label><textarea id="c-msg" placeholder="Which property or area are you interested in?"></textarea></div>
+      <button class="btn btn--dark" type="submit">Send request</button>
+      <p class="note-ok" role="status">Thanks! We’ll call you back within one working hour. (Concept: the form is not connected.)</p>
+    </form>
+  </div>
+</section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <div><a class="logo" href="index.html" data-logo>Vesta</a><p>Homes, rentals and investment property, with one agent from first viewing to keys.</p></div>
+      <div><h4>Property</h4><ul><li><a href="listings.html?deal=buy">Buy</a></li><li><a href="listings.html?deal=rent">Rent</a></li><li><a href="listings.html?deal=invest">Invest</a></li><li><a href="index.html#sell">Sell with us</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="index.html#about">About</a></li><li><a href="index.html#how">How we work</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+      <div><h4>Office</h4><ul><li>Poltava, Ukraine</li><li>Mon–Sat, 9:00–19:00</li></ul></div>
+    </div>
+    <div class="foot__bottom"><span>© 2026 Vesta Estates. Concept.</span><span>Privacy · Terms</span></div>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>window.gsap && gsap.registerPlugin(ScrollTrigger);</script>
+<script src="assets/data.js"></script>
+<script src="assets/site.js"></script>
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.getElementById('featured').innerHTML = LISTINGS.filter(l => ['lviv-villa','pechersk-penthouse','odesa-sea-view'].includes(l.id)).map(cardHTML).join('');
+  reveal();
+  const deal = document.querySelector('#search [name=deal]');
+  document.querySelectorAll('[data-deal]').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('[data-deal]').forEach(x => x.setAttribute('aria-pressed', String(x === b))); deal.value = b.dataset.deal;
+  }));
+  document.getElementById('search').addEventListener('submit', e => {
+    e.preventDefault();
+    const p = new URLSearchParams([...new FormData(e.target)].filter(([, v]) => v));
+    location.href = 'listings.html?' + p.toString();
+  });
+  if (!window.gsap || reduce) return;
+  // door-opening reveal of the hero photo: the one big moment
+  const tl = gsap.timeline({defaults:{ease:'expo.out'}});
+  tl.from('#heroFrame', {clipPath:'inset(18% 36% 0% 36% round 300px 300px 36px 36px)', duration:1.6, ease:'expo.inOut'})
+    .from('#heroFrame img', {scale:1.25, duration:2.2}, 0)
+    .from('.hero h1 .ln>span', {yPercent:110, duration:1.1, stagger:.1}, .9)
+    .from('.hero__p', {y:20, opacity:0, duration:.9}, 1.15)
+    .from('#search', {y:60, opacity:0, duration:1}, 1.1)
+    .from('#heroBadge', {y:-20, opacity:0, duration:.8}, 1.3);
+  const n = {v:0}, el = document.getElementById('listCount');
+  tl.to(n, {v:LISTINGS.length, duration:1.2, ease:'power2.out', onUpdate:() => el.textContent = Math.round(n.v)}, 1.3);
+  gsap.to('#heroFrame img', {yPercent:8, ease:'none', scrollTrigger:{trigger:'#heroFrame', start:'top top', end:'bottom top', scrub:true}});
+  gsap.fromTo('#sellImg', {yPercent:-8}, {yPercent:0, ease:'none', scrollTrigger:{trigger:'#sellImg', start:'top bottom', end:'bottom top', scrub:true}});
+})();
+</script>
+</body>
+</html>

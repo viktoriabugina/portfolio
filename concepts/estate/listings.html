@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Property listings | Vesta Estates</title>
+<meta name="description" content="Search apartments, houses and investment property in Kyiv, Lviv, Odesa and Poltava. Filter by price, type and bedrooms.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Property listings | Vesta Estates">
+<meta property="og:description" content="Search apartments, houses and investment property in Kyiv, Lviv, Odesa and Poltava. Filter by price, type and bedrooms.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1200&q=72">
+<meta name="theme-color" content="#183A37">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Gloock&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.lhead{padding:clamp(36px,5vw,64px) 0 26px}
+.lhead h1{font-size:clamp(38px,5.4vw,72px);margin-top:12px}
+.layout{display:grid;gap:28px;padding-bottom:clamp(70px,9vw,120px)}
+@media (min-width:1024px){.layout{grid-template-columns:300px 1fr;align-items:start}}
+
+.filters{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:22px;display:grid;gap:18px}
+@media (min-width:1024px){.filters{position:sticky;top:96px}}
+.filters h2{font-family:var(--body);font-weight:700;font-size:17px;letter-spacing:0;display:flex;justify-content:space-between;align-items:center}
+.filters h2 button{border:0;background:none;color:var(--brass);font-weight:600;font-size:14px;cursor:pointer}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:var(--paper);border-radius:999px;padding:4px}
+.seg button{border:0;background:none;border-radius:999px;padding:9px 0;font-weight:600;font-size:14px;color:var(--muted);cursor:pointer;transition:background .3s,color .3s}
+.seg button[aria-pressed="true"]{background:var(--spruce);color:#fff}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pills button{border:1.5px solid var(--line);background:var(--white);border-radius:999px;padding:7px 14px;font-weight:600;font-size:14px;cursor:pointer}
+.pills button[aria-pressed="true"]{border-color:var(--spruce);background:var(--spruce);color:#fff}
+.range{display:grid;gap:8px}
+.range output{font-weight:700;color:var(--spruce)}
+.range input[type=range]{width:100%;accent-color:var(--spruce)}
+
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.toolbar .count{font-weight:600}
+.toolbar .count span{color:var(--muted);font-weight:400}
+.toolbar select{height:44px;border-radius:999px;border:1.5px solid var(--line);background:var(--white);padding:0 14px}
+.open-filters{display:inline-flex}
+@media (min-width:1024px){.open-filters{display:none}}
+.empty{display:none;text-align:center;padding:60px 20px;border:1.5px dashed var(--line);border-radius:var(--r);background:var(--white)}
+.empty.on{display:block}
+.empty h3{font-size:28px}
+.empty p{color:var(--muted);margin:8px 0 18px}
+
+/* mobile filter sheet */
+@media (max-width:1023px){
+  .filters{position:fixed;left:0;right:0;bottom:0;z-index:45;border-radius:24px 24px 0 0;max-height:86vh;overflow:auto;transform:translateY(105%);transition:transform .5s var(--ease);box-shadow:0 -20px 60px rgba(15,38,36,.25);padding-bottom:calc(22px + env(safe-area-inset-bottom))}
+  .filters.open{transform:none}
+  .scrim{position:fixed;inset:0;z-index:44;background:rgba(15,38,36,.45);opacity:0;visibility:hidden;transition:opacity .4s,visibility 0s .4s}
+  .scrim.on{opacity:1;visibility:visible;transition-delay:0s}
+  .filters .apply{display:inline-flex}
+}
+.filters .apply{display:none}
+</style>
+</head>
+<body>
+<div class="ribbon" role="note"><b>Website concept</b> by Victoria V. for a real estate company. Brand name, listings and photos are placeholders.</div>
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="logo" href="index.html" data-logo aria-label="Vesta Estates home">Vesta</a>
+    <nav class="nav" aria-label="Main"><a href="listings.html?deal=buy" aria-current="page">Buy</a><a href="listings.html?deal=rent">Rent</a><a href="listings.html?deal=invest">Invest</a><a href="index.html#sell">Sell</a><a href="index.html#about">About</a></nav>
+    <a class="btn btn--dark" href="index.html#contact">Book a viewing</a>
+    <button class="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+<nav class="drawer" aria-label="Mobile"><a href="listings.html?deal=buy">Buy</a><a href="listings.html?deal=rent">Rent</a><a href="listings.html?deal=invest">Invest</a><a href="index.html#sell">Sell</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a></nav>
+<main>
+<section class="lhead">
+  <div class="wrap">
+    <span class="label">Listings</span>
+    <h1 id="title">Homes for sale</h1>
+  </div>
+</section>
+<div class="wrap layout">
+  <aside class="filters" id="filters" aria-label="Filters">
+    <h2>Filters <button type="button" id="reset">Reset</button></h2>
+    <div class="seg" role="group" aria-label="Deal type">
+      <button type="button" data-k="deal" data-v="buy" aria-pressed="true">Buy</button>
+      <button type="button" data-k="deal" data-v="rent" aria-pressed="false">Rent</button>
+      <button type="button" data-k="deal" data-v="invest" aria-pressed="false">Invest</button>
+    </div>
+    <div class="field"><label for="f-city">Location</label><select id="f-city"><option value="">All cities</option><option>Kyiv</option><option>Lviv</option><option>Odesa</option><option>Poltava</option></select></div>
+    <div class="field"><span class="lbl" id="type-lbl">Property type</span>
+      <div class="pills" role="group" aria-labelledby="type-lbl">
+        <button type="button" data-k="type" data-v="" aria-pressed="true">Any</button>
+        <button type="button" data-k="type" data-v="Apartment" aria-pressed="false">Apartment</button>
+        <button type="button" data-k="type" data-v="House" aria-pressed="false">House</button>
+        <button type="button" data-k="type" data-v="Townhouse" aria-pressed="false">Townhouse</button>
+        <button type="button" data-k="type" data-v="Commercial" aria-pressed="false">Commercial</button>
+      </div>
+    </div>
+    <div class="field"><span class="lbl" id="beds-lbl">Bedrooms</span>
+      <div class="pills" role="group" aria-labelledby="beds-lbl">
+        <button type="button" data-k="beds" data-v="0" aria-pressed="true">Any</button>
+        <button type="button" data-k="beds" data-v="1" aria-pressed="false">1+</button>
+        <button type="button" data-k="beds" data-v="2" aria-pressed="false">2+</button>
+        <button type="button" data-k="beds" data-v="3" aria-pressed="false">3+</button>
+        <button type="button" data-k="beds" data-v="4" aria-pressed="false">4+</button>
+      </div>
+    </div>
+    <div class="range field"><label for="f-max">Max price: <output id="maxOut">No limit</output></label><input type="range" id="f-max" min="0" max="10" step="1" value="10"></div>
+    <button class="btn btn--dark apply" type="button" id="apply">Show results</button>
+  </aside>
+  <div class="scrim" id="scrim"></div>
+  <section aria-label="Results">
+    <div class="toolbar">
+      <p class="count" id="count" aria-live="polite"></p>
+      <div style="display:flex;gap:8px">
+        <button class="btn btn--line open-filters" type="button" id="openF">Filters</button>
+        <label class="sr" for="sort" style="position:absolute;left:-9999px">Sort</label>
+        <select id="sort"><option value="new">Newest</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option><option value="area">Largest area</option></select>
+      </div>
+    </div>
+    <div class="cards" id="results"></div>
+    <div class="empty" id="empty"><h3>No homes match these filters</h3><p>Try a higher price or a different city, or reset the filters.</p><button class="btn btn--dark" type="button" id="reset2">Reset filters</button></div>
+  </section>
+</div>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <div><a class="logo" href="index.html" data-logo>Vesta</a><p>Homes, rentals and investment property, with one agent from first viewing to keys.</p></div>
+      <div><h4>Property</h4><ul><li><a href="listings.html?deal=buy">Buy</a></li><li><a href="listings.html?deal=rent">Rent</a></li><li><a href="listings.html?deal=invest">Invest</a></li><li><a href="index.html#sell">Sell with us</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="index.html#about">About</a></li><li><a href="index.html#how">How we work</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+      <div><h4>Office</h4><ul><li>Poltava, Ukraine</li><li>Mon–Sat, 9:00–19:00</li></ul></div>
+    </div>
+    <div class="foot__bottom"><span>© 2026 Vesta Estates. Concept.</span><span>Privacy · Terms</span></div>
+  </div>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>window.gsap && gsap.registerPlugin(ScrollTrigger);</script>
+<script src="assets/data.js"></script>
+<script src="assets/site.js"></script>
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const P = new URLSearchParams(location.search);
+  const S = {deal:P.get('deal') || 'buy', city:P.get('city') || '', type:P.get('type') || '', beds:+(P.get('beds') || 0), max:+(P.get('max') || 0), sort:'new'};
+  const steps = {buy:[100000,150000,200000,300000,400000,500000,750000,1000000], rent:[800,1000,1200,1500,2000,2500,3000,5000], invest:[200000,300000,400000,500000,600000,750000,1000000,1500000]};
+  const range = document.getElementById('f-max'), out = document.getElementById('maxOut');
+  range.max = 8;
+  const titles = {buy:'Homes for sale', rent:'Homes for rent', invest:'Investment property'};
+  const sync = () => {
+    document.querySelectorAll('[data-k]').forEach(b => b.setAttribute('aria-pressed', String(String(S[b.dataset.k]) === b.dataset.v)));
+    document.getElementById('f-city').value = S.city;
+    const st = steps[S.deal]; const i = S.max ? Math.max(0, st.findIndex(v => v >= S.max)) : 8; range.value = i === -1 ? 8 : i;
+    out.textContent = +range.value >= 8 ? 'No limit' : money(st[range.value], S.deal);
+    document.getElementById('title').textContent = titles[S.deal];
+    document.querySelectorAll('.nav a').forEach(a => a.textContent.toLowerCase() === S.deal ? a.setAttribute('aria-current','page') : a.removeAttribute('aria-current'));
+  };
+  const render = () => {
+    let list = LISTINGS.filter(l => l.deal === S.deal && (!S.city || l.city === S.city) && (!S.type || l.type === S.type) && l.beds >= S.beds && (!S.max || l.price <= S.max));
+    list = list.sort({new:(a, b) => b.year - a.year, low:(a, b) => a.price - b.price, high:(a, b) => b.price - a.price, area:(a, b) => b.area - a.area}[S.sort]);
+    const res = document.getElementById('results');
+    res.innerHTML = list.map(cardHTML).join('');
+    document.getElementById('empty').classList.toggle('on', !list.length);
+    document.getElementById('count').innerHTML = list.length + ' propert' + (list.length === 1 ? 'y' : 'ies') + ' <span>' + (S.city ? 'in ' + S.city : 'across all cities') + '</span>';
+    const q = new URLSearchParams(Object.entries({deal:S.deal, city:S.city, type:S.type, beds:S.beds || '', max:S.max || ''}).filter(([, v]) => v));
+    history.replaceState(null, '', '?' + q.toString());
+    if (window.gsap && !reduce) gsap.from(res.children, {y:24, opacity:0, duration:.6, stagger:.06, ease:'power3.out'});
+    else res.querySelectorAll('[data-reveal]').forEach(e => e.classList.add('in'));
+    res.querySelectorAll('[data-reveal]').forEach(e => e.classList.add('in'));
+  };
+  const update = () => { sync(); render(); };
+  document.querySelectorAll('[data-k]').forEach(b => b.addEventListener('click', () => {
+    const k = b.dataset.k; S[k] = k === 'beds' ? +b.dataset.v : b.dataset.v;
+    if (k === 'deal') S.max = 0;
+    update();
+  }));
+  document.getElementById('f-city').addEventListener('change', e => { S.city = e.target.value; update(); });
+  range.addEventListener('input', () => { const st = steps[S.deal]; S.max = +range.value >= 8 ? 0 : st[range.value]; update(); });
+  document.getElementById('sort').addEventListener('change', e => { S.sort = e.target.value; render(); });
+  const reset = () => { Object.assign(S, {city:'', type:'', beds:0, max:0}); update(); };
+  document.getElementById('reset').addEventListener('click', reset);
+  document.getElementById('reset2').addEventListener('click', reset);
+  // mobile sheet
+  const f = document.getElementById('filters'), scrim = document.getElementById('scrim');
+  const sheet = open => { f.classList.toggle('open', open); scrim.classList.toggle('on', open); document.body.style.overflow = open ? 'hidden' : ''; };
+  document.getElementById('openF').addEventListener('click', () => sheet(true));
+  document.getElementById('apply').addEventListener('click', () => sheet(false));
+  scrim.addEventListener('click', () => sheet(false));
+  addEventListener('keydown', e => e.key === 'Escape' && sheet(false));
+  update();
+  if (window.gsap && !reduce) gsap.from('.lhead h1', {y:30, opacity:0, duration:1, ease:'expo.out'});
+})();
+</script>
+</body>
+</html>
