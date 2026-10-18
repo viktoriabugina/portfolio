@@ -66,11 +66,11 @@
   // scatter the stickers, then make them draggable
   const place = () => { const W = board.clientWidth, H = board.clientHeight;
     chips.forEach((c, i) => { const cols = W < 600 ? 2 : 4, col = i % cols, row = Math.floor(i / cols);
-      const x = (col + .1 + Math.random() * .3) * (W / cols) - (col === cols - 1 ? c.offsetWidth * .6 : 0);
+      const x = (col + .05 + Math.random() * .25) * (W / cols) + (row % 2 ? W / cols * .25 : 0) - (col === cols - 1 ? c.offsetWidth * .6 : 0);
       const y = 60 + row * ((H - 90) / Math.ceil(chips.length / cols)) + Math.random() * 20;
       c.style.left = Math.max(10, Math.min(x, W - c.offsetWidth - 10)) + 'px'; c.style.top = Math.min(y, H - c.offsetHeight - 10) + 'px';
-      c.style.transform = 'rotate(' + (Math.random() * 16 - 8).toFixed(1) + 'deg)'; }); };
-  board.style.minHeight = (innerWidth < 600 ? 460 : 360) + 'px';
+      if (window.gsap) gsap.set(c, {rotation:gsap.utils.random(-12, 12)}); else c.style.transform = 'rotate(' + (i % 2 ? 6 : -6) + 'deg)'; }); };
+  board.style.minHeight = (innerWidth < 600 ? 480 : 420) + 'px';
   document.fonts.ready.then(place);
   if (window.Draggable) { gsap.registerPlugin(Draggable); Draggable.create(chips, {bounds:board, onPress(){ this.target.style.zIndex = ++window.__z || (window.__z = 10); }}); }
   if (!window.gsap || REDUCE) return;
