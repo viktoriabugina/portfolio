@@ -16,7 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Gloock&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/site.css?v=2">
 <style>
-.hero{position:relative;height:calc(100svh - 72px);min-height:620px;max-height:1000px;color:#fff;isolation:isolate;overflow:hidden;background:var(--spruce)}
+.hero{position:relative;height:calc(100svh - 112px);min-height:620px;max-height:1000px;color:#fff;isolation:isolate;overflow:hidden;background:var(--spruce)}
 .hero__media{position:absolute;inset:0;z-index:-2;will-change:clip-path}
 .hero__media video,.hero__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,30,28,.55) 0%,rgba(12,30,28,.08) 30%,rgba(12,30,28,.12) 55%,rgba(12,30,28,.78) 100%),radial-gradient(ellipse at 20% 60%,rgba(12,30,28,.45),transparent 60%)}
@@ -24,7 +24,8 @@
 .hero__top{position:absolute;left:0;right:0;top:clamp(18px,3vw,34px);display:flex;justify-content:space-between;align-items:center;gap:16px}
 .hero__kicker{font-size:14px;letter-spacing:.02em;color:rgba(255,255,255,.88);display:flex;align-items:center;gap:10px}
 .hero__kicker i{width:8px;height:8px;border-radius:50%;background:var(--brass-l);box-shadow:0 0 0 6px rgba(225,196,150,.18)}
-.hero h1{font-size:clamp(44px,7.4vw,118px);line-height:.96;letter-spacing:-.02em;max-width:13ch;text-wrap:balance}
+.hero h1{font-size:clamp(44px,7.4vw,118px);line-height:.96;letter-spacing:-.02em;}
+
 .hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
 .hero h1 .ln>span{display:inline-block}
 .hero__sub{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px}
@@ -49,7 +50,9 @@
 .search .btn:hover{background:var(--brass-d,#9c7339)}
 @media (min-width:860px){.search__row{grid-template-columns:1.2fr 1fr 1fr auto}}
 @media (max-width:859px){.hero{height:auto;min-height:calc(100svh - 72px);max-height:none}.hero__in{padding-top:120px}.search__row{grid-template-columns:1fr 1fr}.search__row .field:first-child,.search .btn{grid-column:1/-1}}
-@media (max-width:420px){.hero__kicker span{display:none}}
+.hero__kicker em{font-style:normal}
+.pp[hidden]{display:none}
+@media (max-width:599px){.hero__kicker .tail,.count{display:none}}
 
 .sec{padding:clamp(80px,10vw,130px) 0}
 .sec__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:20px;margin-bottom:clamp(30px,4vw,48px)}
@@ -132,7 +135,7 @@
     <video id="heroVideo" muted loop playsinline preload="none" aria-hidden="true"></video>
   </div>
   <div class="wrap hero__in">
-    <div class="hero__top wrap"><span class="hero__kicker"><i aria-hidden="true"></i>Real estate agency in Poltava<span>, working across Ukraine</span></span><span class="count"><b id="listCount">9</b>verified listings</span></div>
+    <div class="hero__top wrap"><span class="hero__kicker"><i aria-hidden="true"></i><span>Real estate agency in Poltava<em class="tail">, working across Ukraine</em></span></span><span class="count"><b id="listCount">9</b>verified listings</span></div>
     <h1 id="hero-title" aria-label="Find a home that fits the way you live."><span class="ln"><span>Find a home that</span></span><span class="ln"><span>fits the way you live.</span></span></h1>
     <div class="hero__sub"><p class="hero__p">Buy, rent or invest with one agent from the first viewing to the keys.</p><div class="hero__ctrl"><button class="pp" id="pp" type="button" aria-label="Pause background video" hidden><svg viewBox="0 0 14 14" fill="currentColor" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" rx="1"/><rect x="8.5" y="1" width="3.5" height="12" rx="1"/></svg></button></div></div>
     <form class="search" id="search" action="listings.html" role="search">
