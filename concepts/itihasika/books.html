@@ -23,8 +23,7 @@
 .b-hero .sub{margin-top:8px}
 @media (min-width:1024px){.b-hero__top{grid-template-columns:1.3fr .7fr}}
 .banner{margin-top:clamp(30px,5vw,56px);border-radius:28px;overflow:hidden;border:1.5px solid var(--ink);aspect-ratio:1800/731;background:var(--paper-deep)}
-.banner img{width:100%;height:120%;object-fit:cover}
-@media (max-width:640px){.banner{aspect-ratio:4/3}}
+.banner img{width:100%;height:100%;object-fit:cover}
 
 /* filter */
 .shelfbar{position:sticky;top:72px;z-index:20;background:rgba(250,243,226,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-block:1px solid var(--line)}
@@ -253,7 +252,6 @@
   if (!window.gsap || reduce) return;
   gsap.from('.b-hero h1 .ln > span', {yPercent:110, duration:1.1, stagger:.12, ease:'expo.out'});
   gsap.from('.banner', {clipPath:'inset(18% 6% 0 6% round 28px)', duration:1.4, ease:'expo.out', delay:.2});
-  gsap.to('.banner img', {yPercent:-14, ease:'none', scrollTrigger:{trigger:'.banner', start:'top bottom', end:'bottom top', scrub:true}});
   gsap.utils.toArray('.series__head .wm').forEach(w => gsap.fromTo(w, {y:40}, {y:-40, ease:'none', scrollTrigger:{trigger:w, start:'top bottom', end:'bottom top', scrub:true}}));
   // 3D tilt on covers (pointer devices only)
   if (matchMedia('(hover:hover) and (pointer:fine)').matches) {

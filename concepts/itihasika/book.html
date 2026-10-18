@@ -273,7 +273,7 @@
   // medal moment: drop, spin the ring, confetti burst
   const tl = gsap.timeline({scrollTrigger:{trigger:'.hero-title', start:'top 70%'}});
   tl.from('.medal svg', {y:-120, rotate:-25, opacity:0, duration:1, ease:'bounce.out'})
-    .to('#ring', {rotate:360, transformOrigin:'100px 140px', duration:6, ease:'none', repeat:-1}, 0);
+    .to('#ring', {rotation:360, svgOrigin:'100 140', duration:6, ease:'none', repeat:-1}, 0);
   const burst = document.getElementById('burst'), colors = ['#C6952F','#DE3A1B','#0C6B5D','#F4DDA2'];
   for (let i = 0; i < 26; i++) { const p = document.createElement('i'); p.style.background = colors[i % 4]; burst.appendChild(p); }
   tl.fromTo('#burst i', {x:0, y:0, opacity:1, rotate:0},

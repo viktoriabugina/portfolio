@@ -18,7 +18,7 @@
 /* hero */
 .a-hero{padding:clamp(40px,7vw,90px) 0 clamp(60px,8vw,110px);position:relative}
 .a-hero__grid{display:grid;gap:clamp(36px,5vw,70px);align-items:center}
-.a-hero h1{font-size:clamp(40px,6.4vw,92px);margin:22px 0 24px}
+.a-hero h1{font-size:clamp(40px,5.4vw,78px);margin:22px 0 24px}
 .a-hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
 .a-hero h1 .ln>span{display:inline-block}
 .ticks{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;list-style:none}
@@ -30,13 +30,13 @@
 .arch__cap{display:flex;justify-content:space-between;gap:10px;margin-top:14px;font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
 .arch .seal{position:absolute;left:-18px;bottom:60px;width:104px;height:104px;border-radius:50%;background:var(--sindoor);color:var(--paper);display:grid;place-items:center;text-align:center;font-family:var(--f-deva);font-size:34px;line-height:1;box-shadow:0 10px 30px rgba(222,58,27,.35)}
 .arch .seal small{display:block;font-family:var(--f-mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;margin-top:4px}
-@media (min-width:1024px){.a-hero__grid{grid-template-columns:1.15fr .85fr}}
+@media (min-width:1024px){.a-hero__grid{grid-template-columns:1.3fr .7fr}}
 
 /* the questions: signature moment */
 .q{background:var(--paper-deep);padding:clamp(80px,10vw,150px) 0;position:relative;overflow:hidden}
 .q__intro{font-family:var(--f-display);font-size:clamp(24px,2.8vw,36px);line-height:1.25;max-width:24ch}
 .bubbles{display:grid;gap:22px;margin:clamp(40px,6vw,70px) 0;max-width:880px}
-.bubble{position:relative;background:#fff;border:1.5px solid var(--ink);border-radius:28px;padding:clamp(20px,3vw,32px) clamp(22px,3.4vw,38px);font-family:var(--f-display);font-style:italic;font-size:clamp(21px,2.6vw,34px);line-height:1.25;box-shadow:8px 8px 0 var(--ink)}
+.bubble{position:relative;max-width:720px;background:#fff;border:1.5px solid var(--ink);border-radius:28px;padding:clamp(20px,3vw,32px) clamp(22px,3.4vw,38px);font-family:var(--f-display);font-style:italic;font-size:clamp(21px,2.6vw,34px);line-height:1.25;box-shadow:8px 8px 0 var(--ink)}
 .bubble::after{content:"";position:absolute;bottom:-14px;left:44px;width:26px;height:26px;background:#fff;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);transform:rotate(45deg) skew(8deg,8deg)}
 .bubble .who{display:block;font-family:var(--f-mono);font-style:normal;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sindoor);margin-bottom:10px}
 .bubble:nth-child(2){justify-self:end;background:var(--turmeric);box-shadow:-8px 8px 0 var(--ink)}
