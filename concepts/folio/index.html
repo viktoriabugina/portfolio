@@ -8,93 +8,102 @@
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:title" content="Freja Lind | Graphic design portfolio">
 <meta property="og:description" content="Graphic design student working across print and digital: posters, identities, zines and interfaces.">
-<meta name="theme-color" content="#2D4BFF">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FF48B0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Ccircle cx='11' cy='15' r='10' fill='%230078BF'/%3E%3Ccircle cx='19' cy='15' r='10' fill='%23FF48B0' style='mix-blend-mode:multiply'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=2">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=3">
 <style>
-.intro{padding:clamp(40px,7vw,100px) 0 clamp(40px,6vw,80px)}
-.intro__name{font-size:clamp(64px,15.5vw,250px);font-stretch:125%;letter-spacing:-.05em;line-height:.84}
-.intro__name .ln{display:block;overflow:hidden}
-@media (max-width:700px){.intro__name{font-size:24vw}}
-.intro__name .ln>span{display:inline-block}
-.intro__name .dot{color:var(--cobalt)}
-.intro__row{display:grid;gap:22px;margin-top:clamp(24px,4vw,44px);align-items:end}
-.intro__row p{font-size:clamp(18px,1.7vw,23px);max-width:34ch}
-.intro__row .now{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--muted)}
-.intro__row .now i{width:10px;height:10px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.2)}
-@media (min-width:900px){.intro__row{grid-template-columns:1fr auto auto;gap:40px}}
-.marquee{overflow:hidden;background:var(--cobalt);color:#fff;padding:16px 0;transform:rotate(-1.5deg);margin:20px -10px}
-.marquee__t{display:flex;width:max-content;gap:28px;font-family:var(--display);font-weight:800;font-stretch:118%;font-size:clamp(22px,3vw,40px);letter-spacing:-.02em;animation:mq 26s linear infinite;white-space:nowrap}
-.marquee__t span::after{content:"✳";margin-left:28px;color:var(--lime)}
+.hero{position:relative;padding:clamp(30px,5vw,70px) 0 clamp(40px,6vw,80px)}
+.hero__name{font-size:clamp(96px,23vw,380px);font-stretch:75%;font-variation-settings:"opsz" 96,"wdth" 75;letter-spacing:-.045em;line-height:.8}
+.hero__name .row{display:block;overflow:hidden;padding-bottom:.04em}
+.hero__name .row>span{display:block}
+.hero__name .row:nth-child(2){padding-left:12vw}
+.hero__poster{position:absolute;right:var(--gut);top:clamp(30px,5vw,70px);width:clamp(150px,22vw,330px);aspect-ratio:3/4;border-radius:10px;transform:rotate(6deg);box-shadow:0 26px 50px rgba(0,0,0,.18)}
+.hero__poster::before{content:"";position:absolute;z-index:2;top:-12px;left:50%;width:90px;height:26px;margin-left:-45px;background:rgba(255,232,0,.75);transform:rotate(-4deg)}
+.hero__row{display:grid;gap:24px;margin-top:clamp(26px,4vw,48px);align-items:center}
+.hero__row p{font-size:clamp(19px,1.8vw,25px);line-height:1.4;max-width:30ch}
+.hero__cta{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+@media (min-width:900px){.hero__row{grid-template-columns:1fr auto}}
+@media (max-width:899px){.hero__poster{position:relative;right:auto;top:auto;width:58%;margin:28px 0 0 auto;display:block}}
+.band{background:var(--yellow);border-block:2px solid var(--ink);overflow:hidden;padding:14px 0}
+.band__t{display:flex;width:max-content;gap:30px;font-family:var(--display);font-weight:800;font-size:clamp(24px,3.2vw,44px);letter-spacing:-.03em;white-space:nowrap;animation:mq 30s linear infinite}
+.band__t span{display:flex;align-items:center;gap:30px}
+.band__t span::after{content:"";width:.55em;height:.55em;border-radius:50%;background:var(--pink);mix-blend-mode:multiply}
+.band__t span:nth-child(2n)::after{background:var(--blue)}
 @keyframes mq{to{transform:translateX(-50%)}}
-.sel{padding:clamp(70px,9vw,120px) 0}
-.sel__head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:22px;flex-wrap:wrap}
-.sel__head h2{font-size:clamp(36px,6vw,80px)}
-.rows{list-style:none;border-top:1.5px solid var(--ink)}
-.rows a{display:grid;grid-template-columns:1fr auto;gap:6px 20px;align-items:center;padding:22px 4px;border-bottom:1px solid var(--line);transition:padding .4s var(--ease),color .3s}
-.rows h3{font-size:clamp(28px,4.4vw,60px);font-weight:700}
-.rows .meta{display:flex;gap:8px;flex-wrap:wrap;grid-column:1/-1}
-.rows .yr{font-weight:600;color:var(--muted)}
-@media (hover:hover){.rows a:hover{padding-left:18px;color:var(--cobalt)}}
-.peek{position:fixed;left:0;top:0;width:300px;aspect-ratio:4/3;border-radius:16px;overflow:hidden;pointer-events:none;z-index:30;opacity:0;transform:translate(-50%,-50%) scale(.6);box-shadow:0 30px 60px rgba(18,19,22,.25)}
-.peek img{width:100%;height:100%;object-fit:cover}
-@media (hover:none){.peek{display:none}}
-@media (max-width:700px){.rows .thumb{display:block;border-radius:12px;overflow:hidden;aspect-ratio:16/10;grid-column:1/-1;margin-bottom:6px}.rows .thumb img{width:100%;height:100%;object-fit:cover}}
-@media (min-width:701px){.rows .thumb{display:none}}
+.sel{padding:clamp(70px,9vw,130px) 0 clamp(30px,5vw,60px)}
+.sel__head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:clamp(26px,4vw,50px)}
+.sel__head h2{font-size:clamp(52px,9vw,140px)}
+.stack{list-style:none;display:grid;gap:22px}
+.card{position:sticky;top:calc(96px + var(--i) * 14px);background:var(--white);border:2px solid var(--ink);border-radius:28px;overflow:hidden;display:grid;transform-origin:50% 0;will-change:transform}
+.card .duo{aspect-ratio:4/3}
+.card__txt{padding:clamp(20px,3vw,40px);display:flex;flex-direction:column;gap:16px}
+.card__yr{font-family:var(--display);font-weight:800;font-size:20px}
+.card h3{font-size:clamp(40px,5.4vw,84px);font-stretch:85%;font-variation-settings:"opsz" 96,"wdth" 85}
+.card p{color:var(--muted);max-width:40ch}
+.card .meta{display:flex;flex-wrap:wrap;gap:6px}
+.card .btn{align-self:flex-start;margin-top:auto}
+@media (min-width:900px){.card{grid-template-columns:1.15fr 1fr;min-height:min(72vh,620px)}.card .duo{aspect-ratio:auto;height:100%}}
+.teaser{margin-top:clamp(60px,8vw,110px);background:var(--pink);border-radius:28px;padding:clamp(28px,5vw,70px);display:grid;gap:24px;align-items:end;position:relative;overflow:hidden}
+.teaser h2{font-size:clamp(40px,6.5vw,100px);max-width:12ch}
+.teaser p{max-width:38ch;font-size:19px}
+.teaser .dot{position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:var(--blue);mix-blend-mode:multiply}
+@media (min-width:900px){.teaser{grid-template-columns:1.3fr 1fr}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="ribbon" role="note"><b>Portfolio website concept</b> by Victoria V. The name, projects and images are placeholders. <a href="admin.html" style="text-decoration:underline">Try the CMS demo</a></div>
-<header class="hdr"><div class="wrap hdr__in"><a class="me" href="index.html"><i aria-hidden="true"></i>Freja Lind</a><nav class="nav" aria-label="Main"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><button class="burger" aria-expanded="false">Menu</button></div></header>
+<div class="ribbon" role="note"><b>Portfolio website concept</b> by Victoria V. The name, projects and images are placeholders. <a href="admin.html">Try the CMS demo</a></div>
+<header class="hdr"><div class="wrap hdr__in"><a class="me" href="index.html"><svg viewBox="0 0 30 30" aria-hidden="true"><circle cx="11" cy="15" r="10" fill="#0078BF"/><circle cx="19" cy="15" r="10" fill="#FF48B0" style="mix-blend-mode:multiply"/></svg>Freja Lind</a><nav class="nav" aria-label="Main"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><button class="burger" aria-expanded="false" aria-label="Open menu">Menu</button></div></header>
 <nav class="drawer" aria-label="Mobile"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
 <main id="main">
-<section class="intro">
+<section class="hero">
   <div class="wrap">
-    <h1 class="intro__name" aria-label="Freja Lind, graphic designer"><span class="ln"><span>Freja</span></span><span class="ln"><span>Lind<b class="dot">.</b></span></span></h1>
-    <div class="intro__row">
+    <figure class="hero__poster duo" id="poster"><img src="https://images.unsplash.com/photo-1543487945-139a97f387d5?auto=format&fit=crop&w=700&q=75" alt="A typographic poster from the Type in Motion series" width="700" height="933"></figure>
+    <h1 class="hero__name" aria-label="Freja Lind, graphic designer"><span class="row"><span><span class="inked" data-follow><span class="l1">Freja</span><span class="l2" aria-hidden="true">Freja</span></span></span></span><span class="row"><span><span class="inked" data-follow><span class="l1">Lind.</span><span class="l2" aria-hidden="true">Lind.</span></span></span></span></h1>
+    <div class="hero__row">
       <p>Graphic design student working across print and digital: posters, identities, zines and interfaces.</p>
-      <span class="now"><i aria-hidden="true"></i>Open to internships for summer 2027</span>
-      <a class="btn btn--blue" href="work.html">See my work</a>
+      <div class="hero__cta"><div class="sticker" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="c" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs><text font-size="12.5" font-weight="600" letter-spacing="1.5" font-family="Instrument Sans"><textPath href="#c">OPEN FOR INTERNSHIPS · SUMMER 2027 · </textPath></text></svg><b>27</b></div><a class="btn btn--ink" href="work.html">See my work</a></div>
     </div>
   </div>
 </section>
-<div class="marquee" aria-hidden="true"><div class="marquee__t"><span>Posters</span><span>Identity</span><span>Editorial</span><span>Motion</span><span>Interfaces</span><span>Risograph</span><span>Posters</span><span>Identity</span><span>Editorial</span><span>Motion</span><span>Interfaces</span><span>Risograph</span></div></div>
+<div class="band" aria-hidden="true"><div class="band__t"><span>Posters</span><span>Identity</span><span>Editorial</span><span>Risograph</span><span>Motion</span><span>Interfaces</span><span>Posters</span><span>Identity</span><span>Editorial</span><span>Risograph</span><span>Motion</span><span>Interfaces</span></div></div>
 <section class="sel" aria-labelledby="sel-title">
   <div class="wrap">
     <div class="sel__head"><h2 id="sel-title">Selected work</h2><a class="btn" href="work.html">All projects</a></div>
-    <ul class="rows" id="rows"></ul>
+    <ol class="stack" id="stack"></ol>
+    <div class="teaser"><span class="dot" aria-hidden="true"></span><h2>One digital, one printed work, every year.</h2><div><p>My school asks for a yearly proof. Each one goes in depth and comes with an accessible PDF you can download.</p><p style="margin-top:20px"><a class="btn btn--ink" href="proofs.html">Open yearly proofs</a></p></div></div>
   </div>
 </section>
-<div class="peek" id="peek" aria-hidden="true"><img alt="" id="peekImg"></div>
 </main>
-<footer class="foot"><div class="wrap"><a class="big" href="contact.html">Let’s talk</a><div class="foot__in"><span>© 2026 Freja Lind. Graphic design student.</span><span><a href="work.html">Work</a> · <a href="proofs.html">Yearly proofs</a> · <a href="about.html">About</a></span></div></div></footer>
+<footer class="foot"><div class="wrap"><a class="big inked" href="contact.html"><span class="l1">Say hello</span><span class="l2" aria-hidden="true">Say hello</span></a><div class="foot__in"><span>© 2026 Freja Lind, graphic design student</span><span><a href="work.html">Work</a>&nbsp;&nbsp;<a href="proofs.html">Yearly proofs</a>&nbsp;&nbsp;<a href="about.html">About</a></span></div></div></footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>window.gsap && gsap.registerPlugin(ScrollTrigger);</script>
-<script src="assets/projects.js?v=2"></script>
-<script src="assets/site.js?v=2"></script>
+<script src="assets/projects.js?v=3"></script>
+<script src="assets/site.js?v=3"></script>
 <script>
 
 (function(){
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const P = getProjects().slice(0, 5);
-  document.getElementById('rows').innerHTML = P.map(p => `<li data-reveal><a href="project.html?id=${p.id}" data-img="${projSrc(p, 700)}"><span class="thumb"><img src="${projSrc(p, 700)}" alt="" loading="lazy"></span><h3>${p.title}</h3><span class="yr">${p.year}</span><span class="meta"><span class="tag">${p.kind}</span>${p.tools.map(t => '<span class="tag">' + t + '</span>').join('')}</span></a></li>`).join('');
-  reveal();
-  if (!window.gsap || reduce) return;
-  gsap.from('.intro__name .ln>span', {yPercent:105, duration:1.2, stagger:.12, ease:'expo.out'});
-  gsap.from('.intro__row > *', {y:24, opacity:0, duration:.9, stagger:.1, delay:.5, ease:'power3.out'});
-  // the signature: a project preview that follows the cursor over the list
-  const peek = document.getElementById('peek'), img = document.getElementById('peekImg');
-  const xTo = gsap.quickTo(peek, 'x', {duration:.5, ease:'power3'}), yTo = gsap.quickTo(peek, 'y', {duration:.5, ease:'power3'});
-  addEventListener('pointermove', e => { xTo(e.clientX); yTo(e.clientY); });
-  document.querySelectorAll('#rows a').forEach(a => {
-    a.addEventListener('pointerenter', () => { img.src = a.dataset.img; gsap.to(peek, {opacity:1, scale:1, rotate:gsap.utils.random(-6, 6), duration:.45, ease:'back.out(1.6)'}); });
-    a.addEventListener('pointerleave', () => gsap.to(peek, {opacity:0, scale:.6, duration:.3}));
-  });
+  const P = getProjects().slice(0, 4);
+  document.getElementById('stack').innerHTML = P.map((p, i) => `<li class="card" style="--i:${i}"><a class="duo duo--${INKS[i % 3]}" href="project.html?id=${esc(p.id)}" tabindex="-1" aria-hidden="true"><img src="${projSrc(p, 1000)}" alt="" loading="lazy" width="1000" height="750"></a><div class="card__txt"><span class="card__yr">${esc(p.year)}</span><h3>${esc(p.title)}</h3><p>${esc(p.text)}</p><div class="meta"><span class="tag tag--${i % 2 ? 'blue' : 'pink'}">${esc(p.kind)}</span>${p.tools.map(t => '<span class="tag">' + esc(t) + '</span>').join('')}</div><a class="btn btn--ink" href="project.html?id=${esc(p.id)}">View project</a></div></li>`).join('');
+  if (REDUCE || !window.gsap) return;
+  // the registration moment: both inks land, then drift with the cursor
+  const tl = gsap.timeline();
+  tl.from('.hero__name .row>span', {yPercent:110, duration:1.1, stagger:.12, ease:'expo.out'})
+    .fromTo('.hero__name .inked', {'--mx':'70px', '--my':'-30px'}, {'--mx':'6px', '--my':'4px', duration:1.3, ease:'elastic.out(1,.55)'}, .35)
+    .from('#poster', {y:-60, rotate:-14, opacity:0, duration:1, ease:'back.out(1.5)'}, .5)
+    .from('.hero__row > *', {y:24, opacity:0, duration:.8, stagger:.1, ease:'power3.out'}, .6);
+  gsap.to('#poster', {yPercent:-18, rotate:10, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
+  // stacked cards: each card shrinks back as the next one slides over it
+  const cards = gsap.utils.toArray('.card');
+  cards.forEach((c, i) => { if (i === cards.length - 1) return;
+    gsap.to(c, {scale:.94, filter:'brightness(.92)', ease:'none', scrollTrigger:{trigger:cards[i + 1], start:'top bottom', end:'top ' + (96 + (i + 1) * 14) + 'px', scrub:true}}); });
+  inView('.teaser');
 })();
 
 </script>

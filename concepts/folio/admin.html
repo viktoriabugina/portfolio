@@ -8,95 +8,109 @@
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:title" content="CMS demo | Freja Lind">
 <meta property="og:description" content="Demo of the admin panel: add a project without touching code.">
-<meta name="theme-color" content="#2D4BFF">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FF48B0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Ccircle cx='11' cy='15' r='10' fill='%230078BF'/%3E%3Ccircle cx='19' cy='15' r='10' fill='%23FF48B0' style='mix-blend-mode:multiply'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=2">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=3">
 <style>
 .adm{padding:clamp(30px,5vw,60px) 0 clamp(60px,8vw,100px)}
-.adm__grid{display:grid;gap:28px;align-items:start}
-.adm h1{font-size:clamp(40px,6vw,84px);font-stretch:118%;margin:10px 0 12px}
-.adm .lead{color:var(--muted);max-width:52ch}
-.panel{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:clamp(18px,3vw,28px);display:grid;gap:14px}
-.panel h2{font-size:22px;font-weight:700;font-stretch:100%;letter-spacing:-.01em}
+.adm__grid{display:grid;gap:28px;align-items:start;margin-top:30px}
+.adm h1{font-size:clamp(50px,7vw,110px);font-stretch:80%;font-variation-settings:"opsz" 96,"wdth" 80;line-height:.88;margin:10px 0 16px}
+.adm .lead{max-width:56ch;font-size:18px}
+.panel{background:var(--white);border:2px solid var(--ink);border-radius:22px;padding:clamp(18px,3vw,28px);display:grid;gap:14px}
+.panel h2{font-size:28px}
 .f{display:grid;gap:6px;min-width:0}
-.f label{font-weight:600;font-size:14px}
-.f input,.f textarea,.f select{width:100%;min-width:0;border:1.5px solid var(--line);border-radius:12px;padding:11px 12px;background:var(--paper)}
+.f label,.f .lbl{font-weight:600;font-size:14px}
+.f input,.f textarea,.f select{width:100%;min-width:0;border:2px solid var(--ink);border-radius:12px;padding:10px 12px;background:var(--paper)}
 .f textarea{min-height:100px}
 .row{display:grid;gap:14px}
 @media (min-width:560px){.row{grid-template-columns:1fr 1fr}}
 .toolpick{display:flex;flex-wrap:wrap;gap:6px}
-.toolpick label{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line);border-radius:999px;padding:6px 12px;font-size:14px;cursor:pointer}
-.toolpick input{accent-color:var(--cobalt)}
-.drop{border:2px dashed var(--line);border-radius:16px;padding:20px;text-align:center;color:var(--muted);cursor:pointer;position:relative}
+.toolpick label{display:inline-flex;align-items:center;gap:6px;border:2px solid var(--ink);border-radius:999px;padding:5px 12px;font-size:14px;font-weight:600;cursor:pointer;background:var(--white)}
+.toolpick label:has(:checked){background:var(--pink);border-color:var(--pink)}
+.toolpick input{accent-color:var(--ink)}
+.drop{border:2px dashed var(--ink);border-radius:16px;padding:22px;text-align:center;cursor:pointer;position:relative;background:var(--paper)}
+.drop:hover{background:var(--yellow)}
 .drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
 .drop img{max-height:160px;margin:0 auto;border-radius:10px}
 .list{list-style:none;display:grid;gap:8px}
-.list li{display:flex;align-items:center;gap:12px;padding:10px;border:1px solid var(--line);border-radius:14px;background:var(--paper)}
-.list img{width:56px;height:44px;object-fit:cover;border-radius:8px}
+.list li{display:flex;align-items:center;gap:12px;padding:10px;border:2px solid var(--ink);border-radius:14px;background:var(--paper)}
+.list img{width:56px;height:44px;object-fit:cover;border-radius:8px;flex:none}
 .list b{font-weight:600}
+.list span{min-width:0}
 .list small{color:var(--muted);display:block}
-.list button{margin-left:auto;border:0;background:none;color:#c0261e;font-weight:600;cursor:pointer}
-.msg{font-size:14px;color:var(--cobalt);font-weight:600;min-height:1.4em}
+.list button{margin-left:auto;border:0;background:none;color:#d0161b;font-weight:600;cursor:pointer;flex:none}
+.msg{font-weight:600;min-height:1.4em}
+.msg.good{color:var(--blue)}
+.msg.bad{color:#d0161b}
 @media (min-width:1024px){.adm__grid{grid-template-columns:1.1fr .9fr}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="ribbon" role="note"><b>Portfolio website concept</b> by Victoria V. The name, projects and images are placeholders. <a href="admin.html" style="text-decoration:underline">Try the CMS demo</a></div>
-<header class="hdr"><div class="wrap hdr__in"><a class="me" href="index.html"><i aria-hidden="true"></i>Freja Lind</a><nav class="nav" aria-label="Main"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><button class="burger" aria-expanded="false">Menu</button></div></header>
+<div class="ribbon" role="note"><b>Portfolio website concept</b> by Victoria V. The name, projects and images are placeholders. <a href="work.html">See the Work page</a></div>
+<header class="hdr"><div class="wrap hdr__in"><a class="me" href="index.html"><svg viewBox="0 0 30 30" aria-hidden="true"><circle cx="11" cy="15" r="10" fill="#0078BF"/><circle cx="19" cy="15" r="10" fill="#FF48B0" style="mix-blend-mode:multiply"/></svg>Freja Lind</a><nav class="nav" aria-label="Main"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><button class="burger" aria-expanded="false" aria-label="Open menu">Menu</button></div></header>
 <nav class="drawer" aria-label="Mobile"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
 <main id="main">
 <section class="adm"><div class="wrap">
   <span class="k">CMS demo</span><h1>Add a project, no code.</h1>
-  <p class="lead">This is how managing the site would feel. Fill in the form, add a picture and press Publish: the project appears on the Work page right away. In this demo it is saved only in your browser; on the live site it is saved to the CMS, and images are resized and compressed automatically.</p>
-  <div class="adm__grid" style="margin-top:28px">
+  <p class="lead">This is how managing the site would feel. Fill in the form, add a picture and press Publish: the project appears on the Work page right away. In this demo it is saved only in your browser. On the live site it is saved to the CMS, and images are resized and compressed automatically.</p>
+  <div class="adm__grid">
     <form class="panel" id="af" novalidate>
       <h2>New project</h2>
-      <div class="row"><div class="f"><label for="pt">Title</label><input id="pt" required></div><div class="f"><label for="py">Year</label><input id="py" type="number" value="2026" min="2000" max="2100"></div></div>
+      <div class="row"><div class="f"><label for="pt">Title</label><input id="pt" required maxlength="60"></div><div class="f"><label for="py">Year</label><input id="py" type="number" value="2026" min="2000" max="2100"></div></div>
       <div class="f"><label for="pk">Type</label><select id="pk"><option>Digital</option><option>Print</option></select></div>
-      <div class="f"><span style="font-weight:600;font-size:14px">Software and tools</span><div class="toolpick" id="tp"></div></div>
-      <div class="f"><label for="px">Description</label><textarea id="px"></textarea></div>
-      <div class="drop" id="drop"><input type="file" accept="image/*" id="pf" aria-label="Upload a cover image"><span id="dropTxt">Drop a cover image here or click to upload</span></div>
-      <button class="btn btn--blue" type="submit">Publish project</button>
+      <div class="f"><span class="lbl" id="tl">Software and tools</span><div class="toolpick" id="tp" role="group" aria-labelledby="tl"></div></div>
+      <div class="f"><label for="px">Description</label><textarea id="px" maxlength="400"></textarea></div>
+      <div class="drop"><input type="file" accept="image/*" id="pf" aria-label="Upload a cover image"><span id="dropTxt">Drop a cover image here or click to upload</span></div>
+      <button class="btn btn--ink" type="submit" style="justify-self:start">Publish project</button>
       <p class="msg" id="am" role="status"></p>
     </form>
-    <div class="panel"><h2>Your projects</h2><ul class="list" id="al"></ul><a class="btn" href="work.html">View the Work page</a></div>
+    <div class="panel"><h2>Your projects</h2><ul class="list" id="al"></ul><a class="btn" href="work.html" style="justify-self:start">View the Work page</a></div>
   </div>
 </div></section>
 </main>
-<footer class="foot"><div class="wrap"><a class="big" href="contact.html">Let’s talk</a><div class="foot__in"><span>© 2026 Freja Lind. Graphic design student.</span><span><a href="work.html">Work</a> · <a href="proofs.html">Yearly proofs</a> · <a href="about.html">About</a></span></div></div></footer>
+<footer class="foot"><div class="wrap"><a class="big inked" href="contact.html"><span class="l1">Say hello</span><span class="l2" aria-hidden="true">Say hello</span></a><div class="foot__in"><span>© 2026 Freja Lind, graphic design student</span><span><a href="work.html">Work</a>&nbsp;&nbsp;<a href="proofs.html">Yearly proofs</a>&nbsp;&nbsp;<a href="about.html">About</a></span></div></div></footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>window.gsap && gsap.registerPlugin(ScrollTrigger);</script>
-<script src="assets/projects.js?v=2"></script>
-<script src="assets/site.js?v=2"></script>
+<script src="assets/projects.js?v=3"></script>
+<script src="assets/site.js?v=3"></script>
 <script>
 
 (function(){
-  const KEY = 'folio-demo-projects';
+  const $ = id => document.getElementById(id), KEY = 'folio-demo-projects';
   const load = () => { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; } };
   const save = a => { try { localStorage.setItem(KEY, JSON.stringify(a)); return true; } catch (e) { return false; } };
   const tools = ['InDesign','Illustrator','Photoshop','Figma','After Effects','Risograph','Blender','Procreate'];
-  tp.innerHTML = tools.map(t => `<label><input type="checkbox" value="${t}">${t}</label>`).join('');
+  $('tp').innerHTML = tools.map(t => `<label><input type="checkbox" value="${t}">${t}</label>`).join('');
   let cover = '';
+  const say = (t, good) => { $('am').textContent = t; $('am').className = 'msg ' + (good ? 'good' : 'bad'); };
   // resize + compress the uploaded image in the browser (the real CMS does this on upload)
-  pf.addEventListener('change', () => { const file = pf.files[0]; if (!file) return; const img = new Image(); img.onload = () => {
-    const s = Math.min(1, 900 / img.width), c = document.createElement('canvas'); c.width = img.width * s; c.height = img.height * s;
-    c.getContext('2d').drawImage(img, 0, 0, c.width, c.height); cover = c.toDataURL('image/jpeg', .78);
-    dropTxt.innerHTML = '<img src="' + cover + '" alt="Cover preview">'; }; img.src = URL.createObjectURL(file); });
-  const list = () => { const a = load(); al.innerHTML = a.length ? a.map((p, i) => `<li><img src="${projSrc(p, 200)}" alt=""><span><b>${p.title}</b><small>${p.year}, ${p.tools.join(', ') || p.kind}</small></span><button data-i="${i}" type="button">Delete</button></li>`).join('') : '<li>No projects added yet. The six example projects are built in.</li>'; };
-  al.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const a = load(); a.splice(+b.dataset.i, 1); save(a); list(); });
-  af.addEventListener('submit', e => {
+  $('pf').addEventListener('change', () => { const file = $('pf').files[0]; if (!file) return;
+    if (!file.type.startsWith('image/')) { say('Choose an image file (JPG, PNG or WebP).'); return; }
+    const img = new Image(); img.onload = () => {
+      const s = Math.min(1, 900 / img.width), c = document.createElement('canvas'); c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+      c.getContext('2d').drawImage(img, 0, 0, c.width, c.height); cover = c.toDataURL('image/jpeg', .78);
+      $('dropTxt').innerHTML = '<img src="' + cover + '" alt="Cover preview">'; URL.revokeObjectURL(img.src); };
+    img.onerror = () => say('This image could not be read. Try another file.');
+    img.src = URL.createObjectURL(file); });
+  const list = () => { const a = load();
+    $('al').innerHTML = a.length ? a.map((p, i) => `<li><img src="${esc(projSrc(p, 200))}" alt=""><span><b>${esc(p.title)}</b><small>${esc(p.year)}, ${esc(p.tools.join(', ') || p.kind)}</small></span><button data-i="${i}" type="button">Delete</button></li>`).join('')
+      : '<li>No projects added yet. The six example projects are built in.</li>'; };
+  $('al').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const a = load(); a.splice(+b.dataset.i, 1); save(a); list(); say('Project deleted.', true); });
+  $('af').addEventListener('submit', e => {
     e.preventDefault();
-    if (!pt.value.trim()) { am.textContent = 'Give the project a title.'; pt.focus(); return; }
-    const p = {id:'p' + Date.now(), title:pt.value.trim(), year:+py.value || 2026, kind:pk.value, tools:[...tp.querySelectorAll(':checked')].map(c => c.value),
-      text:px.value.trim() || 'Project description.', cover:'1618331833071-ce81bd50d300', imgs:['1618331833071-ce81bd50d300'], coverUrl:cover || ''};
+    if (!$('pt').value.trim()) { say('Give the project a title.'); $('pt').focus(); return; }
+    const p = {id:'p' + Date.now(), title:$('pt').value.trim(), year:+$('py').value || 2026, kind:$('pk').value, tools:[...$('tp').querySelectorAll(':checked')].map(c => c.value),
+      text:$('px').value.trim() || 'Project description.', cover:'1618331833071-ce81bd50d300', imgs:['1618331833071-ce81bd50d300'], coverUrl:cover || ''};
     const a = load(); a.unshift(p);
-    am.textContent = save(a) ? 'Published! “' + p.title + '” is now on the Work page.' : 'This browser blocks saving, so the demo can’t store the project.';
-    af.reset(); cover = ''; dropTxt.textContent = 'Drop a cover image here or click to upload'; list();
+    if (save(a)) say('Published! “' + p.title + '” is now on the Work page.', true); else say('This browser blocks saving, so the demo can’t store the project.');
+    $('af').reset(); cover = ''; $('dropTxt').textContent = 'Drop a cover image here or click to upload'; list();
   });
   list();
 })();

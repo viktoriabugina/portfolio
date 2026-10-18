@@ -20,3 +20,4 @@ window.getProjects = () => {
   return extra.concat(BASE_PROJECTS);
 };
 window.projSrc = (p, w) => p.coverUrl || IMG(p.cover, w);
+window.INKS = ['pink', 'blue', 'yellow'];

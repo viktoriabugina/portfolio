@@ -8,49 +8,77 @@
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:title" content="About | Freja Lind">
 <meta property="og:description" content="About me: a graphic design student who loves type, print and making things move.">
-<meta name="theme-color" content="#2D4BFF">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FF48B0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Ccircle cx='11' cy='15' r='10' fill='%230078BF'/%3E%3Ccircle cx='19' cy='15' r='10' fill='%23FF48B0' style='mix-blend-mode:multiply'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=2">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=3">
 <style>
-.ab{padding:clamp(36px,6vw,80px) 0 clamp(60px,8vw,100px)}
+.ab{padding:clamp(30px,5vw,70px) 0 clamp(50px,7vw,90px)}
 .ab__grid{display:grid;gap:clamp(30px,5vw,70px);align-items:start}
-.ab h1{font-size:clamp(46px,8vw,120px);font-stretch:122%;margin-bottom:24px}
-.ab p{font-size:clamp(18px,1.6vw,21px);max-width:52ch}
+.ab h1{font-size:clamp(64px,10vw,160px);font-stretch:78%;font-variation-settings:"opsz" 96,"wdth" 78;line-height:.86;margin:10px 0 26px}
+.ab p{font-size:clamp(18px,1.6vw,22px);max-width:46ch}
 .ab p+p{margin-top:16px}
-.portrait{border-radius:24px;overflow:hidden;aspect-ratio:4/5;background:var(--cobalt);position:relative}
-.portrait img{width:100%;height:100%;object-fit:cover;mix-blend-mode:luminosity;opacity:.85}
-.portrait span{position:absolute;left:16px;bottom:16px;background:var(--lime);border-radius:999px;padding:6px 12px;font-weight:600;font-size:14px}
-.skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
-.skills .tag{font-size:15px;padding:7px 14px}
-@media (min-width:1024px){.ab__grid{grid-template-columns:1.2fr .8fr}}
+.portrait{position:relative;border-radius:24px;aspect-ratio:4/5;border:2px solid var(--ink);transform:rotate(-2.5deg)}
+.portrait figcaption{position:absolute;left:16px;bottom:16px;background:var(--yellow);border:2px solid var(--ink);border-radius:999px;padding:6px 14px;font-weight:600;font-size:14px}
+@media (min-width:1024px){.ab__grid{grid-template-columns:1.15fr .85fr}}
+.board{position:relative;margin-top:clamp(40px,6vw,80px);border:2px dashed var(--ink);border-radius:28px;min-height:360px;background:var(--paper-2);overflow:hidden;touch-action:none}
+.board__hint{position:absolute;left:22px;top:18px;font-weight:600;color:var(--muted)}
+.chip{position:absolute;padding:12px 22px;border-radius:999px;border:2px solid var(--ink);font-family:var(--display);font-weight:800;font-size:clamp(20px,2.2vw,30px);cursor:grab;user-select:none;-webkit-user-select:none;box-shadow:3px 3px 0 var(--ink);white-space:nowrap}
+.chip:active{cursor:grabbing}
+.chip--pink{background:var(--pink)}.chip--yellow{background:var(--yellow)}.chip--blue{background:var(--blue);color:#fff}.chip--white{background:var(--white)}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="ribbon" role="note"><b>Portfolio website concept</b> by Victoria V. The name, projects and images are placeholders. <a href="admin.html" style="text-decoration:underline">Try the CMS demo</a></div>
-<header class="hdr"><div class="wrap hdr__in"><a class="me" href="index.html"><i aria-hidden="true"></i>Freja Lind</a><nav class="nav" aria-label="Main"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html" aria-current="page">About</a><a href="contact.html">Contact</a></nav><button class="burger" aria-expanded="false">Menu</button></div></header>
+<div class="ribbon" role="note"><b>Portfolio website concept</b> by Victoria V. The name, projects and images are placeholders. <a href="admin.html">Try the CMS demo</a></div>
+<header class="hdr"><div class="wrap hdr__in"><a class="me" href="index.html"><svg viewBox="0 0 30 30" aria-hidden="true"><circle cx="11" cy="15" r="10" fill="#0078BF"/><circle cx="19" cy="15" r="10" fill="#FF48B0" style="mix-blend-mode:multiply"/></svg>Freja Lind</a><nav class="nav" aria-label="Main"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html" aria-current="page">About</a><a href="contact.html">Contact</a></nav><button class="burger" aria-expanded="false" aria-label="Open menu">Menu</button></div></header>
 <nav class="drawer" aria-label="Mobile"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
 <main id="main">
-<section class="ab"><div class="wrap ab__grid">
-  <div><span class="k">About</span><h1>Hi, I’m Freja.</h1>
-    <p>Placeholder text: I’m a graphic design student who loves type, print and making things move. I work between the screen and the risograph, and I care about design that is clear first and clever second.</p>
-    <p>Placeholder text: currently in my second year, looking for an internship where I can learn from a small studio.</p>
-    <div class="skills"><span class="tag">InDesign</span><span class="tag">Illustrator</span><span class="tag">Photoshop</span><span class="tag">Figma</span><span class="tag">After Effects</span><span class="tag">Risograph</span></div>
-    <p style="margin-top:30px"><a class="btn btn--blue" href="contact.html">Get in touch</a></p></div>
-  <figure class="portrait" data-reveal><img src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?auto=format&fit=crop&w=900&q=75" alt="Placeholder image for a portrait photo"><span>Your photo here</span></figure>
+<section class="ab"><div class="wrap">
+  <div class="ab__grid">
+    <div><span class="k">About</span><h1><span class="inked" data-follow><span class="l1">Hi, I’m Freja.</span><span class="l2" aria-hidden="true">Hi, I’m Freja.</span></span></h1>
+      <p>Placeholder text: I’m a graphic design student who loves type, print and making things move. I work between the screen and the risograph, and I care about design that is clear first and clever second.</p>
+      <p>Placeholder text: I’m in my second year and looking for an internship where I can learn from a small studio.</p>
+      <p style="margin-top:30px"><a class="btn btn--ink" href="contact.html">Get in touch</a></p></div>
+    <figure class="portrait duo duo--blue"><img src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?auto=format&fit=crop&w=900&q=75" alt="Placeholder image for a portrait photo" width="900" height="1125"><figcaption>Your photo here</figcaption></figure>
+  </div>
+  <div class="board" id="board" aria-label="Software and tools I use"><span class="board__hint">My toolbox. Drag the stickers around.</span>
+    <span class="chip chip--pink" role="listitem">InDesign</span><span class="chip chip--yellow" role="listitem">Illustrator</span><span class="chip chip--blue" role="listitem">Photoshop</span><span class="chip chip--white" role="listitem">Figma</span><span class="chip chip--pink" role="listitem">After Effects</span><span class="chip chip--yellow" role="listitem">Risograph</span><span class="chip chip--blue" role="listitem">Procreate</span><span class="chip chip--white" role="listitem">Blender</span>
+  </div>
 </div></section>
 </main>
-<footer class="foot"><div class="wrap"><a class="big" href="contact.html">Let’s talk</a><div class="foot__in"><span>© 2026 Freja Lind. Graphic design student.</span><span><a href="work.html">Work</a> · <a href="proofs.html">Yearly proofs</a> · <a href="about.html">About</a></span></div></div></footer>
+<footer class="foot"><div class="wrap"><a class="big inked" href="contact.html"><span class="l1">Say hello</span><span class="l2" aria-hidden="true">Say hello</span></a><div class="foot__in"><span>© 2026 Freja Lind, graphic design student</span><span><a href="work.html">Work</a>&nbsp;&nbsp;<a href="proofs.html">Yearly proofs</a>&nbsp;&nbsp;<a href="about.html">About</a></span></div></div></footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>window.gsap && gsap.registerPlugin(ScrollTrigger);</script>
-<script src="assets/projects.js?v=2"></script>
-<script src="assets/site.js?v=2"></script>
+<script src="assets/projects.js?v=3"></script>
+<script src="assets/site.js?v=3"></script>
 <script>
-reveal();
+
+(function(){
+  const board = document.getElementById('board'), chips = [...board.querySelectorAll('.chip')];
+  board.setAttribute('role', 'list');
+  // scatter the stickers, then make them draggable
+  const place = () => { const W = board.clientWidth, H = board.clientHeight;
+    chips.forEach((c, i) => { const cols = W < 600 ? 2 : 4, col = i % cols, row = Math.floor(i / cols);
+      const x = (col + .1 + Math.random() * .3) * (W / cols) - (col === cols - 1 ? c.offsetWidth * .6 : 0);
+      const y = 60 + row * ((H - 90) / Math.ceil(chips.length / cols)) + Math.random() * 20;
+      c.style.left = Math.max(10, Math.min(x, W - c.offsetWidth - 10)) + 'px'; c.style.top = Math.min(y, H - c.offsetHeight - 10) + 'px';
+      c.style.transform = 'rotate(' + (Math.random() * 16 - 8).toFixed(1) + 'deg)'; }); };
+  board.style.minHeight = (innerWidth < 600 ? 460 : 360) + 'px';
+  document.fonts.ready.then(place);
+  if (window.Draggable) { gsap.registerPlugin(Draggable); Draggable.create(chips, {bounds:board, onPress(){ this.target.style.zIndex = ++window.__z || (window.__z = 10); }}); }
+  if (!window.gsap || REDUCE) return;
+  gsap.fromTo('.ab .inked', {'--mx':'50px', '--my':'-20px'}, {'--mx':'6px', '--my':'4px', duration:1.3, ease:'elastic.out(1,.55)', delay:.15});
+  gsap.from('.portrait', {rotate:8, y:40, opacity:0, duration:1, ease:'back.out(1.4)', delay:.2});
+  gsap.from(chips, {scale:0, duration:.6, stagger:.06, ease:'back.out(2.2)', scrollTrigger:{trigger:board, start:'top 80%', once:true}});
+})();
+
 </script>
 </body>
 </html>

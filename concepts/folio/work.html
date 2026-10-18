@@ -8,67 +8,102 @@
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:title" content="Work | Freja Lind">
 <meta property="og:description" content="All projects: print and digital work, filterable by software and tools.">
-<meta name="theme-color" content="#2D4BFF">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FF48B0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Ccircle cx='11' cy='15' r='10' fill='%230078BF'/%3E%3Ccircle cx='19' cy='15' r='10' fill='%23FF48B0' style='mix-blend-mode:multiply'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..900&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=2">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=3">
 <style>
-.ph{padding:clamp(36px,6vw,80px) 0 26px}
-.ph h1{font-size:clamp(56px,11vw,170px);font-stretch:125%}
-.ph sup{font-size:.25em;vertical-align:top;color:var(--cobalt);letter-spacing:0}
-.filt{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 28px}
+.ph{padding:clamp(30px,5vw,70px) 0 20px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.ph h1{font-size:clamp(90px,17vw,260px);font-stretch:75%;font-variation-settings:"opsz" 96,"wdth" 75;line-height:.82}
+.ph .sticker{width:104px;height:104px;margin-bottom:10px}
+.bar{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:10px 0 30px;padding:14px 0;border-block:2px solid var(--ink)}
+.filt{display:flex;flex-wrap:wrap;gap:8px;min-width:0}
+.filt button,.view button{border:2px solid var(--ink);background:var(--white);border-radius:999px;padding:7px 15px;font-weight:600;cursor:pointer;transition:background .2s,color .2s;font-size:15px}
+.filt button[aria-pressed="true"]{background:var(--pink);border-color:var(--pink)}
+.view{display:flex;gap:6px}
+.view button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .filt::-webkit-scrollbar{display:none}
-@media (max-width:639px){.filt{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(var(--gut)*-1);padding-inline:var(--gut)}.filt button{flex:none}}
-.filt button{border:1.5px solid var(--line);background:var(--white);border-radius:999px;padding:8px 16px;font-weight:600;cursor:pointer;transition:all .25s}
-.filt button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
-.grid{display:grid;gap:clamp(18px,2.4vw,30px);padding-bottom:clamp(60px,8vw,100px)}
+@media (max-width:639px){.bar{flex-wrap:nowrap;flex-direction:column;align-items:stretch}.filt{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(var(--gut)*-1);padding-inline:var(--gut)}.filt button{flex:none}.view{align-self:flex-end}}
+.grid{display:grid;gap:clamp(22px,3vw,40px) clamp(16px,2vw,28px);padding-bottom:clamp(60px,8vw,100px);align-items:start}
 @media (min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media (min-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}.grid .tile:nth-child(3n+2){margin-top:70px}}
 .tile{display:grid;gap:12px}
-.tile__img{border-radius:20px;overflow:hidden;aspect-ratio:4/3.2;background:var(--bone)}
-.tile__img img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
-.tile:hover .tile__img img{transform:scale(1.06)}
-.tile h2{font-size:clamp(22px,2vw,28px);font-weight:700}
+.tile .duo{border-radius:22px;aspect-ratio:4/3.3;border:2px solid var(--ink);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.tile:nth-child(3n+1) .duo{aspect-ratio:4/5}
+.tile:hover .duo{transform:translate(-5px,-5px) rotate(-1deg);box-shadow:6px 6px 0 var(--ink)}
+.tile h2{font-size:clamp(26px,2.4vw,34px);font-stretch:85%;font-variation-settings:"opsz" 96,"wdth" 85}
 .tile .meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-.tile .yr{color:var(--muted);font-weight:600;margin-right:4px}
-.empty{display:none;padding:40px;text-align:center;color:var(--muted)}
+.tile .yr{font-family:var(--display);font-weight:800;margin-right:4px}
+.list{list-style:none;border-top:2px solid var(--ink);margin-bottom:clamp(60px,8vw,100px)}
+.list a{display:grid;grid-template-columns:1fr auto;gap:6px 20px;align-items:center;padding:20px 6px;border-bottom:1.5px solid var(--ink);transition:background .25s,padding .35s var(--ease)}
+.list a:hover{background:var(--yellow);padding-left:18px}
+.list h2{font-size:clamp(28px,4vw,56px);font-stretch:85%;font-variation-settings:"opsz" 96,"wdth" 85}
+.list .yr{font-family:var(--display);font-weight:800;font-size:20px}
+.list .meta{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap}
+@media (min-width:900px){.list a{grid-template-columns:1.4fr 1fr auto}.list .meta{grid-column:auto}}
+.empty{display:none;padding:50px 0;font-size:20px}
+.cursor{position:fixed;left:0;top:0;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;background:var(--pink);display:grid;place-items:center;font-weight:600;pointer-events:none;z-index:50;transform:scale(0);mix-blend-mode:multiply}
+@media (hover:none){.cursor{display:none}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<div class="ribbon" role="note"><b>Portfolio website concept</b> by Victoria V. The name, projects and images are placeholders. <a href="admin.html" style="text-decoration:underline">Try the CMS demo</a></div>
-<header class="hdr"><div class="wrap hdr__in"><a class="me" href="index.html"><i aria-hidden="true"></i>Freja Lind</a><nav class="nav" aria-label="Main"><a href="work.html" aria-current="page">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><button class="burger" aria-expanded="false">Menu</button></div></header>
+<div class="ribbon" role="note"><b>Portfolio website concept</b> by Victoria V. The name, projects and images are placeholders. <a href="admin.html">Try the CMS demo</a></div>
+<header class="hdr"><div class="wrap hdr__in"><a class="me" href="index.html"><svg viewBox="0 0 30 30" aria-hidden="true"><circle cx="11" cy="15" r="10" fill="#0078BF"/><circle cx="19" cy="15" r="10" fill="#FF48B0" style="mix-blend-mode:multiply"/></svg>Freja Lind</a><nav class="nav" aria-label="Main"><a href="work.html" aria-current="page">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav><button class="burger" aria-expanded="false" aria-label="Open menu">Menu</button></div></header>
 <nav class="drawer" aria-label="Mobile"><a href="work.html">Work</a><a href="proofs.html">Yearly proofs</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav>
 <main id="main">
-<section class="ph"><div class="wrap"><h1>Work<sup id="n"></sup></h1>
-<div class="filt" id="filt" role="group" aria-label="Filter by tool"></div>
-<div class="grid" id="grid"></div><p class="empty" id="empty">No projects use this tool yet.</p></div></section>
+<div class="wrap">
+  <section class="ph"><h1><span class="inked"><span class="l1">Work</span><span class="l2" aria-hidden="true">Work</span></span></h1><div class="sticker" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="c" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs><text font-size="12.5" font-weight="600" letter-spacing="1.5" font-family="Instrument Sans"><textPath href="#c">PRINT · DIGITAL · PRINT · DIGITAL · </textPath></text></svg><b><span id="n"></span></b></div></section>
+  <div class="bar"><div class="filt" id="filt" role="group" aria-label="Filter by type or tool"></div><div class="view" role="group" aria-label="Layout"><button type="button" aria-pressed="true" data-v="grid">Grid</button><button type="button" aria-pressed="false" data-v="list">List</button></div></div>
+  <div class="grid" id="grid"></div>
+  <ul class="list" id="list" hidden></ul>
+  <p class="empty" id="empty">No projects use this tool yet. Try another filter.</p>
+</div>
+<div class="cursor" id="cur" aria-hidden="true">View</div>
 </main>
-<footer class="foot"><div class="wrap"><a class="big" href="contact.html">Let’s talk</a><div class="foot__in"><span>© 2026 Freja Lind. Graphic design student.</span><span><a href="work.html">Work</a> · <a href="proofs.html">Yearly proofs</a> · <a href="about.html">About</a></span></div></div></footer>
+<footer class="foot"><div class="wrap"><a class="big inked" href="contact.html"><span class="l1">Say hello</span><span class="l2" aria-hidden="true">Say hello</span></a><div class="foot__in"><span>© 2026 Freja Lind, graphic design student</span><span><a href="work.html">Work</a>&nbsp;&nbsp;<a href="proofs.html">Yearly proofs</a>&nbsp;&nbsp;<a href="about.html">About</a></span></div></div></footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>window.gsap && gsap.registerPlugin(ScrollTrigger);</script>
-<script src="assets/projects.js?v=2"></script>
-<script src="assets/site.js?v=2"></script>
+<script src="assets/projects.js?v=3"></script>
+<script src="assets/site.js?v=3"></script>
 <script>
 
 (function(){
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const P = getProjects(); document.getElementById('n').textContent = P.length;
+  const P = getProjects(), $ = id => document.getElementById(id);
+  $('n').textContent = P.length;
   const tools = ['All', 'Print', 'Digital', ...new Set(P.flatMap(p => p.tools))];
-  const filt = document.getElementById('filt'), grid = document.getElementById('grid');
-  filt.innerHTML = tools.map((t, i) => `<button type="button" aria-pressed="${!i}">${t}</button>`).join('');
-  const render = t => {
-    const list = P.filter(p => t === 'All' || p.kind === t || p.tools.includes(t));
-    grid.innerHTML = list.map(p => `<a class="tile" href="project.html?id=${p.id}"><div class="tile__img"><img src="${projSrc(p, 800)}" alt="${p.title}" loading="lazy" width="800" height="640"></div><h2>${p.title}</h2><div class="meta"><span class="yr">${p.year}</span><span class="tag">${p.kind}</span>${p.tools.map(x => '<span class="tag">' + x + '</span>').join('')}</div></a>`).join('');
-    document.getElementById('empty').style.display = list.length ? 'none' : 'block';
-    if (window.gsap && !reduce) gsap.from(grid.children, {y:30, opacity:0, duration:.7, stagger:.06, ease:'power3.out'});
+  let cur = 'All', view = 'grid';
+  $('filt').innerHTML = tools.map((t, i) => `<button type="button" aria-pressed="${!i}">${esc(t)}</button>`).join('');
+  const render = () => {
+    const L = P.filter(p => cur === 'All' || p.kind === cur || p.tools.includes(cur));
+    $('grid').hidden = view !== 'grid'; $('list').hidden = view !== 'list';
+    $('grid').innerHTML = L.map((p, i) => `<a class="tile" href="project.html?id=${esc(p.id)}"><div class="duo duo--${INKS[i % 3]}"><img src="${projSrc(p, 800)}" alt="${esc(p.title)}" loading="lazy" width="800" height="640"></div><h2>${esc(p.title)}</h2><div class="meta"><span class="yr">${esc(p.year)}</span><span class="tag tag--${p.kind === 'Print' ? 'pink' : 'blue'}">${esc(p.kind)}</span>${p.tools.map(x => '<span class="tag">' + esc(x) + '</span>').join('')}</div></a>`).join('');
+    $('list').innerHTML = L.map(p => `<li><a href="project.html?id=${esc(p.id)}"><h2>${esc(p.title)}</h2><span class="meta"><span class="tag tag--${p.kind === 'Print' ? 'pink' : 'blue'}">${esc(p.kind)}</span>${p.tools.map(x => '<span class="tag">' + esc(x) + '</span>').join('')}</span><span class="yr">${esc(p.year)}</span></a></li>`).join('');
+    $('empty').style.display = L.length ? 'none' : 'block';
+    if (window.gsap && !REDUCE) {
+      const els = view === 'grid' ? $('grid').children : $('list').querySelectorAll('li');
+      gsap.killTweensOf(els);
+      gsap.fromTo(els, {y:36, opacity:0}, {y:0, opacity:1, duration:.6, stagger:.05, ease:'power3.out', clearProps:'opacity,transform'});
+    }
+    window.ScrollTrigger && ScrollTrigger.refresh();
   };
-  filt.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; filt.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); render(b.textContent); });
-  render('All');
-  if (window.gsap && !reduce) gsap.from('.ph h1', {yPercent:40, opacity:0, duration:1, ease:'expo.out'});
+  $('filt').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return;
+    $('filt').querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); cur = b.textContent; render(); });
+  document.querySelector('.view').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return;
+    document.querySelectorAll('.view button').forEach(x => x.setAttribute('aria-pressed', String(x === b))); view = b.dataset.v; render(); });
+  render();
+  if (!window.gsap || REDUCE) return;
+  gsap.fromTo('.ph .inked', {'--mx':'50px', '--my':'-20px'}, {'--mx':'6px', '--my':'4px', duration:1.3, ease:'elastic.out(1,.55)', delay:.15});
+  // a "View" ink dot follows the cursor over projects
+  if (matchMedia('(hover: hover)').matches) {
+    const c = $('cur'), x = gsap.quickTo(c, 'x', {duration:.35, ease:'power3'}), y = gsap.quickTo(c, 'y', {duration:.35, ease:'power3'});
+    addEventListener('pointermove', e => { x(e.clientX); y(e.clientY); const on = !!e.target.closest('.tile .duo'); if (on !== c._on) { c._on = on; gsap.to(c, {scale:on ? 1 : 0, duration:.35, ease:on ? 'back.out(2)' : 'power2.in'}); } }, {passive:true});
+  }
 })();
 
 </script>
