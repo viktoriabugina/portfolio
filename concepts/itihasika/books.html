@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600;700;800&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=5">
+<link rel="stylesheet" href="assets/site.css?v=6">
 <style>
 .hero{background:radial-gradient(ellipse at 75% 55%,#3A2A1E 0%,#1A1A22 55%,#0E1220 100%)}
 .hero::after{background:radial-gradient(ellipse at 20% 50%,rgba(10,10,14,.55),transparent 60%)}
@@ -22,8 +22,8 @@
 .fan img{position:absolute;left:50%;top:50%;width:62%;max-width:440px;transform-origin:50% 120%;filter:drop-shadow(0 30px 30px rgba(0,0,0,.5))}
 .fan .glow{position:absolute;inset:15% 10%;border-radius:50%;background:radial-gradient(circle,rgba(245,197,55,.35),transparent 65%);filter:blur(10px)}
 @media (min-width:1000px){.hero__grid{grid-template-columns:1.05fr .95fr}}
-@media (max-width:999px){.hero__in{padding-bottom:30px}.fan{order:2}}
-.filter{position:sticky;top:76px;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+@media (max-width:999px){.hero__in{padding-bottom:30px}.fan img{width:50%}}
+.filter{position:sticky;top:var(--hdr,76px);z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .filter__in{display:flex;align-items:center;gap:8px;padding:12px 0;overflow-x:auto;scrollbar-width:none}
 .filter__in::-webkit-scrollbar{display:none}
 .chip{flex:none;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 18px;font-weight:600;font-size:13.5px;cursor:pointer;transition:background .2s,border-color .2s}
@@ -81,7 +81,7 @@
 
 <section class="sec sec--grey series" data-group="young" aria-labelledby="s1" id="young">
   <div class="wrap">
-    <div class="head center"><span class="label label--both rv">For toddlers: ages 3 to 7</span><h2 class="serif h2 rv" data-d="1" id="s1">ABCs of history and <em>heritage.</em></h2><p class="sub rv" data-d="2">Build a strong foundation: alphabet activity books with puzzles, mazes and colouring.</p></div>
+    <div class="head center"><span class="label label--both rv">Ages 3 to 7</span><h2 class="serif h2 rv" data-d="1" id="s1">ABCs of history and <em>heritage.</em></h2><p class="sub rv" data-d="2">Build a strong foundation: alphabet activity books with puzzles, mazes and colouring.</p></div>
     <div class="books">
       <article class="bk rv" data-age="young"><a class="bk__cover" href="book.html"><span class="age" aria-label="Ages 3–7">AGES<b>3–7</b></span><img src="https://www.itihasika.com/wp-content/uploads/2025/06/ABC-of-Indian-history.png" alt="Cover of ABC Activity Book of Indian history" width="1015" height="760" loading="lazy"></a>
         <h3><a href="book.html">ABC Activity Book of Indian history</a></h3><p>This engaging alphabet book introduces children ages 3 to 7 to heroes of Indian history.</p><div class="stores"><a class="store" href="book.html"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Global</small><b>$10.99</b></span></a><a class="store" href="book.html"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-india.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon India</small><b>₹424</b></span></a><a class="store" href="book.html"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-kindle.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Kindle</small><b>$4.99</b></span></a><a class="store" href="book.html"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/PDF-version.png" alt="" width="571" height="125" loading="lazy"></i><span><small>PDF Version</small><b>$3.99</b></span></a></div></article>
@@ -101,7 +101,7 @@
 
 <section class="sec series" data-group="older" aria-labelledby="s2" id="older">
   <div class="wrap">
-    <div class="head center"><span class="label label--both rv">For kids and teens: ages 7 to 13</span><h2 class="serif h2 rv" data-d="1" id="s2">Pillars of our <em>civilization.</em></h2><p class="sub rv" data-d="2">Establish core truths: the true story of India, the epics and the Gita, told for young readers.</p></div>
+    <div class="head center"><span class="label label--both rv">Ages 7 to 13</span><h2 class="serif h2 rv" data-d="1" id="s2">Pillars of our <em>civilization.</em></h2><p class="sub rv" data-d="2">Establish core truths: the true story of India, the epics and the Gita, told for young readers.</p></div>
     <div class="books books--4">
       <article class="bk rv" data-age="older"><a class="bk__cover" href="https://www.itihasika.com/books/"><span class="age" aria-label="Ages 7–13">AGES<b>7–13</b></span><img src="https://www.itihasika.com/wp-content/uploads/2025/06/History-of-India-for-Curious-kids.png" alt="Cover of India's history for curious kids" width="1015" height="760" loading="lazy"></a>
         <h3><a href="https://www.itihasika.com/books/">India’s history</a></h3><p>A must have book for 7 to 13 year olds to understand the true story of their civilizational heritage.</p><div class="stores"><a class="store" href="https://www.itihasika.com/books/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Global</small><b>$10.99</b></span></a><a class="store" href="https://www.itihasika.com/books/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-india.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon India</small><b>₹424</b></span></a><a class="store" href="https://www.itihasika.com/books/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-kindle.png" alt="" width="571" height="125" loading="lazy"></i><span><small>Amazon Kindle</small><b>$4.99</b></span></a><a class="store" href="https://www.itihasika.com/books/"><i><img src="https://www.itihasika.com/wp-content/uploads/2025/05/PDF-version.png" alt="" width="571" height="125" loading="lazy"></i><span><small>PDF Version</small><b>$3.99</b></span></a></div></article>
@@ -167,7 +167,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>window.gsap && gsap.registerPlugin(ScrollTrigger);</script>
-<script src="assets/site.js?v=5"></script>
+<script src="assets/site.js?v=6"></script>
 <script>
 (function(){
   // filter by age

@@ -28,6 +28,9 @@
   const hdr = document.querySelector('.hdr');
   const onScroll = () => hdr && hdr.classList.toggle('scrolled', scrollY > 60);
   addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  // expose the header height for sticky bars below it
+  const setH = () => hdr && document.documentElement.style.setProperty('--hdr', hdr.offsetHeight + 'px');
+  if (hdr && 'ResizeObserver' in window) new ResizeObserver(setH).observe(hdr); setH();
 
   // reveal on scroll
   const io = 'IntersectionObserver' in window && !reduce ? new IntersectionObserver(es => es.forEach(e => {

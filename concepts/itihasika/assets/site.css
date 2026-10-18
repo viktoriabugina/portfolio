@@ -30,6 +30,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .label{display:inline-flex;align-items:center;gap:16px;font-weight:600;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
 .label::before{content:"";width:34px;height:1.5px;background:currentColor}
 .label--both::after{content:"";width:34px;height:1.5px;background:currentColor}
+@media (max-width:520px){.label{letter-spacing:.14em;gap:10px;font-size:12px}.label::before,.label--both::after{width:20px}}
 .hero-type{font-family:var(--f-hero);font-weight:700;letter-spacing:-.015em;line-height:1.02}
 .hero-type .y{color:var(--yellow)}
 
@@ -81,7 +82,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .hero__bg img{width:100%;height:100%;object-fit:cover}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(10,10,14,.82) 0%,rgba(10,10,14,.55) 45%,rgba(10,10,14,.1) 80%),linear-gradient(180deg,rgba(10,10,14,.55) 0%,transparent 25%,transparent 70%,rgba(10,10,14,.5) 100%)}
 .hero__in{min-height:min(100svh,780px);display:flex;flex-direction:column;justify-content:center;padding-top:120px;padding-bottom:60px}
-.hero h1{font-size:clamp(40px,5.4vw,74px);max-width:15ch}
+.hero h1{font-size:clamp(33px,5.4vw,74px)}
 .hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
 .hero h1 .ln>span{display:inline-block}
 .hero p.lead{margin-top:20px;font-size:clamp(15.5px,1.3vw,17.5px);max-width:50ch;color:rgba(255,255,255,.85)}
@@ -91,7 +92,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .stats div+div{border-left:1px solid rgba(255,255,255,.3)}
 .stats b{font-family:var(--f-hero);font-weight:700;font-size:clamp(24px,2.6vw,34px);line-height:1.1}
 .stats span{font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.8)}
-@media (max-width:520px){.stats{align-self:stretch;display:grid;grid-template-columns:1fr 1fr;row-gap:12px}.stats div{padding:2px 8px}.stats div+div{border-left:0}.stats div:nth-child(even){border-left:1px solid rgba(255,255,255,.3)}.stats div:nth-child(3):last-child{grid-column:1/-1}}
+@media (max-width:520px){.stats{align-self:stretch}.stats div{flex:1;padding:2px 8px}.stats:has(div:nth-child(4)){display:grid;grid-template-columns:1fr 1fr;row-gap:12px}.stats div{padding:2px 8px}.stats div+div{border-left:0}.stats div:nth-child(even){border-left:1px solid rgba(255,255,255,.3)}.stats div:nth-child(3):last-child{grid-column:1/-1}}
 
 /* sections */
 .sec{padding:clamp(70px,9vw,120px) 0}
@@ -109,7 +110,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .quote__who b{display:block;font-weight:600;font-size:16px;line-height:1.2}
 .quote__who small{color:var(--mute);font-size:12.5px}
 .quote p{font-style:italic;font-size:15px;color:var(--soft);position:relative;z-index:1}
-.quote::after{content:"\201D";position:absolute;right:16px;bottom:-46px;font-family:var(--f-serif);font-size:170px;line-height:1;color:var(--peach);z-index:0}
+.quote::after{content:"\201D";position:absolute;right:14px;bottom:-70px;font-family:var(--f-serif);font-size:150px;line-height:1;color:#FCEFE7;z-index:0}
 
 /* timeline (the "Journeys across time" pattern) */
 .tl{list-style:none;position:relative;display:grid;gap:22px;padding-left:28px}
@@ -169,7 +170,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 @media (min-width:860px){.foot__top{grid-template-columns:1.6fr 1fr 1fr 1fr}}
 
 /* concept badge */
-.concept{position:fixed;left:14px;bottom:14px;z-index:70;background:var(--ink);color:#fff;font-size:12px;border-radius:999px;padding:8px 14px;box-shadow:0 8px 20px rgba(0,0,0,.25);display:flex;gap:8px;align-items:center}
+.bar-on .concept{opacity:0;pointer-events:none}
+.concept{transition:opacity .3s;position:fixed;left:14px;bottom:14px;z-index:70;background:var(--ink);color:#fff;font-size:12px;border-radius:999px;padding:8px 14px;box-shadow:0 8px 20px rgba(0,0,0,.25);display:flex;gap:8px;align-items:center}
 .concept a{color:var(--yellow);text-decoration:underline}
 @media (max-width:600px){.concept{left:8px;right:auto;bottom:8px;font-size:11px;padding:6px 12px}.concept .x{display:none}}
 

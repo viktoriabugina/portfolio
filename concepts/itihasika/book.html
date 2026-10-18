@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600;700;800&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=5">
+<link rel="stylesheet" href="assets/site.css?v=6">
 <style>
 .top{background:var(--navy);color:#fff;padding:120px 0 26px}
 .crumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:6px 10px;font-size:13px;color:rgba(255,255,255,.7)}
@@ -58,7 +58,7 @@
 .buy .btn{width:100%;min-height:54px;margin-top:16px;font-size:15px}
 .note{font-size:12.5px;color:var(--mute);margin-top:10px;text-align:center}
 .inside__grid{display:grid;gap:clamp(30px,5vw,64px);align-items:center}
-.inside p.txt{color:var(--soft);margin-top:16px;max-width:52ch}
+.inside__grid p.txt{color:var(--soft);margin-top:16px;max-width:52ch}
 .acts{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .acts li{background:#fff;border-radius:16px;padding:20px;display:grid;gap:10px;justify-items:start;box-shadow:var(--shadow)}
 .acts svg{width:34px;height:34px;color:var(--red)}
@@ -118,7 +118,7 @@
       <dl class="facts"><div><dt>Language</dt><dd>English</dd></div><div><dt>Paperback</dt><dd>58 pages</dd></div><div><dt>Reading age</dt><dd>3–7 years</dd></div><div><dt>Size</dt><dd>8.5 × 8.5 in</dd></div></dl>
       <form class="buy" id="buy" onsubmit="return false">
         <h2 id="buy-title">Choose where to buy</h2>
-        <fieldset class="opts" aria-labelledby="buy-title"><label class="opt"><input type="radio" name="f" value="Amazon Global" data-price="$10.99" data-kind="Paperback" checked><span class="lg"><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon.png" alt="Amazon Global" width="571" height="125"></span><small>Paperback</small><b>$10.99</b></label><label class="opt"><input type="radio" name="f" value="Amazon India" data-price="₹424" data-kind="Paperback"><span class="lg"><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-india.png" alt="Amazon India" width="571" height="125"></span><small>Paperback</small><b>₹424</b></label><label class="opt"><input type="radio" name="f" value="Kindle" data-price="$4.99" data-kind="Kindle edition"><span class="lg"><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-kindle.png" alt="Kindle" width="571" height="125"></span><small>Kindle edition</small><b>$4.99</b></label><label class="opt"><input type="radio" name="f" value="PDF" data-price="$3.99" data-kind="Download and print"><span class="lg"><img src="https://www.itihasika.com/wp-content/uploads/2025/05/PDF-version.png" alt="PDF" width="571" height="125"></span><small>Download and print</small><b>$3.99</b></label></fieldset>
+        <fieldset class="opts" aria-labelledby="buy-title"><label class="opt"><input type="radio" name="f" value="Amazon Global" data-price="$10.99" data-kind="Paperback" checked><span class="lg"><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon.png" alt="Amazon Global" width="571" height="125"></span><small>Paperback</small><b>$10.99</b></label><label class="opt"><input type="radio" name="f" value="Amazon India" data-price="₹424" data-kind="Paperback"><span class="lg"><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-india.png" alt="Amazon India" width="571" height="125"></span><small>Paperback</small><b>₹424</b></label><label class="opt"><input type="radio" name="f" value="Kindle" data-price="$4.99" data-kind="Kindle edition"><span class="lg"><img src="https://www.itihasika.com/wp-content/uploads/2025/05/amazon-kindle.png" alt="Kindle" width="571" height="125"></span><small>Kindle edition</small><b>$4.99</b></label><label class="opt"><input type="radio" name="f" value="PDF" data-price="$3.99" data-kind="PDF download"><span class="lg"><img src="https://www.itihasika.com/wp-content/uploads/2025/05/PDF-version.png" alt="PDF" width="571" height="125"></span><small>PDF download</small><b>$3.99</b></label></fieldset>
         <a class="btn btn--blue" id="buyBtn" href="#">Buy on Amazon Global: $10.99</a>
         <p class="note">You’ll finish your purchase on the store you choose.</p>
       </form>
@@ -161,7 +161,7 @@
   </div>
 </section>
 
-<div class="buybar" id="buybar"><span>ABC Activity Book of Indian history<small id="barPrice">Paperback, Amazon Global: $10.99</small></span><a class="btn btn--blue" href="#buy" id="barBtn">Buy now</a></div>
+<div class="buybar" id="buybar"><span>ABC of Indian history<small id="barPrice">Paperback, Amazon Global: $10.99</small></span><a class="btn btn--blue" href="#buy" id="barBtn">Buy now</a></div>
 </main>
 <section class="chart" aria-labelledby="chart-title">
   <div class="wrap chart__grid">
@@ -204,7 +204,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>window.gsap && gsap.registerPlugin(ScrollTrigger);</script>
-<script src="assets/site.js?v=5"></script>
+<script src="assets/site.js?v=6"></script>
 <script>
 (function(){
   // gallery with thumbnails
@@ -223,12 +223,12 @@
   const btn = document.getElementById('buyBtn'), barPrice = document.getElementById('barPrice');
   document.querySelectorAll('.opt input').forEach(r => r.addEventListener('change', () => {
     btn.textContent = (r.value === 'PDF' ? 'Buy the PDF' : 'Buy on ' + r.value) + ': ' + r.dataset.price;
-    barPrice.textContent = r.dataset.kind + ', ' + r.value + ': ' + r.dataset.price;
+    barPrice.textContent = (r.value === 'Kindle' || r.value === 'PDF' ? r.dataset.kind : r.dataset.kind + ', ' + r.value) + ': ' + r.dataset.price;
     if (window.gsap && !REDUCE) gsap.fromTo(btn, {scale:.96}, {scale:1, duration:.5, ease:'elastic.out(1,.5)'});
   }));
   document.getElementById('barBtn').addEventListener('click', e => { e.preventDefault(); const b = document.getElementById('buy'); window.__lenis ? window.__lenis.scrollTo(b, {offset:-120}) : b.scrollIntoView(); });
   const bar = document.getElementById('buybar'), buy = document.getElementById('buy');
-  if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => bar.classList.toggle('on', !e.isIntersecting && e.boundingClientRect.top < 0)).observe(buy);
+  if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => { const on = !e.isIntersecting && e.boundingClientRect.top < 0; bar.classList.toggle('on', on); document.body.classList.toggle('bar-on', on); }).observe(buy);
 
   if (!window.gsap || REDUCE) return;
   gsap.from('.gallery__main', {y:30, opacity:0, duration:1, ease:'expo.out'});
