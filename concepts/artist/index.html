@@ -457,8 +457,8 @@ form{display:grid;gap:18px;background:var(--dusk);border-radius:26px;padding:cla
   /* ---------- the spotlight: follows the cursor, wanders on touch screens ---------- */
   const hero = document.querySelector('.hero');
   if (!reduce && window.gsap) {
-    const mob = innerWidth < 700, pos = mob ? {x:55, y:26} : {x:62, y:38}; const apply = () => { hero.style.setProperty('--x', pos.x + '%'); hero.style.setProperty('--y', pos.y + '%'); };
-    let wander = gsap.to(pos, {keyframes:mob ? [{x:45, y:22}, {x:62, y:32}, {x:52, y:18}, {x:55, y:26}] : [{x:45, y:30}, {x:70, y:46}, {x:56, y:26}, {x:62, y:38}], duration:12, repeat:-1, ease:'sine.inOut', onUpdate:apply});
+    const mob = innerWidth < 700, pos = mob ? {x:40, y:32} : {x:62, y:38}; const apply = () => { hero.style.setProperty('--x', pos.x + '%'); hero.style.setProperty('--y', pos.y + '%'); };
+    let wander = gsap.to(pos, {keyframes:mob ? [{x:32, y:28}, {x:48, y:36}, {x:36, y:24}, {x:40, y:32}] : [{x:45, y:30}, {x:70, y:46}, {x:56, y:26}, {x:62, y:38}], duration:12, repeat:-1, ease:'sine.inOut', onUpdate:apply});
     if (matchMedia('(hover:hover) and (pointer:fine)').matches) {
       hero.addEventListener('pointermove', e => { wander.pause(); const r = hero.getBoundingClientRect();
         gsap.to(pos, {x:(e.clientX - r.left) / r.width * 100, y:(e.clientY - r.top) / r.height * 100, duration:.6, ease:'power3.out', onUpdate:apply}); });
