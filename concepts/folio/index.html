@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="assets/site.css?v=3">
 <style>
 .hero{position:relative;padding:clamp(30px,5vw,70px) 0 clamp(40px,6vw,80px)}
-.hero__name{font-size:clamp(96px,23vw,380px);font-stretch:75%;font-variation-settings:"opsz" 96,"wdth" 75;letter-spacing:-.045em;line-height:.8}
+.hero__name{font-size:clamp(96px,23vw,380px);font-stretch:75%;font-variation-settings:"opsz" 96,"wdth" 75;letter-spacing:-.01em;line-height:.8}
 .hero__name .row{display:block;overflow:hidden;padding-bottom:.04em}
 .hero__name .row>span{display:block}
 .hero__name .row:nth-child(2){padding-left:12vw}
@@ -66,7 +66,7 @@
     <h1 class="hero__name" aria-label="Freja Lind, graphic designer"><span class="row"><span><span class="inked" data-follow><span class="l1">Freja</span><span class="l2" aria-hidden="true">Freja</span></span></span></span><span class="row"><span><span class="inked" data-follow><span class="l1">Lind.</span><span class="l2" aria-hidden="true">Lind.</span></span></span></span></h1>
     <div class="hero__row">
       <p>Graphic design student working across print and digital: posters, identities, zines and interfaces.</p>
-      <div class="hero__cta"><div class="sticker" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="c" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs><text font-size="12.5" font-weight="600" letter-spacing="1.5" font-family="Instrument Sans"><textPath href="#c">OPEN FOR INTERNSHIPS · SUMMER 2027 · </textPath></text></svg><b>27</b></div><a class="btn btn--ink" href="work.html">See my work</a></div>
+      <div class="hero__cta"><div class="sticker" aria-hidden="true"><svg viewBox="0 0 120 120"><defs><path id="c" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs><text font-size="12" font-weight="600" letter-spacing="1" font-family="Instrument Sans"><textPath href="#c">INTERNSHIPS · SUMMER 2027 · </textPath></text></svg><b>27</b></div><a class="btn btn--ink" href="work.html">See my work</a></div>
     </div>
   </div>
 </section>
@@ -102,7 +102,7 @@
   // stacked cards: each card shrinks back as the next one slides over it
   const cards = gsap.utils.toArray('.card');
   cards.forEach((c, i) => { if (i === cards.length - 1) return;
-    gsap.to(c, {scale:.94, filter:'brightness(.92)', ease:'none', scrollTrigger:{trigger:cards[i + 1], start:'top bottom', end:'top ' + (96 + (i + 1) * 14) + 'px', scrub:true}}); });
+    gsap.fromTo(c, {scale:1, filter:'brightness(1)'}, {scale:.94, filter:'brightness(.9)', ease:'none', immediateRender:false, scrollTrigger:{trigger:cards[i + 1], start:'top bottom', end:'top ' + (96 + (i + 1) * 14) + 'px', scrub:true}}); });
   inView('.teaser');
 })();
 
