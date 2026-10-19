@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600;700;800&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=7">
+<link rel="stylesheet" href="assets/site.css?v=8">
 <style>
 .hero__bg img{object-position:62% 30%}
 
@@ -42,12 +42,17 @@
 .in .lead2{font-family:var(--f-serif);font-style:italic;font-size:clamp(18px,1.6vw,21px);color:var(--soft);margin:22px 0 26px;max-width:44ch}
 .in__btns{display:flex;flex-wrap:wrap;gap:12px}
 .in__right{display:grid;gap:30px;align-items:center}
-.in__img{border-radius:20px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/3}
-.in__img img{width:100%;height:100%;object-fit:cover}
-@media (min-width:1000px){.in__grid{grid-template-columns:1fr 1.1fr}.in__right{grid-template-columns:1.25fr .75fr}}
-.gift{margin-top:clamp(40px,6vw,64px);padding:clamp(22px,3vw,30px) clamp(22px,3.4vw,40px);background:#fff;border-radius:20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;box-shadow:var(--shadow)}
-.gift p{font-family:var(--f-serif);font-size:clamp(20px,2.2vw,28px);line-height:1.3;max-width:34ch}
-.gift p em{color:var(--red)}
+.in__img{position:relative;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/5;background:var(--grey)}
+.in__img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06);transition:opacity .8s var(--ease),transform 1.4s var(--ease)}
+.in__img img.on{opacity:1;transform:none}
+.in__cap{position:absolute;left:14px;bottom:14px;background:var(--yellow);color:var(--ink);font-weight:600;font-size:13px;border-radius:999px;padding:7px 14px;box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.in__cap span{display:none}
+.in__img[data-i="0"] .in__cap span:nth-child(1),.in__img[data-i="1"] .in__cap span:nth-child(2),.in__img[data-i="2"] .in__cap span:nth-child(3){display:inline}
+.tl .age{display:inline-block;font-family:var(--f-sans);font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--red);background:#fff;border:1px solid rgba(210,82,46,.35);border-radius:999px;padding:3px 11px;margin-bottom:7px;transition:background .3s,color .3s,border-color .3s}
+.tl li.on .age{background:var(--red);color:#fff;border-color:var(--red)}
+.tl p{font-size:15.5px}
+@media (min-width:1000px){.in__grid{grid-template-columns:1fr 1.1fr}.in__right{grid-template-columns:1.1fr .9fr}}
+@media (max-width:999px){.in__img{aspect-ratio:4/3;max-width:560px}}
 
 /* team */
 .team{display:grid;gap:24px}
@@ -58,24 +63,49 @@
 .member__img{position:relative;aspect-ratio:1/1;background:var(--grey);overflow:hidden}
 .member__img img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
 .member:hover .member__img img{transform:scale(1.05)}
-.role{position:absolute;left:14px;bottom:14px;background:var(--blue);color:#fff;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:5px 12px}
+.role{position:absolute;left:14px;bottom:14px;background:var(--ink);color:var(--yellow);box-shadow:0 0 0 2px #fff,0 6px 16px rgba(0,0,0,.2);font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:5px 12px}
 .member__body{padding:20px 22px 24px;display:grid;gap:8px}
 .member h3{font-family:var(--f-serif);font-weight:600;font-size:24px}
 .member p{font-size:14.5px;color:var(--soft)}
 .member .off{font-style:italic;font-size:13.5px;border-top:1px solid var(--line);padding-top:10px;margin-top:4px}
 .member .off b{font-style:normal;color:var(--red);font-weight:600}
 
-.voices{display:grid;gap:22px}
-@media (min-width:900px){.voices{grid-template-columns:repeat(3,1fr)}}
 img.quote__av{object-fit:cover;background:var(--grey)}
 /* why */
 .why{display:grid;gap:20px}
 @media (min-width:700px){.why{grid-template-columns:1fr 1fr}}
 @media (min-width:1150px){.why{grid-template-columns:repeat(4,1fr)}}
-.why article{padding:28px 24px;display:grid;gap:10px;align-content:start}
-.why .ic{width:54px;height:54px;border-radius:50%;background:var(--yellow);display:grid;place-items:center;font-size:24px;font-weight:700;color:var(--red);font-family:var(--f-serif)}
+.why article{overflow:hidden;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s}
+.why article:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(20,20,20,.14)}
+.why .ph{aspect-ratio:16/10;overflow:hidden;background:var(--grey)}
+.why .ph img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.why article:hover .ph img{transform:scale(1.05)}
+.why .ph--art{background:#fff}
+.why .ph--art img{object-fit:contain;padding:10px}
+.why__b{padding:22px 24px 26px;display:grid;gap:10px}
 .why h3{font-weight:600;font-size:17px;line-height:1.35}
 .why p{font-size:14.5px;color:var(--soft)}
+
+/* why us table */
+.cmp{max-width:900px;margin:0 auto;background:#fff;border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+.cmp table{width:100%;border-collapse:collapse}
+.cmp thead th{background:var(--yellow);font-weight:700;font-size:15px;padding:16px 12px;text-align:center}
+.cmp thead th:first-child{text-align:left}
+.cmp th.cmp__us{background:var(--ink);color:var(--yellow);font-family:var(--f-serif);font-size:18px;font-style:italic}
+.cmp tbody th{text-align:left;font-weight:500;font-size:15.5px;line-height:1.45;padding:16px 20px;color:var(--ink)}
+.cmp td{text-align:center;width:22%;padding:12px}
+.cmp tbody tr:nth-child(odd){background:#FAF6EA}
+.cmp tbody tr{border-top:1px solid var(--line)}
+.cmp td.yes{background:rgba(245,197,55,.12)}
+.mk{display:inline-grid;place-items:center}
+.mk svg{width:28px;height:28px;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.yes svg circle{fill:#1E9E6A;stroke:none}.yes svg path{stroke:#fff}
+.no svg circle{fill:#E25A43;stroke:none;opacity:.9}.no svg path{stroke:#fff}
+.cmp.in .mk{animation:pop .5s var(--ease) both}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:640px){.cmp thead th{font-size:13px;padding:13px 6px}.cmp th.cmp__us{font-size:15px}.cmp tbody th{font-size:14px;padding:13px 12px}.cmp td{width:20%;padding:10px 4px}.mk svg{width:24px;height:24px}}
+@media (prefers-reduced-motion:reduce){.cmp.in .mk{animation:none}.in__img img{transition:none}}
 
 /* moments carousel */
 .car{position:relative}
@@ -118,7 +148,7 @@ img.quote__av{object-fit:cover;background:var(--grey)}
       <div class="qs__text">
         <span class="label rv">Then one day</span>
         <p class="rv" data-d="1">They come home with <em>questions</em> that stop you in your tracks. Questions their friends ask, their teachers raise, and <em>you</em> are suddenly expected to answer.</p>
-        <p class="rv" data-d="2">But you don’t have the knowledge. You are not equipped to answer yourself.</p>
+        <p class="rv" data-d="2">But you yourself neither have the <em>knowledge</em> nor are equipped to answer.</p>
       </div>
       <div class="qs__cards">
         <blockquote class="card quote rv"><div class="quote__who"><img class="quote__av" src="https://images.unsplash.com/photo-1606386666595-d135abc1e3b2?w=200&amp;h=200&amp;fit=crop&amp;crop=faces&amp;q=80" alt="" width="200" height="200" loading="lazy"><span><b>Your son</b><small>After school</small></span></div><p>“Dad, my friends laugh at me… is Hinduism all about caste and holy cows?”</p></blockquote>
@@ -137,29 +167,20 @@ img.quote__av{object-fit:cover;background:var(--grey)}
         <h2 class="serif rv" data-d="1" id="in-title" style="margin-top:14px">That’s where Itihasika <em>steps in.</em></h2>
         <p class="small rv" data-d="1">Books, videos and courses for <b>ages 3 to 13</b>, built on research-backed methods.</p>
         <p class="lead2 rv" data-d="2">We help you raise proud, rooted Hindu kids who understand their history, values, and identity, and can answer tough questions with confidence.</p>
-        <div class="in__btns rv" data-d="2"><a class="btn btn--yellow" href="books.html">Browse our books</a><a class="btn btn--blue" href="https://www.itihasika.com/courses/">Enroll in our courses</a></div>
       </div>
       <div class="in__right">
         <ol class="tl" id="tl"><span class="tl__fill" id="tlFill" aria-hidden="true"></span>
-          <li class="on"><h3>Crawl: build a strong foundation</h3><p>Kids first learn the heroes, festivals and ideas of their heritage, one letter and one story at a time.</p></li>
-          <li><h3>Walk: reinforce it together</h3><p>Games and family activities turn what they learned into something they talk about at the dinner table.</p></li>
-          <li><h3>Run: dive deeper</h3><p>Older kids move on to the epics, the Gita and the long story of Indian civilization.</p></li>
-          <li><h3>For life: identity and pride</h3><p>Each stage builds on the last, while creating joyful, memorable family experiences.</p></li>
+          <li class="on"><span class="age">Ages 3–6</span><h3>Crawl: build a strong foundation</h3><p>Kids first learn the heroes, festivals and ideas of their heritage, one letter and one story at a time.</p></li>
+          <li><span class="age">Ages 7–9</span><h3>Walk: reinforce it together</h3><p>We advance to the Epics, the Gita and the core civilizational narrative.</p></li>
+          <li><span class="age">Ages 10–13</span><h3>Run: dive deeper</h3><p>Our OTT has hyper-real videos that cover the entire chronology of Indian history, which the entire family can enjoy together.</p></li>
         </ol>
-        <figure class="in__img rv"><img src="https://www.itihasika.com/wp-content/uploads/2025/07/ABC-of-Indian-history-1.jpg" alt="Inside an Itihasika book: A is for Ahalya Bai" width="853" height="720" loading="lazy" style="object-fit:contain;background:#fff"></figure>
+        <figure class="in__img rv" id="tlImg" data-i="0">
+          <img class="on" src="https://images.unsplash.com/photo-1730130596425-197566414dc4?w=900&amp;h=1100&amp;fit=crop&amp;q=80" alt="Parents celebrating a festival at home with their toddler" width="900" height="1100" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1783873231697-3909aeda2381?w=900&amp;h=1100&amp;fit=crop&amp;q=80" alt="A father and his young daughter learning together on the sofa" width="900" height="1100" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1614112163164-e8749a2e7628?w=900&amp;h=1100&amp;fit=crop&amp;q=80" alt="A father and his children watching a video together" width="900" height="1100" loading="lazy">
+          <figcaption class="in__cap" aria-hidden="true"><span>Ages 3–6</span><span>Ages 7–9</span><span>Ages 10–13</span></figcaption>
+        </figure>
       </div>
-    </div>
-    <div class="gift rv"><p>Give your child the gift of identity, confidence, and pride in their culture, <em>for life.</em></p><a class="btn btn--yellow" href="books.html">Find the right book</a></div>
-  </div>
-</section>
-
-<section class="sec sec--grey" aria-labelledby="voices-title">
-  <div class="wrap">
-    <div class="head center"><h2 class="serif h2 rv" id="voices-title">Voices from <em>thankful</em> families.</h2></div>
-    <div class="voices">
-      <blockquote class="card quote rv"><div class="quote__who"><img class="quote__av" src="https://www.itihasika.com/wp-content/uploads/2025/06/testimonial-2.jpg" alt="" width="1600" height="1600" loading="lazy"><span><b>Neeraj &amp; Kristen Singh</b><small>New Jersey, USA</small></span></div><p>Fifteen years in the US, and now it’s the kids schooling us on Indian history at the dinner table. We’re all learning together.</p></blockquote>
-      <blockquote class="card quote rv" data-d="1"><div class="quote__who"><img class="quote__av" src="https://www.itihasika.com/wp-content/uploads/2025/06/testimonial-4.jpg" alt="" width="1600" height="1600" loading="lazy"><span><b>Aaditya &amp; Gauri Oka</b><small>Dubai, UAE</small></span></div><p>I doubted kids raised in the UAE would take to the epics. The books and films proved me wrong: the mix of stories and activities has them hooked.</p></blockquote>
-      <blockquote class="card quote rv" data-d="2"><div class="quote__who"><img class="quote__av" src="https://www.itihasika.com/wp-content/uploads/2025/06/testimonial-3.jpg" alt="" width="1600" height="1600" loading="lazy"><span><b>Ashok &amp; Mansi Kadkol</b><small>Bengaluru, India</small></span></div><p>Two children who dodged every book we ever bought, now reading these on repeat and bursting with questions. History, turned into magic.</p></blockquote>
     </div>
   </div>
 </section>
@@ -184,10 +205,29 @@ img.quote__av{object-fit:cover;background:var(--grey)}
   <div class="wrap">
     <div class="head center"><h2 class="serif h2 rv" id="why-title">Why families choose <em>Itihasika.</em></h2><p class="sub rv" data-d="1">Timeless history the whole family can enjoy, then talk about at dinner.</p></div>
     <div class="why">
-      <article class="card rv"><span class="ic" aria-hidden="true">क</span><h3>Research-backed methods</h3><p>Every book, video and course is built on how children actually learn, not on rote memorisation.</p></article>
-      <article class="card rv" data-d="1"><span class="ic" aria-hidden="true">ख</span><h3>Child psychology and gamification</h3><p>Puzzles, quizzes and titles to earn make kids reach for history on their own.</p></article>
-      <article class="card rv" data-d="2"><span class="ic" aria-hidden="true">ग</span><h3>Original art and stories</h3><p>Illustrated in-house by Hugo, so every page looks and feels like Itihasika.</p></article>
-      <article class="card rv" data-d="3"><span class="ic" aria-hidden="true">घ</span><h3>One path from 3 to 13</h3><p>Books, films and courses follow the crawl, walk, run approach, so learning grows with your child.</p></article>
+      <article class="card rv"><div class="ph"><img src="https://images.unsplash.com/photo-1757877219270-3cc753c4b4d5?w=640&amp;h=400&amp;fit=crop&amp;q=80" alt="Two boys reading a book together outdoors" width="640" height="400" loading="lazy"></div><div class="why__b"><h3>Research-backed methods</h3><p>Every book, video and course is built on how children actually learn, not on rote memorisation.</p></div></article>
+      <article class="card rv" data-d="1"><div class="ph"><img src="https://images.unsplash.com/photo-1759678444821-565ff103465c?w=640&amp;h=400&amp;fit=crop&amp;q=80" alt="A child playing with an alphabet puzzle" width="640" height="400" loading="lazy"></div><div class="why__b"><h3>Child psychology and gamification</h3><p>Puzzles, quizzes and titles to earn make kids reach for history on their own.</p></div></article>
+      <article class="card rv" data-d="2"><div class="ph ph--art"><img src="https://www.itihasika.com/wp-content/uploads/2025/07/ABC-of-Indian-history-1.jpg" alt="A page from an Itihasika book: A is for Ahalya Bai" width="640" height="400" loading="lazy"></div><div class="why__b"><h3>Original art and stories</h3><p>Illustrated in-house by Hugo, so every page looks and feels like Itihasika.</p></div></article>
+      <article class="card rv" data-d="3"><div class="ph"><img src="https://images.unsplash.com/photo-1639979511572-ff346bc5b3b7?w=640&amp;h=400&amp;fit=crop&amp;q=80" alt="Parents hugging their two children outdoors" width="640" height="400" loading="lazy"></div><div class="why__b"><h3>One path from 3 to 13</h3><p>Books, films and courses follow the crawl, walk, run approach, so learning grows with your child.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="us-title">
+  <div class="wrap">
+    <div class="head center"><span class="label label--both rv" style="justify-content:center">The difference</span><h2 class="serif h2 rv" data-d="1" id="us-title">Why <em>us?</em></h2><p class="sub rv" data-d="1">What your family gets with Itihasika, side by side with typical alternatives.</p></div>
+    <div class="cmp rv" id="cmp">
+      <table>
+        <thead><tr><th scope="col"><span class="sr">Feature</span></th><th scope="col" class="cmp__us">Itihasika</th><th scope="col">Others</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Built on research into how children actually learn</th><td class="yes"><span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M7 12.5l3.2 3.2L17 9"/></svg><span class="sr">Yes</span></span></td><td class="no"><span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/></svg><span class="sr">No</span></span></td></tr>
+          <tr><th scope="row">Original illustrations and stories, created in-house</th><td class="yes"><span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M7 12.5l3.2 3.2L17 9"/></svg><span class="sr">Yes</span></span></td><td class="no"><span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/></svg><span class="sr">No</span></span></td></tr>
+          <tr><th scope="row">Covers the full chronology of Indian history</th><td class="yes"><span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M7 12.5l3.2 3.2L17 9"/></svg><span class="sr">Yes</span></span></td><td class="no"><span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/></svg><span class="sr">No</span></span></td></tr>
+          <tr><th scope="row">Books, videos and courses on one path from 3 to 13</th><td class="yes"><span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M7 12.5l3.2 3.2L17 9"/></svg><span class="sr">Yes</span></span></td><td class="no"><span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/></svg><span class="sr">No</span></span></td></tr>
+          <tr><th scope="row">Puzzles, quizzes and activities the whole family can share</th><td class="yes"><span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M7 12.5l3.2 3.2L17 9"/></svg><span class="sr">Yes</span></span></td><td class="no"><span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/></svg><span class="sr">No</span></span></td></tr>
+          <tr><th scope="row">Told with pride, accuracy and Hindu values at the core</th><td class="yes"><span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M7 12.5l3.2 3.2L17 9"/></svg><span class="sr">Yes</span></span></td><td class="no"><span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/></svg><span class="sr">No</span></span></td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -209,30 +249,6 @@ img.quote__av{object-fit:cover;background:var(--grey)}
   </div>
 </section>
 </main>
-<section class="chart" aria-labelledby="chart-title">
-  <div class="wrap chart__grid">
-    <div>
-      <span class="label rv">Free printable chart</span>
-      <h2 class="serif rv" data-d="1" id="chart-title">Get Bharat’s history<br><em>on one chart.</em></h2>
-      <p class="rv" data-d="2">Join our mailing list and we’ll immediately send you a beautifully designed, high-resolution chronology chart of every major event in Indian history.</p>
-      <form class="jform rv" data-d="2" novalidate>
-        <label class="sr" for="jemail">Your email address</label>
-        <input id="jemail" type="email" placeholder="Your email address" autocomplete="email" required>
-        <button class="btn btn--blue" type="submit">Send it to me</button>
-        <p class="msg" role="status">We respect your inbox. No spam, ever.</p>
-      </form>
-    </div>
-    <div class="chart__img rv" data-d="1"><svg viewBox="0 0 520 400" role="img" aria-label="Preview of the free chart: a winding timeline of Indian history">
-<rect width="520" height="400" fill="#F3D8A8"/>
-<text x="260" y="44" text-anchor="middle" font-family="League Spartan, sans-serif" font-weight="700" font-size="30" fill="#2C6C9E">A timeline of Indian history</text>
-<path d="M40 110 H440 a50 50 0 0 1 0 100 H90 a50 50 0 0 0 0 100 H470" fill="none" stroke="#1F4E5F" stroke-width="18" stroke-linecap="round"/>
-<g font-family="Poppins, sans-serif" font-size="9" font-weight="600" fill="#fff"><text x="70" y="113">9000-4000 BCE</text><text x="190" y="113">3000-2000 BCE</text><text x="320" y="113">2300-1300 BCE</text><text x="300" y="213">550 BCE</text><text x="150" y="213">600 BCE-300 CE</text><text x="160" y="313">327 BCE</text><text x="330" y="313">265 BCE</text></g>
-<g fill="#C9A06A" stroke="#7B5A33" stroke-width="1"><rect x="62" y="60" width="34" height="34" rx="3"/><rect x="190" y="60" width="34" height="34" rx="3"/><rect x="330" y="60" width="34" height="34" rx="3"/><rect x="440" y="140" width="34" height="34" rx="3"/><rect x="250" y="150" width="34" height="34" rx="3"/><rect x="110" y="150" width="34" height="34" rx="3"/><rect x="40" y="240" width="34" height="34" rx="3"/><rect x="200" y="250" width="34" height="34" rx="3"/><rect x="360" y="250" width="34" height="34" rx="3"/><rect x="430" y="330" width="34" height="34" rx="3"/></g>
-<g font-family="Poppins, sans-serif" font-size="9.5" fill="#2A2A2A" font-weight="600"><text x="200" y="140">ANCIENT INDIA</text><text x="300" y="350">CLASSICAL INDIA</text></g>
-<text x="500" y="390" text-anchor="end" font-family="Poppins, sans-serif" font-size="12" font-weight="700" fill="#2A2A2A">75</text>
-</svg></div>
-  </div>
-</section>
 <footer class="foot">
   <div class="wrap">
     <div class="foot__top">
@@ -250,12 +266,18 @@ img.quote__av{object-fit:cover;background:var(--grey)}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>window.gsap && gsap.registerPlugin(ScrollTrigger);</script>
-<script src="assets/site.js?v=7"></script>
+<script src="assets/site.js?v=8"></script>
 <script>
 (function(){
   // carousel arrows
   const track = document.getElementById('track');
   document.querySelectorAll('.arr').forEach(b => b.addEventListener('click', () => track.scrollBy({left:+b.dataset.dir * track.clientWidth * .8, behavior:REDUCE ? 'auto' : 'smooth'})));
+
+  // timeline photo follows the active stage
+  const fig = document.getElementById('tlImg'), pics = fig.querySelectorAll('img');
+  function setImg(n){ if (+fig.dataset.i === n) return; fig.dataset.i = n; pics.forEach((p, i) => p.classList.toggle('on', i === n)); }
+  // comparison ticks pop in one row after another
+  document.querySelectorAll('#cmp .mk').forEach((m, i) => m.style.animationDelay = (150 + Math.floor(i / 2) * 110 + (i % 2) * 60) + 'ms');
 
   // the realization reads itself as you scroll; the last words turn red
   const r = document.getElementById('realize'), parts = r.textContent.split(' '), red = +r.dataset.red;
@@ -270,7 +292,7 @@ img.quote__av{object-fit:cover;background:var(--grey)}
   // timeline fills and lights up each stage
   const items = document.querySelectorAll('#tl li');
   gsap.to('#tlFill', {scaleY:1, ease:'none', scrollTrigger:{trigger:'#tl', start:'top 75%', end:'bottom 55%', scrub:true,
-    onUpdate:s => items.forEach((l, i) => l.classList.toggle('on', s.progress >= i / items.length))}});
+    onUpdate:s => { items.forEach((l, i) => l.classList.toggle('on', s.progress >= i / items.length)); setImg(Math.min(items.length - 1, Math.floor(s.progress * items.length))); }}});
 })();
 </script>
 </body>
