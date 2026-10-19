@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600;700;800&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=15">
+<link rel="stylesheet" href="assets/site.css?v=16">
 <style>
 .hero{background:radial-gradient(ellipse at 75% 55%,#3A2A1E 0%,#1A1A22 55%,#0E1220 100%)}
 .hero::after{background:radial-gradient(ellipse at 20% 50%,rgba(10,10,14,.55),transparent 60%)}
@@ -23,14 +23,6 @@
 .fan .glow{position:absolute;inset:15% 10%;border-radius:50%;background:radial-gradient(circle,rgba(245,197,55,.35),transparent 65%);filter:blur(10px)}
 @media (min-width:1000px){.hero__grid{grid-template-columns:1.05fr .95fr}}
 @media (max-width:999px){.hero__in{padding-bottom:30px}.fan img{width:50%}}
-.filter{position:sticky;top:var(--hdr,76px);z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.filter__in{display:flex;align-items:center;gap:8px;padding:12px 0;overflow-x:auto;scrollbar-width:none}
-.filter__in::-webkit-scrollbar{display:none}
-.chip{flex:none;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 18px;font-weight:600;font-size:13.5px;cursor:pointer;transition:background .2s,border-color .2s}
-.chip:hover{border-color:var(--ink)}
-.chip[aria-pressed="true"]{background:var(--yellow);border-color:var(--yellow)}
-.count{margin-left:auto;flex:none;font-size:13px;color:var(--mute)}
-@media (max-width:480px){.count{display:none}.chip{padding:8px 13px;font-size:13px}}
 .series .head{justify-items:center}
 .ages{display:inline-flex;flex-wrap:wrap;gap:0;background:#fff;border-radius:999px;padding:5px;margin-top:26px;box-shadow:var(--shadow)}
 .ages button{border:0;background:none;border-radius:999px;padding:10px 20px;font-weight:600;font-size:14px;cursor:pointer;transition:background .25s}
@@ -66,10 +58,6 @@
 </section>
 
 
-<div class="filter"><div class="wrap filter__in" role="group" aria-label="Filter books by age">
-  <button class="chip" data-f="all" aria-pressed="true">All books</button><button class="chip" data-f="young" aria-pressed="false">Ages 3 to 7</button><button class="chip" data-f="older" aria-pressed="false">Ages 7 to 13</button>
-  <span class="count" id="count" aria-live="polite">10 books</span>
-</div></div>
 
 <section class="sec sec--grey series" data-group="young" aria-labelledby="s1" id="young">
   <div class="wrap">
@@ -125,20 +113,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>window.gsap && gsap.registerPlugin(ScrollTrigger);</script>
-<script src="assets/site.js?v=15"></script>
+<script src="assets/site.js?v=16"></script>
 <script>
 (function(){
-  // filter by age
-  const chips = document.querySelectorAll('.chip'), count = document.getElementById('count');
-  const setF = f => {
-    chips.forEach(x => x.setAttribute('aria-pressed', String(x.dataset.f === f)));
-    document.querySelectorAll('.series').forEach(s => s.hidden = !(f === 'all' || s.dataset.group === f));
-    count.textContent = document.querySelectorAll('.series:not([hidden]) .bk').length + ' books';
-    window.ScrollTrigger && ScrollTrigger.refresh();
-  };
-  const go = el => window.__lenis ? window.__lenis.scrollTo(el, {offset:-150}) : el.scrollIntoView();
-  chips.forEach(c => c.addEventListener('click', () => { setF(c.dataset.f); const first = document.querySelector('.series:not([hidden])'); if (scrollY > first.offsetTop - 200) go(first); }));
-  document.querySelectorAll('[data-jump]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); setF('all'); go(document.getElementById(a.dataset.jump)); }));
 
 
   if (!window.gsap || REDUCE) { document.querySelectorAll('#fan img').forEach((im, i, a) => im.style.transform = `translate(-50%,-50%) rotate(${(i - (a.length - 1) / 2) * 12}deg)`); return; }
