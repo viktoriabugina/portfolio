@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600;700;800&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=9">
+<link rel="stylesheet" href="assets/site.css?v=10">
 <style>
 .hero__bg img{object-position:62% 30%}
 
@@ -52,7 +52,8 @@
 .tl li.on .tl__age{background:var(--red);color:#fff;border-color:var(--red)}
 .tl p{font-size:15.5px}
 @media (min-width:1000px){.in__grid{grid-template-columns:.85fr 1.35fr}.in__right{grid-template-columns:1fr 1fr}}
-@media (max-width:999px){.in__img{aspect-ratio:4/3;max-width:560px}}
+.tl__ph{display:none}
+@media (max-width:999px){.in__img{display:none}.tl__ph{display:block;width:100%;max-width:520px;aspect-ratio:16/9;object-fit:cover;border-radius:14px;margin-top:14px;box-shadow:var(--shadow)}.tl{gap:30px}}
 
 /* team */
 .team{display:grid;gap:24px}
@@ -170,9 +171,9 @@ img.quote__av{object-fit:cover;background:var(--grey)}
       </div>
       <div class="in__right">
         <ol class="tl" id="tl"><span class="tl__fill" id="tlFill" aria-hidden="true"></span>
-          <li class="on"><span class="tl__age">Ages 3–6</span><h3>Crawl: build a strong foundation</h3><p>Kids first learn the heroes, festivals and ideas of their heritage, one letter and one story at a time.</p></li>
-          <li><span class="tl__age">Ages 7–9</span><h3>Walk: reinforce it together</h3><p>We advance to the Epics, the Gita and the core civilizational narrative.</p></li>
-          <li><span class="tl__age">Ages 10–13</span><h3>Run: dive deeper</h3><p>Our OTT has hyper-real videos that cover the entire chronology of Indian history, which the entire family can enjoy together.</p></li>
+          <li class="on"><span class="tl__age">Ages 3–6</span><h3>Crawl: build a strong foundation</h3><p>Kids first learn the heroes, festivals and ideas of their heritage, one letter and one story at a time.</p><img class="tl__ph" src="https://images.unsplash.com/photo-1730130596425-197566414dc4?w=800&amp;h=450&amp;fit=crop&amp;q=80" alt="Parents celebrating a festival at home with their toddler" width="800" height="450" loading="lazy"></li>
+          <li><span class="tl__age">Ages 7–9</span><h3>Walk: reinforce it together</h3><p>We advance to the Epics, the Gita and the core civilizational narrative.</p><img class="tl__ph" src="https://images.unsplash.com/photo-1783873231697-3909aeda2381?w=800&amp;h=450&amp;fit=crop&amp;q=80" alt="A father and his young daughter learning together on the sofa" width="800" height="450" loading="lazy"></li>
+          <li><span class="tl__age">Ages 10–13</span><h3>Run: dive deeper</h3><p>Our OTT has hyper-real videos that cover the entire chronology of Indian history, which the entire family can enjoy together.</p><img class="tl__ph" src="https://images.unsplash.com/photo-1614112163164-e8749a2e7628?w=800&amp;h=450&amp;fit=crop&amp;q=80" alt="A father and his children watching a video together" width="800" height="450" loading="lazy"></li>
         </ol>
         <figure class="in__img rv" id="tlImg" data-i="0">
           <img class="on" src="https://images.unsplash.com/photo-1730130596425-197566414dc4?w=900&amp;h=1100&amp;fit=crop&amp;q=80" alt="Parents celebrating a festival at home with their toddler" width="900" height="1100" loading="lazy">
@@ -266,7 +267,7 @@ img.quote__av{object-fit:cover;background:var(--grey)}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>window.gsap && gsap.registerPlugin(ScrollTrigger);</script>
-<script src="assets/site.js?v=9"></script>
+<script src="assets/site.js?v=10"></script>
 <script>
 (function(){
   // carousel arrows
