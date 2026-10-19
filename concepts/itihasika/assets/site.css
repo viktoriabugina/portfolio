@@ -148,11 +148,12 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* email chart CTA (navy) */
 .chart{background:var(--navy);color:#fff;padding:clamp(60px,8vw,100px) 0;overflow:hidden}
 .chart__grid{display:grid;gap:clamp(30px,5vw,60px);align-items:center}
+.chart__grid>*{min-width:0}
 .chart h2{font-size:clamp(34px,4.4vw,56px);margin:16px 0 18px;color:#fff}
 .chart h2 em{color:var(--red)}
 .chart p{color:rgba(255,255,255,.82);max-width:52ch;font-size:15px}
 .jform{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;max-width:520px}
-.jform input{flex:1 1 240px;min-width:0;height:48px;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:#25304A;color:#fff;padding:0 16px}
+.jform input{flex:1 1 200px;min-width:0;height:48px;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:#25304A;color:#fff;padding:0 16px}
 .jform input::placeholder{color:rgba(255,255,255,.5)}
 .jform .msg{flex-basis:100%;font-size:13px;color:rgba(255,255,255,.75);min-height:1.4em}
 .chart__img{border-radius:6px;overflow:hidden;transform:rotate(1.5deg);box-shadow:0 30px 60px rgba(0,0,0,.4);background:#F3D8A8}
