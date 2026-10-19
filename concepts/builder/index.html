@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ironbark Building Co. | New homes, extensions and renovations</title>
+<meta name="description" content="Website concept for a new Australian building company: new homes, extensions, renovations and small commercial builds.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231F211E'/%3E%3Cpath d='M7 23V14l9-6 9 6v9' fill='none' stroke='%23D08A2E' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600;112,800;125,800&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1F211E;--ink-2:#3A3D38;--sand:#EDE5D6;--paper:#F7F3EB;--gum:#5D7766;--ochre:#D08A2E;--line:#D9CFBD;--mute:#6B6A62}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 'Public Sans',system-ui,sans-serif}
+img{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.disp{font-family:Archivo,sans-serif;font-stretch:112%;font-weight:800;letter-spacing:-.015em;line-height:.98;margin:0}
+.lab{font-size:14px;font-weight:600;color:var(--gum);margin:0 0 14px}
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 24px;border-radius:4px;font-weight:600;text-decoration:none;border:2px solid transparent;transition:background .2s,color .2s}
+.btn--ochre{background:var(--ochre);color:#1F211E}.btn--ochre:hover{background:#E19A3C}
+.btn--line{border-color:currentColor}.btn--line:hover{background:rgba(255,255,255,.12)}
+:focus-visible{outline:3px solid var(--ochre);outline-offset:3px}
+
+/* header */
+.hdr{position:fixed;inset:0 0 auto;z-index:20;transition:background .3s,box-shadow .3s}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.hdr.solid{background:var(--paper);box-shadow:0 1px 0 var(--line)}
+.logo{display:flex;align-items:center;gap:10px;font-family:Archivo,sans-serif;font-stretch:112%;font-weight:800;font-size:19px;text-decoration:none;color:#fff;transition:color .3s}
+.hdr.solid .logo{color:var(--ink)}
+.logo svg{width:30px;height:30px}
+.nav{display:flex;gap:28px;align-items:center}
+.nav a{color:#fff;text-decoration:none;font-weight:500;font-size:15px;transition:color .3s}
+.hdr.solid .nav a{color:var(--ink)}
+.nav .btn{height:44px;padding:0 18px;color:#1F211E}
+.burger{display:none;background:none;border:0;color:#fff;font:600 15px 'Public Sans';cursor:pointer;padding:10px}
+.hdr.solid .burger{color:var(--ink)}
+
+/* hero */
+.hero{position:relative;min-height:100svh;color:#fff;display:flex;align-items:flex-end;overflow:hidden;background:#1F211E}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,33,30,.55) 0%,rgba(31,33,30,0) 30%,rgba(31,33,30,.25) 55%,rgba(31,33,30,.92) 100%)}
+.hero .wrap{position:relative;z-index:1;width:100%;padding-bottom:64px;display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:end}
+.hero h1{font-size:clamp(46px,7.4vw,108px)}
+.hero h1 span{display:block}
+.hero p{max-width:44ch;font-size:19px;color:#E9E3D7;margin:22px 0 30px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.elev{width:100%;max-width:420px;justify-self:end;color:var(--ochre)}
+.elev path,.elev line,.elev rect{fill:none;stroke:currentColor;stroke-width:2;vector-effect:non-scaling-stroke}
+.elev .thin{stroke:rgba(255,255,255,.45);stroke-width:1}
+.elev text{fill:rgba(255,255,255,.7);font:500 11px 'Public Sans'}
+
+/* trust */
+.trust{background:var(--ink);color:#E9E3D7}
+.trust ul{list-style:none;margin:0;padding:22px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.trust li{display:flex;gap:12px;align-items:center;font-size:15px}
+.trust svg{flex:0 0 22px;color:var(--ochre)}
+
+section.s{padding:112px 0}
+.intro{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start}
+.intro h2{font-size:clamp(36px,4.6vw,64px)}
+.intro .body p{margin:0 0 18px;color:var(--ink-2);max-width:56ch}
+.intro .sig{margin-top:28px;display:flex;gap:16px;align-items:center}
+.intro .sig img{width:64px;height:64px;border-radius:50%;object-fit:cover}
+.intro .sig b{display:block}.intro .sig span{color:var(--mute);font-size:15px}
+
+/* services as rows */
+.svc{background:var(--sand)}
+.svc h2{font-size:clamp(36px,4.6vw,64px);margin-bottom:48px}
+.rows{border-top:2px solid var(--ink)}
+.row{display:grid;grid-template-columns:90px 1.1fr 1.4fr 200px;gap:28px;align-items:center;padding:30px 0;border-bottom:1px solid var(--line);position:relative}
+.row .k{font-family:Archivo,sans-serif;font-stretch:125%;font-weight:800;font-size:15px;color:var(--gum)}
+.row h3{margin:0;font-family:Archivo,sans-serif;font-stretch:112%;font-weight:800;font-size:clamp(24px,2.4vw,32px);line-height:1.05}
+.row p{margin:0;color:var(--ink-2)}
+.row img{width:200px;height:120px;object-fit:cover;border-radius:3px;filter:grayscale(.3);transition:filter .3s}
+.row:hover img{filter:none}
+
+/* process */
+.proc h2{font-size:clamp(36px,4.6vw,64px);max-width:16ch}
+.steps{list-style:none;margin:56px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:0;counter-reset:s}
+.steps li{counter-increment:s;padding:26px 22px 0 0;border-top:2px solid var(--line);position:relative}
+.steps li::before{content:counter(s,decimal-leading-zero);display:block;font-family:Archivo,sans-serif;font-stretch:125%;font-weight:800;font-size:15px;color:var(--ochre);margin-bottom:14px}
+.steps li::after{content:"";position:absolute;top:-2px;left:0;height:2px;width:var(--p,0%);background:var(--ink);transition:width .8s ease}
+.steps h3{margin:0 0 8px;font-size:19px}
+.steps p{margin:0;color:var(--mute);font-size:15px}
+
+/* capability */
+.cap{background:var(--ink);color:#E9E3D7}
+.cap .head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:44px;flex-wrap:wrap}
+.cap h2{font-size:clamp(36px,4.6vw,64px);color:#fff}
+.cap .head p{max-width:42ch;color:#BDB7A9;margin:0}
+.grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:260px 260px;gap:14px}
+.tile{position:relative;overflow:hidden;border-radius:3px;margin:0}
+.tile:first-child{grid-row:span 2}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.tile:hover img{transform:scale(1.04)}
+.tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px 18px;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff;font-weight:600;font-size:15px}
+.tile figcaption span{display:block;font-weight:400;color:#D9D3C6;font-size:14px}
+.note{margin:22px 0 0;color:#9F998C;font-size:14px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px}
+.contact h2{font-size:clamp(36px,4.6vw,64px)}
+.contact .side p{color:var(--ink-2);max-width:40ch}
+.contact dl{margin:28px 0 0;display:grid;gap:14px}
+.contact dt{font-size:14px;color:var(--mute)}.contact dd{margin:2px 0 0;font-weight:600}
+form{background:#fff;border:1px solid var(--line);border-radius:4px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.f{display:flex;flex-direction:column;gap:6px}
+.f.full{grid-column:1/-1}
+label{font-weight:600;font-size:15px}
+input,select,textarea{font:inherit;font-size:16px;padding:12px 14px;border:1.5px solid var(--line);border-radius:4px;background:var(--paper);color:var(--ink);width:100%}
+textarea{min-height:120px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ink)}
+[aria-invalid=true]{border-color:#B6452C}
+.err{color:#B6452C;font-size:14px;min-height:0}.err:empty{display:none}
+form .btn{border:0;cursor:pointer;justify-self:start}
+.ok{grid-column:1/-1;background:#E5EDE7;color:#2F4A39;padding:14px 16px;border-radius:4px;font-weight:600}
+.ok[hidden]{display:none}
+.hp{position:absolute;left:-9999px}
+
+footer{background:var(--ink);color:#BDB7A9;padding:56px 0 100px;font-size:15px}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer .logo{color:#fff}
+.ribbon{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:30;background:#fff;color:var(--ink);border:1px solid var(--line);font-size:13px;padding:8px 16px;border-radius:99px;box-shadow:0 6px 20px rgba(0,0,0,.18);white-space:nowrap}
+
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
+
+@media (max-width:1000px){
+  .hero .wrap{grid-template-columns:1fr}.elev{justify-self:start;max-width:300px}
+  .trust ul{grid-template-columns:1fr 1fr}
+  .intro,.contact{grid-template-columns:1fr;gap:40px}
+  .row{grid-template-columns:60px 1fr;gap:10px 20px}
+  .row p{grid-column:2}.row img{grid-column:2;width:100%;height:180px}
+  .steps{grid-template-columns:1fr 1fr;gap:28px 24px}
+  .grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .tile{aspect-ratio:4/3}.tile:first-child{grid-row:auto;grid-column:1/-1;aspect-ratio:16/9}
+}
+@media (max-width:760px){
+  .nav{display:none;position:fixed;inset:76px 0 auto;background:var(--paper);flex-direction:column;align-items:flex-start;padding:24px 28px 32px;gap:18px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+  .nav a{color:var(--ink)!important;font-size:18px}
+  .menu-open .nav{display:flex}
+  .burger{display:block}
+  .menu-open .hdr{background:var(--paper)}.menu-open .logo,.menu-open .burger{color:var(--ink)}
+}
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  section.s{padding:72px 0}
+  .hero .wrap{padding-bottom:40px}.hero p{font-size:17px}
+  .elev{display:none}
+  .trust ul{grid-template-columns:1fr;gap:12px}
+  .steps{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}.tile:first-child{grid-column:auto}
+  form{grid-template-columns:1fr;padding:20px}
+  .ribbon{font-size:12px;bottom:10px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body class="no-js">
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Ironbark Building Co., home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 25V13L16 5l11 8v12" fill="none" stroke="#D08A2E" stroke-width="3"/><path d="M12 25v-7h8v7" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>
+      Ironbark
+    </a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Experience</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn--ochre" href="#contact">Get a quote</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <img class="bg" src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=2000&q=70" alt="Timber wall frames standing on a residential build site">
+    <div class="wrap">
+      <div>
+        <p class="lab" style="color:#D9C7A6">New homes, extensions and renovations</p>
+        <h1 class="disp"><span>Built right.</span><span>Built to last.</span></h1>
+        <p>A local building company that treats your project like our own: clear quotes, a fixed schedule and the same team on site from slab to handover.</p>
+        <div class="ctas">
+          <a class="btn btn--ochre" href="#contact">Get a free quote</a>
+          <a class="btn btn--line" href="#services">Our services</a>
+        </div>
+      </div>
+      <svg class="elev" viewBox="0 0 420 260" role="img" aria-label="Line drawing of a house elevation">
+        <line class="thin" x1="0" y1="232" x2="420" y2="232"/>
+        <path class="draw" d="M40 232V120L150 52l110 68v112"/>
+        <path class="draw" d="M260 232V150h120v82"/>
+        <path class="draw" d="M250 150l70-46 70 46"/>
+        <rect class="draw" x="78" y="150" width="44" height="40"/>
+        <rect class="draw" x="178" y="160" width="44" height="72"/>
+        <rect class="draw" x="290" y="170" width="60" height="34"/>
+        <line class="thin" x1="40" y1="246" x2="380" y2="246"/>
+        <text x="190" y="258">12.4 m</text>
+      </svg>
+    </div>
+  </section>
+
+  <div class="trust">
+    <div class="wrap">
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M8.5 12l2.5 2.5L16 9.5"/></svg>Licensed and fully insured builder</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Fixed-price quotes, no surprises</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Weekly progress updates</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21V10l8-6 8 6v11z"/><path d="M9 21v-6h6v6"/></svg>Homes and small commercial</li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="s" id="about">
+    <div class="wrap intro">
+      <div class="rv">
+        <p class="lab">About us</p>
+        <h2 class="disp">A new company with an old-school work ethic.</h2>
+      </div>
+      <div class="body rv">
+        <p>Ironbark was started by builders who spent years on other people's sites and knew they could run a better one. We keep the team small so the person who quotes your job is the person who manages it.</p>
+        <p>Every project gets a written scope, a schedule you can hold us to and a single point of contact. We'd rather tell you a hard truth at the quote stage than surprise you halfway through the build.</p>
+        <div class="sig">
+          <img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=200&h=200&q=70" alt="">
+          <div><b>Founder name</b><span>Licensed builder, founder</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s svc" id="services">
+    <div class="wrap">
+      <p class="lab rv">Services</p>
+      <h2 class="disp rv">What we build</h2>
+      <div class="rows">
+        <article class="row rv"><span class="k">New</span><h3>New homes</h3><p>Single and double storey homes, from site start to handover, built to your plans or a design we develop with your architect.</p><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=70" alt="Modern new home at dusk"></article>
+        <article class="row rv"><span class="k">Add</span><h3>Extensions and second storeys</h3><p>More room without moving house: rear extensions, granny flats and second-storey additions, planned around how you live.</p><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=500&q=70" alt="Family home with a garden"></article>
+        <article class="row rv"><span class="k">Fix</span><h3>Renovations</h3><p>Kitchens, bathrooms and full internal renovations, coordinated trade by trade so the house stays liveable where possible.</p><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=500&q=70" alt="Renovated open-plan living area"></article>
+        <article class="row rv"><span class="k">Fit</span><h3>Small commercial</h3><p>Shop and office fit-outs and small commercial builds, scheduled around your trading hours.</p><img src="https://images.unsplash.com/photo-1429497419816-9ca5cfb4571a?auto=format&fit=crop&w=500&q=70" alt="Crane above a building under construction"></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="s proc">
+    <div class="wrap">
+      <p class="lab rv">How we work</p>
+      <h2 class="disp rv">From first call to handover</h2>
+      <ol class="steps" id="steps">
+        <li><h3>Site visit</h3><p>We walk the site with you and talk through budget, timing and must-haves.</p></li>
+        <li><h3>Fixed quote</h3><p>A written, itemised quote with inclusions and exclusions spelled out.</p></li>
+        <li><h3>Approvals</h3><p>We help with plans, engineering and council or certifier approvals.</p></li>
+        <li><h3>Build</h3><p>One site manager, weekly photo updates and a schedule you can see.</p></li>
+        <li><h3>Handover</h3><p>Final walkthrough, defects list closed out and warranty documents in hand.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="s cap" id="work">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="lab" style="color:#A9C1B0">Experience and capabilities</p><h2 class="disp">The kind of work we do</h2></div>
+        <p>As our first projects finish, this section becomes a portfolio with photos, scope and a short story for each build.</p>
+      </div>
+      <div class="grid">
+        <figure class="tile rv"><img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=900&q=70" alt="Timber framing inside a home under construction"><figcaption>Framing and structure<span>Timber and steel frames, built square and level</span></figcaption></figure>
+        <figure class="tile rv"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=70" alt="Finished modern home"><figcaption>New homes<span>Contemporary family homes</span></figcaption></figure>
+        <figure class="tile rv"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=700&q=70" alt="Open-plan living room"><figcaption>Interiors<span>Kitchens, bathrooms, living spaces</span></figcaption></figure>
+        <figure class="tile rv"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=700&q=70" alt="Construction plans on a desk"><figcaption>Planning<span>Plans, engineering and approvals</span></figcaption></figure>
+        <figure class="tile rv"><img src="https://images.unsplash.com/photo-1429497419816-9ca5cfb4571a?auto=format&fit=crop&w=700&q=70" alt="Crane on a commercial build"><figcaption>Commercial<span>Fit-outs and small builds</span></figcaption></figure>
+      </div>
+      <p class="note">Photos are placeholders. Your own project photos replace them.</p>
+    </div>
+  </section>
+
+  <section class="s" id="contact">
+    <div class="wrap contact">
+      <div class="side rv">
+        <p class="lab">Contact</p>
+        <h2 class="disp">Tell us about your project</h2>
+        <p>Send a few details and we'll call you back within one business day to book a free site visit.</p>
+        <dl>
+          <div><dt>Phone</dt><dd>Your landline here</dd></div>
+          <div><dt>Email</dt><dd>Your company email here</dd></div>
+          <div><dt>Service area</dt><dd>Your city and surrounding suburbs</dd></div>
+          <div><dt>Licence</dt><dd>Builder licence number here</dd></div>
+        </dl>
+      </div>
+      <form id="quote" class="rv" novalidate>
+        <div class="f"><label for="q-name">Your name</label><input id="q-name" name="name" autocomplete="name" required><span class="err" id="q-name-e"></span></div>
+        <div class="f"><label for="q-phone">Phone</label><input id="q-phone" name="phone" type="tel" autocomplete="tel" required><span class="err" id="q-phone-e"></span></div>
+        <div class="f"><label for="q-suburb">Suburb</label><input id="q-suburb" name="suburb" autocomplete="address-level2"></div>
+        <div class="f"><label for="q-type">Project type</label><select id="q-type" name="type"><option>New home</option><option>Extension or second storey</option><option>Renovation</option><option>Commercial</option><option>Not sure yet</option></select></div>
+        <div class="f full"><label for="q-msg">About the project</label><textarea id="q-msg" name="message" placeholder="What would you like to build, and roughly when?"></textarea></div>
+        <input class="hp" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn--ochre" type="submit">Request a call back</button>
+        <p class="ok" id="q-ok" hidden role="status">Thanks! In the live site this request goes straight to your inbox.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 25V13L16 5l11 8v12" fill="none" stroke="#D08A2E" stroke-width="3"/><path d="M12 25v-7h8v7" fill="none" stroke="currentColor" stroke-width="2.5"/></svg>Ironbark</a>
+    <span>Website concept. Company name, contacts and photos are placeholders.</span>
+  </div>
+</footer>
+<div class="ribbon">Concept by Viktoria V. for a new building company</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+document.body.classList.remove('no-js');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const hdr = document.getElementById('hdr');
+const onS = () => hdr.classList.toggle('solid', scrollY > innerHeight * 0.6);
+addEventListener('scroll', onS, {passive:true}); onS();
+
+const burger = document.getElementById('burger');
+const setMenu = o => { document.body.classList.toggle('menu-open', o); burger.setAttribute('aria-expanded', o); burger.textContent = o ? 'Close' : 'Menu'; };
+burger.addEventListener('click', () => setMenu(!document.body.classList.contains('menu-open')));
+document.querySelectorAll('.nav a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+addEventListener('keydown', e => e.key === 'Escape' && setMenu(false));
+
+// reveal on scroll
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+// process line fills step by step
+const steps = document.getElementById('steps');
+new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { [...steps.children].forEach((li, i) => setTimeout(() => li.style.setProperty('--p', '100%'), reduce ? 0 : i * 260)); o.disconnect(); } }), {threshold:.4}).observe(steps);
+
+// hero: the house elevation draws itself, like a plan on site
+if (window.gsap && !reduce) {
+  const elev = document.querySelector('.elev');
+  if (elev && elev.getClientRects().length) {
+    const paths = elev.querySelectorAll('.draw');
+    paths.forEach(p => { const l = p.getTotalLength(); p.style.strokeDasharray = l; p.style.strokeDashoffset = l; });
+    gsap.to(paths, {strokeDashoffset:0, duration:1.4, ease:'power2.inOut', stagger:.18, delay:.4});
+  }
+  gsap.from('.hero h1 span', {yPercent:60, opacity:0, duration:1, ease:'power3.out', stagger:.12});
+  gsap.from('.hero .bg', {scale:1.08, duration:2.4, ease:'power2.out'});
+}
+
+// quote form
+const form = document.getElementById('quote');
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  let first = null;
+  [['q-name','Please add your name.'],['q-phone','Please add a phone number so we can call you back.']].forEach(([id,msg]) => {
+    const el = document.getElementById(id), err = document.getElementById(id + '-e');
+    const bad = !el.value.trim() || (id === 'q-phone' && el.value.replace(/\D/g,'').length < 8);
+    el.setAttribute('aria-invalid', bad); err.textContent = bad ? (id === 'q-phone' && el.value.trim() ? 'Please check the phone number.' : msg) : '';
+    if (bad) el.setAttribute('aria-describedby', id + '-e'); else el.removeAttribute('aria-describedby');
+    if (bad && !first) first = el;
+  });
+  if (first) { first.focus(); return; }
+  if (form.company.value) return;
+  document.getElementById('q-ok').hidden = false; form.querySelector('button').disabled = true;
+});
+</script>
+</body>
+</html>
