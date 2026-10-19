@@ -13,12 +13,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600;700;800&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=6">
+<link rel="stylesheet" href="assets/site.css?v=7">
 <style>
 .hero__bg img{object-position:62% 30%}
-.ticks{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin-top:26px}
-.ticks li{background:#fff;color:var(--ink);border-radius:999px;padding:9px 18px;font-weight:600;font-size:14px}
-.ticks li:first-child{background:var(--yellow)}
 
 /* the questions */
 .qs__grid{display:grid;gap:clamp(30px,5vw,60px);align-items:center}
@@ -26,7 +23,11 @@
 .qs__text p em{color:var(--red);font-weight:700}
 .qs__cards{display:grid;gap:20px}
 .qs__cards .quote:nth-child(2){margin-left:clamp(0px,6vw,70px)}
-.qs__cards .quote:nth-child(2) .quote__av{background:var(--blue)}
+.qs__cards .quote{padding:clamp(26px,3vw,36px) clamp(24px,3vw,38px) clamp(30px,3.4vw,40px)}
+.qs__cards .quote__av{width:72px;height:72px}
+.qs__cards .quote__who b{font-size:18px}
+.qs__cards .quote__who small{font-size:14px}
+.qs__cards .quote p{font-size:clamp(17px,1.6vw,20px);line-height:1.55}
 @media (min-width:1000px){.qs__grid{grid-template-columns:1fr 1fr}}
 .realize{font-family:var(--f-serif);font-size:clamp(28px,3.8vw,50px);line-height:1.22;text-align:center;max-width:24ch;margin:clamp(70px,9vw,120px) auto 0}
 .realize .w{opacity:.15;transition:opacity .25s}
@@ -107,9 +108,7 @@ img.quote__av{object-fit:cover;background:var(--grey)}
   <div class="hero__bg"><img src="https://www.itihasika.com/wp-content/uploads/2025/11/About-us-banner-Itihasika.jpg" alt="" width="1800" height="1013" fetchpriority="high"></div>
   <div class="wrap hero__in">
     <span class="label" style="color:var(--yellow)">Our story</span>
-    <h1 class="hero-type" id="hero-title" style="margin-top:18px" aria-label="You’ve done everything to prepare your child for success."><span class="ln"><span>You’ve done everything</span></span><span class="ln"><span>to prepare your child</span></span><span class="ln"><span>for <span class="y">success.</span></span></span></h1>
-    <ul class="ticks lead" aria-label="What you have already given them"><li>Good schools.</li><li>Great grades.</li><li>STEM skills.</li><li>Confidence.</li></ul>
-    <div class="stats"><div><b>2017</b><span>Founded</span></div><div><b>11M+</b><span>Views on YouTube</span></div><div><b>3,000+</b><span>Books sold</span></div><div><b>10</b><span>Global awards</span></div></div>
+    <h1 class="hero-type" id="hero-title" style="margin-top:18px" aria-label="You’ve done everything to prepare your child for success, but…"><span class="ln"><span>You’ve done everything</span></span><span class="ln"><span>to prepare your child</span></span><span class="ln"><span>for <span class="y">success,</span> but…</span></span></h1>
   </div>
 </section>
 
@@ -119,10 +118,11 @@ img.quote__av{object-fit:cover;background:var(--grey)}
       <div class="qs__text">
         <span class="label rv">Then one day</span>
         <p class="rv" data-d="1">They come home with <em>questions</em> that stop you in your tracks. Questions their friends ask, their teachers raise, and <em>you</em> are suddenly expected to answer.</p>
+        <p class="rv" data-d="2">But you don’t have the knowledge. You are not equipped to answer yourself.</p>
       </div>
       <div class="qs__cards">
-        <blockquote class="card quote rv"><div class="quote__who"><span class="quote__av" aria-hidden="true">S</span><span><b>Your son</b><small>After school</small></span></div><p>“Dad, my friends laugh at me… is Hinduism all about caste and holy cows?”</p></blockquote>
-        <blockquote class="card quote rv" data-d="1"><div class="quote__who"><span class="quote__av" aria-hidden="true">D</span><span><b>Your daughter</b><small>At the dinner table</small></span></div><p>“Mom, my teacher taught that Hindus have hundreds of Gods. My friends think we worship demons.”</p></blockquote>
+        <blockquote class="card quote rv"><div class="quote__who"><img class="quote__av" src="https://images.unsplash.com/photo-1606386666595-d135abc1e3b2?w=200&amp;h=200&amp;fit=crop&amp;crop=faces&amp;q=80" alt="" width="200" height="200" loading="lazy"><span><b>Your son</b><small>After school</small></span></div><p>“Dad, my friends laugh at me… is Hinduism all about caste and holy cows?”</p></blockquote>
+        <blockquote class="card quote rv" data-d="1"><div class="quote__who"><img class="quote__av" src="https://images.unsplash.com/photo-1497486443155-158cceb6629a?w=200&amp;h=200&amp;fit=crop&amp;crop=faces&amp;q=80" alt="" width="200" height="200" loading="lazy"><span><b>Your daughter</b><small>At the dinner table</small></span></div><p>“Mom, my teacher taught that Hindus have hundreds of Gods. My friends think we worship demons.”</p></blockquote>
       </div>
     </div>
     <p class="realize" id="realize" data-red="4">You realize: you’ve taught them how to get ahead, but not how to stand tall in who they are.</p>
@@ -250,7 +250,7 @@ img.quote__av{object-fit:cover;background:var(--grey)}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>window.gsap && gsap.registerPlugin(ScrollTrigger);</script>
-<script src="assets/site.js?v=6"></script>
+<script src="assets/site.js?v=7"></script>
 <script>
 (function(){
   // carousel arrows
@@ -266,7 +266,6 @@ img.quote__av{object-fit:cover;background:var(--grey)}
 
   // hero image slowly drifts
   gsap.to('.hero__bg img', {scale:1.12, yPercent:6, ease:'none', scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}});
-  gsap.from('.ticks li', {y:16, opacity:0, scale:.9, duration:.5, stagger:.07, delay:.6, ease:'back.out(2)'});
 
   // timeline fills and lights up each stage
   const items = document.querySelectorAll('#tl li');
