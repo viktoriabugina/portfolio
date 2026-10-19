@@ -181,3 +181,6 @@ button,input,select,textarea{font:inherit;color:inherit}
 .rv.in{opacity:1;transform:none}
 .no-js .rv{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+.bk{container-type:inline-size}
+@container (max-width:250px){.stores{grid-template-columns:1fr;max-width:200px;margin-inline:auto}}
