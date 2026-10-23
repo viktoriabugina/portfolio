@@ -57,6 +57,8 @@ em { font-style: italic; }
 // Header
 .header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  transition: transform .4s cubic-bezier(.22,1,.36,1);
+  &.is-hidden { transform: translateY(-100%); }
   // Solid frosted bar so the nav stays readable over light sections.
   // Kept on a pseudo-element: backdrop-filter on .header itself would trap the fixed mobile menu inside it.
   &::before {
@@ -93,7 +95,7 @@ em { font-style: italic; }
   &__hi { color: $muted; font-size: 15px; margin-bottom: 20px; }
   &__title { font-family: $display; font-weight: 800; font-size: clamp(56px, 13vw, 190px); @include up(lg) { font-size: min(13vw, 17vh, 190px); } line-height: .92; letter-spacing: -.04em; text-transform: uppercase; }
   &__line {
-    display: block; opacity: 0; transform: translateY(40%); animation: rise .9s cubic-bezier(.2,.8,.2,1) forwards;
+    display: block; opacity: 0; transform: translateY(40%); animation: rise .9s cubic-bezier(.22,1,.36,1) forwards;
     &:nth-child(2) { animation-delay: .12s; } &:nth-child(3) { animation-delay: .24s; }
     &--outline { color: transparent; -webkit-text-stroke: 2px $cream; @include up(lg) { padding-left: 12vw; } }
     &--accent { color: $blush; @include up(lg) { padding-left: 24vw; } }
@@ -105,12 +107,17 @@ em { font-style: italic; }
 }
 @keyframes rise { to { opacity: 1; transform: none; } }
 
-.marquee {
-  border-top: 1px solid $line; border-bottom: 1px solid $line; padding: 22px 0; overflow: hidden;
-  &__track { display: flex; gap: 32px; width: max-content; animation: marquee 30s linear infinite; font-family: $display; font-size: 22px; white-space: nowrap; }
-  i { color: $blush; font-style: normal; }
+.hero__stack {
+  display: flex; flex-wrap: wrap; gap: 10px 12px; border-top: 1px solid $line; padding: 28px 20px; margin-top: 8px;
+  @include up(md) { padding: 28px 40px; }
+  span {
+    font-size: 13px; font-weight: 500; letter-spacing: .01em; color: $muted; padding: 8px 16px; border: 1px solid $line; border-radius: 999px;
+    opacity: 0; transform: translateY(10px); transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1), border-color .25s, color .25s;
+    &:hover { color: $cream; border-color: rgba($cream, .4); }
+  }
+  &.is-visible span { opacity: 1; transform: none; }
+  @for $i from 1 through 8 { span:nth-child(#{$i}) { transition-delay: #{$i * 0.05}s; } }
 }
-@keyframes marquee { to { transform: translateX(-50%); } }
 
 // Sections
 .section {
@@ -202,12 +209,13 @@ em { font-style: italic; }
   &__inner { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
 }
 
-[data-reveal] { opacity: 0; transform: translateY(30px); transition: opacity .8s, transform .8s cubic-bezier(.2,.8,.2,1); &.is-visible { opacity: 1; transform: none; } }
+[data-reveal] { opacity: 0; transform: translateY(30px); transition: opacity .8s, transform .8s cubic-bezier(.22,1,.36,1); &.is-visible { opacity: 1; transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .logo__mark path, .logo__mark circle { stroke-dashoffset: 0; }
-  .hero__line, [data-reveal] { opacity: 1; transform: none; }
+  .hero__line, [data-reveal], .hero__stack span { opacity: 1; transform: none; }
+  .header.is-hidden { transform: none; }
 }
 
 // Motion renders (MP4 loops)

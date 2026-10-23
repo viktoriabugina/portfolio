@@ -30,7 +30,26 @@ document.addEventListener('DOMContentLoaded', () => {
       if (en.isIntersecting) { en.target.classList.add('is-visible'); io.unobserve(en.target); }
     }), { threshold: 0.15 });
     els.forEach((el) => io.observe(el));
+
+    // Hero skills stack — one staggered reveal, not a running line
+    const stack = document.querySelector('[data-reveal-stack]');
+    if (stack) {
+      const stackIo = new IntersectionObserver((entries) => entries.forEach((en) => {
+        if (en.isIntersecting) { en.target.classList.add('is-visible'); stackIo.unobserve(en.target); }
+      }), { threshold: 0.3 });
+      stackIo.observe(stack);
+    }
   }
+
+  // Header hides on scroll down, reappears on scroll up (skip near the very top)
+  const header = document.querySelector('.header');
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    if (y > lastY && y > 160) header.classList.add('is-hidden');
+    else header.classList.remove('is-hidden');
+    lastY = y;
+  }, { passive: true });
 
   document.getElementById('year').textContent = new Date().getFullYear();
 });
