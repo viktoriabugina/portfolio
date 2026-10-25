@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marsh &amp; Hale Law — Solo Practice Concept | Viktoria V.</title>
+<meta name="description" content="Concept website for a solo-practice law firm: a calm, trustworthy one-page site with attorney profile, practice areas and consultation booking.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#15130F; --navy:#12161F; --paper:#F6F4EE; --brass:#A9824C; --brass-l:#C8A878; --line:#E3DFD3; --muted:#6B6558;
+  --f-serif:"Lora",Georgia,serif; --f-body:"Inter",system-ui,sans-serif;
+  color-scheme: light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f-body);background:var(--paper);color:var(--ink);line-height:1.5;font-size:17px;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-serif);font-weight:600;letter-spacing:-0.01em}
+
+/* header */
+.header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(246,244,238,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(21,19,15,.08);transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.header.is-hidden{transform:translateY(-100%)}
+.header__row{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.header .wrap{width:min(1120px,100% - 40px)}
+.logo{font-family:var(--f-serif);font-size:20px;font-weight:600;letter-spacing:-0.01em}
+.logo span{color:var(--brass)}
+.nav{display:flex;gap:34px;font-size:15px;font-weight:500}
+.nav a{opacity:.82;transition:opacity .2s}
+.nav a:hover{opacity:1}
+.header__cta{display:inline-block;border:1px solid var(--ink);border-radius:999px;padding:9px 20px;font-size:14px;font-weight:600;transition:background .2s,color .2s}
+.header__cta:hover{background:var(--ink);color:var(--paper)}
+.burger{display:none;width:40px;height:40px;border:none;background:none;cursor:pointer}
+@media (max-width:760px){.nav{display:none}.burger{display:block}}
+
+/* hero */
+.hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;background:var(--navy);color:var(--paper);position:relative;padding:140px 0 90px}
+.hero__inner{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.hero__inner.is-in{opacity:1;transform:none}
+.hero__eyebrow{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass-l);font-weight:600}
+.hero h1{font-size:clamp(2.6rem,6vw,5rem);line-height:1.06;margin:22px 0 26px;max-width:14ch}
+.hero p{font-size:19px;line-height:1.55;color:rgba(246,244,238,.78);max-width:46ch}
+.hero__actions{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap}
+.btn{display:inline-block;border-radius:999px;padding:15px 30px;font-size:15px;font-weight:600;transition:transform .2s,background .2s}
+.btn--brass{background:var(--brass);color:var(--navy)}
+.btn--brass:hover{background:var(--brass-l)}
+.btn--ghost{border:1px solid rgba(246,244,238,.4);color:var(--paper)}
+.btn--ghost:hover{border-color:rgba(246,244,238,.8)}
+
+/* sections */
+section{padding:96px 0}
+@media (max-width:760px){section{padding:64px 0}}
+.section__head{max-width:640px;margin-bottom:56px}
+.eyebrow{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--brass);font-weight:700}
+.section__head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);line-height:1.12;margin-top:14px}
+.section__head p{color:var(--muted);font-size:17px;margin-top:14px;max-width:56ch}
+
+.areas{background:var(--paper)}
+.areas__grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+@media (min-width:700px){.areas__grid{grid-template-columns:repeat(3,1fr)}}
+.areas__card{background:#fff;padding:40px 32px;display:flex;flex-direction:column;gap:14px}
+.areas__num{font-family:var(--f-serif);font-size:15px;color:var(--brass);font-weight:600}
+.areas__card h3{font-size:21px}
+.areas__card p{color:var(--muted);font-size:15.5px;line-height:1.55}
+
+.profile{background:var(--ink);color:var(--paper)}
+.profile__grid{display:grid;gap:48px;align-items:center}
+@media (min-width:860px){.profile__grid{grid-template-columns:.8fr 1.2fr}}
+.profile__photo{aspect-ratio:3/4;border-radius:16px;background:linear-gradient(160deg,#2A2620,#17150F);display:flex;align-items:center;justify-content:center;color:rgba(246,244,238,.35);font-size:14px;text-align:center;padding:20px;border:1px solid rgba(246,244,238,.12)}
+.profile h2{font-size:clamp(1.9rem,3.4vw,2.6rem);margin-bottom:16px}
+.profile p{color:rgba(246,244,238,.78);font-size:17px;line-height:1.6;margin-bottom:14px}
+.profile__creds{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.profile__creds span{border:1px solid rgba(246,244,238,.25);border-radius:999px;padding:7px 16px;font-size:13.5px}
+
+.results{background:var(--paper)}
+.results__grid{display:grid;gap:22px}
+@media (min-width:700px){.results__grid{grid-template-columns:repeat(3,1fr)}}
+.results__card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:32px}
+.results__card b{font-family:var(--f-serif);font-size:32px;display:block;color:var(--brass)}
+.results__card p{color:var(--muted);font-size:14.5px;margin-top:8px;line-height:1.5}
+.results__note{margin-top:20px;font-size:13px;color:var(--muted);font-style:italic}
+
+.contact{background:var(--navy);color:var(--paper)}
+.contact__grid{display:grid;gap:48px}
+@media (min-width:860px){.contact__grid{grid-template-columns:1fr 1fr}}
+.contact h2{font-size:clamp(1.9rem,3.4vw,2.6rem)}
+.contact p{color:rgba(246,244,238,.75);margin-top:14px;font-size:17px;line-height:1.55}
+.contact__info{margin-top:30px;display:flex;flex-direction:column;gap:12px;font-size:16px}
+.form{display:flex;flex-direction:column;gap:14px}
+.form label{font-size:13px;font-weight:600;color:rgba(246,244,238,.7);margin-bottom:6px;display:block}
+.form input,.form textarea{width:100%;background:rgba(246,244,238,.06);border:1px solid rgba(246,244,238,.2);border-radius:10px;padding:13px 14px;color:var(--paper);font-family:inherit;font-size:15px}
+.form input::placeholder,.form textarea::placeholder{color:rgba(246,244,238,.4)}
+.form textarea{resize:vertical;min-height:100px}
+.form button{margin-top:4px}
+
+.foot{padding:40px 0;color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);background:var(--paper)}
+.ribbon{position:fixed;left:12px;bottom:12px;z-index:60;background:var(--ink);color:#fff;font-size:12px;border-radius:999px;padding:8px 14px;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.ribbon a{color:var(--brass-l)}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .hero__inner{opacity:1;transform:none;transition:none}
+  .header{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="wrap header__row">
+    <div class="logo">Marsh <span>&amp;</span> Hale <span style="font-size:13px;font-weight:500;color:var(--muted);margin-left:6px">Law</span></div>
+    <nav class="nav" aria-label="Primary">
+      <a href="#areas">Practice areas</a>
+      <a href="#profile">About</a>
+      <a href="#results">Results</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="header__cta" href="#contact">Schedule a consultation</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero__inner" id="heroInner">
+      <span class="hero__eyebrow">Solo practice · Family &amp; business law</span>
+      <h1>Clear counsel, when it matters most.</h1>
+      <p>One attorney, your full attention. Straightforward advice on estate planning, business formation and civil disputes — no associates passing your file around, no surprise fees.</p>
+      <div class="hero__actions">
+        <a class="btn btn--brass" href="#contact">Schedule a consultation</a>
+        <a class="btn btn--ghost" href="#areas">See practice areas</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="areas" id="areas">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="eyebrow">Practice areas</span>
+        <h2>Three areas, handled with full attention.</h2>
+        <p>A focused practice means every matter gets direct attorney time — not delegated to a paralegal or a junior associate you've never spoken to.</p>
+      </div>
+      <div class="areas__grid">
+        <div class="areas__card">
+          <span class="areas__num">01</span>
+          <h3>Estate planning</h3>
+          <p>Wills, trusts and powers of attorney drafted in plain language, with a process that fits around your schedule, not the firm's.</p>
+        </div>
+        <div class="areas__card">
+          <span class="areas__num">02</span>
+          <h3>Business formation</h3>
+          <p>LLC and corporation setup, operating agreements and contract review for founders who want it done right the first time.</p>
+        </div>
+        <div class="areas__card">
+          <span class="areas__num">03</span>
+          <h3>Civil litigation</h3>
+          <p>Representation in disputes that need a steady hand — from first filing through settlement or trial.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="profile" id="profile">
+    <div class="wrap profile__grid">
+      <div class="profile__photo" aria-hidden="true">[ attorney headshot — professional portrait, warm neutral background ]</div>
+      <div>
+        <span class="eyebrow" style="color:var(--brass-l)">About the firm</span>
+        <h2>A practice built on direct access to your attorney.</h2>
+        <p>[Attorney name] founded this practice after years at a larger firm, wanting clients to reach the person actually handling their case — not a rotating team. Every consultation, every filing, every call: one attorney, start to finish.</p>
+        <p>Licensed in [state], with a practice focused on the matters that affect people and small businesses directly: protecting what you've built, and resolving disputes without unnecessary delay or cost.</p>
+        <div class="profile__creds">
+          <span>J.D., [Law School]</span>
+          <span>State Bar of [State]</span>
+          <span>[X] years in practice</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="results" id="results">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="eyebrow">Track record</span>
+        <h2>What clients can expect.</h2>
+      </div>
+      <div class="results__grid">
+        <div class="results__card"><b>48 hr</b><p>Typical response time to a new client inquiry.</p></div>
+        <div class="results__card"><b>1:1</b><p>Every matter handled directly by the attorney — never delegated.</p></div>
+        <div class="results__card"><b>Flat-fee</b><p>Options available for estate planning and business formation, agreed before work begins.</p></div>
+      </div>
+      <p class="results__note">Figures above are placeholders for the concept — to be replaced with the firm's real numbers and client outcomes.</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap contact__grid">
+      <div>
+        <span class="eyebrow" style="color:var(--brass-l)">Get in touch</span>
+        <h2>Schedule a consultation.</h2>
+        <p>Tell me briefly what you need help with, and I'll follow up within one business day to schedule a call.</p>
+        <div class="contact__info">
+          <span>[phone number]</span>
+          <span>[email address]</span>
+          <span>[office address], [City, State]</span>
+        </div>
+      </div>
+      <form class="form" aria-label="Consultation request">
+        <div>
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" placeholder="Jane Carter" autocomplete="name">
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="jane@email.com" autocomplete="email">
+        </div>
+        <div>
+          <label for="msg">What do you need help with?</label>
+          <textarea id="msg" name="msg" placeholder="A short description of your matter"></textarea>
+        </div>
+        <button class="btn btn--brass" type="submit">Request a consultation</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">Concept site by Viktoria V. · Marsh &amp; Hale is an invented firm name for this concept.</div>
+</footer>
+<p class="ribbon" role="note">Concept page by Viktoria V. · <a href="../../">Portfolio</a></p>
+
+<script>
+(function(){
+  var hero = document.getElementById('heroInner');
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ hero.classList.add('is-in'); }); });
+
+  var header = document.getElementById('header');
+  var lastY = window.scrollY;
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    if (y > lastY && y > 160) header.classList.add('is-hidden');
+    else header.classList.remove('is-hidden');
+    lastY = y;
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>
