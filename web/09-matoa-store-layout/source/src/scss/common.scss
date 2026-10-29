@@ -1,0 +1,118 @@
+// Заголовки, загальні БЕМ блоки та інше...
+
+.page {
+	// .page__main-slider
+	&__main-slider {
+	}
+}
+//===================================================
+
+.title {
+	font-family: 'Taviraj';
+	font-weight: 500;
+	@include adaptiveValue("font-size", 36, 29);
+	line-height: 1.11; /* 40/36 */
+	letter-spacing: 0.02em;
+	color: $darkColor;
+	&::after {
+	content: "";
+	margin-top: em(8, 36);
+	width: em(128, 36);
+	height: rem(1);
+	display: block;
+	background-color: #000;
+	}
+	&_small {
+		&::after {
+			width: em(65, 36);	
+		}
+	}
+	&_samibold {
+		font-weight: 600;
+	}
+	&_white {
+		color: #fff;
+		font-size: rem(24);
+		&::after {
+			margin-top: em(10, 24);	
+			background: #fff;
+		}
+	}
+}
+// =============================================================
+.label-footer {
+	font-size: rem(20);
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	line-height: math.div(28, 20);
+	&:not(:last-child) {
+		margin-bottom: rem(5);
+	}
+}
+// =============================================================
+.search-form {
+	&__title {
+		&:not(:last-child) {
+			margin-bottom: em(20, 36);
+		}
+	}
+	// .search-form__body
+	&__body {
+		display: flex;
+		gap: rem(20);
+		@media (max-width: em(460)){
+			flex-direction: column;
+		}
+	}
+	.search-form {
+		// .search-form__line
+		&__line {
+			flex: 1 1 auto;
+			.form__error {
+				color: red;
+				margin-top: rem(5);
+			}
+		}
+}
+
+
+	// .search-form__input
+	&__input {
+		font-size: rem(20);
+		height: rem(50);
+		&::placeholder {
+		}
+	}
+}
+// =============================================================
+.social {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 25px;
+	font-size: rem(32);
+	// .social__item
+	&__item {
+		transition: all 0.3s ease 0s;
+		@media (any-hover: hover){
+			&:hover{
+				opacity: 0.8;
+			}
+		}
+	}
+}
+//================================
+.text {
+	letter-spacing: 0.03em;
+	line-height: math.div(22, 16);
+}
+
+// =============================================================
+.visually-hidden {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+}

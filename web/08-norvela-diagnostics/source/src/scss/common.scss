@@ -1,0 +1,302 @@
+// Заголовки, загальні БЕМ блоки та інше...
+//====================================================================================================
+// Фокус з клавіатури видно завжди
+:focus-visible {
+	outline: toRem(3) solid $accentColor;
+	outline-offset: toRem(3);
+	border-radius: toRem(4);
+}
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: toRem(88);
+	@media (prefers-reduced-motion: reduce) {
+		scroll-behavior: auto;
+	}
+}
+// Посилання "до контенту" для клавіатури
+.skip-link {
+	position: absolute;
+	left: toRem(16);
+	top: toRem(-60);
+	z-index: 100;
+	padding: toRem(10) toRem(16);
+	background-color: $darkBg;
+	color: #fff;
+	border-radius: toRem(8);
+	&:focus {
+		top: toRem(12);
+	}
+}
+// Вертикальний ритм секцій
+%section {
+	@include adaptiveValue("padding-top", 120, 64);
+	@include adaptiveValue("padding-bottom", 120, 64);
+}
+//====================================================================================================
+.eyebrow {
+	font-size: toRem(14);
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: $accentColor;
+	&:not(:last-child) {
+		margin-bottom: toRem(14);
+	}
+	&--light {
+		color: #7fd1c7;
+	}
+}
+.section-head {
+	max-width: toRem(720);
+	@include adaptiveValue("margin-bottom", 64, 36);
+	// .section-head__title
+	&__title {
+		font-weight: 700;
+		@include adaptiveValue("font-size", 44, 30);
+		line-height: 1.1;
+		letter-spacing: -0.02em;
+		text-wrap: balance;
+		&:not(:last-child) {
+			margin-bottom: toRem(16);
+		}
+	}
+	// .section-head__text
+	&__text {
+		@include adaptiveValue("font-size", 19, 17);
+		line-height: 1.5;
+		color: $textMuted;
+	}
+}
+//====================================================================================================
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: toRem(8);
+	min-height: toRem(52);
+	padding: toRem(12) toRem(28);
+	border-radius: toRem(999);
+	background-color: $accentColor;
+	color: #fff;
+	font-weight: 600;
+	font-size: toRem(17);
+	line-height: 1.2;
+	text-align: center;
+	transition:
+		background-color 0.2s ease,
+		transform 0.2s ease;
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: $accentDark;
+		}
+	}
+	&:active {
+		transform: scale(0.98);
+	}
+	&--small {
+		min-height: toRem(44);
+		padding: toRem(10) toRem(20);
+		font-size: toRem(15);
+	}
+	&--fw {
+		width: 100%;
+	}
+	&[disabled] {
+		cursor: progress;
+		opacity: 0.7;
+	}
+}
+.link-arrow {
+	display: inline-flex;
+	align-items: center;
+	gap: toRem(6);
+	min-height: toRem(44);
+	font-weight: 600;
+	color: $accentColor;
+	&::after {
+		content: "→";
+		transition: transform 0.2s ease;
+	}
+	@media (any-hover: hover) {
+		&:hover::after {
+			transform: translateX(toRem(4));
+		}
+	}
+}
+//====================================================================================================
+.logo {
+	display: inline-flex;
+	align-items: center;
+	gap: toRem(10);
+	min-height: toRem(44);
+	color: $mainColor;
+	// .logo__mark
+	&__mark {
+		width: toRem(32);
+		height: toRem(32);
+		flex: 0 0 toRem(32);
+	}
+	// .logo__text
+	&__text {
+		display: flex;
+		flex-direction: column;
+		font-weight: 700;
+		font-size: toRem(18);
+		line-height: 1;
+		letter-spacing: -0.01em;
+	}
+	// .logo__sub
+	&__sub {
+		margin-top: toRem(3);
+		font-size: toRem(11);
+		font-weight: 600;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: $textMuted;
+	}
+	&--light {
+		color: #fff;
+		.logo__sub {
+			color: #a9bccb;
+		}
+	}
+}
+//====================================================================================================
+// Форма заявки (використовується на обох сторінках)
+.form-request {
+	background-color: $surfaceColor;
+	border: 1px solid $lineColor;
+	border-radius: toRem(24);
+	@include adaptiveValue("padding", 40, 20);
+	// .form-request__grid
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: toRem(20);
+		@media (max-width: $mobileSmall) {
+			grid-template-columns: minmax(0, 1fr);
+		}
+	}
+	// .form-request__field
+	&__field {
+		&--wide {
+			grid-column: 1 / -1;
+		}
+	}
+	// .form-request__trap (honeypot для ботів)
+	&__trap {
+		position: absolute;
+		left: -9999px;
+		width: 1px;
+		height: 1px;
+		opacity: 0;
+	}
+	// .form-request__captcha
+	&__captcha {
+		margin-top: toRem(20);
+		&:empty {
+			display: none;
+		}
+	}
+	// .form-request__footer
+	&__footer {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: toRem(16) toRem(20);
+		margin-top: toRem(24);
+	}
+	// .form-request__submit
+	&__submit {
+		@media (max-width: $mobileSmall) {
+			width: 100%;
+		}
+	}
+	// .form-request__note
+	&__note {
+		flex: 1 1 toRem(200);
+		font-size: toRem(14);
+		line-height: 1.45;
+		color: $textMuted;
+	}
+	// .form-request__status
+	&__status {
+		margin-top: toRem(16);
+		font-weight: 600;
+		line-height: 1.45;
+		&:empty {
+			display: none;
+		}
+		&--success {
+			color: $accentDark;
+		}
+		&--error {
+			color: #a3262a;
+		}
+	}
+}
+.field {
+	display: flex;
+	flex-direction: column;
+	gap: toRem(8);
+	// .field__label
+	&__label {
+		font-size: toRem(15);
+		font-weight: 600;
+	}
+	// .field__optional
+	&__optional {
+		font-weight: 400;
+		color: $textMuted;
+	}
+	// .field__input
+	&__input {
+		width: 100%;
+		min-height: toRem(52);
+		padding: toRem(12) toRem(16);
+		border: 1px solid #758a97;
+		border-radius: toRem(12);
+		background-color: #fff;
+		color: $mainColor;
+		font-size: toRem(17);
+		transition:
+			border-color 0.2s ease,
+			box-shadow 0.2s ease;
+		&:focus-visible {
+			outline: none;
+			border-color: $accentColor;
+			box-shadow: 0 0 0 toRem(3) rgba(31, 122, 122, 0.25);
+		}
+		&[aria-invalid="true"] {
+			border-color: #a3262a;
+		}
+		&--select {
+			appearance: none;
+			padding-right: toRem(44);
+			background: #fff
+				url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230F2A3D' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")
+				right toRem(14) center / toRem(20) no-repeat;
+		}
+		&--area {
+			min-height: toRem(120);
+			resize: vertical;
+			line-height: 1.5;
+		}
+	}
+	// .field__error
+	&__error {
+		font-size: toRem(14);
+		color: #a3262a;
+	}
+}
+//====================================================================================================
+// Повага до налаштувань "менше руху"
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}

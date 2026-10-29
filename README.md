@@ -12,6 +12,8 @@ Portfolio of web design, front-end and motion design work.
 | 🌐 | [Memora — AI meeting notes](web/05-memora-ai-landing/) | Live transcript animation, stacking cards, horizontal scroll |
 | 🌐 | [Routa — corporate rides app](web/06-routa-mobility-app/) | Route animation, scroll-driven phone screens |
 | 🌐 | [Kubik — no-code builder](web/07-kubik-nocode-builder/) | Animated editor, responsive preview, 3D tilt cards |
+| 🌐 | [Norvela — medical equipment site](web/08-norvela-diagnostics/) | Static HTML/SCSS/JS on Gulp + Webpack, Turnstile-protected form, Cloudflare Pages Function |
+| 🌐 | [Matoa — store layout](web/09-matoa-store-layout/) | Figma to code (training), product slider, adaptive cards, mobile accordion |
 | 🌐 | [Personal site](web/03-victoria-personal-site/) | Portfolio website, kinetic typography |
 | 🎬 | [Flowly — logo reveal](motion/01-flowly-logo-reveal/) | After Effects: shape layers, mattes, expressions |
 | 🎬 | [Glow Studio — Reel 9:16](motion/02-glow-studio-reel-9x16/) | Kinetic typography for Instagram Reels |
@@ -44,4 +46,4 @@ Your sites will be live at `https://<your-username>.github.io/portfolio/` (opens
 Each motion folder has `02_Scripts/build_project.jsx`. Run it in After Effects (File → Scripts → Run Script File…) —
 it builds the full project, saves the `.aep` into `01_Project/` and queues the render to `06_Renders/`.
 
-*BV Studio is my own brand; all other brands are fictional and created for the portfolio.*
+*BV Studio is my own brand. All other brands are fictional and created for the portfolio, except Matoa, a training layout of a real brand's mockup (not affiliated).*

@@ -1,0 +1,194 @@
+//====================================================================================================
+.header {
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	background-color: rgba(245, 247, 248, 0.82);
+	border-bottom: 1px solid transparent;
+	transition: border-color 0.3s ease;
+	@supports (backdrop-filter: blur(1px)) {
+		backdrop-filter: saturate(180%) blur(20px);
+	}
+	// Лінія з'являється після прокрутки
+	&._header-scroll {
+		border-bottom-color: $lineColor;
+	}
+	// backdrop-filter створює containing block для position: fixed,
+	// тому на час відкритого меню вимикаємо його, щоб меню зайняло весь екран
+	.menu-open & {
+		backdrop-filter: none;
+		background-color: $bgColor;
+	}
+	// .header__container
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: toRem(24);
+		min-height: toRem(72);
+		@media (max-width: $mobile) {
+			min-height: toRem(64);
+			// без JS меню просто переноситься під логотип
+			html:not(.js) & {
+				flex-wrap: wrap;
+				padding-top: toRem(8);
+				padding-bottom: toRem(8);
+			}
+		}
+	}
+	// .header__logo
+	&__logo {
+		position: relative;
+		z-index: 2;
+	}
+	// .header__actions
+	&__actions {
+		position: relative;
+		z-index: 2;
+		display: flex;
+		align-items: center;
+		gap: toRem(16);
+	}
+	// .header__cta
+	&__cta {
+		// у мобільному меню (data-da) кнопка на всю ширину
+		.menu__body & {
+			width: 100%;
+			min-height: toRem(56);
+			margin-top: toRem(32);
+			font-size: toRem(18);
+		}
+	}
+}
+//====================================================================================================
+.menu {
+	// .menu__body
+	&__body {
+		@media (max-width: $mobile) {
+			.js & {
+				position: fixed;
+				inset: 0;
+				z-index: 1;
+				display: flex;
+				flex-direction: column;
+				padding: toRem(96) toRem(20) toRem(32);
+				background-color: $bgColor;
+				overflow-y: auto;
+				visibility: hidden;
+				opacity: 0;
+				transform: translateY(toRem(-12));
+				transition:
+					opacity 0.3s ease,
+					transform 0.3s ease,
+					visibility 0s linear 0.3s;
+			}
+			.menu-open & {
+				visibility: visible;
+				opacity: 1;
+				transform: none;
+				transition:
+					opacity 0.3s ease,
+					transform 0.3s ease,
+					visibility 0s;
+			}
+		}
+	}
+	// .menu__list
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		@include adaptiveValue("column-gap", 36, 20, 0, $containerWidth, 768);
+		@media (max-width: $mobile) {
+			.js & {
+				flex-direction: column;
+				align-items: stretch;
+				gap: 0;
+			}
+		}
+	}
+	// .menu__item
+	&__item {
+		@media (max-width: $mobile) {
+			.js & {
+				border-bottom: 1px solid $lineColor;
+			}
+		}
+	}
+	// .menu__link
+	&__link {
+		display: inline-flex;
+		align-items: center;
+		min-height: toRem(44);
+		font-weight: 500;
+		font-size: toRem(16);
+		color: $mainColor;
+		transition: color 0.2s ease;
+		@media (any-hover: hover) {
+			&:hover {
+				color: $accentColor;
+			}
+		}
+		@media (max-width: $mobile) {
+			.js & {
+				display: flex;
+				min-height: toRem(64);
+				font-size: toRem(26);
+				font-weight: 600;
+				letter-spacing: -0.01em;
+			}
+		}
+	}
+}
+//====================================================================================================
+// Бургер
+.icon-menu {
+	display: none;
+	@media (max-width: $mobile) {
+		.js & {
+			display: block;
+			position: relative;
+			width: toRem(44);
+			height: toRem(44);
+			flex: 0 0 toRem(44);
+			margin-right: toRem(-10);
+			span,
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				left: toRem(10);
+				width: toRem(24);
+				height: toRem(2);
+				border-radius: toRem(2);
+				background-color: $mainColor;
+				transition:
+					transform 0.3s ease,
+					opacity 0.3s ease,
+					top 0.3s ease;
+			}
+			&::before {
+				top: toRem(14);
+			}
+			span {
+				top: toRem(21);
+			}
+			&::after {
+				top: toRem(28);
+			}
+		}
+		.menu-open & {
+			span {
+				opacity: 0;
+			}
+			&::before {
+				top: toRem(21);
+				transform: rotate(-45deg);
+			}
+			&::after {
+				top: toRem(21);
+				transform: rotate(45deg);
+			}
+		}
+	}
+}

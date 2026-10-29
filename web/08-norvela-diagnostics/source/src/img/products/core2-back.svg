@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" role="img" aria-labelledby="t"><title id="t">Core 2 rear panel with ports (illustration)</title>
+<defs><linearGradient id="b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#DFE8EC"/></linearGradient>
+<radialGradient id="sh" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#0F2A3D" stop-opacity=".22"/><stop offset="1" stop-color="#0F2A3D" stop-opacity="0"/></radialGradient></defs>
+<ellipse cx="320" cy="440" rx="250" ry="24" fill="url(#sh)"/>
+<rect x="90" y="130" width="460" height="290" rx="30" fill="url(#b)" stroke="#C9D6DC"/>
+<g fill="#C9D6DC"><rect x="130" y="170" width="380" height="6" rx="3"/><rect x="130" y="186" width="380" height="6" rx="3"/><rect x="130" y="202" width="380" height="6" rx="3"/><rect x="130" y="218" width="380" height="6" rx="3"/></g>
+<g fill="#0F2A3D"><rect x="140" y="280" width="54" height="34" rx="6"/><rect x="214" y="284" width="40" height="26" rx="5"/><rect x="274" y="284" width="40" height="26" rx="5"/><rect x="334" y="288" width="30" height="18" rx="4"/></g>
+<circle cx="460" cy="297" r="22" fill="#fff" stroke="#9FB2BD" stroke-width="2"/><circle cx="460" cy="297" r="8" fill="#1F7A7A"/>
+<g font-family="Manrope,Arial,sans-serif" font-size="12" fill="#5F7584" letter-spacing="1"><text x="140" y="340">LAN</text><text x="214" y="340">USB</text><text x="274" y="340">USB</text><text x="330" y="340">HDMI</text><text x="440" y="340">POWER</text></g>
+<text x="130" y="392" font-family="Manrope,Arial,sans-serif" font-size="11" fill="#8AA0AD" letter-spacing="2">NORVELA CORE 2 · CONCEPT</text>
+</svg>

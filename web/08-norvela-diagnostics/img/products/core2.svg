@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" role="img" aria-labelledby="t"><title id="t">Norvela Core 2 desktop analyzer (illustration)</title>
+<defs>
+<linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E4ECEF"/></linearGradient>
+<linearGradient id="side" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#D5E0E5"/><stop offset="1" stop-color="#C3D2D9"/></linearGradient>
+<linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#123548"/><stop offset="1" stop-color="#0B2232"/></linearGradient>
+<radialGradient id="sh" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#0F2A3D" stop-opacity=".22"/><stop offset="1" stop-color="#0F2A3D" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="320" cy="466" rx="250" ry="26" fill="url(#sh)"/>
+<path d="M118 150 Q118 120 148 120 L470 120 Q500 120 506 150 L540 418 Q544 448 514 448 L126 448 Q96 448 100 418 Z" fill="url(#body)" stroke="#C9D6DC"/>
+<path d="M506 150 L540 418 Q544 448 514 448 L500 448 L470 150 Q466 128 452 122 L470 120 Q500 120 506 150Z" fill="url(#side)" opacity=".7"/>
+<rect x="150" y="150" width="300" height="190" rx="14" fill="url(#scr)"/>
+<rect x="150" y="150" width="300" height="190" rx="14" fill="none" stroke="#0A1C29" stroke-width="3"/>
+<text x="172" y="182" font-family="Manrope,Arial,sans-serif" font-size="13" fill="#7FB8B8" letter-spacing="1">SAMPLE 04 · READY</text>
+<polyline points="172,282 200,270 226,276 252,244 280,258 306,226 334,236 360,212 388,222 428,200" fill="none" stroke="#3FB5A9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="172" y1="300" x2="428" y2="300" stroke="#24485C" stroke-width="1.5"/>
+<rect x="172" y="312" width="70" height="12" rx="6" fill="#24485C"/><rect x="252" y="312" width="46" height="12" rx="6" fill="#1F7A7A"/>
+<circle cx="404" cy="182" r="6" fill="#3FB5A9"/>
+<rect x="150" y="372" width="200" height="40" rx="10" fill="#D3DEE3"/>
+<rect x="164" y="386" width="172" height="12" rx="6" fill="#0F2A3D" opacity=".55"/>
+<circle cx="404" cy="392" r="20" fill="#FFFFFF" stroke="#C9D6DC"/><circle cx="404" cy="392" r="8" fill="#1F7A7A"/>
+<text x="150" y="434" font-family="Manrope,Arial,sans-serif" font-size="12" font-weight="700" fill="#8AA0AD" letter-spacing="3">NORVELA</text>
+</svg>

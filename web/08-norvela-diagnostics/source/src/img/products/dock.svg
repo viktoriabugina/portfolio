@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" role="img" aria-labelledby="t"><title id="t">Norvela Dock sample reader (illustration)</title>
+<defs>
+<linearGradient id="b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#E2EAEE"/></linearGradient>
+<linearGradient id="t2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3F7F8"/><stop offset="1" stop-color="#D6E1E6"/></linearGradient>
+<radialGradient id="sh" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#0F2A3D" stop-opacity=".22"/><stop offset="1" stop-color="#0F2A3D" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="320" cy="430" rx="240" ry="24" fill="url(#sh)"/>
+<path d="M110 300 L530 300 L560 400 Q564 420 544 420 L96 420 Q76 420 80 400 Z" fill="url(#b)" stroke="#C9D6DC"/>
+<path d="M150 230 L490 230 L530 300 L110 300 Z" fill="url(#t2)" stroke="#C9D6DC"/>
+<g fill="#FFFFFF" stroke="#B9C9D1">
+<rect x="190" y="150" width="34" height="110" rx="17"/><rect x="250" y="150" width="34" height="110" rx="17"/><rect x="310" y="150" width="34" height="110" rx="17"/><rect x="370" y="150" width="34" height="110" rx="17"/>
+</g>
+<rect x="190" y="200" width="34" height="60" rx="17" fill="#1F7A7A" opacity=".85"/><rect x="250" y="216" width="34" height="44" rx="17" fill="#3FB5A9" opacity=".8"/><rect x="310" y="190" width="34" height="70" rx="17" fill="#1F7A7A" opacity=".85"/><rect x="370" y="224" width="34" height="36" rx="17" fill="#3FB5A9" opacity=".8"/>
+<rect x="140" y="340" width="150" height="40" rx="10" fill="#0F2A3D"/>
+<text x="158" y="366" font-family="Manrope,Arial,sans-serif" font-size="14" fill="#7FB8B8" letter-spacing="1">4 / 4 LOADED</text>
+<circle cx="470" cy="360" r="16" fill="#1F7A7A"/>
+</svg>

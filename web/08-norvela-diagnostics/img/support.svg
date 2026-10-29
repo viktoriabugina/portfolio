@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 460" role="img" aria-labelledby="t"><title id="t">Installation checklist on a tablet (illustration)</title>
+<rect x="70" y="40" width="420" height="380" rx="34" fill="#163A50"/>
+<rect x="92" y="62" width="376" height="336" rx="18" fill="#F5F7F8"/>
+<text x="120" y="108" font-family="Manrope,Arial,sans-serif" font-size="20" font-weight="700" fill="#0F2A3D">Installation</text>
+<text x="120" y="132" font-family="Manrope,Arial,sans-serif" font-size="13" fill="#4A5F6E">Core 2 · Room 3</text>
+<g font-family="Manrope,Arial,sans-serif" font-size="15" fill="#0F2A3D">
+<circle cx="132" cy="176" r="12" fill="#1F7A7A"/><path d="M126 176l4 4 8-8" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="156" y="181">Device placed and levelled</text>
+<circle cx="132" cy="220" r="12" fill="#1F7A7A"/><path d="M126 220l4 4 8-8" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="156" y="225">Network connected</text>
+<circle cx="132" cy="264" r="12" fill="#1F7A7A"/><path d="M126 264l4 4 8-8" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="156" y="269">Calibration passed</text>
+<circle cx="132" cy="308" r="11" fill="none" stroke="#9FB2BD" stroke-width="2"/><text x="156" y="313" fill="#4A5F6E">Staff training · 14:00</text>
+</g>
+<rect x="120" y="340" width="320" height="8" rx="4" fill="#DCE6EA"/><rect x="120" y="340" width="240" height="8" rx="4" fill="#1F7A7A"/>
+</svg>

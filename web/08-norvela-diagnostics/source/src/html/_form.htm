@@ -1,0 +1,38 @@
+<form class="form-request" action="/api/contact" method="post" novalidate data-request-form>
+	<div class="form-request__grid">
+		<div class="form-request__field field">
+			<label class="field__label" for="@@formId-name">Full name</label>
+			<input class="field__input" id="@@formId-name" name="name" type="text" autocomplete="name" required>
+			<p class="field__error" id="@@formId-name-error" hidden>Enter your name.</p>
+		</div>
+		<div class="form-request__field field">
+			<label class="field__label" for="@@formId-email">Work email</label>
+			<input class="field__input" id="@@formId-email" name="email" type="email" autocomplete="email" required>
+			<p class="field__error" id="@@formId-email-error" hidden>Enter an email like name@clinic.com.</p>
+		</div>
+		<div class="form-request__field field">
+			<label class="field__label" for="@@formId-clinic">Clinic or company</label>
+			<input class="field__input" id="@@formId-clinic" name="clinic" type="text" autocomplete="organization">
+		</div>
+		<div class="form-request__field field">
+			<label class="field__label" for="@@formId-interest">Interested in</label>
+			<select class="field__input field__input--select" id="@@formId-interest" name="interest">
+				<option value="core2">Core 2 analyzer</option>
+				<option value="pulse">Pulse monitor</option>
+				<option value="dock">Dock sample reader</option>
+				<option value="unsure">Not sure yet</option>
+			</select>
+		</div>
+		<div class="form-request__field form-request__field--wide field">
+			<label class="field__label" for="@@formId-message">Message <span class="field__optional">(optional)</span></label>
+			<textarea class="field__input field__input--area" id="@@formId-message" name="message" rows="4"></textarea>
+		</div>
+	</div>
+	<input class="form-request__trap" type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
+	<div class="form-request__captcha cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="light" data-size="flexible"></div>
+	<div class="form-request__footer">
+		<button type="submit" class="form-request__submit button">@@submit</button>
+		<p class="form-request__note">Protected by Cloudflare Turnstile. We reply within one business day.</p>
+	</div>
+	<p class="form-request__status" role="status" aria-live="polite"></p>
+</form>

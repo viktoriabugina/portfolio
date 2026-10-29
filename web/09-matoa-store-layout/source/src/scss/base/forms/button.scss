@@ -1,0 +1,97 @@
+//<BUTTONS (a.btn+tab)>
+// Сніппет (HTML): btn
+
+.button {
+	font-family: 'Taviraj';
+	justify-content: center;
+	align-items: center;
+	display: inline-flex;
+	background-color: $orangeColor;
+	font-weight: 500;
+	font-size: rem(20);
+	line-height: 1.6; /* 32/20 */
+	letter-spacing: 0.03em;
+	color: #FFFFFF;
+	padding: rem(15) rem(35) rem(14) rem(35);
+	transition: background-color 0.3s ease 0s;
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: #e7684c;
+		}
+	}
+	&._fw {
+		width: 100%;
+	}
+	&_h68 {
+		padding: rem(18) rem(35) rem(18) rem(35);
+	}
+	&_small {
+		font-size: rem(16);
+		padding: rem(8) rem(35);
+		line-height: math.div(24, 16);
+	}
+	&_big {
+		font-weight: 600;
+		padding: rem(14) rem(35);
+	}
+	&_cart {
+		font-weight: 400;
+		padding: rem(14) rem(35);
+		line-height: math.div(34, 20);
+		span {
+			display: flex;
+			align-items: center;
+			gap: rem(18.5);
+			&::before {
+				width: rem(21.3);
+				flex: 0 0 rem(21.3);
+			}
+		}
+	}
+
+}
+
+.border-button {
+	font-family: 'Taviraj';
+	justify-content: center;
+	align-items: center;
+	display: inline-flex;
+	border: rem(1) solid $orangeColor;
+	padding: rem(15) rem(30) rem(14) rem(30);
+	color: $orangeColor;
+	font-weight: 500;
+	font-size: rem(20);
+	line-height: 1.5; /* 32/20 */
+	letter-spacing: 0.03em;
+	transition: all 0.3s ease 0s;
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: $orangeColor;
+			color: #FFFFFF;
+		}
+	}
+	&_small {
+		border: rem(2) solid $orangeColor;
+		font-weight: 400;
+		font-size: rem(16);
+		line-height: 1.6; /* 27/16 */
+		letter-spacing: 0.02em;
+		padding: rem(15) rem(47) rem(16) rem(47);
+	}
+	&_big {
+		font-weight: 400;
+		font-size: rem(20);
+		line-height: 1.7; /* 34/20 */
+		letter-spacing: 0.03em;
+		padding: rem(16) rem(35);
+	}
+	&_cicil {
+		padding: rem(14) rem(30) rem(13) rem(30);
+		border: rem(2) solid $orangeColor;
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: $orangeColorLite;
+			}
+		}
+	}
+}
