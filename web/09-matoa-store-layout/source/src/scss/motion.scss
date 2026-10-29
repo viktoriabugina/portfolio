@@ -1,0 +1,98 @@
+// Рух у дусі fls.guru: стримано, тільки поява та hover
+// data-intro          — діти з'являються по черзі одразу після завантаження
+// data-reveal         — блок піднімається й проявляється, коли доходить до екрана (працює з data-watch)
+// data-reveal-group   — те саме, але діти по черзі ("драбинкою")
+// Без JS (немає класу .watcher на <html>) усе видно одразу.
+//====================================================================================================
+$motionEase: cubic-bezier(0.22, 1, 0.36, 1);
+$motionShift: toRem(28);
+$motionStep: 90ms;
+
+@keyframes motion-fade-up {
+	from {
+		opacity: 0;
+		transform: translateY($motionShift);
+	}
+}
+@keyframes motion-fade-down {
+	from {
+		opacity: 0;
+		transform: translateY(toRem(-12));
+	}
+}
+@keyframes motion-fade {
+	from {
+		opacity: 0;
+	}
+}
+
+// Шапка: логотип і кнопки м'яко зверху, меню — тільки прозорість (щоб не ламати fixed-меню на мобільному)
+.header__logo {
+	animation: motion-fade-down 0.6s $motionEase 0.1s both;
+}
+.header__actions {
+	animation: motion-fade-down 0.6s $motionEase 0.3s both;
+}
+@media (min-width: $tablet) {
+	.header__menu {
+		animation: motion-fade 0.8s ease 0.2s both;
+	}
+}
+
+// Порядкові номери для затримок "драбинки"
+[data-intro],
+[data-reveal-group] {
+	@for $i from 1 through 10 {
+		> :nth-child(#{$i}) {
+			--i: #{$i - 1};
+		}
+	}
+}
+
+// Перший екран
+[data-intro] > * {
+	animation: motion-fade-up 0.8s $motionEase both;
+	animation-delay: calc(0.25s + var(--i, 0) * #{$motionStep});
+}
+
+// Поява при прокручуванні
+.watcher [data-reveal] {
+	transition:
+		opacity 0.7s $motionEase,
+		transform 0.8s $motionEase;
+	&:not(._watcher-view) {
+		opacity: 0;
+		transform: translateY($motionShift);
+	}
+}
+.watcher [data-reveal-group] > * {
+	// hover-переходи карток лишаються живими
+	transition:
+		opacity 0.7s $motionEase,
+		transform 0.8s $motionEase,
+		border-color 0.3s ease,
+		background-color 0.3s ease,
+		box-shadow 0.3s ease;
+	// затримка тільки для появи, hover спрацьовує одразу
+	transition-delay: calc(var(--i, 0) * #{$motionStep}), calc(var(--i, 0) * #{$motionStep}), 0s, 0s, 0s;
+}
+.watcher [data-reveal-group]:not(._watcher-view) > * {
+	opacity: 0;
+	transform: translateY($motionShift);
+}
+
+// Повага до "менше руху"
+@media (prefers-reduced-motion: reduce) {
+	.header__logo,
+	.header__actions,
+	.header__menu,
+	[data-intro] > * {
+		animation: none !important;
+	}
+	.watcher [data-reveal],
+	.watcher [data-reveal-group] > * {
+		opacity: 1 !important;
+		transform: none !important;
+		transition: none !important;
+	}
+}

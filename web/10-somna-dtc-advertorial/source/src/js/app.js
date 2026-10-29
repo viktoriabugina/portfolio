@@ -14,4 +14,7 @@ flsFunctions.addLoadedClass();
 flsFunctions.spollers();
 
 /* Свій код: липка кнопка, вибір комплекту */
+// Поява блоків при прокручуванні (data-watch)
+import "./libs/watcher.js";
+
 import "./files/script.js";

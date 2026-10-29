@@ -32,4 +32,7 @@ flsScroll.headerScroll();
 import "./libs/dynamic_adapt.js";
 
 /* Свій код: меню з доступністю, відправка форми */
+// Поява блоків при прокручуванні (data-watch)
+import "./libs/watcher.js";
+
 import "./files/script.js";
