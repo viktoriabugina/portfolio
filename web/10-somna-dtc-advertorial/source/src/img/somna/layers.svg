@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="t"><title id="t">Three layers of the Somna mask (illustration)</title>
+<rect width="800" height="520" fill="#EFEAF6"/>
+<g font-family="Public Sans,Arial,sans-serif">
+<g transform="translate(40 80) scale(.72)"><path d="M0 60 C 20 10, 120 0, 180 34 C 240 0, 340 10, 360 60 C 380 120, 340 170, 270 170 C 230 170, 205 140, 180 140 C 155 140, 130 170, 90 170 C 20 170, -20 120, 0 60 Z" fill="#3A3256"/></g><text x="320" y="115" font-size="31" font-weight="700" fill="#1C1A24">Blackout outer layer</text><text x="320" y="151" font-size="24" fill="#4F4A5C">Blocks light, soft brushed fabric</text>
+<g transform="translate(40 210) scale(.72)"><path d="M0 60 C 20 10, 120 0, 180 34 C 240 0, 340 10, 360 60 C 380 120, 340 170, 270 170 C 230 170, 205 140, 180 140 C 155 140, 130 170, 90 170 C 20 170, -20 120, 0 60 Z" fill="#F59E0B" opacity=".85"/><path d="M40 70 h280 M40 100 h280 M60 130 h60 M240 130 h60" stroke="#FBFAF7" stroke-width="3" stroke-linecap="round" opacity=".8"/></g><text x="320" y="245" font-size="31" font-weight="700" fill="#1C1A24">Gentle heat layer</text><text x="320" y="281" font-size="24" fill="#4F4A5C">Three warmth levels, auto-off</text>
+<g transform="translate(40 340) scale(.72)"><path d="M0 60 C 20 10, 120 0, 180 34 C 240 0, 340 10, 360 60 C 380 120, 340 170, 270 170 C 230 170, 205 140, 180 140 C 155 140, 130 170, 90 170 C 20 170, -20 120, 0 60 Z" fill="#FBFAF7" stroke="#CFC6E6" stroke-width="2"/></g><text x="320" y="375" font-size="31" font-weight="700" fill="#1C1A24">Washable silk-feel cover</text><text x="320" y="411" font-size="24" fill="#4F4A5C">Zips off, machine washable</text>
+</g>
+</svg>

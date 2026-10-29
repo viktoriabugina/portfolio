@@ -1,0 +1,40 @@
+//====================================================================================================
+// Обов'язкова позначка реклами (FTC / ASA)
+.ad-label {
+	padding: toRem(8) toRem(16);
+	background-color: $nightColor;
+	color: #cfc6e6;
+	font-size: toRem(13);
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	text-align: center;
+}
+.masthead {
+	border-bottom: 1px solid $lineColor;
+	background-color: $bgColor;
+	// .masthead__container
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: toRem(16);
+		min-height: toRem(64);
+	}
+	// .masthead__logo
+	&__logo {
+		display: inline-flex;
+		align-items: center;
+		min-height: toRem(44);
+		font-family: $fontSerif;
+		font-weight: 700;
+		@include adaptiveValue("font-size", 26, 21);
+		letter-spacing: -0.01em;
+	}
+	// .masthead__section
+	&__section {
+		font-size: toRem(14);
+		color: $inkMuted;
+		text-align: right;
+	}
+}

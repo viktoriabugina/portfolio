@@ -1,0 +1,98 @@
+// Загальні елементи
+//====================================================================================================
+:focus-visible {
+	outline: toRem(3) solid $accentColor;
+	outline-offset: toRem(3);
+	border-radius: toRem(4);
+}
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: toRem(24);
+	@media (prefers-reduced-motion: reduce) {
+		scroll-behavior: auto;
+	}
+}
+.skip-link {
+	position: absolute;
+	left: toRem(16);
+	top: toRem(-60);
+	z-index: 100;
+	padding: toRem(10) toRem(16);
+	background-color: $nightColor;
+	color: #fff;
+	border-radius: toRem(8);
+	&:focus {
+		top: toRem(12);
+	}
+}
+.visually-hidden {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+}
+//====================================================================================================
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: toRem(8);
+	min-height: toRem(56);
+	padding: toRem(14) toRem(28);
+	border-radius: toRem(12);
+	background-color: $accentColor;
+	color: #fff;
+	font-weight: 700;
+	font-size: toRem(18);
+	line-height: 1.2;
+	text-align: center;
+	transition:
+		background-color 0.2s ease,
+		transform 0.2s ease;
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: $accentDark;
+		}
+	}
+	&:active {
+		transform: scale(0.98);
+	}
+	&--small {
+		min-height: toRem(44);
+		padding: toRem(10) toRem(18);
+		font-size: toRem(16);
+	}
+	&--fw {
+		width: 100%;
+	}
+}
+.stars {
+	color: $goldColor;
+	letter-spacing: 0.08em;
+}
+.avatar {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: toRem(40);
+	height: toRem(40);
+	flex: 0 0 toRem(40);
+	border-radius: 50%;
+	background-color: $nightColor;
+	color: #fff;
+	font-size: toRem(14);
+	font-weight: 700;
+}
+//====================================================================================================
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}

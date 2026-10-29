@@ -1,0 +1,43 @@
+//====================================================================================================
+.footer {
+	background-color: $nightColor;
+	color: #cfc6e6;
+	// місце під липку кнопку на мобільному
+	padding-bottom: toRem(72);
+	@media (min-width: $tablet) {
+		padding-bottom: 0;
+	}
+	// .footer__container
+	&__container {
+		display: grid;
+		gap: toRem(20);
+		padding-top: toRem(40);
+		padding-bottom: toRem(40);
+		font-size: toRem(15);
+		line-height: 1.6;
+	}
+	// .footer__disclaimer
+	&__disclaimer {
+		strong {
+			color: #fff;
+		}
+	}
+	// .footer__links
+	&__links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: toRem(4) toRem(24);
+		a {
+			display: inline-flex;
+			align-items: center;
+			min-height: toRem(44);
+			color: #fff;
+			text-decoration: underline;
+			text-underline-offset: toRem(3);
+		}
+	}
+	// .footer__copy
+	&__copy {
+		font-size: toRem(14);
+	}
+}

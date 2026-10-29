@@ -14,6 +14,7 @@ Portfolio of web design, front-end and motion design work.
 | 🌐 | [Kubik — no-code builder](web/07-kubik-nocode-builder/) | Animated editor, responsive preview, 3D tilt cards |
 | 🌐 | [Norvela — medical equipment site](web/08-norvela-diagnostics/) | Static HTML/SCSS/JS on Gulp + Webpack, Turnstile-protected form, Cloudflare Pages Function |
 | 🌐 | [Matoa — store layout](web/09-matoa-store-layout/) | Figma to code (training), product slider, adaptive cards, mobile accordion |
+| 🌐 | [Somna — DTC advertorial and listicle](web/10-somna-dtc-advertorial/) | Mobile-first pre-sell pages: offer box, bundle picker, sticky mobile CTA |
 | 🌐 | [Personal site](web/03-victoria-personal-site/) | Portfolio website, kinetic typography |
 | 🎬 | [Flowly — logo reveal](motion/01-flowly-logo-reveal/) | After Effects: shape layers, mattes, expressions |
 | 🎬 | [Glow Studio — Reel 9:16](motion/02-glow-studio-reel-9x16/) | Kinetic typography for Instagram Reels |

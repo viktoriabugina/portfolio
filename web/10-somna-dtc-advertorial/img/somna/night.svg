@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="t"><title id="t">Sleeping with the Somna mask (illustration)</title>
+<rect width="800" height="520" fill="#2B2540"/>
+<g fill="#CFC6E6"><circle cx="120" cy="90" r="2.5"/><circle cx="260" cy="60" r="2"/><circle cx="520" cy="80" r="3"/><circle cx="700" cy="140" r="2"/><circle cx="380" cy="120" r="1.8"/></g>
+<circle cx="660" cy="96" r="38" fill="#FBFAF7"/><circle cx="678" cy="84" r="34" fill="#2B2540"/>
+<rect x="80" y="330" width="640" height="120" rx="30" fill="#3A3256"/>
+<rect x="110" y="300" width="250" height="80" rx="40" fill="#EFEAF6"/>
+<path d="M250 318 C 270 270, 380 250, 470 268 C 560 286, 600 330, 590 360 L 230 360 Z" fill="#CFC6E6"/>
+<path d="M230 300 C 240 284, 300 280, 320 296 C 340 280, 400 284, 410 300 C 418 320, 400 336, 376 336 C 360 336, 352 326, 320 326 C 288 326, 280 336, 264 336 C 240 336, 222 320, 230 300 Z" fill="#241E37"/>
+<rect x="306" y="330" width="28" height="10" rx="5" fill="#F59E0B"/>
+<path d="M420 280 q 10 -16 20 0 t 20 0" fill="none" stroke="#CFC6E6" stroke-width="3" stroke-linecap="round" opacity=".7"/><path d="M450 250 q 8 -12 16 0 t 16 0" fill="none" stroke="#CFC6E6" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+</svg>

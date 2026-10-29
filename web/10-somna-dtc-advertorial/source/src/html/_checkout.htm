@@ -1,0 +1,33 @@
+<section class="checkout" id="checkout" aria-labelledby="checkout-title">
+	<div class="checkout__container">
+		<h2 class="checkout__title" id="checkout-title">Choose your bundle</h2>
+		<p class="checkout__lead">Most people buy a second mask for travel or for a partner.</p>
+		<form class="checkout__form" data-bundle-form>
+			<fieldset class="checkout__options">
+				<legend class="visually-hidden">Bundle size</legend>
+				<label class="bundle">
+					<input class="bundle__input" type="radio" name="bundle" value="1" data-price="49" data-was="69">
+					<span class="bundle__body"><span class="bundle__name">1 mask</span><span class="bundle__price">$49 <s>$69</s></span></span>
+				</label>
+				<label class="bundle bundle--popular">
+					<input class="bundle__input" type="radio" name="bundle" value="2" data-price="89" data-was="138" checked>
+					<span class="bundle__tag">Most popular</span>
+					<span class="bundle__body"><span class="bundle__name">2 masks</span><span class="bundle__price">$89 <s>$138</s></span></span>
+					<span class="bundle__save">Save $49</span>
+				</label>
+				<label class="bundle">
+					<input class="bundle__input" type="radio" name="bundle" value="3" data-price="119" data-was="207">
+					<span class="bundle__body"><span class="bundle__name">3 masks</span><span class="bundle__price">$119 <s>$207</s></span></span>
+					<span class="bundle__save">Save $88</span>
+				</label>
+			</fieldset>
+			<button class="button button--fw checkout__submit" type="submit">Continue to checkout · <span data-bundle-total>$89</span></button>
+			<p class="checkout__status" role="status" aria-live="polite"></p>
+			<ul class="checkout__trust">
+				<li>60-night trial</li>
+				<li>Free returns</li>
+				<li>2-year warranty</li>
+			</ul>
+		</form>
+	</div>
+</section>
