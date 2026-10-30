@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harbor Yoga Studio — Concept Homepage | Viktoria V.</title>
+<meta name="description" content="A homepage concept for a yoga and wellness studio: classes, philosophy, wellness programs and a contact form, built mobile-first.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#242621; --paper:#F6F4EE; --panel:#EDEAE1; --muted:#6F6F65; --line:#DCD8CC;
+  --moss:#5C6B4F; --moss-dk:#48553D; --clay:#B3765B;
+  --f-display:"Fraunces",Georgia,serif; --f-body:"Karla",system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{font-family:var(--f-body);background:var(--paper);color:var(--ink);line-height:1.55;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+:focus-visible{outline:2px solid var(--moss);outline-offset:3px;border-radius:3px}
+.wrap{width:min(1080px,100% - 48px);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-display);letter-spacing:-0.01em;line-height:1.1;font-weight:500}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:40;background:rgba(246,244,238,.88);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid var(--line)}
+.hdr__in{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{font-family:var(--f-display);font-size:21px;font-weight:600}
+.nav{display:flex;align-items:center;gap:36px}
+.navlinks{display:flex;gap:28px;font-size:15px;color:var(--muted)}
+.navlinks a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:12px 24px;font-size:14.5px;font-weight:600;transition:transform .2s var(--ease),background .2s,color .2s,border-color .2s}
+.btn--moss{background:var(--moss);color:#fff}
+.btn--moss:hover{background:var(--moss-dk)}
+.btn--line{border:1px solid var(--ink)}
+.btn--line:hover{background:var(--ink);color:var(--paper)}
+.burger{display:none;width:40px;height:40px;border-radius:50%}
+.burger span,.burger::before,.burger::after{content:"";display:block;width:18px;height:1.6px;background:var(--ink);margin:4px auto;transition:transform .2s}
+@media (max-width:760px){.navlinks{display:none}.burger{display:flex;flex-direction:column;justify-content:center}}
+
+.drawer{position:fixed;inset:76px 0 0 0;background:var(--paper);z-index:35;display:flex;flex-direction:column;padding:16px 24px;gap:4px;transform:translateY(-8px);opacity:0;pointer-events:none;transition:opacity .22s var(--ease),transform .22s var(--ease)}
+.drawer.is-open{opacity:1;pointer-events:auto;transform:translateY(0)}
+.drawer a{padding:16px 4px;font-size:20px;font-family:var(--f-display);border-bottom:1px solid var(--line)}
+
+/* hero */
+.hero{padding:clamp(56px,9vw,120px) 0 clamp(40px,6vw,72px);opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.hero.is-in{opacity:1;transform:none}
+.hero__grid{display:grid;gap:40px;align-items:center}
+@media (min-width:820px){.hero__grid{grid-template-columns:1.1fr .9fr}}
+.hero__eyebrow{color:var(--moss-dk);font-weight:600;font-size:14.5px}
+.hero h1{font-size:clamp(2.3rem,5.6vw,3.8rem);max-width:15ch;margin:16px 0 20px}
+.hero p{color:var(--muted);max-width:42ch;font-size:18px}
+.hero__actions{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+.hero__art{aspect-ratio:4/5;border-radius:28px;background:linear-gradient(165deg,var(--panel),#DFE3D4 60%,var(--moss) 150%);position:relative;overflow:hidden}
+.hero__art::after{content:"Studio photo placeholder";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;text-align:center;padding:20px}
+
+/* strip */
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 0}
+.strip .wrap{display:flex;gap:32px;flex-wrap:wrap;justify-content:center;color:var(--muted);font-size:14px}
+
+/* classes */
+.section{padding:clamp(64px,8vw,112px) 0}
+.section__head{max-width:46ch;margin-bottom:48px}
+.section__head .kicker{color:var(--moss-dk);font-weight:600;font-size:14.5px;display:block;margin-bottom:10px}
+.section__head h2{font-size:clamp(1.8rem,3.6vw,2.6rem)}
+.section__head p{color:var(--muted);margin-top:12px;font-size:16.5px}
+
+.classes{display:grid;gap:24px}
+@media (min-width:640px){.classes{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:980px){.classes{grid-template-columns:repeat(4,1fr)}}
+.class-card{background:var(--panel);border-radius:18px;padding:26px}
+.class-card h3{font-size:19px;margin-bottom:8px}
+.class-card p{color:var(--muted);font-size:14.5px;margin-bottom:14px}
+.class-card .time{font-size:13.5px;color:var(--moss-dk);font-weight:600}
+
+/* philosophy, two-col */
+.philosophy{background:var(--ink);color:var(--paper)}
+.philosophy .wrap{display:grid;gap:40px}
+@media (min-width:820px){.philosophy .wrap{grid-template-columns:1fr 1fr;align-items:center}}
+.philosophy h2{font-size:clamp(1.8rem,3.6vw,2.6rem);color:var(--paper)}
+.philosophy p{color:rgba(246,244,238,.72);margin-top:16px;font-size:16.5px;max-width:48ch}
+.philosophy .founder{margin-top:24px;font-size:14.5px;color:rgba(246,244,238,.6)}
+
+/* programs */
+.programs{display:grid;gap:20px}
+@media (min-width:720px){.programs{grid-template-columns:repeat(3,1fr)}}
+.program{border:1px solid var(--line);border-radius:18px;padding:28px}
+.program h3{font-size:18px;margin-bottom:8px}
+.program p{color:var(--muted);font-size:15px}
+
+/* testimonial */
+.quote{text-align:center;max-width:56ch;margin:0 auto}
+.quote p{font-family:var(--f-display);font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.35}
+.quote cite{display:block;margin-top:18px;color:var(--muted);font-size:14.5px;font-style:normal}
+
+/* contact */
+.contact{background:var(--panel)}
+.contact .wrap{display:grid;gap:48px}
+@media (min-width:820px){.contact .wrap{grid-template-columns:1fr 1fr}}
+.contact h2{font-size:clamp(1.8rem,3.4vw,2.4rem)}
+.contact p{color:var(--muted);margin-top:12px}
+.contact ul{margin-top:24px;color:var(--muted);font-size:15px;line-height:1.8}
+form{display:grid;gap:16px}
+label{font-size:13.5px;font-weight:600;color:var(--ink);display:block;margin-bottom:6px}
+input,textarea{width:100%;border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:13px 14px;font:inherit;font-size:15px}
+input:invalid:not(:placeholder-shown),textarea:invalid:not(:placeholder-shown){border-color:var(--clay)}
+textarea{resize:vertical;min-height:110px}
+.form-msg{font-size:14px;color:var(--moss-dk);display:none}
+.form-msg.is-shown{display:block}
+form[data-sent] .f-fields{display:none}
+form[data-sent] .form-msg{display:block}
+
+footer{padding:40px 0;border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:13.5px}
+.ribbon{position:fixed;left:14px;bottom:14px;z-index:60;background:var(--ink);color:#fff;font-size:12px;border-radius:999px;padding:9px 16px;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.ribbon a{color:#C9D6B8}
+</style>
+</head>
+<body>
+
+<header class="hdr">
+  <div class="wrap hdr__in">
+    <a class="logo" href="#top">Harbor</a>
+    <div class="nav">
+      <nav class="navlinks" aria-label="Main">
+        <a href="#classes">Classes</a>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#programs">Programs</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn--moss" href="#contact">Book a class</a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<nav class="drawer" id="drawer" aria-label="Mobile">
+  <a href="#classes">Classes</a>
+  <a href="#philosophy">Philosophy</a>
+  <a href="#programs">Programs</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<main id="top">
+  <section class="hero" id="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <span class="hero__eyebrow">Studio in Riverside Park</span>
+        <h1>A quieter way to move through your week.</h1>
+        <p>Small classes, real instruction, and a room that stays warm even on the coldest mornings. Vinyasa, restorative and breathwork — pick what your body needs today.</p>
+        <div class="hero__actions">
+          <a class="btn btn--moss" href="#contact">Book your first class</a>
+          <a class="btn btn--line" href="#classes">See the schedule</a>
+        </div>
+      </div>
+      <div class="hero__art" role="img" aria-label="Placeholder photo of the studio space"></div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap">
+      <span>New-student week: $35 for your first 7 days</span>
+      <span>Mats and props provided</span>
+      <span>Showers on site</span>
+    </div>
+  </div>
+
+  <section class="section" id="classes">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="kicker">Weekly classes</span>
+        <h2>Four ways in, one studio.</h2>
+        <p>Every class is capped at 14 people, so you get hands-on cues, not a shouted count from the front of the room.</p>
+      </div>
+      <div class="classes">
+        <div class="class-card">
+          <h3>Vinyasa Flow</h3>
+          <p>A steady build from breath to movement, for people who want to sweat a little.</p>
+          <span class="time">Mon · Wed · Fri, 7:00am</span>
+        </div>
+        <div class="class-card">
+          <h3>Restorative</h3>
+          <p>Long holds, blankets and bolsters. The slowest hour of your week, on purpose.</p>
+          <span class="time">Tue · Thu, 6:30pm</span>
+        </div>
+        <div class="class-card">
+          <h3>Prenatal</h3>
+          <p>Taught by an instructor trained in prenatal care, at a pace your body sets.</p>
+          <span class="time">Sat, 10:00am</span>
+        </div>
+        <div class="class-card">
+          <h3>Breathwork</h3>
+          <p>No mat required. Forty minutes of guided breathing to close out the day.</p>
+          <span class="time">Sun, 5:00pm</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="philosophy" id="philosophy">
+    <div class="wrap">
+      <div>
+        <h2>We built this studio around one idea: you should leave calmer than you arrived.</h2>
+        <p>No mirrors on every wall, no leaderboard, no music loud enough to drown out your own breathing. Just a floor, good light, and instructors who've taught long enough to know when to say less.</p>
+      </div>
+      <div>
+        <p style="color:rgba(246,244,238,.85);font-size:16.5px">"I started teaching because a studio near my first apartment made me feel like I was failing at relaxing. I wanted to build the opposite of that."</p>
+        <p class="founder">— Studio founder, placeholder name</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="programs">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="kicker">Beyond the weekly schedule</span>
+        <h2>Wellness programs</h2>
+        <p>For when one class a week isn't quite the shape of support you're looking for.</p>
+      </div>
+      <div class="programs">
+        <div class="program">
+          <h3>Monthly workshops</h3>
+          <p>A longer Saturday session on one theme — hips, shoulders, breath — with time for questions after.</p>
+        </div>
+        <div class="program">
+          <h3>Small-group coaching</h3>
+          <p>Four people, six weeks, one instructor who checks in between sessions.</p>
+        </div>
+        <div class="program">
+          <h3>Day retreats</h3>
+          <p>A few Sundays a year, off-site, for students who want a full morning instead of an hour.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <blockquote class="quote">
+        <p>"The pace here is different. Nobody's checking the clock, and the instructors actually remember your name."</p>
+        <cite>— Student review, placeholder</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <div class="wrap">
+      <div>
+        <h2>Come try a class.</h2>
+        <p>Your first week is $35, no membership required. Fill in the form and we'll send you the next three openings.</p>
+        <ul>
+          <li>412 Riverside Ave, studio level</li>
+          <li>Mon–Fri 6:30am–8:00pm · Sat–Sun 8:00am–4:00pm</li>
+          <li>Street parking and a bike rack at the side entrance</li>
+        </ul>
+      </div>
+      <form id="contactForm" novalidate>
+        <div class="f-fields">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required placeholder="Your name">
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com">
+          </div>
+          <div>
+            <label for="message">What are you hoping to try first?</label>
+            <textarea id="message" name="message" placeholder="Tell us a little about your week, or just say hi."></textarea>
+          </div>
+          <button class="btn btn--moss" type="submit" style="width:100%">Request the schedule</button>
+        </div>
+        <p class="form-msg" role="status">Thanks — this is a concept form, so nothing was sent, but on the live site this is exactly where a confirmation would appear.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Harbor Yoga Studio · Concept</span>
+    <span>Riverside Park</span>
+  </div>
+</footer>
+<p class="ribbon" role="note">Homepage concept by Viktoria V. · Studio name and details are placeholders · <a href="../../">Portfolio</a></p>
+
+<script>
+(function(){
+  var burger = document.getElementById('burger');
+  var drawer = document.getElementById('drawer');
+  burger.addEventListener('click', function(){
+    var open = drawer.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  drawer.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      drawer.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && drawer.classList.contains('is-open')){
+      drawer.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.focus();
+    }
+  });
+
+  var hero = document.getElementById('hero');
+  requestAnimationFrame(function(){ hero.classList.add('is-in'); });
+
+  var form = document.getElementById('contactForm');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    form.setAttribute('data-sent', 'true');
+  });
+})();
+</script>
+</body>
+</html>
