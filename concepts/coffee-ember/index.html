@@ -41,7 +41,7 @@ h1,h2,h3{font-family:var(--f-head);font-weight:900;text-transform:uppercase;line
 @media (min-width:900px){.hero__grid{grid-template-columns:1.1fr .9fr}}
 .hero__eyebrow{font-size:14px;color:var(--dim);margin-bottom:26px;display:flex;gap:10px;align-items:center}
 .hero__eyebrow i{width:26px;height:1px;background:var(--dim);display:inline-block}
-.hero h1{font-size:clamp(4.6rem,14vw,11.5rem)}
+.hero h1{font-size:clamp(3.4rem,8.6vw,7.6rem)}
 .hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
 .hero h1 .w{display:inline-block;will-change:transform}
 .hero__sub{margin-top:30px;max-width:40ch;color:var(--dim);font-size:19px}
@@ -130,9 +130,9 @@ h1,h2,h3{font-family:var(--f-head);font-weight:900;text-transform:uppercase;line
       <div>
         <p class="hero__eyebrow"><i></i> Small-batch roastery, Kyiv</p>
         <h1>
-          <span class="line">Coffee for</span>
-          <span class="line"><span class="serif" style="font-size:.82em;text-transform:none;font-weight:400">your</span> slow</span>
-          <span class="line">mornings.</span>
+          <span class="line"><span class="w">Coffee</span> <span class="w">for</span></span>
+          <span class="line"><span class="w"><span class="serif" style="font-size:.82em">your</span></span> <span class="w">slow</span></span>
+          <span class="line"><span class="w">mornings.</span></span>
         </h1>
         <p class="hero__sub">We roast small lots every week and sell them within days. Pick a bag, pick a grind, and we'll do the rest. Placeholder copy for the concept.</p>
         <div class="hero__cta">
@@ -261,13 +261,6 @@ h1,h2,h3{font-family:var(--f-head);font-weight:900;text-transform:uppercase;line
   }
 
   gsap.registerPlugin(ScrollTrigger);
-
-  // split hero headline into words for a staggered rise
-  var words = document.querySelectorAll('.hero h1 .line');
-  words.forEach(function(line){
-    var parts = line.innerHTML.trim().split(' ');
-    line.innerHTML = parts.map(function(p){ return '<span class="w">' + p + '</span>'; }).join(' ');
-  });
 
   if (reduce) {
     document.querySelectorAll('.hero h1 .w,.stage,.menu li').forEach(function(el){ el.style.opacity = 1; });
