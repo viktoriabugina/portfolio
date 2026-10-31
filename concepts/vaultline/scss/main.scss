@@ -1,0 +1,461 @@
+@use "sass:color";
+@use "tokens" as *;
+
+/* ---------- base ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background: $ink;
+  color: $bone;
+  font-family: $f-body;
+  font-size: 17px;
+  line-height: 1.55;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+:focus-visible {
+  outline: 2px solid $blue-bright;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.wrap { @include wrap; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+
+h1, h2, h3 { @include display(2rem, 5vw, 4rem); }
+
+.script {
+  font-family: $f-script;
+  text-transform: none;
+  letter-spacing: 0;
+  color: $blue-bright;
+  font-size: 1.15em;
+  line-height: 1;
+}
+
+/* ---------- nav ---------- */
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 60;
+  padding: 20px 0;
+  transition: background .4s $ease, backdrop-filter .4s;
+
+  &.is-stuck {
+    background: rgba(5, 6, 13, .82);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba($bone, .08);
+  }
+
+  .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+
+  &__logo {
+    font-family: $f-display;
+    text-transform: uppercase;
+    font-size: 21px;
+    letter-spacing: .04em;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  ul { display: flex; gap: 26px; list-style: none; font-size: 13px; font-weight: 600;
+       text-transform: uppercase; letter-spacing: .09em; }
+
+  li a {
+    position: relative;
+    &::after {
+      content: ""; position: absolute; left: 0; bottom: -5px;
+      width: 100%; height: 1px; background: $blue-bright;
+      transform: scaleX(0); transform-origin: right;
+      transition: transform .45s $ease;
+    }
+    &:hover::after { transform: scaleX(1); transform-origin: left; }
+  }
+
+  @include below(md) { ul { display: none; } }
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 26px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  background: $blue;
+  color: #fff;
+  border-radius: 2px;
+  will-change: transform;
+  transition: background .3s $ease;
+
+  &:hover { background: color.adjust($blue, $lightness: 8%); }
+
+  &--ghost {
+    background: transparent;
+    box-shadow: inset 0 0 0 1px rgba($bone, .26);
+    &:hover { background: rgba($bone, .07); }
+  }
+}
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding: 150px 0 90px;
+  overflow: hidden;
+  background:
+    radial-gradient(90% 70% at 70% 30%, rgba($blue, .34) 0%, transparent 62%),
+    linear-gradient(180deg, $navy 0%, $ink 78%);
+
+  // oversized ghost wordmark behind everything
+  &__ghost {
+    position: absolute;
+    left: 50%;
+    top: 46%;
+    translate: -50% -50%;
+    font-family: $f-display;
+    text-transform: uppercase;
+    font-size: clamp(7rem, 23vw, 24rem);
+    line-height: .8;
+    letter-spacing: -.02em;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba($bone, .11);
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &__grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 56px;
+    align-items: center;
+    @include at(md) { grid-template-columns: 1.04fr .96fr; }
+  }
+
+  &__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: $dim;
+    margin-bottom: 26px;
+
+    i { width: 30px; height: 1px; background: $blue-bright; }
+  }
+
+  h1 { @include display(2.7rem, 6.2vw, 5.2rem); }
+
+  // each word sits in a masked line so it can rise into place
+  .line { display: block; overflow: hidden; padding-bottom: .07em; }
+  .w { display: inline-block; will-change: transform; }
+
+  &__sub {
+    margin-top: 26px;
+    max-width: 40ch;
+    color: $dim;
+    font-size: 18px;
+  }
+
+  &__cta { margin-top: 34px; display: flex; gap: 13px; flex-wrap: wrap; }
+
+  &__meta {
+    margin-top: 46px;
+    display: flex;
+    gap: 34px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: $dim;
+
+    b { display: block; font-family: $f-display; font-size: 30px; color: $bone; letter-spacing: 0; }
+  }
+}
+
+/* ---------- card fan mockup ---------- */
+.fan {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  max-width: 500px;
+  width: 100%;
+  justify-self: center;
+  perspective: 1200px;
+
+  &__card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44%;
+    aspect-ratio: 5 / 7;
+    translate: -50% -50%;
+    transform-style: preserve-3d;
+    will-change: transform;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 26px 46px rgba(0, 0, 0, .66), inset 0 0 0 1px rgba($bone, .14);
+
+    img { width: 100%; height: 100%; object-fit: cover; }
+
+    figcaption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 12px 14px;
+      background: linear-gradient(to top, rgba($ink, .94), rgba($ink, 0));
+
+      b { display: block; font-family: $f-display; text-transform: uppercase; font-size: 17px; letter-spacing: .02em; }
+      span { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: $blue-bright; }
+    }
+  }
+}
+
+/* ---------- section shell ---------- */
+.section { padding: clamp(80px, 11vw, 150px) 0; position: relative; }
+
+.label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: $blue-bright;
+  margin-bottom: 18px;
+}
+
+.head { max-width: 18ch; h2 { @include display(2.6rem, 6.4vw, 5.4rem); } }
+
+/* ---------- process ---------- */
+.steps {
+  margin-top: 60px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+  @include at(sm) { grid-template-columns: repeat(2, 1fr); }
+  @include at(lg) { grid-template-columns: repeat(4, 1fr); }
+}
+
+.step {
+  position: relative;
+  padding: 26px 22px 24px;
+  background: linear-gradient(170deg, rgba($navy-soft, .95), rgba($navy, .78));
+  border: 1px solid rgba($bone, .1);
+  border-radius: 6px;
+  overflow: hidden;
+  will-change: transform;
+  transition: border-color .4s $ease, transform .5s $ease;
+
+  // a sweep of blue light rides across on hover
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 38%, rgba($blue, .3) 50%, transparent 62%);
+    translate: -100% 0;
+    transition: translate .8s $ease;
+  }
+
+  &:hover { border-color: rgba($blue-bright, .5); transform: translateY(-5px); }
+  &:hover::before { translate: 100% 0; }
+
+  &__n {
+    font-family: $f-display;
+    font-size: 54px;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba($blue-bright, .75);
+  }
+
+  h3 { @include display(1.3rem, 2.2vw, 1.6rem); margin: 16px 0 10px; }
+  p { color: $dim; font-size: 15px; }
+
+  &__foot {
+    margin-top: 22px;
+    padding-top: 14px;
+    border-top: 1px solid rgba($bone, .1);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: $dim;
+
+    b { color: $blue-bright; }
+  }
+}
+
+/* ---------- pinned shelf ---------- */
+.shelf {
+  background: linear-gradient(180deg, $ink 0%, $navy 48%, $ink 100%);
+  overflow: hidden;
+
+  &__stage { min-height: 100svh; display: grid; align-content: center; gap: 36px; }
+
+  &__head { @include wrap; display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+  &__note { max-width: 34ch; color: $dim; font-size: 15px; }
+
+  &__row {
+    display: flex;
+    gap: 26px;
+    padding-inline: $gutter * .5;
+    will-change: transform;
+  }
+
+  &__item {
+    flex: 0 0 clamp(210px, 25vw, 310px);
+    aspect-ratio: 5 / 7;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    filter: drop-shadow(0 20px 36px rgba(0, 0, 0, .55));
+    transition: transform .5s $ease;
+
+    &:hover { transform: translateY(-10px) rotate(-1.4deg); }
+    img { width: 100%; height: 100%; object-fit: cover; }
+  }
+
+  &__tag {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 10px 14px;
+    background: rgba($ink, .84);
+    backdrop-filter: blur(6px);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    b { color: $gold; }
+  }
+}
+
+/* ---------- faq ---------- */
+.faq {
+  position: relative;
+
+  &__ghost {
+    position: absolute;
+    left: -2vw;
+    bottom: 4%;
+    font-family: $f-display;
+    text-transform: uppercase;
+    font-size: clamp(6rem, 21vw, 19rem);
+    color: transparent;
+    -webkit-text-stroke: 1px rgba($bone, .07);
+    pointer-events: none;
+    user-select: none;
+    line-height: .8;
+  }
+
+  .wrap { position: relative; z-index: 2; display: grid; gap: 48px; @include at(md) { grid-template-columns: .9fr 1.1fr; } }
+
+  &__list { border-top: 1px solid rgba($bone, .13); }
+}
+
+.qa {
+  border-bottom: 1px solid rgba($bone, .13);
+
+  &__q {
+    width: 100%;
+    text-align: left;
+    padding: 22px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    transition: color .3s;
+
+    &:hover { color: $blue-bright; }
+
+    i {
+      flex: 0 0 auto;
+      width: 22px; height: 22px;
+      position: relative;
+      &::before, &::after {
+        content: ""; position: absolute; inset: 50% 0 auto; height: 1.5px;
+        background: currentColor; transition: transform .45s $ease;
+      }
+      &::after { rotate: 90deg; }
+    }
+  }
+
+  &__a {
+    overflow: hidden;
+    height: 0;
+    p { padding: 0 0 22px; color: $dim; max-width: 52ch; font-size: 15.5px; }
+  }
+
+  &.is-open .qa__q { color: $blue-bright; }
+  &.is-open .qa__q i::after { transform: scaleX(0); }
+}
+
+/* ---------- footer ---------- */
+.foot {
+  padding: 90px 0 36px;
+  border-top: 1px solid rgba($bone, .1);
+
+  &__big {
+    font-family: $f-display;
+    text-transform: uppercase;
+    font-size: clamp(3.4rem, 17vw, 15rem);
+    line-height: .78;
+    letter-spacing: -.02em;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba($bone, .22);
+  }
+
+  &__row {
+    margin-top: 42px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    color: $dim;
+    font-size: 13px;
+  }
+}
+
+.ribbon {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 70;
+  background: $bone;
+  color: $ink;
+  font-size: 12px;
+  border-radius: 999px;
+  padding: 9px 16px;
+  max-width: calc(100vw - 28px);
+
+  a { text-decoration: underline; }
+}
+
+/* ---------- motion gates ----------
+   JS removes .no-motion once GSAP is live; without it everything stays visible. */
+.js {
+  .hero .w, .step, .shelf__item { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .hero .w, .js .step, .js .shelf__item { opacity: 1; }
+}

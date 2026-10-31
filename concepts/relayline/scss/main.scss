@@ -1,0 +1,360 @@
+@use "sass:color";
+@use "tokens" as *;
+
+/* ---------- base ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: $carbon;
+  color: $paper;
+  font-family: $f-display;
+  font-size: 17px;
+  line-height: 1.55;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+:focus-visible { outline: 2px solid $lime; outline-offset: 4px; border-radius: 4px; }
+
+.wrap { @include wrap; }
+.mono { @include mono-label; }
+
+h1, h2, h3 { @include display(1.8rem, 4vw, 3rem); }
+
+// the one italic serif accent, used sparingly
+.ital { font-family: $f-serif; font-style: italic; font-weight: 400; letter-spacing: -.01em; color: $lime; }
+
+/* ---------- aurora backdrop ----------
+   Three soft light ribbons that drift behind the dark chrome. */
+.aurora {
+  position: absolute;
+  inset: -20% -10% auto;
+  height: 150%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(42px);
+  opacity: .62;
+
+  svg { width: 100%; height: 100%; }
+  path { mix-blend-mode: screen; }
+}
+
+/* ---------- nav ---------- */
+.nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 70;
+  padding: 16px 0;
+  transition: background .4s $ease, border-color .4s;
+  border-bottom: 1px solid transparent;
+
+  &.is-stuck { background: rgba($carbon, .78); backdrop-filter: blur(16px); border-bottom-color: rgba($paper, .08); }
+
+  .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+
+  &__logo { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 17px; letter-spacing: -.02em; }
+
+  ul { display: flex; gap: 24px; list-style: none; font-size: 14.5px; color: $mute; }
+  ul a:hover { color: $paper; }
+
+  &__right { display: flex; align-items: center; gap: 16px; }
+
+  @include below(md) { ul { display: none; } &__right .mono { display: none; } }
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  background: $lime;
+  color: $carbon;
+  will-change: transform;
+  transition: background .3s;
+
+  &:hover { background: color.adjust($lime, $lightness: 8%); }
+
+  &--ghost { background: transparent; color: $paper; box-shadow: inset 0 0 0 1px rgba($paper, .2);
+             &:hover { background: rgba($paper, .07); } }
+}
+
+.dot { width: 7px; height: 7px; border-radius: 50%; background: $lime; box-shadow: 0 0 12px $lime; }
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  padding: 150px 0 90px;
+  overflow: hidden;
+  isolation: isolate;
+
+  .wrap { position: relative; z-index: 2; }
+
+  &__kicker { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 26px;
+              padding: 7px 14px; border-radius: 999px; background: rgba($lime, .1);
+              box-shadow: inset 0 0 0 1px rgba($lime, .3); color: $lime;
+              font-family: $f-mono; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+
+  h1 { @include display(2.6rem, 6.6vw, 5.2rem); max-width: 17ch; }
+  .line { display: block; overflow: hidden; padding-bottom: .08em; }
+  .w { display: inline-block; will-change: transform; }
+
+  &__sub { margin-top: 24px; max-width: 46ch; color: $mute; font-size: 18.5px; }
+  &__cta { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+}
+
+/* ---------- browser mockup ---------- */
+.frame {
+  margin-top: 70px;
+  position: relative;
+  z-index: 2;
+  border-radius: 14px;
+  overflow: hidden;
+  background: $coal;
+  box-shadow: 0 50px 90px -30px rgba(0, 0, 0, .9), inset 0 0 0 1px rgba($paper, .09);
+  will-change: transform;
+
+  &__bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba($paper, .07);
+    background: rgba($slate, .7);
+
+    i { width: 10px; height: 10px; border-radius: 50%; background: rgba($paper, .18); }
+    span { margin-left: 10px; @include mono-label; }
+  }
+
+  &__body { position: relative; padding: 26px; min-height: 300px; overflow: hidden; }
+
+  // the court photo sits behind the slot list, dimmed so text stays readable
+  &__photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .3;
+    will-change: transform;
+  }
+
+  &__body .log { position: relative; z-index: 2; }
+}
+
+/* a run of log rows that type themselves in */
+.log {
+  font-family: $f-mono;
+  font-size: 13px;
+  display: grid;
+  gap: 9px;
+
+  &__row {
+    display: grid;
+    grid-template-columns: 74px 1fr auto;
+    gap: 14px;
+    align-items: center;
+    padding: 11px 14px;
+    border-radius: 7px;
+    background: rgba($paper, .03);
+    box-shadow: inset 0 0 0 1px rgba($paper, .05);
+    color: $mute;
+    will-change: transform;
+
+    b { color: $paper; font-weight: 500; }
+    u { text-decoration: none; color: $lime; }
+    &--ok u { color: $mint; }
+    &--wait u { color: #F2C14E; }
+  }
+
+  @media (max-width: 560px) {
+    &__row { grid-template-columns: 1fr auto; font-size: 12px; b { grid-column: 1 / -1; } }
+  }
+}
+
+/* ---------- customer strip (static row, no marquee) ---------- */
+.strip {
+  padding: 34px 0;
+  border-block: 1px solid rgba($paper, .07);
+
+  &__row {
+    display: flex;
+    align-items: baseline;
+    gap: clamp(20px, 4vw, 52px);
+    flex-wrap: wrap;
+
+    p { flex: 0 0 auto; }
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(18px, 3.4vw, 46px);
+      font-size: 15px;
+      font-weight: 500;
+      color: rgba($paper, .42);
+    }
+  }
+}
+
+/* ---------- sections ---------- */
+.section { padding: clamp(80px, 11vw, 150px) 0; position: relative; }
+
+.head {
+  max-width: 24ch;
+  h2 { @include display(2.2rem, 5.4vw, 4.2rem); }
+  p { margin-top: 18px; color: $mute; max-width: 48ch; }
+}
+
+/* ---------- feature split ---------- */
+.feats { margin-top: 64px; display: grid; gap: 20px; @include at(md) { grid-template-columns: repeat(3, 1fr); } }
+
+.feat {
+  position: relative;
+  padding: 28px 24px 26px;
+  border-radius: 12px;
+  background: linear-gradient(165deg, rgba($slate, .9), rgba($coal, .9));
+  box-shadow: inset 0 0 0 1px rgba($paper, .07);
+  overflow: hidden;
+  transition: box-shadow .4s $ease, transform .5s $ease;
+
+  // a lime glow pools under the cursor
+  &::after {
+    content: "";
+    position: absolute;
+    width: 320px; height: 320px;
+    left: var(--mx, 50%); top: var(--my, 50%);
+    translate: -50% -50%;
+    background: radial-gradient(circle, rgba($lime, .16), transparent 68%);
+    opacity: 0;
+    transition: opacity .35s;
+    pointer-events: none;
+  }
+
+  &:hover { transform: translateY(-4px); box-shadow: inset 0 0 0 1px rgba($lime, .36); }
+  &:hover::after { opacity: 1; }
+
+  &__shot {
+    margin: -28px -24px 0;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+
+    img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s $ease; }
+  }
+  &:hover &__shot img { transform: scale(1.05); }
+
+  h3 { @include display(1.25rem, 2.4vw, 1.5rem); margin: 22px 0 10px; }
+  p { color: $mute; font-size: 15.5px; }
+}
+
+/* ---------- isometric chart ---------- */
+.metrics {
+  background: linear-gradient(180deg, $carbon, $coal 55%, $carbon);
+  .wrap { display: grid; gap: 56px; align-items: center; @include at(md) { grid-template-columns: .92fr 1.08fr; } }
+}
+
+.chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(8px, 1.6vw, 18px);
+  padding: 30px 26px 22px;
+  border-radius: 14px;
+  background: rgba($slate, .5);
+  box-shadow: inset 0 0 0 1px rgba($paper, .07);
+  min-height: 300px;
+
+  &__col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+
+  // isometric block: top face + front face, grown from the base
+  .bar3d {
+    width: 100%;
+    position: relative;
+    transform-origin: 50% 100%;
+    will-change: transform;
+
+    &__top { height: 14px; background: rgba($paper, .22); clip-path: polygon(0 50%, 50% 0, 100% 50%, 50% 100%); }
+    &__body { background: linear-gradient(180deg, rgba($paper, .17), rgba($paper, .07)); border-radius: 0 0 3px 3px; }
+  }
+
+  &__col--peak .bar3d__top { background: $lime; }
+  &__col--peak .bar3d__body { background: linear-gradient(180deg, $lime, $lime-dim); box-shadow: 0 0 34px rgba($lime, .4); }
+
+  small { @include mono-label; }
+}
+
+.stats { display: grid; gap: 26px; margin-top: 42px; @include at(sm) { grid-template-columns: repeat(3, 1fr); } }
+.stat {
+  b { display: block; @include display(1.9rem, 4vw, 2.6rem); color: $lime; }
+  span { @include mono-label; }
+}
+
+/* ---------- lime call to action ---------- */
+.cta {
+  margin: 0 auto;
+  @include wrap;
+  background: $lime;
+  color: $carbon;
+  border-radius: 18px;
+  padding: clamp(50px, 8vw, 92px) clamp(28px, 5vw, 70px);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  h2 { @include display(2.2rem, 6vw, 4.2rem); max-width: 18ch; margin-inline: auto; }
+  p { margin: 20px auto 0; max-width: 46ch; color: rgba($carbon, .72); }
+  .ital { color: $carbon; }
+
+  &__play {
+    margin: 34px auto 0;
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    background: $carbon;
+    color: $lime;
+    display: grid;
+    place-items: center;
+    transition: transform .4s $ease;
+    &:hover { transform: scale(1.09); }
+  }
+
+  &__ring {
+    position: absolute;
+    inset: -40% -10%;
+    background: repeating-radial-gradient(circle at 50% 50%, rgba($carbon, .07) 0 2px, transparent 2px 46px);
+    pointer-events: none;
+  }
+}
+
+/* ---------- footer ---------- */
+.foot {
+  padding: 90px 0 40px;
+  margin-top: clamp(80px, 11vw, 140px);
+  border-top: 1px solid rgba($paper, .08);
+
+  &__grid { display: grid; gap: 34px; @include at(sm) { grid-template-columns: 2fr 1fr 1fr; } }
+  h4 { @include mono-label; margin-bottom: 14px; }
+  ul { list-style: none; display: grid; gap: 9px; color: $mute; font-size: 15px; }
+  ul a:hover { color: $paper; }
+  &__row { margin-top: 56px; padding-top: 22px; border-top: 1px solid rgba($paper, .08);
+           display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+           color: $mute; font-size: 13.5px; }
+}
+
+.ribbon {
+  position: fixed; right: 14px; bottom: 14px; z-index: 80;
+  background: $paper; color: $carbon; font-size: 12px;
+  border-radius: 999px; padding: 9px 16px; max-width: calc(100vw - 28px);
+  a { text-decoration: underline; }
+}
+
+/* ---------- motion gates ---------- */
+.js { .hero .w, .feat, .stat, .log__row { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .hero .w, .js .feat, .js .stat, .js .log__row { opacity: 1; }
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baseline Padel Club — Club Site Concept | Viktoria V.</title>
+<meta name="description" content="Concept site for a padel club: floodlit court photography, live court availability, booking flow and scroll-driven motion. Built with SCSS and GSAP.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital@1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="js">
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="nav__logo" href="#top">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect width="20" height="20" rx="6" fill="#C6F24E"/><circle cx="10" cy="10" r="4.6" fill="none" stroke="#06070A" stroke-width="1.7"/><path d="M10 5.4v9.2" stroke="#06070A" stroke-width="1.7"/></svg>
+      Baseline
+    </a>
+    <ul>
+      <li><a href="#courts">Courts</a></li>
+      <li><a href="#club">The club</a></li>
+      <li><a href="#numbers">Coaching</a></li>
+    </ul>
+    <div class="nav__right">
+      <span class="mono"><span class="dot" style="display:inline-block"></span> 2 courts free tonight</span>
+      <a class="pill" href="#book" data-magnet>Book a court</a>
+    </div>
+  </div>
+</nav>
+
+<main id="top">
+
+  <section class="hero" aria-label="Introduction">
+    <!-- floodlight haze drifting over the courts -->
+    <div class="aurora" aria-hidden="true">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="r1" x1="0" x2="1"><stop offset="0" stop-color="#C6F24E" stop-opacity="0"/><stop offset=".45" stop-color="#C6F24E" stop-opacity=".85"/><stop offset="1" stop-color="#5BE2A8" stop-opacity="0"/></linearGradient>
+          <linearGradient id="r2" x1="0" x2="1"><stop offset="0" stop-color="#5BE2A8" stop-opacity="0"/><stop offset=".5" stop-color="#8FB62F" stop-opacity=".7"/><stop offset="1" stop-color="#C6F24E" stop-opacity="0"/></linearGradient>
+          <linearGradient id="r3" x1="0" x2="1"><stop offset="0" stop-color="#C6F24E" stop-opacity="0"/><stop offset=".6" stop-color="#3C6B1F" stop-opacity=".9"/><stop offset="1" stop-color="#C6F24E" stop-opacity="0"/></linearGradient>
+        </defs>
+        <path data-ribbon d="M-200 440 C 150 300, 420 560, 700 400 S 1150 260, 1420 420" stroke="url(#r1)" stroke-width="80" fill="none" stroke-linecap="round"/>
+        <path data-ribbon d="M-200 520 C 180 420, 480 640, 760 480 S 1180 380, 1420 520" stroke="url(#r2)" stroke-width="54" fill="none" stroke-linecap="round"/>
+        <path data-ribbon d="M-200 360 C 220 260, 460 460, 740 320 S 1160 200, 1420 340" stroke="url(#r3)" stroke-width="110" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <div class="wrap">
+      <span class="hero__kicker"><span class="dot"></span> Six indoor courts · open till midnight</span>
+      <h1>
+        <span class="line"><span class="w">Padel</span> <span class="w">is</span> <span class="w">easy</span> <span class="w">to</span></span>
+        <span class="line"><span class="w">start</span> <span class="w">and</span> <span class="w ital">hard</span> <span class="w">to</span></span>
+        <span class="line"><span class="w">put</span> <span class="w">down.</span></span>
+      </h1>
+      <p class="hero__sub">Book a court in two taps, borrow a racket at the desk, and find three other people who play at your level. Placeholder copy for this concept.</p>
+      <div class="hero__cta">
+        <a class="pill" href="#book" data-magnet>Book a court</a>
+        <a class="pill pill--ghost" href="#club" data-magnet>First time here?</a>
+        <span class="mono">rackets included · no membership</span>
+      </div>
+
+      <!-- tonight's availability over a court photo -->
+      <div class="frame" data-frame>
+        <div class="frame__bar" aria-hidden="true">
+          <i></i><i></i><i></i>
+          <span>tonight · thursday 31 oct</span>
+        </div>
+        <div class="frame__body">
+          <img class="frame__photo" src="https://images.unsplash.com/photo-1646649853703-7645147474ba?w=1400&q=80&auto=format&fit=crop" alt="A padel court seen from above with rackets and balls on the blue surface" loading="eager" width="1400" height="800">
+          <div class="log">
+            <div class="log__row"><span>18:00</span><b>Court 1 · indoor</b><u>2 spots</u></div>
+            <div class="log__row log__row--wait"><span>19:00</span><b>Court 3 · indoor</b><u>waitlist</u></div>
+            <div class="log__row"><span>20:00</span><b>Court 2 · panoramic</b><u>free</u></div>
+            <div class="log__row log--ok"><span>21:00</span><b>Mixed social · all levels</b><u>4 spots</u></div>
+            <div class="log__row"><span>22:00</span><b>Court 5 · indoor</b><u>free</u></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap strip__row">
+      <p class="mono">Leagues running now</p>
+      <ul>
+        <li>Monday Mixed</li><li>Tuesday Ladders</li><li>Thursday Women's</li><li>Weekend Open</li><li>Juniors</li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="section" id="club">
+    <div class="wrap">
+      <span class="mono">What a first visit looks like</span>
+      <div class="head" style="margin-top:14px">
+        <h2>Turn up with trainers. We have the rest.</h2>
+        <p>No membership, no kit to buy, and someone at the desk who will actually explain the scoring. Placeholder copy for this concept.</p>
+      </div>
+      <div class="feats">
+        <article class="feat" data-tilt>
+          <figure class="feat__shot"><img src="https://images.unsplash.com/photo-1658723826297-fe4d1b1e6600?w=700&q=80&auto=format&fit=crop" alt="Padel rackets and a scatter of balls on a blue court" loading="lazy" width="700" height="470"></figure>
+          <h3>Rackets at the desk</h3>
+          <p>Borrow a racket and a tube of balls for free on your first three visits. After that it's a small hire fee.</p>
+        </article>
+        <article class="feat" data-tilt>
+          <figure class="feat__shot"><img src="https://images.unsplash.com/photo-1612534847738-b3af9bc31f0c?w=700&q=80&auto=format&fit=crop" alt="Two padel rackets resting against the glass wall of a court" loading="lazy" width="700" height="470"></figure>
+          <h3>Found you a four</h3>
+          <p>Tell us your level and when you're free. We put you in a group that plays at the same speed, not one that will flatten you.</p>
+        </article>
+        <article class="feat" data-tilt>
+          <figure class="feat__shot"><img src="https://images.unsplash.com/photo-1526888935184-a82d2a4b7e67?w=700&q=80&auto=format&fit=crop" alt="A player holding balls, ready to serve on court" loading="lazy" width="700" height="470"></figure>
+          <h3>Coaching that sticks</h3>
+          <p>Six-week blocks with the same coach and the same four players, so you actually see where you started.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section metrics" id="numbers">
+    <div class="wrap">
+      <div>
+        <span class="mono">Since the club opened</span>
+        <div class="head" style="margin-top:14px">
+          <h2>Six months of courts, booked out.</h2>
+          <p>Each column is a month of booked court hours. Figures below are placeholders for this concept.</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><b data-count="41800">0</b><span>court hours played</span></div>
+          <div class="stat"><b data-count="92" data-suffix="%">0</b><span>peak slots filled</span></div>
+          <div class="stat"><b data-count="1" data-suffix=",240">0</b><span>members on the ladder</span></div>
+        </div>
+      </div>
+
+      <div class="chart" id="courts" aria-hidden="true">
+        <div class="chart__col"><div class="bar3d" data-bar><div class="bar3d__top"></div><div class="bar3d__body" style="height:38px"></div></div><small>May</small></div>
+        <div class="chart__col"><div class="bar3d" data-bar><div class="bar3d__top"></div><div class="bar3d__body" style="height:62px"></div></div><small>Jun</small></div>
+        <div class="chart__col"><div class="bar3d" data-bar><div class="bar3d__top"></div><div class="bar3d__body" style="height:88px"></div></div><small>Jul</small></div>
+        <div class="chart__col"><div class="bar3d" data-bar><div class="bar3d__top"></div><div class="bar3d__body" style="height:120px"></div></div><small>Aug</small></div>
+        <div class="chart__col"><div class="bar3d" data-bar><div class="bar3d__top"></div><div class="bar3d__body" style="height:154px"></div></div><small>Sep</small></div>
+        <div class="chart__col chart__col--peak"><div class="bar3d" data-bar><div class="bar3d__top"></div><div class="bar3d__body" style="height:196px"></div></div><small>Oct</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="book" style="padding-bottom:0">
+    <div class="cta" data-cta>
+      <div class="cta__ring" aria-hidden="true"></div>
+      <h2>Your first hour is on the club, <span class="ital">if you've never played.</span></h2>
+      <p>Pick a slot, bring trainers, and we'll put a racket in your hand at the desk.</p>
+      <button class="cta__play" aria-label="Play the court tour">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5l12 7-12 7z"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot__grid">
+        <div>
+          <div class="nav__logo" style="margin-bottom:14px">
+            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><rect width="20" height="20" rx="6" fill="#C6F24E"/><circle cx="10" cy="10" r="4.6" fill="none" stroke="#06070A" stroke-width="1.7"/><path d="M10 5.4v9.2" stroke="#06070A" stroke-width="1.7"/></svg>
+            Baseline
+          </div>
+          <p style="color:#767F8C;font-size:15px;max-width:34ch">A concept homepage. Club name, copy and figures are placeholders. Photos from Unsplash.</p>
+        </div>
+        <div><h4>Play</h4><ul><li><a href="#book">Book a court</a></li><li><a href="#club">First visit</a></li><li><a href="#numbers">Coaching blocks</a></li></ul></div>
+        <div><h4>Club</h4><ul><li><a href="#top">Opening hours</a></li><li><a href="#top">Leagues</a></li><li><a href="../../">Portfolio</a></li></ul></div>
+      </div>
+      <div class="foot__row">
+        <span>Concept by Viktoria V.</span>
+        <span>All figures are placeholders</span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<p class="ribbon" role="note">Concept by Viktoria V. · <a href="../../">Portfolio</a></p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vaultline — Sneaker Authentication &amp; Storage Concept | Viktoria V.</title>
+<meta name="description" content="Concept site for a sneaker authentication and storage service: 3D photo fan, pinned shelf, scroll-driven motion. Built with SCSS and GSAP.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;600;700&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="js">
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="nav__logo" href="#top">
+      <svg width="17" height="17" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 7l4 3 4-7 4 7 4-3-2 10H4z" fill="#6B92FF"/></svg>
+      Vaultline
+    </a>
+    <ul>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#shelf">The shelf</a></li>
+      <li><a href="#faq">Questions</a></li>
+    </ul>
+    <a class="btn" href="#shelf" data-magnet>Open a vault</a>
+  </div>
+</nav>
+
+<main id="top">
+
+  <section class="hero" aria-label="Introduction">
+    <div class="hero__ghost" aria-hidden="true" data-ghost>VAULTLINE</div>
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="hero__eyebrow"><i></i> Authenticated · sealed · insured</p>
+        <h1>
+          <span class="line"><span class="w">Your</span> <span class="w">grails</span></span>
+          <span class="line"><span class="w">deserve</span> <span class="w script">a vault.</span></span>
+        </h1>
+        <p class="hero__sub">Send us the pairs you actually care about. We authenticate them, photograph every angle, store them in a climate room, and log every move where you can check it.</p>
+        <div class="hero__cta">
+          <a class="btn" href="#how" data-magnet>Start a submission</a>
+          <a class="btn btn--ghost" href="#shelf" data-magnet>See the shelf</a>
+        </div>
+        <div class="hero__meta">
+          <span><b data-count="48200">0</b> pairs held</span>
+          <span><b data-count="99" data-suffix=".9%">0</b> ledger uptime</span>
+          <span><b data-count="14">0</b> day turnaround</span>
+        </div>
+      </div>
+
+      <div class="fan" data-fan>
+        <figure class="fan__card" data-card data-depth="0.5">
+          <img src="https://images.unsplash.com/photo-1678266622924-c7c38ddc25e1?w=700&q=80&auto=format&fit=crop" alt="Sneakers displayed behind glass in a lit retail case" loading="eager" width="700" height="980">
+          <figcaption><b>Sealed case</b><span>Grade 9.5 · #00214</span></figcaption>
+        </figure>
+        <figure class="fan__card" data-card data-depth="1">
+          <img src="https://images.unsplash.com/photo-1628413993904-94ecb60f1239?w=700&q=80&auto=format&fit=crop" alt="A shelf of collectible sneakers lined up in a store" loading="eager" width="700" height="980">
+          <figcaption><b>On the shelf</b><span>Grade 10 · #00007</span></figcaption>
+        </figure>
+        <figure class="fan__card" data-card data-depth="1.6">
+          <img src="https://images.unsplash.com/photo-1587855049254-351f4e55fe2a?w=700&q=80&auto=format&fit=crop" alt="A single sneaker framed and mounted on a wall like artwork" loading="eager" width="700" height="980">
+          <figcaption><b>Framed</b><span>Grade 9.0 · #01188</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="wrap">
+      <span class="label">From your closet to ours</span>
+      <div class="head"><h2>Four steps, no mystery.</h2></div>
+      <div class="steps">
+        <article class="step">
+          <div class="step__n">01</div>
+          <h3>Intake</h3>
+          <p>Send a pair in, or buy one already sitting in the vault. Either way it enters the same queue on the day it lands.</p>
+          <div class="step__foot">Lead · <b>2–4 days</b></div>
+        </article>
+        <article class="step">
+          <div class="step__n">02</div>
+          <h3>Authentication</h3>
+          <p>Two specialists check stitching, box, tags and glue independently. If they disagree, a third opens it up. Nothing passes on one opinion.</p>
+          <div class="step__foot">Fakes caught · <b>1,204</b></div>
+        </article>
+        <article class="step">
+          <div class="step__n">03</div>
+          <h3>Custody</h3>
+          <p>Photographed from twelve angles, bagged, barcoded and racked in a room held at 19°C and 45% humidity. Insured from the hour it arrives.</p>
+          <div class="step__foot">Insured · <b>100%</b></div>
+        </article>
+        <article class="step">
+          <div class="step__n">04</div>
+          <h3>Registry</h3>
+          <p>Every check, move and sale is written to a ledger anyone can read. Your pair has a history, not a rumour.</p>
+          <div class="step__foot">Entries · <b>86,410</b></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="shelf" id="shelf" aria-label="Currently in the vault">
+    <div class="shelf__stage" data-shelf-stage>
+      <div class="shelf__head">
+        <div>
+          <span class="label">Currently on the shelf</span>
+          <h2>Five of eighty&#8209;one.</h2>
+        </div>
+        <p class="shelf__note">A live slice of the registry. Every entry is a physical pair on a numbered shelf, authenticated, bagged and insured at full value.</p>
+      </div>
+
+      <div class="shelf__row" data-shelf-row>
+        <figure class="shelf__item">
+          <img src="https://images.unsplash.com/photo-1708088641654-d096243830c1?w=620&q=80&auto=format&fit=crop" alt="A wall of white sneakers arranged in rows" loading="lazy" width="620" height="868">
+          <figcaption class="shelf__tag"><span>Shelf A·04</span><b>$28,000</b></figcaption>
+        </figure>
+        <figure class="shelf__item">
+          <img src="https://images.unsplash.com/photo-1633464129147-777bdcc97c1d?w=620&q=80&auto=format&fit=crop" alt="Colourful sneakers displayed across a shop wall" loading="lazy" width="620" height="868">
+          <figcaption class="shelf__tag"><span>Shelf A·09</span><b>$12,400</b></figcaption>
+        </figure>
+        <figure class="shelf__item">
+          <img src="https://images.unsplash.com/photo-1527090526205-beaac8dc3c62?w=620&q=80&auto=format&fit=crop" alt="Sneakers laid out in a grid seen from above" loading="lazy" width="620" height="868">
+          <figcaption class="shelf__tag"><span>Shelf B·01</span><b>$61,900</b></figcaption>
+        </figure>
+        <figure class="shelf__item">
+          <img src="https://images.unsplash.com/photo-1609188944094-394637c26769?w=620&q=80&auto=format&fit=crop" alt="Dimly lit store shelving stocked with sneaker boxes" loading="lazy" width="620" height="868">
+          <figcaption class="shelf__tag"><span>Shelf B·07</span><b>$9,250</b></figcaption>
+        </figure>
+        <figure class="shelf__item">
+          <img src="https://images.unsplash.com/photo-1633464130613-0a9154299ac2?w=620&q=80&auto=format&fit=crop" alt="A tall display wall of sneakers in a sneaker shop" loading="lazy" width="620" height="868">
+          <figcaption class="shelf__tag"><span>Shelf C·02</span><b>$34,700</b></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section faq" id="faq">
+    <div class="faq__ghost" aria-hidden="true">ASK</div>
+    <div class="wrap">
+      <div>
+        <span class="label script" style="font-size:26px">your questions</span>
+        <h2>Ask us<br>the hard ones.</h2>
+        <p style="margin-top:22px;color:#8B91AE;max-width:34ch">If something here doesn't answer it, write to us and we'll put the answer on this page.</p>
+      </div>
+      <div class="faq__list">
+        <div class="qa">
+          <button class="qa__q" aria-expanded="false">Where is my pair, physically?<i aria-hidden="true"></i></button>
+          <div class="qa__a"><p>On a numbered shelf in our room outside Kyiv. The shelf number and barcode are on your pair's page, and the registry logs every time it is moved.</p></div>
+        </div>
+        <div class="qa">
+          <button class="qa__q" aria-expanded="false">Who can take it out of the vault?<i aria-hidden="true"></i></button>
+          <div class="qa__a"><p>Only you, with two-factor confirmation and a 24-hour hold. We ship it back double-boxed and insured for the full registry value.</p></div>
+        </div>
+        <div class="qa">
+          <button class="qa__q" aria-expanded="false">What does the ledger actually do?<i aria-hidden="true"></i></button>
+          <div class="qa__a"><p>It records every check, move and sale with a timestamp. Anyone can read it. You can't quietly re-grade a pair or invent a history for it.</p></div>
+        </div>
+        <div class="qa">
+          <button class="qa__q" aria-expanded="false">What if a pair is damaged or lost?<i aria-hidden="true"></i></button>
+          <div class="qa__a"><p>It is insured at the registry value from the hour it arrives. If something happens on our side, you are paid out at that value, not at what we think it is worth.</p></div>
+        </div>
+        <div class="qa">
+          <button class="qa__q" aria-expanded="false">How much does holding cost?<i aria-hidden="true"></i></button>
+          <div class="qa__a"><p>Placeholder pricing for this concept: a flat monthly fee per pair, no percentage of value, no exit fee when you take them home.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot__big">Vaultline</div>
+      <div class="foot__row">
+        <span>Concept by Viktoria V. · brand, prices and figures are placeholders · photos from Unsplash</span>
+        <span><a href="../../">Portfolio</a></span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<p class="ribbon" role="note">Concept by Viktoria V. · <a href="../../">Portfolio</a></p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

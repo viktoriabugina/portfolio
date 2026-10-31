@@ -1,0 +1,51 @@
+// Relayline — design tokens
+// Night-shift control room: carbon black, lime signal, cool grey text.
+
+$carbon:   #06070A;
+$coal:     #0C0F14;
+$slate:    #151A22;
+$lime:     #C6F24E;
+$lime-dim: #8FB62F;
+$mint:     #5BE2A8;
+$paper:    #E8ECE6;
+$mute:     #767F8C;
+
+$f-display: "Instrument Sans", system-ui, sans-serif;
+$f-serif:   "Newsreader", Georgia, serif;
+$f-mono:    "JetBrains Mono", ui-monospace, monospace;
+
+$maxw:   1180px;
+$gutter: 48px;
+$ease:   cubic-bezier(.22, 1, .36, 1);
+
+@mixin wrap {
+  width: min($maxw, 100% - $gutter);
+  margin-inline: auto;
+}
+
+@mixin at($bp) {
+  @if $bp == sm { @media (min-width: 640px)  { @content; } }
+  @if $bp == md { @media (min-width: 900px)  { @content; } }
+  @if $bp == lg { @media (min-width: 1140px) { @content; } }
+}
+
+@mixin below($bp) {
+  @if $bp == md { @media (max-width: 899px) { @content; } }
+}
+
+// Tight, low-contrast display type — the glow does the shouting, not the letters.
+@mixin display($min, $vw, $max) {
+  font-family: $f-display;
+  font-weight: 500;
+  letter-spacing: -.035em;
+  line-height: 1.02;
+  font-size: clamp($min, $vw, $max);
+}
+
+@mixin mono-label {
+  font-family: $f-mono;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: $mute;
+}

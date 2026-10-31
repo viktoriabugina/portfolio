@@ -55,11 +55,6 @@ h1,h2,h3{font-family:var(--f-hand);font-weight:400;line-height:1.02;letter-spaci
 .sticker svg{width:100%;height:auto}
 @media (max-width:720px){.sticker{--w:96px}.sticker--hide-m{display:none}}
 
-.tape{position:absolute;left:0;right:0;bottom:0;background:var(--lime);color:var(--ink);border-top:2px solid var(--line);border-bottom:2px solid var(--line);overflow:hidden;white-space:nowrap;z-index:3;font-family:var(--f-hand);font-size:24px;padding:6px 0}
-.tape__track{display:inline-flex;gap:40px;animation:tape 22s linear infinite;padding-left:40px}
-@keyframes tape{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion:reduce){.tape__track{animation:none}}
-
 /* sections */
 .section{padding:clamp(64px,9vw,112px) 0}
 .kicker{display:inline-block;font-family:var(--f-hand);font-size:26px;color:var(--pink)}
@@ -147,11 +142,6 @@ h1,h2,h3{font-family:var(--f-hand);font-weight:400;line-height:1.02;letter-spaci
       <div class="sticker__in"><svg viewBox="0 0 200 200" aria-hidden="true"><rect x="22" y="58" width="156" height="60" fill="#BFD8FF" stroke="#101418" stroke-width="6" transform="rotate(-8 100 88)"/><rect x="40" y="84" width="120" height="8" fill="#101418" opacity=".25" transform="rotate(-8 100 88)"/></svg></div>
     </div>
 
-    <div class="tape" aria-hidden="true">
-      <div class="tape__track">
-        <span>new guide every Tuesday ✦</span><span>no jargon ✦</span><span>paper, tape, prompts ✦</span><span>new guide every Tuesday ✦</span><span>no jargon ✦</span><span>paper, tape, prompts ✦</span>
-      </div>
-    </div>
   </section>
 
   <section class="section" id="guides">

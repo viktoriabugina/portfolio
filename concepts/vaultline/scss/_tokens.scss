@@ -1,0 +1,45 @@
+// Vaultline — design tokens
+// Street-collectible vault: ink navy, electric blue, bone white.
+
+$ink:        #05060D;
+$navy:       #0A0F24;
+$navy-soft:  #121936;
+$blue:       #2F5BFF;
+$blue-bright:#6B92FF;
+$bone:       #ECEDF5;
+$dim:        #8B91AE;
+$gold:       #F2C14E;
+
+$f-display: "Anton", "Arial Narrow", sans-serif;
+$f-script:  "Nanum Pen Script", cursive;
+$f-body:    "Barlow", system-ui, sans-serif;
+
+$gutter: 48px;
+$maxw:   1240px;
+$ease:   cubic-bezier(.22, 1, .36, 1);
+
+@mixin wrap {
+  width: min($maxw, 100% - $gutter);
+  margin-inline: auto;
+}
+
+@mixin at($bp) {
+  @if $bp == sm { @media (min-width: 640px)  { @content; } }
+  @if $bp == md { @media (min-width: 900px)  { @content; } }
+  @if $bp == lg { @media (min-width: 1160px) { @content; } }
+}
+
+@mixin below($bp) {
+  @if $bp == md { @media (max-width: 899px) { @content; } }
+  @if $bp == sm { @media (max-width: 639px) { @content; } }
+}
+
+// Heavy condensed display type, used for every heading level.
+@mixin display($min, $vw, $max) {
+  font-family: $f-display;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: .86;
+  letter-spacing: .01em;
+  font-size: clamp($min, $vw, $max);
+}
