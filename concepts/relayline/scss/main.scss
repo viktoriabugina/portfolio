@@ -206,8 +206,8 @@ h1, h2, h3 { @include display(1.8rem, 4vw, 3rem); }
 .section { padding: clamp(80px, 11vw, 150px) 0; position: relative; }
 
 .head {
-  max-width: 24ch;
-  h2 { @include display(2.2rem, 5.4vw, 4.2rem); }
+  // the cap lives on the heading, in its own ch, so it scales with the type
+  h2 { @include display(2.2rem, 5.4vw, 4.2rem); max-width: 15ch; }
   p { margin-top: 18px; color: $mute; max-width: 48ch; }
 }
 

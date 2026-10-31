@@ -144,7 +144,7 @@ h1, h2, h3 { @include display(2rem, 5vw, 4rem); }
     display: grid;
     gap: 56px;
     align-items: center;
-    @include at(md) { grid-template-columns: 1.04fr .96fr; }
+    @include at(md) { grid-template-columns: 1fr 1.08fr; }
   }
 
   &__eyebrow {
@@ -194,7 +194,7 @@ h1, h2, h3 { @include display(2rem, 5vw, 4rem); }
 .fan {
   position: relative;
   aspect-ratio: 1 / 1;
-  max-width: 500px;
+  max-width: 600px;
   width: 100%;
   justify-self: center;
   perspective: 1200px;
@@ -203,7 +203,7 @@ h1, h2, h3 { @include display(2rem, 5vw, 4rem); }
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 44%;
+    width: 50%;
     aspect-ratio: 5 / 7;
     translate: -50% -50%;
     transform-style: preserve-3d;
@@ -239,7 +239,7 @@ h1, h2, h3 { @include display(2rem, 5vw, 4rem); }
   margin-bottom: 18px;
 }
 
-.head { max-width: 18ch; h2 { @include display(2.6rem, 6.4vw, 5.4rem); } }
+.head { h2 { @include display(2.6rem, 6.4vw, 5.4rem); max-width: 14ch; } }
 
 /* ---------- process ---------- */
 .steps {
