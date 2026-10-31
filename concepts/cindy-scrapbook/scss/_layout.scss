@@ -24,7 +24,8 @@
   &__art{position:relative;min-height:520px;@include md3{min-height:430px}}
   .polaroid--main{position:absolute;right:4%;top:0;width:min(76%,380px);transform:rotate(4deg);z-index:2}
   .polaroid--sub{position:absolute;left:0;bottom:2%;width:min(46%,220px);transform:rotate(-8deg);z-index:3;padding:10px 10px 38px;figcaption{font-size:1.05rem;bottom:8px}}
-  .stamp{position:absolute;right:-2%;bottom:6%;z-index:4}
+  .polaroid--main figcaption{text-align:right;padding-right:26px}
+  .stamp{position:absolute;right:-1%;bottom:-6%;z-index:4}
   .star{position:absolute;z-index:4}
   @include md2{&__grid{grid-template-columns:1fr}}
 }
