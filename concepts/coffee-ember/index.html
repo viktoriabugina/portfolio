@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kettle &amp; Ember — Coffee Roastery Concept | Viktoria V.</title>
+<meta name="description" content="Concept homepage for a fictional coffee roastery: dark editorial layout, product mockups, scroll-pinned process and GSAP motion.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --espresso:#150B07; --roast:#21120B; --crema:#3A2216;
+  --ember:#FF7A1A; --amber:#FFB35C; --text:#F2E7DA; --dim:#B9A391;
+  --f-head:"Big Shoulders Display",Impact,sans-serif;
+  --f-serif:"Instrument Serif",Georgia,serif;
+  --f-body:"Figtree",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--espresso);color:var(--text);font-family:var(--f-body);font-size:17px;line-height:1.55;overflow-x:clip}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--amber);outline-offset:4px;border-radius:4px}
+.wrap{width:min(1200px,100% - 48px);margin-inline:auto}
+h1,h2,h3{font-family:var(--f-head);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.01em}
+.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;text-transform:none;letter-spacing:0;color:var(--amber)}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:22px 0;mix-blend-mode:difference;color:#fff}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-family:var(--f-head);font-weight:900;font-size:22px;text-transform:uppercase}
+.nav ul{display:flex;gap:28px;list-style:none;font-size:14px;font-weight:600;letter-spacing:.02em}
+.nav a:hover{opacity:.7}
+@media (max-width:760px){.nav ul{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:100vh;display:grid;align-items:center;padding:140px 0 80px;overflow:hidden;background:radial-gradient(120% 80% at 75% 40%,#4a2412 0%,var(--espresso) 60%)}
+.hero__grid{display:grid;gap:40px;align-items:center}
+@media (min-width:900px){.hero__grid{grid-template-columns:1.1fr .9fr}}
+.hero__eyebrow{font-size:14px;color:var(--dim);margin-bottom:26px;display:flex;gap:10px;align-items:center}
+.hero__eyebrow i{width:26px;height:1px;background:var(--dim);display:inline-block}
+.hero h1{font-size:clamp(4.6rem,14vw,11.5rem)}
+.hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .w{display:inline-block;will-change:transform}
+.hero__sub{margin-top:30px;max-width:40ch;color:var(--dim);font-size:19px}
+.hero__cta{margin-top:36px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;font-weight:600;font-size:15px;background:var(--ember);color:var(--espresso);transition:transform .25s cubic-bezier(.22,1,.36,1),background .25s}
+.btn:hover{transform:translateY(-2px);background:var(--amber)}
+.btn--line{background:transparent;color:var(--text);box-shadow:inset 0 0 0 1px rgba(242,231,218,.3)}
+.btn--line:hover{background:rgba(242,231,218,.08)}
+.product{position:relative;width:100%;max-width:520px;justify-self:center}
+.product svg{width:100%;height:auto;overflow:visible}
+
+/* ticker */
+.ticker{border-block:1px solid rgba(242,231,218,.14);padding:20px 0;overflow:hidden;white-space:nowrap}
+.ticker__track{display:inline-flex;gap:48px;animation:tick 30s linear infinite;font-family:var(--f-head);font-weight:900;font-size:clamp(28px,4vw,46px);text-transform:uppercase}
+.ticker__track em{font-family:var(--f-serif);font-weight:400;color:var(--amber);text-transform:none}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker__track{animation:none}}
+
+/* sections */
+.section{padding:clamp(90px,12vw,160px) 0}
+.label{font-size:14px;color:var(--dim);margin-bottom:22px;display:block}
+.section h2{font-size:clamp(3.2rem,8vw,7rem)}
+
+/* menu list */
+.menu{margin-top:56px;list-style:none}
+.menu li{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:baseline;padding:26px 0;border-top:1px solid rgba(242,231,218,.14);position:relative}
+.menu li:last-child{border-bottom:1px solid rgba(242,231,218,.14)}
+.menu li::after{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:var(--ember);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.22,1,.36,1)}
+.menu li:hover::after{transform:scaleX(1)}
+.menu h3{font-size:clamp(2rem,4vw,3.4rem)}
+.menu small{color:var(--dim);font-size:15px}
+.menu .price{font-family:var(--f-head);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700}
+@media (max-width:640px){.menu li{grid-template-columns:1fr auto}.menu small{grid-column:1/-1}}
+
+/* pinned process */
+.process{position:relative;background:var(--roast)}
+.process__inner{min-height:100vh;display:grid;align-items:center}
+.process__grid{display:grid;gap:48px}
+@media (min-width:900px){.process__grid{grid-template-columns:1fr 1fr;align-items:center}}
+.stage{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;opacity:0}
+.stage-wrap{position:relative;min-height:340px}
+.stage h3{font-size:clamp(3rem,7vw,6rem)}
+.stage p{margin-top:20px;color:var(--dim);max-width:38ch;font-size:18px}
+.step-num{font-family:var(--f-serif);font-style:italic;font-size:28px;color:var(--amber)}
+.bar{height:2px;background:rgba(242,231,218,.15);margin-top:40px;position:relative;overflow:hidden}
+.bar i{position:absolute;inset:0;background:var(--ember);transform:scaleX(0);transform-origin:left}
+.process__art{position:relative;aspect-ratio:1/1;max-width:440px;justify-self:center;width:100%}
+.process__art svg{width:100%;height:100%}
+
+/* story / quote */
+.quote{padding:clamp(100px,14vw,180px) 0;text-align:center}
+.quote blockquote{font-family:var(--f-serif);font-style:italic;font-size:clamp(2.2rem,5.4vw,4.6rem);line-height:1.12;max-width:22ch;margin:0 auto}
+.quote cite{display:block;margin-top:30px;font-style:normal;font-size:15px;color:var(--dim)}
+
+/* footer */
+.foot{padding:90px 0 40px;border-top:1px solid rgba(242,231,218,.14)}
+.foot__big{font-family:var(--f-head);font-weight:900;text-transform:uppercase;font-size:clamp(4rem,17vw,15rem);line-height:.8;color:var(--crema);letter-spacing:-.03em}
+.foot__row{margin-top:40px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;color:var(--dim);font-size:14px}
+
+.ribbon{position:fixed;right:14px;bottom:14px;z-index:60;background:var(--text);color:var(--espresso);font-size:12px;border-radius:999px;padding:9px 16px;max-width:calc(100vw - 28px)}
+.ribbon a{text-decoration:underline}
+
+/* no-JS / failed-CDN fallback keeps content visible */
+.js .hero h1 .w,.js .stage{opacity:0}
+.js .menu li{opacity:0}
+.nojs-show{display:none}
+@media (prefers-reduced-motion:reduce){.js .menu li,.js .hero h1 .w{opacity:1}}
+</style>
+</head>
+<body class="js">
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="logo" href="#top">Kettle &amp; Ember</a>
+    <ul>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#process">Roast</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="top">
+  <section class="hero" aria-label="Introduction">
+    <div class="wrap hero__grid">
+      <div>
+        <p class="hero__eyebrow"><i></i> Small-batch roastery, Kyiv</p>
+        <h1>
+          <span class="line">Coffee for</span>
+          <span class="line"><span class="serif" style="font-size:.82em;text-transform:none;font-weight:400">your</span> slow</span>
+          <span class="line">mornings.</span>
+        </h1>
+        <p class="hero__sub">We roast small lots every week and sell them within days. Pick a bag, pick a grind, and we'll do the rest. Placeholder copy for the concept.</p>
+        <div class="hero__cta">
+          <a class="btn" href="#menu">See this week's roasts</a>
+          <a class="btn btn--line" href="#process">How we roast</a>
+        </div>
+      </div>
+
+      <div class="product" aria-hidden="true" data-float>
+        <svg viewBox="0 0 520 520">
+          <defs>
+            <linearGradient id="cup" x1="0" x2="1"><stop offset="0" stop-color="#F6EEE4"/><stop offset="1" stop-color="#D8CABA"/></linearGradient>
+            <linearGradient id="bag" x1="0" x2="1"><stop offset="0" stop-color="#2A1A10"/><stop offset="1" stop-color="#4A2C1A"/></linearGradient>
+            <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FF7A1A" stop-opacity=".55"/><stop offset="1" stop-color="#FF7A1A" stop-opacity="0"/></radialGradient>
+          </defs>
+          <circle cx="260" cy="270" r="230" fill="url(#glow)"/>
+          <ellipse cx="260" cy="455" rx="220" ry="18" fill="#000" opacity=".45"/>
+          <!-- bag -->
+          <g data-layer="bag">
+            <path d="M300 150 L430 120 L450 430 L318 460 Z" fill="url(#bag)"/>
+            <path d="M300 150 L430 120 L436 150 L306 180 Z" fill="#3A2216"/>
+            <text x="352" y="260" fill="#FFB35C" font-family="Big Shoulders Display,Impact,sans-serif" font-weight="900" font-size="34" transform="rotate(-6 352 260)">KETTLE</text>
+            <text x="356" y="300" fill="#F2E7DA" font-family="Instrument Serif,Georgia,serif" font-style="italic" font-size="30" transform="rotate(-6 356 300)">slow roast</text>
+            <text x="356" y="390" fill="#B9A391" font-family="Figtree,sans-serif" font-size="13" transform="rotate(-6 356 390)">250 g · whole bean</text>
+          </g>
+          <!-- cup -->
+          <g data-layer="cup">
+            <path d="M120 210 L300 210 L282 430 Q280 446 264 446 L156 446 Q140 446 138 430 Z" fill="url(#cup)"/>
+            <rect x="110" y="190" width="200" height="30" rx="8" fill="#FF7A1A"/>
+            <path d="M136 190 Q136 150 210 150 Q284 150 284 190 Z" fill="#F2E7DA"/>
+            <rect x="130" y="290" width="160" height="78" rx="6" fill="#21120B"/>
+            <text x="210" y="326" text-anchor="middle" fill="#FFB35C" font-family="Big Shoulders Display,Impact,sans-serif" font-weight="900" font-size="22">KETTLE</text>
+            <text x="210" y="352" text-anchor="middle" fill="#F2E7DA" font-family="Instrument Serif,Georgia,serif" font-style="italic" font-size="18">&amp; Ember</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <span>single origin</span><em>slow roast</em><span>small batch</span><em>roasted tuesday</em><span>ethiopia · colombia · kenya</span><em>ship in 48 hours</em>
+      <span>single origin</span><em>slow roast</em><span>small batch</span><em>roasted tuesday</em><span>ethiopia · colombia · kenya</span><em>ship in 48 hours</em>
+    </div>
+  </div>
+
+  <section class="section" id="menu">
+    <div class="wrap">
+      <span class="label">This week, four roasts</span>
+      <h2>The <span class="serif">menu</span></h2>
+      <ul class="menu">
+        <li><h3>Ethiopia Guji</h3><span class="price">$18</span><small>Jasmine, peach, black tea. Light roast. Filter.</small></li>
+        <li><h3>Colombia Huila</h3><span class="price">$16</span><small>Dark cherry, cocoa, brown sugar. Medium roast. Espresso or drip.</small></li>
+        <li><h3>Kenya Nyeri</h3><span class="price">$19</span><small>Blackcurrant, grapefruit, bright acidity. Light roast. Pour-over.</small></li>
+        <li><h3>House Blend</h3><span class="price">$14</span><small>Caramel, toasted nuts, a clean finish. Everyday coffee.</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="process section" id="process">
+    <div class="process__inner">
+      <div class="wrap process__grid">
+        <div class="stage-wrap" data-stages>
+          <div class="stage" data-stage>
+            <span class="step-num">i.</span>
+            <h3>Buy green</h3>
+            <p>We visit farms and buy lots we can trace back to a name and a village. Placeholder copy.</p>
+          </div>
+          <div class="stage" data-stage>
+            <span class="step-num">ii.</span>
+            <h3>Roast slow</h3>
+            <p>Each lot gets its own profile, and we roast it in small batches, slowly, until it's ready. Placeholder copy.</p>
+          </div>
+          <div class="stage" data-stage>
+            <span class="step-num">iii.</span>
+            <h3>Ship fresh</h3>
+            <p>Roasted on Tuesday, packed on Wednesday, on your door within 48 hours. Placeholder copy.</p>
+          </div>
+          <div class="bar"><i data-bar></i></div>
+        </div>
+        <div class="process__art" aria-hidden="true">
+          <svg viewBox="0 0 400 400">
+            <circle cx="200" cy="200" r="170" fill="none" stroke="#3A2216" stroke-width="2"/>
+            <circle cx="200" cy="200" r="120" fill="none" stroke="#FF7A1A" stroke-width="2" stroke-dasharray="6 10" data-spin/>
+            <circle cx="200" cy="200" r="70" fill="#FF7A1A" opacity=".9" data-pulse/>
+            <text x="200" y="208" text-anchor="middle" fill="#150B07" font-family="Big Shoulders Display,Impact,sans-serif" font-weight="900" font-size="26">ROAST</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote">
+    <div class="wrap">
+      <blockquote>“It tastes like the morning I actually wanted.”</blockquote>
+      <cite>Customer quote placeholder, replace with a real review</cite>
+    </div>
+  </section>
+
+  <footer class="foot" id="visit">
+    <div class="wrap">
+      <div class="foot__big">Kettle<br><span class="serif" style="font-size:.5em;text-transform:none;font-weight:400;letter-spacing:0">&amp; ember</span></div>
+      <div class="foot__row">
+        <span>Concept by Viktoria V. · brand, address and prices are placeholders</span>
+        <span><a href="../../">Portfolio</a></span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<p class="ribbon" role="note">Concept by Viktoria V. · <a href="../../">Portfolio</a></p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // fallback: no GSAP, show everything statically
+  if (!window.gsap) {
+    document.querySelectorAll('.menu li').forEach(function(el){ el.style.opacity = 1; });
+    document.querySelectorAll('.stage').forEach(function(el){
+      el.style.position = 'relative'; el.style.opacity = 1; el.style.marginBottom = '40px';
+    });
+    return;
+  }
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // split hero headline into words for a staggered rise
+  var words = document.querySelectorAll('.hero h1 .line');
+  words.forEach(function(line){
+    var parts = line.innerHTML.trim().split(' ');
+    line.innerHTML = parts.map(function(p){ return '<span class="w">' + p + '</span>'; }).join(' ');
+  });
+
+  if (reduce) {
+    document.querySelectorAll('.hero h1 .w,.stage,.menu li').forEach(function(el){ el.style.opacity = 1; });
+    return;
+  }
+
+  // 1. hero intro: words rise, product drops in
+  gsap.set('.hero h1 .w', { opacity: 1 });
+  var intro = gsap.timeline({ defaults: { ease: 'power4.out' } });
+  intro.from('.hero h1 .w', { yPercent: 110, rotate: 4, duration: 1.1, stagger: 0.07 }, 0.1)
+       .from('[data-layer="bag"]', { x: 120, rotate: 12, opacity: 0, duration: 1.2 }, 0.5)
+       .from('[data-layer="cup"]', { x: -120, rotate: -10, opacity: 0, duration: 1.2 }, 0.6)
+       .from('.hero__sub,.hero__cta,.hero__eyebrow', { y: 24, opacity: 0, duration: 0.9, stagger: 0.1 }, 0.9);
+
+  // 2. product follows the pointer, and a slow idle float
+  var product = document.querySelector('[data-float]');
+  if (product && window.matchMedia('(hover:hover)').matches) {
+    var qx = gsap.quickTo(product, 'x', { duration: 0.8, ease: 'power3' });
+    var qy = gsap.quickTo(product, 'y', { duration: 0.8, ease: 'power3' });
+    window.addEventListener('pointermove', function(e){
+      qx((e.clientX / window.innerWidth - 0.5) * -28);
+      qy((e.clientY / window.innerHeight - 0.5) * -20);
+    });
+  }
+  gsap.to('[data-float]', { yPercent: -3, duration: 3.2, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+
+  // 3. menu rows slide in on scroll
+  ScrollTrigger.batch('.menu li', {
+    start: 'top 85%', once: true,
+    onEnter: function(batch){
+      gsap.fromTo(batch, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out', stagger: 0.1 });
+    }
+  });
+
+  // 4. pinned process: three stages crossfade while the ring turns
+  var stages = gsap.utils.toArray('[data-stage]');
+  gsap.set(stages[0], { opacity: 1 });
+  var tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.process', start: 'top top', end: '+=180%',
+      pin: true, scrub: 0.6,
+      onUpdate: function(self){
+        gsap.to('[data-bar]', { scaleX: self.progress, duration: 0.2, overwrite: true });
+      }
+    }
+  });
+  stages.forEach(function(s, i){
+    if (i === 0) return;
+    tl.to(stages[i-1], { opacity: 0, y: -30, duration: 1 }, i - 0.5)
+      .fromTo(s, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1 }, i - 0.5);
+  });
+  tl.to('[data-spin]', { rotation: 360, svgOrigin: '200 200', ease: 'none', duration: stages.length }, 0);
+  tl.to('[data-pulse]', { attr: { r: 84 }, yoyo: true, repeat: 1, duration: 0.5, ease: 'sine.inOut' }, 0.5);
+})();
+</script>
+</body>
+</html>
