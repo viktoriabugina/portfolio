@@ -1,0 +1,41 @@
+@use 'mixins' as *;
+// Paper & sticker components: the "scrapbook kit"
+.tape{
+  position:absolute;width:112px;height:32px;background:rgba(255,225,77,.78);
+  box-shadow:0 1px 3px rgba(23,22,58,.18);z-index:3;
+  clip-path:polygon(0 8%,4% 0,8% 10%,12% 0,100% 0,96% 22%,100% 40%,96% 60%,100% 80%,96% 100%,6% 100%,0 92%,3% 70%,0 50%,3% 30%);
+  &--mint{background:rgba(165,235,201,.85)}
+  &--pink{background:rgba(240,35,123,.55)}
+  &--lilac{background:rgba(207,194,255,.9)}
+}
+.polaroid{
+  position:relative;background:#fff;padding:14px 14px 56px;border-radius:3px;
+  box-shadow:0 2px 0 rgba(23,22,58,.06),0 16px 34px -10px rgba(23,22,58,.35);
+  img{width:100%;aspect-ratio:4/4.4;object-fit:cover;background:var(--paper-2)}
+  figcaption{position:absolute;left:0;right:0;bottom:12px;text-align:center;font:400 1.35rem var(--hand);color:var(--ink)}
+}
+.sticker{
+  display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--ink);
+  font:700 .95rem var(--body);padding:9px 16px;border-radius:999px;border:2.5px solid var(--ink);
+  box-shadow:3px 4px 0 var(--ink);white-space:nowrap;user-select:none;touch-action:none;cursor:grab;
+  &--pink{background:var(--pink);color:#fff}
+  &--mint{background:var(--mint)}
+  &--lilac{background:var(--lilac)}
+  &--sky{background:var(--sky)}
+  &--tape{background:var(--tape)}
+  &:active{cursor:grabbing}
+}
+.stamp{
+  display:inline-grid;place-items:center;width:110px;height:110px;border-radius:50%;
+  background:var(--pink);color:#fff;font:400 1.35rem/1.05 var(--hand);text-align:center;
+  border:3px dashed #fff;outline:3px solid var(--pink);outline-offset:-1px;transform:rotate(12deg);
+}
+.card-paper{
+  position:relative;background:#fff;border:2.5px solid var(--ink);border-radius:18px;
+  box-shadow:6px 8px 0 var(--ink);@include adaptive-value('padding',34,22);
+}
+.ruled{
+  background:#fff;background-image:repeating-linear-gradient(transparent 0 33px,rgba(78,140,255,.28) 33px 34px);
+  background-position:0 14px;
+}
+.star{width:44px;height:44px;display:block}

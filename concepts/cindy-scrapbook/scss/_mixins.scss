@@ -1,0 +1,22 @@
+@use 'vars' as *;
+
+// FLS-style adaptive value: scales a property linearly between
+// $minSize (at 320px) and $startSize (at the container width).
+// $type 1 = scale only below the container, 2 = only above it, 3 = always.
+@mixin adaptive-value($property, $startSize, $minSize, $type: 1) {
+  $addSize: $startSize - $minSize;
+  $formula: calc(#{$minSize}px + #{$addSize} * ((100vw - #{$minWidth}px) / #{$maxWidthContainer - $minWidth}));
+  @if $type == 1 {
+    #{$property}: #{$startSize}px;
+    @media (max-width: #{$maxWidthContainer}px) { #{$property}: $formula; }
+  } @else if $type == 2 {
+    #{$property}: #{$startSize}px;
+    @media (min-width: #{$maxWidthContainer}px) { #{$property}: $formula; }
+  } @else {
+    #{$property}: $formula;
+  }
+}
+@mixin md1 { @media (max-width: #{$md1}px) { @content; } }
+@mixin md2 { @media (max-width: #{$md2}px) { @content; } }
+@mixin md3 { @media (max-width: #{$md3}px) { @content; } }
+@mixin md4 { @media (max-width: #{$md4}px) { @content; } }
