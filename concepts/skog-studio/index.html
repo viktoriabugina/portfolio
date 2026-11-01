@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skog Studio — Timber Houses Concept | Viktoria V.</title>
+<meta name="description" content="Concept site for a timber-house studio: a pinned hero where the photo shrinks into a frame, scroll-revealed text and a horizontal house gallery. SCSS and GSAP.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head>
+<body>
+
+<nav class="pill" aria-label="Main">
+  <a class="pill__logo" href="#top" aria-label="Skog Studio, top">S</a>
+  <span class="pill__label" data-label aria-live="polite">Home</span>
+  <button class="pill__menu" aria-expanded="false" aria-controls="menu" aria-label="Open menu" data-menu><span></span></button>
+</nav>
+<div class="overlay" id="menu" data-overlay>
+  <ul>
+    <li><a href="#showroom">Showroom</a></li><li><a href="#houses">Houses</a></li><li><a href="#materials">Materials</a></li><li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+
+<main id="top">
+<section class="hero" data-hero aria-label="Introduction">
+  <div class="hero__pin" data-pin>
+    <div class="hero__media" data-media><img src="https://images.unsplash.com/photo-1724931282671-2d3bcd6de8f2?w=2000&q=80&auto=format&fit=crop" alt="A dark timber house glowing from inside at dusk, set in a clearing" width="2000" height="1333" loading="eager" data-img></div>
+    <div class="hero__top"><span>Skog Studio</span><a href="#contact">Get a quote</a></div>
+    <h1 class="hero__title" data-title><span><em>Quiet</em></span><span><em>houses</em></span><span><em>in the woods</em></span></h1>
+    <p class="hero__sub" data-sub>We design and build timber houses for people who want to live slowly, from the first sketch to the last oiled board.</p>
+    <p class="hero__scroll" data-scroll>Scroll</p>
+  </div>
+</section>
+
+<section class="section showroom" id="showroom" data-section="Showroom">
+  <div class="container">
+    <div class="showroom__head"><span class="kicker">Showroom</span><span>Open Thu – Sat</span></div>
+    <div class="showroom__grid">
+      <div class="showroom__frame" data-frame><img src="https://images.unsplash.com/photo-1704902949428-65e05241291a?w=1000&q=80&auto=format&fit=crop" alt="Inside an A-frame cabin: tall glass doors facing the forest" width="1000" height="1250" loading="lazy" data-parallax></div>
+      <div>
+        <h2>A place where timber is read before it is cut.</h2>
+        <p>Walk through full-size wall sections, hold the oak, spruce and larch we build with, and see how a house is put together before a single board is ordered.</p>
+        <address>Placeholder address<br>Unit 4, Mill Lane, Example Valley</address>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal" id="materials" data-section="Materials"><div class="container">
+  <p data-reveal>Every house starts with the tree. We use slow-grown spruce from within a hundred kilometres, cut in winter, dried for a year and left unpainted so the wood can age the way it wants to.</p>
+</div></section>
+
+<section class="stats" aria-label="Studio in numbers"><div class="container stats__row">
+  <div class="stats__item"><b data-count="38">0</b><span>houses built, each one drawn for a single site</span></div>
+  <div class="stats__item"><b data-count="92" data-suffix="%">0</b><span>of our timber comes from within 100 km (placeholder)</span></div>
+  <div class="stats__item"><b data-count="11">0</b><span>years of building in wood (placeholder)</span></div>
+</div></section>
+
+<section class="section houses" id="houses" data-section="Houses">
+  <div class="container houses__head"><div><span class="kicker">Selected houses</span><h2>Five of thirty-eight.</h2></div><p style="max-width:34ch;color:var(--dim)">Every project name, place and figure here is a placeholder for the concept.</p></div>
+  <div class="houses__track" data-track>
+    <article class="houses__card"><div class="ph"><img src="https://images.unsplash.com/photo-1703782997454-8eb0d4d94e9c?w=900&q=80&auto=format&fit=crop" alt="A black A-frame cabin with a deck among tall trees" width="900" height="1125" loading="lazy"></div><h3>Ridge House</h3><p>A-frame · 84 m² · Example Valley</p></article>
+    <article class="houses__card"><div class="ph"><img src="https://images.unsplash.com/photo-1568729937315-2ef5ee9cf4f2?w=900&q=80&auto=format&fit=crop" alt="A timber cabin with smoke rising from the chimney" width="900" height="1125" loading="lazy"></div><h3>Smoke Hut</h3><p>Cabin · 46 m² · Example Hills</p></article>
+    <article class="houses__card"><div class="ph"><img src="https://images.unsplash.com/photo-1785960184129-e70f4eaa8fd2?w=900&q=80&auto=format&fit=crop" alt="Wooden A-frame with tall windows, seen up close" width="900" height="1125" loading="lazy"></div><h3>Larch Frame</h3><p>A-frame · 61 m² · Example Coast</p></article>
+    <article class="houses__card"><div class="ph"><img src="https://images.unsplash.com/photo-1676088933950-bae87cf34fee?w=900&q=80&auto=format&fit=crop" alt="A bright kitchen with a long timber dining table" width="900" height="1125" loading="lazy"></div><h3>Long Table</h3><p>Interior · 120 m² · Example Lake</p></article>
+    <article class="houses__card"><div class="ph"><img src="https://images.unsplash.com/photo-1672929280680-1afde30f94b8?w=900&q=80&auto=format&fit=crop" alt="A spiral wooden staircase seen from above" width="900" height="1125" loading="lazy"></div><h3>Spiral Stair</h3><p>Detail · custom joinery</p></article>
+  </div>
+</section>
+
+<section class="section cta" id="contact" data-section="Contact"><div class="container">
+  <h2>Build slowly.</h2>
+  <p>Tell us about the site and when you'd like to move in. We reply within two working days. (Concept: no form is connected.)</p>
+  <a class="btn" href="#top">Request a quote <i></i></a>
+</div></section>
+</main>
+
+<footer class="foot"><div class="container"><span>Concept by Viktoria V. · brand, projects and figures are placeholders · photos from Unsplash</span><span><a href="../../">Portfolio</a></span></div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="app.js"></script>
+</body></html>

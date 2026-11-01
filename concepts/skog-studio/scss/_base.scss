@@ -1,0 +1,24 @@
+@use 'mixins' as *;
+@use 'vars' as *;
+:root{
+  --bark:#12100E; --moss:#2C3629; --moss-2:#3B4838; --mist:#E7E9E2; --dim:rgba(231,233,226,.55);
+  --lichen:#C9D8A8; --line:rgba(231,233,226,.18);
+  --display:'Outfit',system-ui,sans-serif; --body:'Manrope',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;overflow-x:clip}
+body{background:var(--bark);color:var(--mist);font-family:var(--body);line-height:1.6;@include adaptive-value('font-size',18,16);overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--lichen);outline-offset:4px;border-radius:4px}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.container{max-width:#{$maxWidthContainer}px;margin:0 auto;@include adaptive-value('padding-left',40,18);@include adaptive-value('padding-right',40,18)}
+.section{@include adaptive-value('padding-top',150,70);@include adaptive-value('padding-bottom',150,70);position:relative}
+h2{font-family:var(--display);font-weight:200;letter-spacing:-.035em;line-height:1;@include adaptive-value('font-size',84,38)}
+.kicker{display:flex;align-items:center;gap:10px;font:500 .78rem var(--body);color:var(--dim);letter-spacing:.02em;
+  &::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--lichen)}}
+.btn{display:inline-flex;align-items:center;gap:14px;font:600 .95rem var(--body);text-decoration:none;color:var(--bark);background:var(--mist);padding:16px 26px;border-radius:999px;transition:background .3s,transform .4s var(--ease);
+  &:hover{background:var(--lichen);transform:translateY(-2px)}
+  i{width:22px;height:1.5px;background:currentColor;position:relative;&::after{content:'';position:absolute;right:0;top:-3px;width:7px;height:7px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;transform:rotate(45deg)}}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}

@@ -1,0 +1,4 @@
+// Design tokens. Colours live in CSS custom properties (see :root in _base).
+$maxWidthContainer: 1180; // px, content container (FLS-style)
+$minWidth: 320;           // px, smallest supported screen
+$md1: 1180; $md2: 991.98; $md3: 767.98; $md4: 479.98;
