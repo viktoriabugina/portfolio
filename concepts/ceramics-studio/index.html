@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hollow &amp; Hand — Ceramics Studio Concept | Viktoria V.</title>
+<meta name="description" content="Concept website for a fictional wheel-thrown ceramics studio: scroll-scrubbed hero, small-batch shop with a working bag, and class booking.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Hollow & Hand — ceramics studio concept">
+<meta property="og:description" content="Wheel-thrown tableware, shop and classes. Concept design.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bone:#EEE9DF; --paper:#F7F4EC; --ink:#1A1916; --ink-2:#262420;
+  --cobalt:#2A4BA0; --cobalt-lt:#9FB4EA; --celadon:#B7C6B0;
+  --muted:#6B675D; --line:#D9D3C5; --line-dk:#3A372F;
+  --f-head:"Bricolage Grotesque",system-ui,sans-serif;
+  --f-body:"Schibsted Grotesk",system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.1,1);
+  --gut:clamp(20px,4vw,56px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:var(--bone);color:var(--ink);font:400 17px/1.55 var(--f-body);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:0}
+:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:4px}
+.dark :focus-visible{outline-color:var(--cobalt-lt)}
+.wrap{padding-inline:var(--gut);max-width:1480px;margin-inline:auto}
+h1,h2,h3{font-family:var(--f-head);font-weight:700;letter-spacing:-.03em;line-height:.95}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* line reveal */
+.ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.li{display:block}
+.js .li{transform:translateY(112%);transition:transform 1.05s var(--ease);transition-delay:calc(var(--i,0)*.08s)}
+.js .in .li{transform:none}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px var(--gut);mix-blend-mode:normal;transition:background .3s,transform .4s var(--ease)}
+.nav.solid{background:color-mix(in srgb,var(--bone) 88%,transparent);backdrop-filter:blur(10px)}
+.nav.hide{transform:translateY(-100%)}
+.mark{font:700 20px/1 var(--f-head);letter-spacing:-.03em}
+.links{display:flex;gap:30px;font-weight:500;font-size:15px}
+.links a{position:relative;padding:6px 0}
+.links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.links a:hover::after{transform:scaleX(1)}
+.nav-r{display:flex;align-items:center;gap:10px}
+.bag-btn{font-weight:500;font-size:15px;padding:10px 14px;border-radius:99px;border:1.5px solid var(--ink)}
+.bag-btn b{display:inline-grid;place-items:center;min-width:22px;height:22px;margin-left:6px;border-radius:99px;background:var(--ink);color:var(--bone);font-size:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:13px 22px;border-radius:99px;background:var(--cobalt);color:#fff;font-weight:600;font-size:15px;will-change:transform;transition:background .3s}
+.btn:hover{background:#213d85}
+.btn.line{background:transparent;color:inherit;border:1.5px solid currentColor}
+.btn.line:hover{background:var(--ink);color:var(--bone);border-color:var(--ink)}
+.menu-btn{display:none;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--ink)}
+.menu-btn i{display:block;width:16px;height:1.5px;background:var(--ink);margin:4px auto;transition:transform .3s}
+.mnav{position:fixed;inset:0;z-index:49;background:var(--bone);padding:96px var(--gut) 32px;display:flex;flex-direction:column;gap:6px;transform:translateY(-100%);visibility:hidden;transition:transform .6s var(--ease),visibility 0s .6s}
+.mnav.open{transform:none;visibility:visible;transition:transform .6s var(--ease)}
+.mnav a{font:700 44px/1.1 var(--f-head);letter-spacing:-.03em;padding:6px 0}
+
+/* hero */
+.hero{padding:clamp(110px,16vh,150px) 0 clamp(32px,6vh,64px)}
+.hero h1{font-size:clamp(68px,19.5vw,330px);font-weight:800;font-stretch:80%;letter-spacing:-.055em;line-height:.84;margin-left:-.04em}
+.hero h1 .ln:nth-child(2){padding-left:.28em}
+.hero-row{display:grid;grid-template-columns:1.1fr 1fr;gap:var(--gut);margin-top:clamp(28px,5vw,64px);align-items:end}
+.lede{font-size:clamp(20px,2vw,28px);line-height:1.3;max-width:26ch;font-family:var(--f-head);font-weight:400;letter-spacing:-.015em}
+.facts{display:flex;gap:clamp(20px,4vw,56px);justify-content:flex-end;flex-wrap:wrap}
+.facts div{font-size:14px;color:var(--muted);max-width:18ch}
+.facts b{display:block;color:var(--ink);font:700 15px var(--f-head);letter-spacing:-.01em}
+
+/* pinned reveal */
+.reveal{position:relative;height:100svh;background:var(--ink);overflow:hidden}
+.reveal .pic{position:absolute;inset:0;clip-path:inset(18% 30% 18% 30% round 22px);will-change:clip-path}
+.reveal img{width:100%;height:100%;object-fit:cover;transform:scale(1.25);will-change:transform}
+.reveal .cap{position:absolute;left:var(--gut);right:var(--gut);bottom:clamp(28px,6vh,64px);color:#fff;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;opacity:0}
+.reveal .cap h2{font-size:clamp(34px,5.6vw,84px);max-width:14ch}
+.reveal .cap p{max-width:30ch;font-size:16px;color:#e8e3d8}
+.reveal .shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(10,9,8,.7));opacity:0;pointer-events:none}
+.static .reveal{height:auto;min-height:0;aspect-ratio:16/10}
+.static .reveal .pic{clip-path:none}
+.static .reveal img{transform:none}
+.static .reveal .cap,.static .reveal .shade{opacity:1}
+
+/* sections */
+section{position:relative}
+.sec{padding:clamp(72px,12vw,160px) 0}
+.sec-h{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:clamp(32px,5vw,64px);flex-wrap:wrap}
+.sec-h h2{font-size:clamp(44px,8vw,128px);font-weight:800;font-stretch:82%;letter-spacing:-.045em}
+.sec-h p{max-width:34ch;color:var(--muted)}
+
+/* shop */
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(16px,2.4vw,32px)}
+.card{grid-column:span 3}
+.card:nth-child(2){margin-top:clamp(0px,6vw,90px)}
+.card:nth-child(4){margin-top:clamp(0px,3vw,48px)}
+.card .pic{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:var(--line);transform-style:preserve-3d;transition:transform .5s var(--ease);will-change:transform}
+.card .pic img{width:100%;height:100%;object-fit:cover}
+.glare{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s;background:radial-gradient(420px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.38),transparent 55%)}
+.pic.tilting{transition:transform .08s linear}
+.pic.tilting .glare{opacity:1}
+.card h3{font-size:24px;margin-top:16px;letter-spacing:-.025em}
+.card .meta{display:flex;justify-content:space-between;color:var(--muted);font-size:15px;margin-top:6px}
+.card .add{margin-top:14px;width:100%;padding:12px;border-radius:99px;border:1.5px solid var(--ink);font-weight:600;font-size:15px;transition:background .3s,color .3s}
+.card .add:hover,.card .add.done{background:var(--ink);color:var(--bone)}
+
+/* process */
+.dark{background:var(--ink);color:var(--bone)}
+.proc{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,96px);align-items:start}
+.proc .stick{position:sticky;top:110px}
+.proc h2{font-size:clamp(44px,7vw,112px);font-weight:800;font-stretch:82%;letter-spacing:-.045em}
+.proc .stick p{margin-top:24px;color:#bdb7a8;max-width:34ch}
+.steps{display:grid;gap:clamp(40px,6vw,88px)}
+.step{display:grid;grid-template-columns:1fr;gap:20px}
+.step .im{border-radius:18px;overflow:hidden;aspect-ratio:16/10;background:var(--ink-2)}
+.step .im img{width:100%;height:100%;object-fit:cover}
+.step h3{font-size:clamp(32px,4vw,56px);display:flex;gap:16px;align-items:baseline}
+.step h3 span{font:500 15px var(--f-body);color:var(--cobalt-lt);letter-spacing:0}
+.step p{color:#bdb7a8;max-width:46ch}
+
+/* classes */
+.classes{display:grid;grid-template-columns:7fr 5fr;gap:clamp(28px,5vw,80px);align-items:start}
+.cl-list{border-top:1.5px solid var(--ink)}
+.cl{position:relative;display:grid;grid-template-columns:110px 1fr auto;gap:20px;align-items:center;padding:24px 4px;border-bottom:1px solid var(--line);cursor:pointer;transition:background .3s,padding .4s var(--ease)}
+.cl:hover{background:var(--paper)}
+.cl input{position:absolute;opacity:0}
+.cl .d{font:700 15px var(--f-head);color:var(--cobalt)}
+.cl .d small{display:block;font:400 14px var(--f-body);color:var(--muted)}
+.cl h3{font-size:clamp(22px,2.6vw,34px);letter-spacing:-.025em}
+.cl h3 small{display:block;font:400 15px/1.4 var(--f-body);letter-spacing:0;color:var(--muted);margin-top:6px}
+.cl .pr{text-align:right;font:700 20px var(--f-head)}
+.cl .pr small{display:block;font:400 13px var(--f-body);color:var(--muted)}
+.cl:has(input:checked){background:var(--ink);color:var(--bone);padding-inline:20px}
+.cl:has(input:checked) small,.cl:has(input:checked) .d{color:var(--cobalt-lt)}
+.cl:has(input:focus-visible){outline:2px solid var(--cobalt);outline-offset:2px}
+.form{background:var(--paper);border-radius:22px;padding:clamp(22px,3vw,36px);position:sticky;top:100px}
+.form h3{font-size:30px;letter-spacing:-.03em}
+.form .sum{margin:8px 0 22px;color:var(--muted);font-size:15px;min-height:46px}
+.fld{display:block;margin-bottom:16px}
+.fld span{display:block;font-size:14px;font-weight:500;margin-bottom:6px}
+.fld input,.fld select{width:100%;padding:13px 14px;border-radius:12px;border:1.5px solid var(--line);background:#fff;transition:border-color .2s}
+.fld input:focus,.fld select:focus{outline:none;border-color:var(--cobalt)}
+.fld.err input{border-color:#b3261e}
+.fld .m{display:none;color:#b3261e;font-size:13px;margin-top:4px}
+.fld.err .m{display:block}
+.form .btn{width:100%}
+.ok{display:none;margin-top:16px;padding:14px;border-radius:12px;background:#dfe8da;color:#24331f;font-size:15px}
+.ok.show{display:block}
+.note{font-size:13px;color:var(--muted);margin-top:14px}
+
+/* visit */
+.visit{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,48px);margin-top:clamp(40px,6vw,80px);border-top:1.5px solid var(--bone);padding-top:28px}
+.visit h3{font-size:22px;margin-bottom:10px}
+.visit p{color:#bdb7a8;font-size:16px}
+footer{padding:clamp(48px,8vw,96px) 0 28px;overflow:hidden}
+.foot-mark{font:800 clamp(64px,19vw,330px)/.82 var(--f-head);font-stretch:80%;letter-spacing:-.055em;margin-left:-.04em;white-space:nowrap}
+.fine{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:28px;font-size:14px;color:#9a9486}
+
+/* bag */
+.scrim{position:fixed;inset:0;z-index:60;background:rgba(10,9,8,.45);opacity:0;visibility:hidden;transition:opacity .4s,visibility 0s .4s}
+.scrim.open{opacity:1;visibility:visible;transition:opacity .4s}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);z-index:61;background:var(--paper);padding:24px;display:flex;flex-direction:column;transform:translateX(100%);visibility:hidden;transition:transform .55s var(--ease),visibility 0s .55s}
+.drawer.open{transform:none;visibility:visible;transition:transform .55s var(--ease)}
+.drawer header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.drawer h2{font-size:30px}
+.x{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--ink);font-size:20px;line-height:1}
+.lines{flex:1;overflow:auto;list-style:none}
+.lines li{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.lines img{width:64px;height:64px;object-fit:cover;border-radius:10px}
+.lines b{font:700 16px var(--f-head)}
+.lines small{display:block;color:var(--muted)}
+.lines .rm{font-size:13px;text-decoration:underline;color:var(--muted)}
+.empty{color:var(--muted);padding:24px 0}
+.tot{display:flex;justify-content:space-between;font:700 22px var(--f-head);padding:18px 0 14px}
+.ribbon{position:fixed;left:12px;bottom:12px;z-index:40;font-size:12px;font-weight:500;background:var(--ink);color:var(--bone);padding:7px 12px;border-radius:99px;opacity:.92}
+
+@media (max-width:980px){
+  .card{grid-column:span 6}.card:nth-child(n){margin-top:0}
+  .proc,.classes{grid-template-columns:1fr}
+  .proc .stick,.form{position:static}
+  .visit{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .links,.nav-r .btn{display:none}
+  .menu-btn{display:block}
+  .hero-row{grid-template-columns:1fr}
+  .facts{justify-content:flex-start}
+  .reveal .cap{flex-direction:column;align-items:flex-start}
+  .cl{grid-template-columns:1fr auto;gap:8px 16px}
+  .cl .d{grid-column:1/-1}
+}
+@media (max-width:520px){
+  .card{grid-column:span 12}
+  .ribbon{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .js .li{transform:none!important;transition:none}
+  *{scroll-behavior:auto!important}
+}
+</style>
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a class="mark" href="#top" aria-label="Hollow &amp; Hand, home">Hollow &amp; Hand</a>
+  <nav class="links" aria-label="Main">
+    <a href="#shop">Shop</a><a href="#process">Process</a><a href="#classes">Classes</a><a href="#visit">Visit</a>
+  </nav>
+  <div class="nav-r">
+    <button class="bag-btn" id="bagBtn" aria-haspopup="dialog">Bag<b id="bagN">0</b></button>
+    <a class="btn" href="#classes" data-magnet>Book a class</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><i></i><i></i></button>
+  </div>
+</header>
+<nav class="mnav" id="mnav" aria-label="Mobile">
+  <a href="#shop">Shop</a><a href="#process">Process</a><a href="#classes">Classes</a><a href="#visit">Visit</a>
+</nav>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <h1 aria-label="Hollow and Hand">
+        <span class="ln" aria-hidden="true"><span class="li">Hollow</span></span>
+        <span class="ln" aria-hidden="true"><span class="li" style="--i:1">&amp; Hand</span></span>
+      </h1>
+      <div class="hero-row">
+        <p class="lede">Wheel-thrown tableware, made in small batches in Portland, Oregon.</p>
+        <div class="facts">
+          <div><b>Cobalt, celadon, ash</b>Three glazes, mixed in the studio.</div>
+          <div><b>Fired twice</b>Bisque at 1,000°C, glaze at 1,240°C.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal" id="reveal" aria-label="In the studio">
+    <div class="pic" id="revPic">
+      <img id="revImg" src="https://images.unsplash.com/photo-1676125105332-608345abe20e?auto=format&fit=crop&w=2000&q=75" width="2000" height="1333" alt="A potter's wheel surrounded by finished pots and tools">
+    </div>
+    <div class="shade" id="revShade"></div>
+    <div class="cap" id="revCap">
+      <h2>Every piece starts as a handful of clay.</h2>
+      <p>We throw, trim and glaze each one by hand, so no two mugs are the same. That is the point.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="shop">
+    <div class="wrap">
+      <div class="sec-h">
+        <h2 data-split>The everyday set</h2>
+        <p>Made in batches of twenty or fewer. When a glaze sells out, it waits for the next firing.</p>
+      </div>
+      <div class="grid" id="products"></div>
+    </div>
+  </section>
+
+  <section class="sec dark" id="process">
+    <div class="wrap proc">
+      <div class="stick">
+        <h2 data-split>Slow on purpose</h2>
+        <p>A mug takes about three weeks from wedge to shelf. Most of that time is waiting: for clay to dry, for the kiln to cool.</p>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <div class="im"><img loading="lazy" src="https://images.unsplash.com/photo-1760018861921-43af85ea6c4f?auto=format&fit=crop&w=1200&q=75" width="1200" height="800" alt="Hands shaping clay on a pottery wheel"></div>
+          <h3><span>Day 1</span>Throw</h3>
+          <p>Clay is wedged to remove air, centered on the wheel and pulled up into shape. Walls are thin, so they have to be even.</p>
+        </article>
+        <article class="step">
+          <div class="im"><img loading="lazy" src="https://images.unsplash.com/photo-1784370596357-55fe82de6354?auto=format&fit=crop&w=1200&q=75" width="1200" height="800" alt="Ceramic tools and pottery pieces on a wooden board"></div>
+          <h3><span>Day 6</span>Trim</h3>
+          <p>Once leather-hard, each piece goes back on the wheel. We trim the foot, add the maker's mark and take away what it doesn't need.</p>
+        </article>
+        <article class="step">
+          <div class="im"><img loading="lazy" src="https://images.unsplash.com/photo-1778698993355-2c5f29edbfb9?auto=format&fit=crop&w=1200&q=75" width="1200" height="800" alt="Unfinished ceramic pots drying on a surface"></div>
+          <h3><span>Day 21</span>Fire</h3>
+          <p>Bisque firing, glazing, then a second firing that takes 14 hours. We open the kiln the next morning, and sometimes we get a surprise.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="classes">
+    <div class="wrap">
+      <div class="sec-h">
+        <h2 data-split>Make your own</h2>
+        <p>Small groups, six people at most. Clay, tools, glaze and two firings are included.</p>
+      </div>
+      <div class="classes">
+        <fieldset style="border:0" id="clList" aria-label="Choose a class">
+          <legend class="sr">Choose a class</legend>
+          <div class="cl-list" id="cl"></div>
+        </fieldset>
+        <form class="form" id="form" novalidate>
+          <h3>Hold a seat</h3>
+          <p class="sum" id="sum" aria-live="polite"></p>
+          <label class="fld"><span>Name</span><input name="n" autocomplete="name" required><em class="m">Add your name.</em></label>
+          <label class="fld"><span>Email</span><input name="e" type="email" autocomplete="email" required><em class="m">Enter an email like name@example.com.</em></label>
+          <label class="fld"><span>Seats</span>
+            <select name="s" id="seats"><option>1</option><option>2</option><option>3</option><option>4</option></select><em class="m">Not enough seats left.</em></label>
+          <button class="btn" type="submit" data-magnet>Hold my seat</button>
+          <p class="ok" id="ok" role="status"></p>
+          <p class="note">Demo form: nothing is sent or charged.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec dark" id="visit" style="padding-bottom:0">
+    <div class="wrap">
+      <div class="sec-h" style="margin-bottom:0">
+        <h2 data-split style="font-size:clamp(44px,8vw,128px);font-weight:800;font-stretch:82%;letter-spacing:-.045em;line-height:.95">Come say hello</h2>
+      </div>
+      <div class="visit">
+        <div><h3>Studio and shop</h3><p>Southeast Portland, Oregon.<br>Thursday to Sunday, 11 am to 6 pm.</p></div>
+        <div><h3>Firing days</h3><p>Kiln opens on the first Saturday of the month. Come early, the best pieces go quickly.</p></div>
+        <div><h3>Wholesale</h3><p>We supply a few cafés and restaurants. Tell us about your table and we'll tell you what's possible.</p></div>
+      </div>
+      <footer>
+        <div class="foot-mark" aria-hidden="true">Hollow &amp; Hand</div>
+        <div class="fine"><span>Concept design by Viktoria V. Fictional studio, photos from Unsplash.</span><span>© 2026 Hollow &amp; Hand (concept)</span></div>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Your bag">
+  <header><h2>Your bag</h2><button class="x" id="bagX" aria-label="Close bag">&times;</button></header>
+  <ul class="lines" id="lines"></ul>
+  <div class="tot"><span>Total</span><span id="tot">$0</span></div>
+  <button class="btn" id="checkout" disabled>Checkout (demo)</button>
+  <p class="note">Concept shop: checkout is disabled.</p>
+</aside>
+<div class="ribbon">Concept · not a real business</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script>
+(function(){
+var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+var FINE = matchMedia('(hover:hover) and (pointer:fine)').matches;
+var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var U=function(id,w){return 'https://images.unsplash.com/photo-'+id+'?auto=format&fit=crop&w='+w+'&q=75'};
+
+/* ---------- data ---------- */
+var PRODUCTS=[
+ {id:'mug',n:'Daily mug',g:'Celadon',p:38,img:'1789973233036',alt:'Stack of white ceramic mugs on a wooden shelf'},
+ {id:'vase',n:'Tall vase No. 4',g:'Cobalt marble',p:96,img:'1760764541302',alt:'Decorative ceramic vases with marbled patterns'},
+ {id:'cups',n:'Ash cups, set of four',g:'Ash',p:72,img:'1763824371988',alt:'Rows of ceramic cups drying upside down'},
+ {id:'bowl',n:'Serving bowl',g:'Bone',p:64,img:'1759847365004',alt:'Ceramic bowls and vases on a shelf'}
+];
+var CLASSES=[
+ {id:'wheel',n:'Intro to the wheel',s:'Center, pull and trim a mug and a small bowl.',d:'Sat 14 Nov',t:'10:00 am, 3 hours',p:85,left:4},
+ {id:'hand',n:'Handbuilding Sunday',s:'Pinch pots and slab plates, no wheel needed.',d:'Sun 22 Nov',t:'1:00 pm, 2.5 hours',p:70,left:6},
+ {id:'glaze',n:'Glaze night',s:'Paint and dip your bisque pieces. Bring friends.',d:'Thu 3 Dec',t:'6:30 pm, 2 hours',p:60,left:2}
+];
+
+/* ---------- products ---------- */
+var pg=$('#products');
+pg.innerHTML=PRODUCTS.map(function(x){return '<article class="card"><div class="pic" data-tilt><img loading="lazy" src="'+U(x.img,900)+'" width="900" height="1125" alt="'+x.alt+'"><span class="glare"></span></div><h3>'+x.n+'</h3><div class="meta"><span>'+x.g+' glaze</span><span>$'+x.p+'</span></div><button class="add" data-id="'+x.id+'">Add to bag</button></article>'}).join('');
+
+/* ---------- bag ---------- */
+var bag={};
+var drawer=$('#drawer'),scrim=$('#scrim'),lastFocus=null;
+function bagRender(){
+  var n=0,t=0,h='';
+  PRODUCTS.forEach(function(x){var q=bag[x.id]||0;if(!q)return;n+=q;t+=q*x.p;
+    h+='<li><img src="'+U(x.img,200)+'" alt=""><div><b>'+x.n+'</b><small>'+q+' × $'+x.p+'</small></div><button class="rm" data-rm="'+x.id+'" aria-label="Remove one '+x.n+'">Remove</button></li>'});
+  $('#lines').innerHTML=h||'<li class="empty" style="display:block">Your bag is empty.</li>';
+  $('#bagN').textContent=n;$('#tot').textContent='$'+t;
+}
+function openBag(){lastFocus=document.activeElement;drawer.classList.add('open');scrim.classList.add('open');$('#bagX').focus();if(lenis)lenis.stop()}
+function closeBag(){drawer.classList.remove('open');scrim.classList.remove('open');if(lenis)lenis.start();if(lastFocus)lastFocus.focus()}
+$('#bagBtn').onclick=openBag;$('#bagX').onclick=closeBag;scrim.onclick=closeBag;
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){if(drawer.classList.contains('open'))closeBag();closeMenu()}
+  if(e.key==='Tab'&&drawer.classList.contains('open')){
+    var f=$$('button:not([disabled])',drawer);if(!f.length)return;var a=f[0],z=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}
+  }
+});
+pg.addEventListener('click',function(e){var b=e.target.closest('.add');if(!b)return;var id=b.dataset.id;bag[id]=(bag[id]||0)+1;bagRender();hold=Date.now()+4000;nav.classList.remove('hide');
+  b.classList.add('done');b.textContent='Added';setTimeout(function(){b.classList.remove('done');b.textContent='Add to bag'},1400)});
+$('#lines').addEventListener('click',function(e){var b=e.target.closest('[data-rm]');if(!b)return;var id=b.dataset.rm;bag[id]=Math.max(0,(bag[id]||0)-1);bagRender()});
+bagRender();
+
+/* ---------- classes ---------- */
+var sel=CLASSES[0].id;
+function clRender(){
+  $('#cl').innerHTML=CLASSES.map(function(c){return '<label class="cl"><input type="radio" name="cl" value="'+c.id+'"'+(c.id===sel?' checked':'')+'><span class="d">'+c.d+'<small>'+c.t.split(',')[0]+'</small></span><h3>'+c.n+'<small>'+c.s+'</small></h3><span class="pr">$'+c.p+'<small>'+(c.left>0?c.left+' seats left':'Full')+'</small></span></label>'}).join('');
+  sumRender();
+}
+function cur(){return CLASSES.filter(function(c){return c.id===sel})[0]}
+function sumRender(){var c=cur();var q=+$('#seats').value;$('#sum').textContent=c.n+', '+c.d+'. '+q+' seat'+(q>1?'s':'')+' · $'+(c.p*q)+' due at the studio.'}
+$('#cl').addEventListener('change',function(e){if(e.target.name==='cl'){sel=e.target.value;sumRender();$('#ok').classList.remove('show')}});
+$('#seats').addEventListener('change',sumRender);
+var form=$('#form');
+form.addEventListener('submit',function(e){
+  e.preventDefault();var ok=true,c=cur();var n=form.n,em=form.e,q=+form.s.value;
+  function flag(el,bad){el.closest('.fld').classList.toggle('err',bad);if(bad)ok=false}
+  flag(n,!n.value.trim());flag(em,!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value));flag(form.s,q>c.left);
+  if(!ok){var f=$('.fld.err input,.fld.err select',form);if(f)f.focus();return}
+  c.left-=q;var first=n.value.trim().split(' ')[0];
+  var o=$('#ok');o.textContent='Thanks, '+first+'. We held '+q+' seat'+(q>1?'s':'')+' for '+c.n+' on '+c.d+'. (Demo, nothing was sent.)';o.classList.add('show');
+  form.reset();clRender();
+});
+clRender();
+
+/* ---------- nav ---------- */
+var nav=$('#nav'),lastY=0,hold=0;
+function navState(y){nav.classList.toggle('solid',y>40);nav.classList.toggle('hide',y>lastY&&y>400&&Date.now()>hold&&!$('#mnav').classList.contains('open'));lastY=y}
+addEventListener('scroll',function(){navState(scrollY)},{passive:true});
+var mnav=$('#mnav'),mb=$('#menuBtn');
+function closeMenu(){mnav.classList.remove('open');mb.setAttribute('aria-expanded','false');mb.setAttribute('aria-label','Open menu')}
+mb.onclick=function(){var o=mnav.classList.toggle('open');mb.setAttribute('aria-expanded',o);mb.setAttribute('aria-label',o?'Close menu':'Open menu')};
+$$('#mnav a').forEach(function(a){a.addEventListener('click',closeMenu)});
+
+/* ---------- smooth scroll (Lenis) ---------- */
+var lenis=null;
+if(!RM&&window.Lenis){
+  lenis=new Lenis({lerp:.08,smoothWheel:true});
+  if(window.gsap&&window.ScrollTrigger){gsap.registerPlugin(ScrollTrigger);lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0)}
+  else{(function raf(t){lenis.raf(t);requestAnimationFrame(raf)})(0)}
+}
+$$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){
+  var id=a.getAttribute('href');if(id.length<2)return;var t=$(id);if(!t)return;e.preventDefault();
+  if(lenis)lenis.scrollTo(t,{offset:-40,duration:1.4});else t.scrollIntoView({behavior:RM?'auto':'smooth'});
+})});
+
+/* ---------- line reveal ---------- */
+function splitLines(el){
+  var txt=el.getAttribute('data-text')||el.textContent.trim();el.setAttribute('data-text',txt);
+  el.setAttribute('aria-label',txt);el.innerHTML=txt.split(/\s+/).map(function(w){return '<span class="w" style="display:inline-block">'+w+'</span>'}).join(' ');
+  var ws=$$('.w',el),lines=[],top=null;
+  ws.forEach(function(w){var t=w.offsetTop;if(top===null||Math.abs(t-top)>4){lines.push([]);top=t}lines[lines.length-1].push(w.textContent)});
+  el.innerHTML=lines.map(function(l,i){return '<span class="ln" aria-hidden="true"><span class="li" style="--i:'+i+'">'+l.join(' ')+'</span></span>'}).join('');
+}
+var splits=$$('[data-split]');
+function doSplit(){splits.forEach(function(el){var was=el.classList.contains('in');el.classList.remove('in');splitLines(el);if(was){el.classList.add('in')}})}
+doSplit();
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.3});
+splits.forEach(function(el){io.observe(el)});
+var h1=$('.hero h1');
+requestAnimationFrame(function(){requestAnimationFrame(function(){h1.classList.add('in')})});
+var rw=innerWidth,rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){if(innerWidth!==rw){rw=innerWidth;doSplit();splits.forEach(function(el){if(el.getBoundingClientRect().top<innerHeight)el.classList.add('in')})}},200)});
+
+/* ---------- pinned reveal (ScrollTrigger scrub) ---------- */
+var rev=$('#reveal');
+if(!RM&&window.gsap&&window.ScrollTrigger){
+  var tl=gsap.timeline({defaults:{ease:'none'},scrollTrigger:{trigger:rev,start:'top top',end:'+=130%',scrub:.6,pin:true,anticipatePin:1}});
+  tl.fromTo('#revPic',{clipPath:'inset(18% 30% 18% 30% round 22px)'},{clipPath:'inset(0% 0% 0% 0% round 0px)',duration:1})
+    .to('#revImg',{scale:1,duration:1},0)
+    .to('#revShade',{opacity:1,duration:.5},.7)
+    .to('#revCap',{opacity:1,duration:.5},.8);
+}else{document.documentElement.classList.add('static')}
+
+/* ---------- magnetic buttons ---------- */
+if(FINE&&!RM){
+  $$('[data-magnet]').forEach(function(b){
+    var r=null;
+    b.addEventListener('mousemove',function(e){r=b.getBoundingClientRect();var x=(e.clientX-(r.left+r.width/2))*.32,y=(e.clientY-(r.top+r.height/2))*.4;b.style.transition='transform .12s linear';b.style.transform='translate('+x+'px,'+y+'px)'});
+    b.addEventListener('mouseleave',function(){b.style.transition='transform .6s cubic-bezier(.2,.9,.2,1.4)';b.style.transform=''});
+  });
+  /* ---------- 3D tilt + glare ---------- */
+  $$('[data-tilt]').forEach(function(p){
+    var cvs=p;p.parentNode.style.perspective='900px';
+    p.addEventListener('mousemove',function(e){var r=p.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;
+      p.classList.add('tilting');p.style.transform='rotateY('+((x-.5)*24)+'deg) rotateX('+((.5-y)*24)+'deg)';p.style.setProperty('--gx',x*100+'%');p.style.setProperty('--gy',y*100+'%')});
+    p.addEventListener('mouseleave',function(){p.classList.remove('tilting');p.style.transform=''});
+  });
+}
+})();
+</script>
+</body>
+</html>
