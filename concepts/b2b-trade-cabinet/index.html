@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B2B Trade Platform — Company Cabinet Concept | Viktoria V.</title>
+<meta name="description" content="UI concept for a cross-border B2B trade platform: company cabinet with requests for quotation, offer comparison by landed cost and contract approval. EN / RU / UZ.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+
+<div class="cbar" role="note">
+  <span class="cbar__tag">Concept</span>
+  <span class="cbar__txt">Company cabinet for a cross-border B2B trade platform · sample data · working title “Karvon”</span>
+  <a class="cbar__link" href="#notes">Design notes ↓</a>
+</div>
+
+<div class="app">
+  <aside class="side" aria-label="Main navigation">
+    <a class="brand" href="#" aria-label="Karvon, home">
+      <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path d="M16 2l3.6 8.4L28 6.8l-3.6 8.4L32 16l-8.4 3.6 3.6 8.4-8.4-3.6L16 32l-3.6-8.4L4 27.2l3.6-8.4L0 16l8.4-3.6L4 4.8l8.4 3.6z" fill="var(--tq)"/><circle cx="16" cy="16" r="4.5" fill="var(--paper)"/></svg>
+      <span>Karvon</span>
+    </a>
+    <nav>
+      <ul class="nav" id="nav"></ul>
+    </nav>
+    <div class="company">
+      <span class="company__av" aria-hidden="true">AT</span>
+      <span><b>Andijan Textile Group</b><small data-i18n="verified"></small></span>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="top">
+      <label class="search">
+        <svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><circle cx="9" cy="9" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M13.5 13.5L18 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <span class="sr" data-i18n="search"></span>
+        <input type="search" id="q" data-i18n-ph="searchPh">
+      </label>
+      <div class="seg" role="group" aria-label="Language" id="lang">
+        <button type="button" data-lang="uz">UZ</button><button type="button" data-lang="ru">RU</button><button type="button" data-lang="en" aria-pressed="true">EN</button>
+      </div>
+      <div class="seg" role="group" aria-label="Currency" id="cur">
+        <button type="button" data-cur="USD" aria-pressed="true">USD</button><button type="button" data-cur="UZS">UZS</button>
+      </div>
+      <span class="user" aria-hidden="true">DK</span>
+    </header>
+
+    <main class="content" id="top">
+      <section class="hello" aria-labelledby="h1">
+        <h1 id="h1"><span data-i18n="hello"></span></h1>
+        <p class="hello__sub" id="waitLine"></p>
+      </section>
+
+      <section class="ledger" aria-label="Waiting on you" id="ledger"></section>
+
+      <section class="rfq" aria-labelledby="rfqH">
+        <div class="rfq__head">
+          <h2 id="rfqH" class="sr" data-i18n="requests"></h2>
+          <div class="tabs" role="tablist" id="tabs">
+            <button role="tab" type="button" id="tab-mine" aria-selected="true" data-tab="mine"><span data-i18n="mine"></span> <i id="cMine"></i></button>
+            <button role="tab" type="button" id="tab-in" aria-selected="false" data-tab="in"><span data-i18n="incoming"></span> <i id="cIn"></i></button>
+          </div>
+          <button class="btn btn--ink" type="button" id="newRfq"><span aria-hidden="true">+</span> <span data-i18n="newReq"></span></button>
+        </div>
+        <div class="tbl" role="table" id="tbl" aria-labelledby="rfqH">
+          <div class="tr th" role="row" id="thead"></div>
+          <div role="rowgroup" id="tbody"></div>
+        </div>
+        <p class="empty" id="empty" hidden data-i18n="empty"></p>
+      </section>
+
+      <section class="notes" id="notes" aria-labelledby="notesH">
+        <h2 id="notesH">What this screen is designed to prove</h2>
+        <ol>
+          <li><b>One status model for every deal.</b> RFQ, offer, contract, payment and shipment share the same chips, colours and “next action”, always with a text label, never colour alone. The top ledger only shows what is waiting on <em>this</em> user.</li>
+          <li><b>Compare by what it really costs.</b> Open the polyester yarn request: the cheapest quote is EXW, so after freight it isn’t the best deal. The platform shows landed cost and says so.</li>
+          <li><b>Four languages from day one.</b> Switch EN / RU / UZ in the top bar: the same layout holds the longest Russian and Uzbek strings without truncating key data. Dates and money are formatted per locale; switch USD / UZS too.</li>
+          <li><b>Contract approval as a visible path.</b> Open the spare parts request to sign: each step shows who acts next, and signing moves the deal on everywhere at once.</li>
+          <li><b>Ready for Vue/Nuxt.</b> Every element here maps to a reusable component with states (empty, hover, focus, disabled, done) and tokens for colour, spacing and type.</li>
+        </ol>
+        <p class="notes__fine">Concept by Viktoria V. for the NEWMIND B2B platform brief. Company names, prices, exchange rate and documents are sample data. “Karvon” is a working title only.</p>
+      </section>
+    </main>
+  </div>
+
+  <nav class="tabbar" aria-label="Main navigation (mobile)" id="tabbar"></nav>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle" hidden>
+  <div class="drawer__in" id="dBody"></div>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="app.js?v=1"></script>
+</body>
+</html>
