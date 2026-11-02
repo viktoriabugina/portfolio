@@ -3,3 +3,13 @@
 /* Brand identity card uses a wide landscape preview */
 .work[data-type="brand"] .work__media{aspect-ratio:16/10}
 .work__media--video video{object-fit:cover}
+
+/* Portfolio category navigation and concept previews */
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tabs__btn{white-space:nowrap}
+.concept-cover{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;padding:clamp(22px,4vw,48px);background:var(--concept-bg,#d9d1c4);color:#171615;isolation:isolate}
+.concept-cover::before{content:"";position:absolute;inset:12px;border:1px solid rgba(20,18,16,.18);border-radius:12px;pointer-events:none}
+.concept-cover__label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;opacity:.7}
+.concept-cover strong{font-family:"Unbounded",system-ui,sans-serif;font-size:clamp(22px,3vw,42px);line-height:1.08;letter-spacing:-.04em;max-width:13ch;overflow-wrap:anywhere}
+.concept-cover__arrow{align-self:flex-end;font-size:30px;line-height:1}
+.concept-work .work__media{aspect-ratio:16/10}
