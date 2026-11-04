@@ -49,7 +49,7 @@
 		<!-- wp:column {"verticalAlignment":"center","className":"lumo-hero-media"} -->
 		<div class="wp-block-column is-vertically-aligned-center lumo-hero-media">
 			<!-- wp:image {"aspectRatio":"10/9","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"lumo-parallax","style":{"border":{"radius":"24px"}}} -->
-			<figure class="wp-block-image size-full has-custom-border lumo-parallax"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/hero.png' ) ); ?>" alt="A bag of Lumo coffee next to a filled cup and a scoop of roasted beans on a linen table" style="border-radius:24px;aspect-ratio:10/9;object-fit:cover" width="1200" height="1080"/></figure>
+			<figure class="wp-block-image size-full has-custom-border lumo-parallax"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/hero.jpg' ) ); ?>" alt="A bag of Lumo coffee next to a filled cup and a scoop of roasted beans on a linen table" style="border-radius:24px;aspect-ratio:10/9;object-fit:cover" width="1200" height="1080"/></figure>
 			<!-- /wp:image -->
 			<!-- wp:paragraph {"className":"lumo-stamp"} -->
 			<p class="lumo-stamp"><span>Roasted</span><strong>27·10</strong><span>Batch 214</span></p>

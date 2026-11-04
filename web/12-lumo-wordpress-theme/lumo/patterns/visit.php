@@ -13,7 +13,7 @@
 		<!-- wp:column {"verticalAlignment":"center","className":"lumo-reveal"} -->
 		<div class="wp-block-column is-vertically-aligned-center lumo-reveal">
 			<!-- wp:image {"aspectRatio":"4/3","scale":"cover","sizeSlug":"full","linkDestination":"none","className":"lumo-parallax","style":{"border":{"radius":"24px"}}} -->
-			<figure class="wp-block-image size-full has-custom-border lumo-parallax"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/roastery.png' ) ); ?>" alt="The Lumo roastery front with a drum roaster visible through the window" style="border-radius:24px;aspect-ratio:4/3;object-fit:cover" width="1200" height="900"/></figure>
+			<figure class="wp-block-image size-full has-custom-border lumo-parallax"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/visit.jpg' ) ); ?>" alt="The Lumo roastery front with a drum roaster visible through the window" style="border-radius:24px;aspect-ratio:4/3;object-fit:cover" width="1200" height="900"/></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->

@@ -7,6 +7,6 @@ Live demo (static snapshot of the theme, GitHub Pages): https://viktoriabugina.g
 - Styles and scripts built on a Gulp + Webpack + SCSS (BEM) pipeline: sources in `src/`, compiled files in `lumo/assets/`
 - Montserrat and Inter, self-hosted
 - Motion kept restrained: Lenis smooth scroll, headline reveal by words, photo parallax, block reveal, soft card tilt; respects `prefers-reduced-motion`
-- Images in the demo are placeholders to be replaced by client photography
+- Demo photography: free-licence stock photos (Unsplash), to be replaced with the client's own
 
 Install: copy `lumo/` into `wp-content/themes/` and activate.
