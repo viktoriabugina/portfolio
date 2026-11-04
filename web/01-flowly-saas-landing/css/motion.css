@@ -1,0 +1,14 @@
+/* Motion layer: restrained scroll reveal, hero intro, soft parallax, card hover. Uses `translate`, so existing transforms are untouched. */
+:root{--mo-ease:cubic-bezier(.22,1,.36,1)}
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  @keyframes mo-in{from{opacity:0;translate:0 24px}to{opacity:1;translate:0 0}}
+  .mo-js .hero [data-mo-intro]{animation:mo-in .8s var(--mo-ease) both;animation-delay:calc(var(--mo-i,0)*90ms + 80ms)}
+  @keyframes mo-fade{from{opacity:0}to{opacity:1}}
+  .mo-js .hero [data-mo-fade]{animation:mo-fade 1s ease both;animation-delay:.3s}
+  .mo-js [data-mo-reveal]{opacity:0;translate:0 26px;transition:opacity .7s var(--mo-ease),translate .8s var(--mo-ease);transition-delay:calc(var(--mo-i,0)*80ms)}
+  .mo-js [data-mo-reveal].is-in{opacity:1;translate:0 0}
+  [data-mo-par]{will-change:translate}
+  [data-mo-card]{transition:translate .35s var(--mo-ease),box-shadow .35s ease}
+  @media (hover:hover){[data-mo-card].is-in:hover{translate:0 -4px}}
+}
