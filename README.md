@@ -16,6 +16,7 @@ Portfolio of web design, front-end and motion design work.
 | 🌐 | [Matoa — store layout](web/09-matoa-store-layout/) | Figma to code (training), product slider, adaptive cards, mobile accordion |
 | 🌐 | [Somna — DTC advertorial and listicle](web/10-somna-dtc-advertorial/) | Mobile-first pre-sell pages: offer box, bundle picker, sticky mobile CTA |
 | 🌐 | [Halden — furniture landing in Webflow](web/11-halden-webflow/) | Webflow build with Client-First classes, live on webflow.io |
+| 🌐 | [Lumo — coffee roastery on WordPress](web/12-lumo-wordpress-theme/) | Custom block theme, custom post type with Block Bindings, Gulp + SCSS build, restrained motion; [static demo](web/12-lumo-wordpress/) |
 | 🌐 | [Personal site](web/03-victoria-personal-site/) | Portfolio website, kinetic typography |
 | 🎬 | [Flowly — logo reveal](motion/01-flowly-logo-reveal/) | After Effects: shape layers, mattes, expressions |
 | 🎬 | [Glow Studio — Reel 9:16](motion/02-glow-studio-reel-9x16/) | Kinetic typography for Instagram Reels |

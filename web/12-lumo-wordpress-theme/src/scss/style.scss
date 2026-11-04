@@ -1,0 +1,17 @@
+@use "sass:math";
+@import "base/mixins";
+
+// Шрифти підключає theme.json (Montserrat + Inter, локально). Тут лише налаштування сітки.
+$minWidth: 320;
+$maxWidth: 1440;
+$maxWidthContainer: 1200;
+$containerPadding: 32;
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+$pc: em($containerWidth);
+$tablet: em(991.98);
+$mobile: em(767.98);
+$mobileSmall: em(479.98);
+
+@import "lumo";
+@import "motion";

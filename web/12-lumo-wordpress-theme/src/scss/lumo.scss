@@ -1,0 +1,199 @@
+// Lumo — компоненти поверх theme.json (перенесено з lumo.css у збірку FLS)
+/* Lumo — small additions on top of theme.json */
+
+/* Header stays at the top, with a hairline once the page scrolls */
+.lumo-header {
+	position: sticky;
+	top: 0;
+	z-index: 20;
+	background-color: color-mix(in srgb, var(--wp--preset--color--paper) 92%, transparent);
+	backdrop-filter: saturate(1.4) blur(10px);
+	-webkit-backdrop-filter: saturate(1.4) blur(10px);
+	border-bottom: 1px solid transparent;
+	transition: border-color 0.4s ease;
+}
+.admin-bar .lumo-header {
+	top: var(--wp-admin--admin-bar--height, 0px);
+}
+.lumo-header.is-scrolled {
+	border-bottom-color: var(--wp--preset--color--line);
+}
+/* The mobile menu overlay must not live inside a blurred box */
+.has-modal-open .lumo-header {
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+}
+
+/* Small uppercase label above headings */
+.lumo-eyebrow {
+	font-size: 0.8125rem;
+	font-weight: 600;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--wp--preset--color--accent-dark);
+}
+
+h1,
+h2,
+h3 {
+	text-wrap: balance;
+}
+p {
+	text-wrap: pretty;
+}
+
+/* Quiet (outline) button */
+.wp-block-button.is-style-quiet .wp-block-button__link {
+	background: transparent;
+	color: var(--wp--preset--color--ink);
+	box-shadow: inset 0 0 0 1.5px var(--wp--preset--color--ink);
+}
+.wp-block-button.is-style-quiet .wp-block-button__link:hover {
+	background: var(--wp--preset--color--ink);
+	color: var(--wp--preset--color--surface);
+}
+.wp-block-button__link {
+	min-height: 48px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	transition:
+		background-color 0.4s ease,
+		color 0.4s ease,
+		box-shadow 0.4s ease;
+}
+
+/* Card group style */
+.is-style-card {
+	background-color: var(--wp--preset--color--surface);
+	border: 1px solid var(--wp--preset--color--line);
+	border-radius: 20px;
+	overflow: hidden;
+	transition: border-color 0.4s ease;
+}
+.is-style-card:hover {
+	border-color: color-mix(in srgb, var(--wp--preset--color--accent) 45%, var(--wp--preset--color--line));
+}
+
+/* Images inside cards zoom slightly on hover */
+.lumo-zoom img {
+	transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.lumo-zoom:hover img,
+.is-style-card:hover .lumo-zoom img {
+	transform: scale(1.035);
+}
+.lumo-zoom {
+	overflow: hidden;
+}
+
+/* Whole roast / guide card is clickable through its title link */
+.lumo-linked-card {
+	position: relative;
+}
+.lumo-linked-card .wp-block-post-title a::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+}
+.lumo-linked-card:focus-within {
+	outline: 2px solid var(--wp--preset--color--accent);
+	outline-offset: 3px;
+}
+.lumo-linked-card .wp-block-post-title a:focus-visible {
+	outline: none;
+}
+
+/* Meta line under a roast title */
+.lumo-meta {
+	color: var(--wp--preset--color--muted);
+	font-size: var(--wp--preset--font-size--small);
+}
+.lumo-notes {
+	font-family: var(--wp--preset--font-family--display);
+	font-weight: 500;
+	font-size: 1.125rem;
+	line-height: 1.35;
+}
+.lumo-roast-level {
+	display: inline-block;
+	padding: 0.2rem 0.65rem;
+	border-radius: 999px;
+	background-color: var(--wp--preset--color--crema);
+	font-size: 0.8125rem;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+}
+
+/* Roast-date stamp: the one playful detail on the page */
+.lumo-hero-media {
+	position: relative;
+}
+.lumo-stamp {
+	position: absolute;
+	left: clamp(-8px, -1vw, 0px);
+	bottom: 8%;
+	width: clamp(108px, 12vw, 136px);
+	aspect-ratio: 1;
+	display: grid;
+	place-content: center;
+	text-align: center;
+	border-radius: 50%;
+	background-color: var(--wp--preset--color--accent);
+	color: var(--wp--preset--color--surface);
+	box-shadow: 0 10px 30px rgba(36, 26, 19, 0.18);
+	transform: rotate(-9deg);
+	margin: 0 !important;
+	line-height: 1.15;
+}
+.lumo-stamp strong {
+	display: block;
+	font-family: var(--wp--preset--font-family--display);
+	font-size: clamp(1.25rem, 1.6vw, 1.5rem);
+	font-weight: 600;
+}
+.lumo-stamp span {
+	display: block;
+	font-size: 0.6875rem;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+}
+
+/* Steps with large numerals */
+.lumo-step-number {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 2.75rem;
+	line-height: 1;
+	color: var(--wp--preset--color--accent);
+}
+
+/* Plan card highlighted */
+.lumo-plan-featured.is-style-card {
+	border-color: var(--wp--preset--color--ink);
+	box-shadow: 0 18px 40px rgba(36, 26, 19, 0.08);
+}
+.lumo-plan-price {
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 2.5rem;
+	line-height: 1;
+}
+
+/* Ratio table in brew guides */
+.wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
+	background-color: var(--wp--preset--color--crema);
+}
+.wp-block-table td,
+.wp-block-table th {
+	border-color: var(--wp--preset--color--line);
+}
+
+/* Dark band */
+.has-ink-background-color .lumo-eyebrow {
+	color: var(--wp--preset--color--crema);
+}
+
+// Фото з паралаксом: рамка з заокругленням, зображення всередині трохи збільшене
+.lumo-parallax {
+	border-radius: 24px;
+}
