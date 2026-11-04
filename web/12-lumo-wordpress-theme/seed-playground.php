@@ -1,4 +1,4 @@
-<?php require_once ABSPATH.'wp-load.php';
+<?php require_once '/wordpress/wp-load.php';
 
 // Fills the Lumo demo site: pages, roasts, brew guides. Run once: php seed.php
 require_once ABSPATH.'wp-admin/includes/file.php';
