@@ -4,7 +4,7 @@
   --navy:#121A2C; --navy-2:#1C2540; --foot:#1D1D1D; --cream:#F1E8D0; --grey:#EEEEEF; --peach:#FBE3D6;
   --ink:#141414; --soft:#4B4B4B; --mute:#7A7A7A; --line:rgba(20,20,20,.12); --white:#fff;
   --f-hero:"League Spartan",system-ui,sans-serif; --f-serif:"Playfair Display",Georgia,serif; --f-sans:"Poppins",system-ui,sans-serif;
-  --gut:clamp(16px,2.9vw,56px); --ease:cubic-bezier(.2,.8,.2,1); --shadow:0 12px 34px rgba(20,20,20,.10);
+  --gut:clamp(16px,4vw,56px); --ease:cubic-bezier(.2,.8,.2,1); --shadow:0 12px 34px rgba(20,20,20,.10);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
