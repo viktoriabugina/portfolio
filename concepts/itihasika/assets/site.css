@@ -140,7 +140,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .stores{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;width:100%;max-width:330px}
 .store{display:flex;align-items:stretch;height:38px;border-radius:7px;background:var(--blue);color:#fff;overflow:hidden;text-align:left;transition:transform .25s,background .25s}
 .store:hover{background:var(--blue-d);transform:translateY(-2px)}
-.store i{flex:0 0 40%;background:#fff;display:grid;place-items:center;padding:0 6px;border:1.5px solid var(--blue);border-radius:7px 0 0 7px}
+.store i{flex:0 0 34%;background:#fff;display:grid;place-items:center;padding:0 6px;border:1.5px solid var(--blue);border-radius:7px 0 0 7px}
 .store i img{max-height:13px;width:auto}
 .store span{display:grid;align-content:center;padding:0 6px;line-height:1.05;min-width:0}
 .store small{font-size:11px;opacity:.9;white-space:nowrap}
@@ -199,7 +199,6 @@ button,input,select,textarea{font:inherit;color:inherit}
   .rail::-webkit-scrollbar{display:none}
   .rail>*{scroll-snap-align:start;min-width:0}
   .rail+.dots{display:flex}
-  .stories .rail+.dots{display:none}
   .dots--x{display:flex}
 }
 
@@ -246,29 +245,14 @@ button,input,select,textarea{font:inherit;color:inherit}
   .foot__top>div.open>ul{padding-bottom:18px}
 }
 
-/* grid layout (tablet + phone): rows of cards instead of sliders */
-.bk__buy{display:none}
+/* tablet + phone: books are a swipe slider of full cards, store buttons included (variant 1) */
+.bk__buy{display:none!important}
 @media (max-width:1149px){
-  .books,.books--4,.stories .rail.rail{grid-auto-flow:row;grid-auto-columns:auto;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;overflow:visible;margin-inline:0;padding:0;scroll-snap-type:none}
-  .bk{background:#fff;border-radius:16px;box-shadow:0 8px 24px rgba(20,20,20,.08);overflow:hidden;align-items:stretch;text-align:left;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
-  .bk__cover{background:#F2F1EE;padding:18px 12px 8px;perspective:none}
-  .stories .bk__cover{margin-top:0}
-  .bk__cover img{filter:drop-shadow(0 10px 10px rgba(0,0,0,.16));transition:transform .45s var(--ease)}
-  .bk .age{left:10px;top:10px;width:auto;height:auto;border-radius:999px;padding:6px 10px;display:flex;gap:4px;font-family:var(--f-sans);font-size:11px;font-weight:600;letter-spacing:.02em;box-shadow:0 4px 10px rgba(75,163,227,.35)}
-  .bk .age b{display:inline;font-size:11px}
-  .bk h3{font-size:15px;line-height:1.35;margin:14px 14px 0;text-align:left}
-  .bk>p,.bk .stores{display:none}
-  .bk__buy{display:grid;gap:12px;padding:6px 14px 14px;margin-top:auto}
-  .bk__buy span{font-size:13px;color:var(--soft)}
-  .bk__btn{display:flex;align-items:center;justify-content:center;min-height:42px;border-radius:10px;background:var(--blue);color:#fff;font-size:14px;font-weight:600;transition:background .25s}
-  .bk:hover,.bk:focus-within{transform:translateY(-4px);box-shadow:0 18px 36px rgba(20,20,20,.14)}
-  .bk:hover .bk__cover img{transform:translateY(-6px) rotate(-2deg)}
-  .bk:hover .bk__btn{background:var(--blue-d)}
-  .bk:active{transform:scale(.98)}
-}
-@media (min-width:760px) and (max-width:1149px){
-  .books{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-  .books--4,.stories .rail.rail{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+  .books,.books--4,.stories .rail.rail{display:grid;grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:min(300px,80vw);gap:18px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;margin-inline:calc(var(--gut) * -1);padding:16px var(--gut) 18px;scroll-padding-inline:var(--gut)}
+  .books::-webkit-scrollbar{display:none}
+  .books>*,.books--4>*{scroll-snap-align:start;min-width:0}
+  .bk .stores{grid-template-columns:1fr 1fr;max-width:none}
+  .stories .rail+.dots{display:flex}
 }
 /* desktop: the book under the pointer lifts onto its own card, so it is clear which one is picked */
 @media (min-width:1150px){
