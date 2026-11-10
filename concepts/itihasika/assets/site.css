@@ -79,7 +79,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* shared dark hero */
 .hero{position:relative;color:#fff;background:var(--navy);isolation:isolate;overflow:hidden}
 .hero__bg{position:absolute;inset:0;z-index:-2}
-.hero__bg img{width:100%;height:100%;object-fit:cover}
+.hero__bg img,.hero__bg video{width:100%;height:100%;object-fit:cover;display:block}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(10,10,14,.82) 0%,rgba(10,10,14,.55) 45%,rgba(10,10,14,.1) 80%),linear-gradient(180deg,rgba(10,10,14,.55) 0%,transparent 25%,transparent 70%,rgba(10,10,14,.5) 100%)}
 .hero__in{min-height:min(100svh,780px);display:flex;flex-direction:column;justify-content:center;padding-top:120px;padding-bottom:60px}
 .hero h1{font-size:clamp(33px,5.4vw,74px)}

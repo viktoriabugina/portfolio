@@ -87,3 +87,13 @@
     gsap.from('.hdr', {y:-30, opacity:0, duration:.9, ease:'power3.out'});
   }
 })();
+// background videos stay still for people who turn motion off; the trailer plays in place
+(() => {
+  const rm = matchMedia('(prefers-reduced-motion: reduce)');
+  document.querySelectorAll('video[autoplay]').forEach(v => { if (rm.matches) { v.removeAttribute('autoplay'); v.pause(); } });
+  document.querySelectorAll('.trailer').forEach(t => {
+    const v = t.querySelector('video'), b = t.querySelector('.btn'); if (!v || !b) return;
+    b.addEventListener('click', () => { t.classList.add('playing'); v.controls = true; v.play(); });
+    v.addEventListener('ended', () => { t.classList.remove('playing'); v.controls = false; v.load(); });
+  });
+})();
