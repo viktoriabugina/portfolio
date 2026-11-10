@@ -50,6 +50,27 @@
     f.querySelector('button').textContent = 'Sent';
   }));
 
+
+  // rails: dots for the swipe sliders (tablet and phone)
+  document.querySelectorAll('.rail').forEach(r => {
+    const d = r.nextElementSibling; if (!d || !d.classList.contains('dots')) return;
+    const items = [...r.children];
+    const padL = () => parseFloat(getComputedStyle(r).paddingLeft) || 0;
+    items.forEach((it, i) => { const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Show item ' + (i + 1) + ' of ' + items.length);
+      b.addEventListener('click', () => r.scrollTo({left: r.scrollLeft + it.getBoundingClientRect().left - r.getBoundingClientRect().left - padL(), behavior: reduce ? 'auto' : 'smooth'})); d.appendChild(b); });
+    const upd = () => { const rl = r.getBoundingClientRect().left + padL(); let best = 0, bd = 1e9;
+      items.forEach((it, i) => { const dd = Math.abs(it.getBoundingClientRect().left - rl); if (dd < bd) { bd = dd; best = i; } });
+      if (r.scrollLeft + r.clientWidth >= r.scrollWidth - 4) best = items.length - 1;
+      [...d.children].forEach((b, i) => b.setAttribute('aria-current', String(i === best))); };
+    r.addEventListener('scroll', upd, {passive:true}); addEventListener('resize', upd); upd();
+  });
+
+
+  // plan switch
+  document.querySelectorAll('.plan').forEach(g => g.querySelectorAll('button').forEach(b => b.addEventListener('click', () => {
+    g.querySelectorAll('button').forEach(x => x.setAttribute('aria-checked', String(x === b)));
+  })));
+
   // hero headline reveal shared by all pages
   if (window.gsap && !reduce) {
     gsap.from('.hero h1 .ln>span', {yPercent:110, duration:1.1, stagger:.1, ease:'expo.out', delay:.1});
