@@ -52,8 +52,8 @@
 
 
   // rails: dots for the swipe sliders (tablet and phone)
-  document.querySelectorAll('.rail').forEach(r => {
-    const d = r.nextElementSibling; if (!d || !d.classList.contains('dots')) return;
+  document.querySelectorAll('.rail, [data-dots]').forEach(r => {
+    const d = r.dataset.dots ? document.getElementById(r.dataset.dots) : r.nextElementSibling; if (!d || !d.classList.contains('dots')) return;
     const items = [...r.children];
     const padL = () => parseFloat(getComputedStyle(r).paddingLeft) || 0;
     items.forEach((it, i) => { const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Show item ' + (i + 1) + ' of ' + items.length);

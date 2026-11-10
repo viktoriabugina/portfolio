@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600;700;800&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=23">
+<link rel="stylesheet" href="assets/site.css?v=25">
 <style>
 .hero__bg img{object-position:62% 30%}
 
@@ -77,40 +77,13 @@ img.quote__av{object-fit:cover;background:var(--grey)}
 .why{display:grid;gap:20px}
 @media (min-width:700px){.why{grid-template-columns:1fr 1fr}}
 @media (min-width:1150px){.why{grid-template-columns:repeat(4,1fr)}}
-/* tablet + phone: team and reasons sit in a two-column grid (Variant B) */
+@media (max-width:1149px){.team,.why{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;gap:20px;padding:10px 0 18px}.team>*,.why>*{flex:0 0 min(372px,36vw);scroll-snap-align:start}}
+@media (max-width:640px){.team>*,.why>*{flex-basis:80vw}}
+/* team sliders (tablet + phone): smaller centred portrait, equal-height cards, "Off duty" pinned to the bottom */
 @media (max-width:1149px){
-.team,.why{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.member__img{width:100%;margin:0;background:none}
-.member__body{flex:1;align-content:start}
-}
-@media (max-width:759px){
-.member__img{padding:12px 12px 0}
-.member__img img{border-radius:12px}
-.role{left:20px;bottom:6px;font-size:11px;padding:4px 10px}
-.member__body{padding:14px 12px 16px;gap:6px}
-.member h3{font-size:19px}
-.member p{font-size:13px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden}
-.member .off{display:none}
-.why__b{padding:14px 12px 16px;gap:6px}
-.why h3{font-size:14.5px}
-.why p{font-size:13px;line-height:1.55}
-}
-@media (min-width:760px) and (max-width:1149px){
-.member{display:grid;grid-template-columns:150px 1fr;align-items:start;padding:20px}
-.member__img{border-radius:14px;overflow:visible}
-.member__img img{border-radius:14px}
-.role{left:50%;transform:translateX(-50%);bottom:-12px;white-space:nowrap}
-.member__body{padding:0 0 0 20px;gap:8px}
-.member h3{font-size:22px}
-.member p{font-size:14px}
-}
-/* moments: a photo mosaic instead of a carousel on tablet and phone */
-@media (max-width:1149px){
-.car .arr{display:none}
-.car .car__track{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;overflow:visible;padding:0}
-.car .car__track figure{grid-column:span 2;aspect-ratio:1/1;border-radius:14px}
-.car .car__track figure:nth-child(n+4){grid-column:span 3;aspect-ratio:3/2}
-.car .car__track img{object-fit:contain;padding:6px}
+.member__img{width:min(74%,264px);margin:8px auto 0;background:none}
+.member__body{flex:1;grid-template-rows:auto 1fr auto;padding-top:18px}
+.member .off{min-height:calc(2lh + 10px)}
 }
 .why article{overflow:hidden;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s}
 .why article:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(20,20,20,.14)}
@@ -154,6 +127,17 @@ img.quote__av{object-fit:cover;background:var(--grey)}
 .arr:hover{background:var(--yellow)}
 .arr--l{left:-6px}.arr--r{right:-6px}
 @media (max-width:700px){.arr{display:none}}
+/* a white section right after another white one: no doubled gap */
+.sec--follow{padding-top:clamp(8px,2vw,40px)}
+/* phone + tablet timeline: each stage lights up as it reaches the middle of the screen, photos open up and drift */
+.tl li::after{content:"";position:absolute;left:-28px;top:7px;width:11px;height:11px;border-radius:50%;box-sizing:border-box;border:2px solid var(--red);opacity:0;pointer-events:none}
+.tl li.ping::after{animation:tlPing 1.1s var(--ease) 1}
+@keyframes tlPing{0%{opacity:.8;transform:scale(1)}100%{opacity:0;transform:scale(3.2)}}
+@media (max-width:999px){
+.tl__phw{display:block;overflow:hidden;border-radius:14px;margin-top:14px;max-width:520px;box-shadow:var(--shadow);clip-path:inset(0 0 100% 0 round 14px);will-change:clip-path}
+.tl__phw .tl__ph{margin-top:0;border-radius:0;box-shadow:none;transform:scale(1.18);transform-origin:50% 50%}
+}
+@media (prefers-reduced-motion:reduce){.tl__phw{clip-path:none}.tl__phw .tl__ph{transform:none}.tl li.ping::after{animation:none}}
 </style>
 </head>
 <body>
@@ -207,9 +191,9 @@ img.quote__av{object-fit:cover;background:var(--grey)}
       </div>
       <div class="in__right">
         <ol class="tl" id="tl"><span class="tl__fill" id="tlFill" aria-hidden="true"></span>
-          <li class="on"><span class="tl__age">Ages 3–6</span><h3>Crawl: build a strong foundation</h3><p>Kids first learn the heroes, festivals and ideas of their heritage, one letter and one story at a time.</p><img class="tl__ph" src="https://images.unsplash.com/photo-1730130596425-197566414dc4?w=800&amp;h=450&amp;fit=crop&amp;q=80" alt="Parents celebrating a festival at home with their toddler" width="800" height="450" loading="lazy"></li>
-          <li><span class="tl__age">Ages 7–9</span><h3>Walk: reinforce it together</h3><p>We advance to the Epics, the Gita and the core civilizational narrative.</p><img class="tl__ph" src="https://images.unsplash.com/photo-1783873231697-3909aeda2381?w=800&amp;h=450&amp;fit=crop&amp;q=80" alt="A father and his young daughter learning together on the sofa" width="800" height="450" loading="lazy"></li>
-          <li><span class="tl__age">Ages 10–13</span><h3>Run: dive deeper</h3><p>Our OTT has hyper-real videos that cover the entire chronology of Indian history, which the entire family can enjoy together.</p><img class="tl__ph" src="https://images.unsplash.com/photo-1614112163164-e8749a2e7628?w=800&amp;h=450&amp;fit=crop&amp;q=80" alt="A father and his children watching a video together" width="800" height="450" loading="lazy"></li>
+          <li class="on"><span class="tl__age">Ages 3–6</span><h3>Crawl: build a strong foundation</h3><p>Kids first learn the heroes, festivals and ideas of their heritage, one letter and one story at a time.</p><span class="tl__phw"><img class="tl__ph" src="https://images.unsplash.com/photo-1730130596425-197566414dc4?w=800&amp;h=450&amp;fit=crop&amp;q=80" alt="Parents celebrating a festival at home with their toddler" width="800" height="450" loading="lazy"></span></li>
+          <li><span class="tl__age">Ages 7–9</span><h3>Walk: reinforce it together</h3><p>We advance to the Epics, the Gita and the core civilizational narrative.</p><span class="tl__phw"><img class="tl__ph" src="https://images.unsplash.com/photo-1783873231697-3909aeda2381?w=800&amp;h=450&amp;fit=crop&amp;q=80" alt="A father and his young daughter learning together on the sofa" width="800" height="450" loading="lazy"></span></li>
+          <li><span class="tl__age">Ages 10–13</span><h3>Run: dive deeper</h3><p>Our OTT has hyper-real videos that cover the entire chronology of Indian history, which the entire family can enjoy together.</p><span class="tl__phw"><img class="tl__ph" src="https://images.unsplash.com/photo-1614112163164-e8749a2e7628?w=800&amp;h=450&amp;fit=crop&amp;q=80" alt="A father and his children watching a video together" width="800" height="450" loading="lazy"></span></li>
         </ol>
         <figure class="in__img rv" id="tlImg" data-i="0">
           <img class="on" src="https://images.unsplash.com/photo-1730130596425-197566414dc4?w=900&amp;h=1100&amp;fit=crop&amp;q=80" alt="Parents celebrating a festival at home with their toddler" width="900" height="1100" loading="lazy">
@@ -225,7 +209,7 @@ img.quote__av{object-fit:cover;background:var(--grey)}
 <section class="sec" aria-labelledby="team-title">
   <div class="wrap">
     <div class="head center"><span class="label label--both rv" style="justify-content:center">The people</span><h2 class="serif h2 rv" data-d="1" id="team-title">Meet the team behind <em>the stories.</em></h2></div>
-    <div class="team">
+    <div class="team" data-dots="teamDots">
       <article class="card member rv"><div class="member__img"><img src="assets/img/Aditi-sketch.jpg" alt="Sketch portrait of Aditi, founder of Itihasika" width="1200" height="1238" loading="lazy"><span class="role">Founder</span></div>
         <div class="member__body"><h3>Aditi</h3><p>The mind behind Itihasika. A fabric designer by qualification and creative at heart, she started Itihasika in 2017 to make Hindu history and culture come alive for kids. A marketing whiz and product mastermind rolled into one.</p><p class="off"><b>Off duty:</b> cooking world cuisines or hanging out with her diva cat.</p></div></article>
       <article class="card member rv" data-d="1"><div class="member__img"><img src="assets/img/Dad-sketch.jpg" alt="Sketch portrait of Prabhakar, advisor at Itihasika India" width="1200" height="1238" loading="lazy"><span class="role">Advisor</span></div>
@@ -235,18 +219,20 @@ img.quote__av{object-fit:cover;background:var(--grey)}
       <article class="card member rv" data-d="3"><div class="member__img"><img src="assets/img/MokshB.jpg" alt="Illustration of Acharya Moksh, Itihasika's storyteller character" width="1200" height="1238" loading="lazy"><span class="role">Advisor</span></div>
         <div class="member__body"><h3>Acharya Moksh</h3><p>Fictional on paper but partly real: a writer’s alter ego and a walking encyclopedia of Hindu history and philosophy, dropping nuggets of wisdom as necessary.</p><p class="off"><b>Off duty:</b> chasing his other big love, travel.</p></div></article>
     </div>
+    <div class="dots dots--x" id="teamDots" role="group" aria-label="Team"></div>
   </div>
 </section>
 
 <section class="sec sec--cream" aria-labelledby="why-title">
   <div class="wrap">
     <div class="head center"><h2 class="serif h2 rv" id="why-title">Why families choose <em>Itihasika.</em></h2><p class="sub rv" data-d="1">Timeless history the whole family can enjoy, then talk about at dinner.</p></div>
-    <div class="why">
+    <div class="why" data-dots="whyDots">
       <article class="card rv"><div class="ph"><img src="https://images.unsplash.com/photo-1757877219270-3cc753c4b4d5?w=640&amp;h=400&amp;fit=crop&amp;q=80" alt="Two boys reading a book together outdoors" width="640" height="400" loading="lazy"></div><div class="why__b"><h3>Research-backed methods</h3><p>Every book, video and course is built on how children actually learn, not on rote memorisation.</p></div></article>
       <article class="card rv" data-d="1"><div class="ph"><img src="https://images.unsplash.com/photo-1759678444821-565ff103465c?w=640&amp;h=400&amp;fit=crop&amp;q=80" alt="A child playing with an alphabet puzzle" width="640" height="400" loading="lazy"></div><div class="why__b"><h3>Child psychology and gamification</h3><p>Puzzles, quizzes and titles to earn make kids reach for history on their own.</p></div></article>
       <article class="card rv" data-d="2"><div class="ph ph--art"><img src="assets/img/ABC-of-Indian-history-1.jpg" alt="A page from an Itihasika book: A is for Ahalya Bai" width="640" height="400" loading="lazy"></div><div class="why__b"><h3>Original art and stories</h3><p>Illustrated in-house by Hugo, so every page looks and feels like Itihasika.</p></div></article>
       <article class="card rv" data-d="3"><div class="ph"><img src="https://images.unsplash.com/photo-1639979511572-ff346bc5b3b7?w=640&amp;h=400&amp;fit=crop&amp;q=80" alt="Parents hugging their two children outdoors" width="640" height="400" loading="lazy"></div><div class="why__b"><h3>One path from 3 to 13</h3><p>Books, films and courses follow the crawl, walk, run approach, so learning grows with your child.</p></div></article>
     </div>
+    <div class="dots dots--x" id="whyDots" role="group" aria-label="Reasons"></div>
   </div>
 </section>
 
@@ -269,12 +255,12 @@ img.quote__av{object-fit:cover;background:var(--grey)}
   </div>
 </section>
 
-<section class="sec" aria-labelledby="mom-title">
+<section class="sec sec--follow" aria-labelledby="mom-title">
   <div class="wrap">
     <div class="head head--row"><div><span class="label rv">Our achievements</span><h2 class="serif h2 rv" data-d="1" id="mom-title" style="margin-top:12px">Moments from <em>the journey.</em></h2></div></div>
     <div class="car">
       <button class="arr arr--l" type="button" aria-label="Previous photos" data-dir="-1">←</button>
-      <div class="car__track" id="track" tabindex="0" aria-label="Photos of Itihasika achievements">
+      <div class="car__track" id="track" data-dots="carDots" tabindex="0" aria-label="Photos of Itihasika achievements">
         <figure><img src="assets/img/IMG-0928.png" alt="Itihasika achievement photo 1" loading="lazy" width="900" height="900"></figure>
         <figure><img src="assets/img/IMG-0741.png" alt="Itihasika achievement photo 2" loading="lazy" width="900" height="750"></figure>
         <figure><img src="assets/img/IMG-0675.png" alt="Itihasika achievement photo 3" loading="lazy" width="900" height="900"></figure>
@@ -283,6 +269,7 @@ img.quote__av{object-fit:cover;background:var(--grey)}
       </div>
       <button class="arr arr--r" type="button" aria-label="Next photos" data-dir="1">→</button>
     </div>
+    <div class="dots dots--x" id="carDots" role="group" aria-label="Achievement photos"></div>
   </div>
 </section>
 </main>
@@ -303,7 +290,7 @@ img.quote__av{object-fit:cover;background:var(--grey)}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>window.gsap && gsap.registerPlugin(ScrollTrigger);</script>
-<script src="assets/site.js?v=22"></script>
+<script src="assets/site.js?v=25"></script>
 <script>
 (function(){
   // carousel arrows
@@ -320,7 +307,7 @@ img.quote__av{object-fit:cover;background:var(--grey)}
   const r = document.getElementById('realize'), parts = r.textContent.split(' '), red = +r.dataset.red;
   r.innerHTML = parts.map((w, i) => '<span class="w' + (i >= parts.length - red ? ' r' : '') + '">' + w + '</span>').join(' ');
   const words = r.querySelectorAll('.w');
-  if (!window.gsap || REDUCE) { words.forEach(w => w.classList.add('on')); document.querySelectorAll('.tl li').forEach(l => l.classList.add('on')); return; }
+  if (!window.gsap || REDUCE) { words.forEach(w => w.classList.add('on')); document.querySelectorAll('.tl li').forEach(l => l.classList.add('on')); document.querySelectorAll('.tl__phw').forEach(w => w.style.clipPath = 'none'); return; }
   ScrollTrigger.create({trigger:r, start:'top 85%', end:'bottom 50%', scrub:true, onUpdate:s => words.forEach((w, i) => w.classList.toggle('on', i < s.progress * words.length + .5))});
 
   // hero image slowly drifts
@@ -328,8 +315,25 @@ img.quote__av{object-fit:cover;background:var(--grey)}
 
   // timeline fills and lights up each stage
   const items = document.querySelectorAll('#tl li');
-  gsap.to('#tlFill', {scaleY:1, ease:'none', scrollTrigger:{trigger:'#tl', start:'top 75%', end:'bottom 55%', scrub:true,
-    onUpdate:s => { items.forEach((l, i) => l.classList.toggle('on', s.progress >= i / items.length)); setImg(Math.min(items.length - 1, Math.floor(s.progress * items.length))); }}});
+  const mm = gsap.matchMedia();
+  mm.add('(min-width:1000px)', () => {
+    gsap.to('#tlFill', {scaleY:1, ease:'none', scrollTrigger:{trigger:'#tl', start:'top 75%', end:'bottom 55%', scrub:true,
+      onUpdate:s => { items.forEach((l, i) => l.classList.toggle('on', s.progress >= i / items.length)); setImg(Math.min(items.length - 1, Math.floor(s.progress * items.length))); }}});
+  });
+  mm.add('(max-width:999px)', () => {
+    // the line grows with the scroll; each stage switches on (with a ping on its dot) when it reaches the middle of the screen
+    gsap.to('#tlFill', {scaleY:1, ease:'none', scrollTrigger:{trigger:'#tl', start:'top 60%', end:'bottom 60%', scrub:true}});
+    items.forEach((l, i) => {
+      if (i) l.classList.remove('on');
+      ScrollTrigger.create({trigger:l, start:'top 60%', onEnter:() => { l.classList.add('on','ping'); setTimeout(() => l.classList.remove('ping'), 1200); }, onLeaveBack:() => { if (i) l.classList.remove('on'); }});
+      gsap.fromTo(l.querySelectorAll('.tl__age, h3, p'), {x:-24, autoAlpha:0}, {x:0, autoAlpha:1, duration:.8, stagger:.08, ease:'expo.out', clearProps:'transform,opacity,visibility', scrollTrigger:{trigger:l, start:'top 82%'}});
+      const w = l.querySelector('.tl__phw'), im = l.querySelector('.tl__ph');
+      if (w) {
+        gsap.to(w, {clipPath:'inset(0 0 0% 0 round 14px)', duration:1.2, ease:'expo.out', scrollTrigger:{trigger:w, start:'top 88%'}});
+        gsap.fromTo(im, {scale:1.18, yPercent:-6}, {scale:1.04, yPercent:6, ease:'none', scrollTrigger:{trigger:w, start:'top bottom', end:'bottom top', scrub:true}});
+      }
+    });
+  });
 })();
 </script>
 </body>
