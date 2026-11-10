@@ -97,3 +97,22 @@
     v.addEventListener('ended', () => { t.classList.remove('playing'); v.controls = false; v.load(); });
   });
 })();
+// "Buy" on tablet and phone: a bottom sheet with the book's stores, one more tap to Amazon
+(() => {
+  const btns = document.querySelectorAll('.bk__btn'); if (!btns.length || !window.HTMLDialogElement) return;
+  const d = document.createElement('dialog'); d.className = 'buy-sheet'; d.setAttribute('aria-labelledby', 'buySheetTitle');
+  d.innerHTML = '<div class="buy-sheet__in"><span class="buy-sheet__grip" aria-hidden="true"></span><div class="buy-sheet__hd"><img alt="" src=""><div><b id="buySheetTitle"></b><small>Choose where to buy</small></div><button type="button" class="buy-sheet__x" aria-label="Close">×</button></div><div class="stores"></div></div>';
+  document.body.appendChild(d);
+  const close = () => { d.classList.remove('show'); setTimeout(() => d.open && d.close(), matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 300); };
+  d.querySelector('.buy-sheet__x').addEventListener('click', close);
+  d.addEventListener('click', e => { if (e.target === d) close(); });
+  d.addEventListener('cancel', e => { e.preventDefault(); close(); });
+  btns.forEach(b => b.addEventListener('click', e => {
+    const card = b.closest('.bk'), st = card && card.querySelector('.stores'); if (!st) return;
+    e.preventDefault();
+    d.querySelector('#buySheetTitle').textContent = card.querySelector('h3').textContent.trim();
+    const im = card.querySelector('.bk__cover img'); d.querySelector('.buy-sheet__hd img').src = im ? im.currentSrc || im.src : '';
+    d.querySelector('.stores').innerHTML = st.innerHTML;
+    d.showModal(); requestAnimationFrame(() => requestAnimationFrame(() => d.classList.add('show')));
+  }));
+})();
