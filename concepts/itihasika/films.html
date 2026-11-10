@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600;700;800&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=25">
+<link rel="stylesheet" href="assets/site.css?v=26">
 <style>
 .store small{font-size:11px}
 .stats span{font-size:11px}
@@ -27,7 +27,17 @@
 .fhero .lead{margin-inline:auto}
 .fhero .btn--play{margin-top:26px;font-size:16px;min-height:52px}
 .fhero__in{padding-top:120px}
-@media (min-width:1150px){.fhero__media{max-width:960px}}
+/* desktop: the trailer fills the whole first screen, as in the Figma; the title sits over it at the bottom */
+@media (min-width:1150px){
+.fhero__in{min-height:min(52vw,100svh);justify-content:flex-end;padding-bottom:64px;gap:18px}
+.fhero__media{position:absolute;inset:0;max-width:none;border-radius:0;box-shadow:none;aspect-ratio:auto;z-index:-1;margin:0}
+.fhero::after{display:block;content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(10,10,14,.55) 0%,rgba(10,10,14,0) 22%,rgba(10,10,14,0) 50%,rgba(10,10,14,.88) 100%)}
+.fhero .btn--play{margin-top:10px}
+.fhero h1{font-size:clamp(40px,3.7vw,70px)}
+.fhero h1 br{display:none}
+.fhero h1 .ln{display:inline}
+.fhero h1 .ln+.ln::before{content:" "}
+}
 
 .sub-eras{background:#F2F1EE}
 .sub-eras .head{justify-items:center;margin-bottom:28px}
