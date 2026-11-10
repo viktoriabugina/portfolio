@@ -71,6 +71,15 @@
     g.querySelectorAll('button').forEach(x => x.setAttribute('aria-checked', String(x === b)));
   })));
 
+
+  // phone footer: each link group opens like a dropdown
+  document.querySelectorAll('.foot__top h4').forEach((h, i) => {
+    const ul = h.nextElementSibling; if (!ul) return; ul.id = ul.id || 'foot-links-' + i;
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'foot__tog'; b.textContent = h.textContent;
+    b.setAttribute('aria-expanded', 'false'); b.setAttribute('aria-controls', ul.id); h.textContent = ''; h.appendChild(b);
+    b.addEventListener('click', () => { const open = !h.parentElement.classList.contains('open'); h.parentElement.classList.toggle('open', open); b.setAttribute('aria-expanded', String(open)); });
+  });
+
   // hero headline reveal shared by all pages
   if (window.gsap && !reduce) {
     gsap.from('.hero h1 .ln>span', {yPercent:110, duration:1.1, stagger:.1, ease:'expo.out', delay:.1});

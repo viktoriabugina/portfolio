@@ -228,3 +228,18 @@ button,input,select,textarea{font:inherit;color:inherit}
   .foot__top>div:nth-child(4){grid-column:1/-1}
   .foot__top>div:first-child{flex-direction:column;text-align:center;border-top:0;padding-top:8px;gap:16px}
 }
+
+/* phone footer: link groups fold into dropdowns */
+.foot__tog{all:unset;display:block}
+.foot__tog:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+@media (max-width:599px){
+  .foot__top{grid-template-columns:1fr;gap:0}
+  .foot__top>div:nth-child(n+2){border-bottom:1px solid rgba(255,255,255,.12)}
+  .foot__top>div:first-child{margin-top:26px}
+  .foot h4{margin:0}
+  .foot__tog{cursor:pointer;display:flex;align-items:center;justify-content:space-between;width:100%;min-height:54px;font-size:17px}
+  .foot__tog::after{content:"";width:10px;height:10px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:translateY(-3px) rotate(45deg);transition:transform .3s var(--ease);margin-right:4px}
+  .foot__tog[aria-expanded="true"]::after{transform:translateY(2px) rotate(-135deg)}
+  .foot__top>div:nth-child(n+2):not(.open)>ul{display:none}
+  .foot__top>div.open>ul{padding-bottom:18px}
+}
