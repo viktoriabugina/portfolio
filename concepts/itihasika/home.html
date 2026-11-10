@@ -20,7 +20,7 @@
 
 .hhero .hero__bg img{object-position:62% 40%}
 .hhero::after{background:linear-gradient(90deg,rgba(10,10,14,.85) 0%,rgba(10,10,14,.6) 45%,rgba(10,10,14,.15) 85%),linear-gradient(180deg,rgba(10,10,14,.5) 0%,transparent 30%,transparent 65%,rgba(10,10,14,.65) 100%)}
-.hhero h1{max-width:13ch}
+
 @media (max-width:759px){.hhero .hero__bg img{object-position:70% 30%}.hhero::after{background:linear-gradient(180deg,rgba(10,10,14,.55) 0%,rgba(10,10,14,.35) 35%,rgba(10,10,14,.85) 75%)}.hhero .hero__cta .btn{flex:1 1 100%}}
 
 .why__grid{display:grid;gap:clamp(30px,5vw,60px);align-items:center}
@@ -33,11 +33,12 @@
 .voices .rail{--cols:3;--cw:min(360px,84vw)}
 .quote__av{object-fit:cover}
 
-.jour__grid{display:grid;gap:clamp(34px,4vw,56px);align-items:start}
+.jour__grid{display:grid;gap:clamp(30px,4vw,56px) clamp(30px,4vw,56px);align-items:start;grid-template-areas:"head" "tl" "img" "sub"}
 .jour__grid>*{min-width:0}
-.jour h3.serif{margin-top:clamp(26px,3vw,40px);font-weight:600}
+.j-head{grid-area:head}.j-sub{grid-area:sub}.j-tl{grid-area:tl}.j-img{grid-area:img}
 .jour .sub{margin-top:10px}
-.jour .plan-row{margin-top:24px}
+.j-sub h3.serif{font-weight:600}
+.jour .plan-row{margin-top:22px}
 .jour .tl{gap:6px}
 .jour .tl button{all:unset;display:block;cursor:pointer;padding:8px 0;min-height:36px;border-radius:6px}
 .jour .tl button:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
@@ -46,8 +47,9 @@
 .jour__img{display:grid;place-items:center;min-height:clamp(240px,30vw,460px)}
 .jour__img img{max-height:clamp(240px,30vw,460px);width:auto;filter:drop-shadow(0 24px 30px rgba(0,0,0,.22));transition:opacity .35s var(--ease),transform .5s var(--ease)}
 .jour__img img.swap{opacity:0;transform:translateY(12px) scale(.97)}
-@media (min-width:1150px){.jour__grid{grid-template-columns:1.05fr 1fr .75fr}}
-@media (min-width:760px) and (max-width:1149px){.jour__grid{grid-template-columns:1.2fr .8fr}.jour__intro{grid-column:1/-1}}
+@media (min-width:1150px){.jour__grid{grid-template-columns:1.05fr 1fr .75fr;grid-template-areas:"head tl img" "sub tl img";grid-template-rows:auto 1fr}.j-sub{margin-top:-10px}}
+@media (min-width:760px) and (max-width:1149px){.jour__grid{grid-template-columns:1.2fr .8fr;grid-template-areas:"head head" "tl img" "sub sub"}}
+@media (max-width:1149px){.j-head,.j-sub{text-align:center}.j-head .sub,.j-sub .sub{margin-inline:auto}.jour .plan-row{justify-content:center}.j-head .sub{text-transform:uppercase;letter-spacing:.06em;font-size:13px;font-weight:500}}
 
 .mv{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;align-content:start}
 .mv__img{display:block;border-radius:14px;overflow:hidden;aspect-ratio:16/9;background:#111;box-shadow:var(--shadow);margin-bottom:12px}
@@ -62,6 +64,35 @@
 
 .stories .rail{--cw:min(300px,78vw);row-gap:40px}
 .stories .bk__cover{margin-top:10px}
+
+/* tablet and phone follow the Home tablet/mobile Figma */
+.stats-strip{display:none}
+@media (min-width:760px){.why__grid{grid-template-columns:1.05fr .95fr}}
+@media (max-width:759px){
+  .hhero .hero__in{padding-bottom:40px}
+  .hhero .hero__cta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .hhero .hero__cta .btn{flex:none;white-space:normal;text-align:center;line-height:1.2;padding:6px 10px;min-height:50px;font-size:12.5px}
+  .hhero .stats{display:none}
+  .stats-strip{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;padding:22px var(--gut);border-bottom:1px solid var(--line);text-align:center}
+  .stats-strip div{display:grid;gap:2px}.stats-strip div+div{border-left:1px solid var(--line)}
+  .stats-strip b{font-family:var(--f-hero);font-weight:700;font-size:26px;line-height:1.1;color:var(--yellow)}
+  .stats-strip span{font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
+  .why__grid>div:first-child{text-align:center}
+  .why .label{justify-content:center}.why .label::after{content:"";width:20px;height:1.5px;background:currentColor}
+  .why__text{font-size:18px;line-height:1.75}
+  .mv,.mv p{text-align:center}
+  .chart__grid>div:first-child{text-align:center}.chart .jform{margin-inline:auto}.chart .label{justify-content:center}
+}
+@media (max-width:1149px){
+  .movies .head--row,.stories .head--row{flex-direction:column;align-items:center;text-align:center}
+  .movies .head--row .sub,.stories .head--row .sub{margin-inline:auto}
+  .chart__img{order:-1}
+  .stories .stores{grid-template-columns:1fr 1fr;max-width:none}
+  .stories .rail{--cw:min(340px,84vw)}
+}
+@media (min-width:760px) and (max-width:1149px){
+  .movies .rail,.stories .rail,.voices .rail{--cw:calc((100vw - 2 * var(--gut) - 16px) / 2)}
+}
 </style>
 </head>
 <body>
@@ -82,11 +113,12 @@
 <section class="hero hhero" aria-labelledby="hero-title">
   <div class="hero__bg"><img src="assets/img/home-hero-rider.jpg" alt="" width="1024" height="540" fetchpriority="high"></div>
   <div class="wrap hero__in">
-    <h1 class="hero-type" id="hero-title" aria-label="India’s timeless history reimagined for curious minds."><span class="ln"><span>India’s <span class="y">timeless</span> history</span></span><span class="ln"><span>reimagined for</span></span><span class="ln"><span><span class="y">curious</span> minds.</span></span></h1>
+    <h1 class="hero-type" id="hero-title" aria-label="India’s timeless history reimagined for curious minds."><span class="ln"><span>India’s <span class="y">timeless</span></span></span><span class="ln"><span>history reimagined</span></span><span class="ln"><span>for <span class="y">curious</span> minds.</span></span></h1>
     <div class="hero__cta"><a class="btn btn--yellow" href="films.html">Subscribe to our OTT</a><a class="btn btn--white" href="books.html">Browse our books</a><a class="btn btn--white" href="https://www.itihasika.com/courses/">Enroll in our courses</a></div>
     <div class="stats"><div><b>11 M+</b><span>Views on YouTube</span></div><div><b>3,000+</b><span>Books sold</span></div><div><b>10</b><span>Global awards</span></div></div>
   </div>
 </section>
+<div class="stats-strip" aria-hidden="true"><div><b>11 M+</b><span>Views on YouTube</span></div><div><b>3,000+</b><span>Books sold</span></div><div><b>10</b><span>Global awards</span></div></div>
 <section class="sec why" aria-labelledby="why-title">
   <div class="wrap why__grid">
     <div>
@@ -109,15 +141,17 @@
 </section>
 <section class="sec sec--cream jour" aria-labelledby="jour-title">
   <div class="wrap jour__grid">
-    <div class="jour__intro">
+    <div class="j-head">
       <h2 class="serif h2 rv" id="jour-title">Journeys across <em>time.</em></h2>
       <p class="sub rv" data-d="1">Movies covering India’s entire history arranged in chronological order.</p>
+    </div>
+    <div class="j-sub">
       <h3 class="serif h3 rv">Subscribe to our OTT Channel</h3>
       <p class="sub rv" data-d="1">New movies monthly. All movies in English and Hindi.</p>
       <div class="plan-row rv" data-d="2"><div class="plan" role="radiogroup" aria-label="Billing period"><button type="button" role="radio" aria-checked="true">Monthly <b>$9.99</b></button><button type="button" role="radio" aria-checked="false">Annually <b>$101</b></button></div><a class="btn btn--sky" href="films.html">Subscribe Now</a></div>
     </div>
-    <div class="rv" data-d="1"><ol class="tl" id="eras"><li class="on"><button type="button" data-img="assets/img/era-ancient.png" data-w="260" data-h="445" data-alt="Priest-King bust from the Indus valley civilization" aria-pressed="true"><h3>Ancient India</h3><p>Indus valley civilization | Vedic period | Evolution of Sanatan dharma</p></button></li><li><button type="button" data-img="assets/img/era-golden.png" data-w="157" data-h="452" data-alt="Lion Capital of Ashoka" aria-pressed="false"><h3>Golden age</h3><p>Buddha | Guptas | Mauryas</p></button></li><li><button type="button" data-img="assets/img/era-medieval.png" data-w="278" data-h="467" data-alt="Medieval temple sculpture" aria-pressed="false"><h3>Medieval India</h3><p>Early Islamic invasions | Cholas | Rashtrakutas | Solankis</p></button></li><li><button type="button" data-img="assets/img/era-islamic.png" data-w="304" data-h="220" data-alt="The Taj Mahal" aria-pressed="false"><h3>Islamic colonization &amp; Hindu resistance</h3><p>Delhi Sultanate | Mughal Raj | Rajput resistance | Gajapatis | Vijayanagara</p></button></li><li><button type="button" data-img="assets/img/era-swaraj.png" data-w="219" data-h="418" data-alt="Statue of Chhatrapati Shivaji Maharaj" aria-pressed="false"><h3>Hindu Swaraj</h3><p>Marathas | Ahoms | Sikhs | Travancore</p></button></li><li><button type="button" data-img="assets/img/era-british.png" data-w="193" data-h="407" data-alt="Statue of Queen Victoria" aria-pressed="false"><h3>British Raj &amp; modern India</h3><p>East India Company | British rule | Independence struggle | Post independence</p></button></li></ol></div>
-    <figure class="jour__img rv" data-d="2"><img id="era-img" src="assets/img/era-ancient.png" alt="Priest-King bust from the Indus valley civilization" width="260" height="445" loading="lazy"></figure>
+    <div class="j-tl rv" data-d="1"><ol class="tl" id="eras"><li class="on"><button type="button" data-img="assets/img/era-ancient.png" data-w="260" data-h="445" data-alt="Priest-King bust from the Indus valley civilization" aria-pressed="true"><h3>Ancient India</h3><p>Indus valley civilization | Vedic period | Evolution of Sanatan dharma</p></button></li><li><button type="button" data-img="assets/img/era-golden.png" data-w="157" data-h="452" data-alt="Lion Capital of Ashoka" aria-pressed="false"><h3>Golden age</h3><p>Buddha | Guptas | Mauryas</p></button></li><li><button type="button" data-img="assets/img/era-medieval.png" data-w="278" data-h="467" data-alt="Medieval temple sculpture" aria-pressed="false"><h3>Medieval India</h3><p>Early Islamic invasions | Cholas | Rashtrakutas | Solankis</p></button></li><li><button type="button" data-img="assets/img/era-islamic.png" data-w="304" data-h="220" data-alt="The Taj Mahal" aria-pressed="false"><h3>Islamic colonization &amp; Hindu resistance</h3><p>Delhi Sultanate | Mughal Raj | Rajput resistance | Gajapatis | Vijayanagara</p></button></li><li><button type="button" data-img="assets/img/era-swaraj.png" data-w="219" data-h="418" data-alt="Statue of Chhatrapati Shivaji Maharaj" aria-pressed="false"><h3>Hindu Swaraj</h3><p>Marathas | Ahoms | Sikhs | Travancore</p></button></li><li><button type="button" data-img="assets/img/era-british.png" data-w="193" data-h="407" data-alt="Statue of Queen Victoria" aria-pressed="false"><h3>British Raj &amp; modern India</h3><p>East India Company | British rule | Independence struggle | Post independence</p></button></li></ol></div>
+    <figure class="j-img jour__img rv" data-d="2"><img id="era-img" src="assets/img/era-ancient.png" alt="Priest-King bust from the Indus valley civilization" width="260" height="445" loading="lazy"></figure>
   </div>
 </section>
 <section class="sec movies" aria-labelledby="mov-title">
