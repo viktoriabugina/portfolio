@@ -213,3 +213,18 @@ button,input,select,textarea{font:inherit;color:inherit}
 .btn--play i{width:36px;height:36px;border-radius:50%;background:#000;display:grid;place-items:center;font-style:normal}
 .btn--play i::before{content:"";border-left:11px solid var(--yellow);border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px}
 .foot ul a{display:inline-block;padding:9px 0;margin:-9px 0}
+
+/* compact footer on tablet and phone (Figma): link columns first, tagline and socials below */
+@media (max-width:859px){
+  .foot{padding-top:44px}
+  .foot__top{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 20px}
+  .foot__top>div:first-child{order:4;grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid rgba(255,255,255,.1);padding-top:22px}
+  .foot__top>div:first-child p{max-width:42ch}
+  .foot__top>div:first-child .soc{margin-top:0;flex:none}
+  .foot__bottom{margin-top:26px}
+}
+@media (max-width:599px){
+  .foot__top{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .foot__top>div:nth-child(4){grid-column:1/-1}
+  .foot__top>div:first-child{flex-direction:column;text-align:center;border-top:0;padding-top:8px;gap:16px}
+}
