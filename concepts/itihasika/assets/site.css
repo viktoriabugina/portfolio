@@ -95,7 +95,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 @media (max-width:520px){.stats{align-self:stretch}.stats div{flex:1;padding:2px 8px}.stats:has(div:nth-child(4)){display:grid;grid-template-columns:1fr 1fr;row-gap:12px}.stats div{padding:2px 8px}.stats div+div{border-left:0}.stats div:nth-child(even){border-left:1px solid rgba(255,255,255,.3)}.stats div:nth-child(3):last-child{grid-column:1/-1}}
 
 /* sections */
-.sec{padding:clamp(70px,9vw,120px) 0}
+.sec{padding:clamp(48px,6.25vw,120px) 0}
 .sec--cream{background:var(--cream)}
 .sec--grey{background:var(--grey)}
 .sec--navy{background:var(--navy);color:#fff}
