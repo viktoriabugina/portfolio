@@ -464,3 +464,7 @@
 	}
 }
 
+
+// Phone spacing and 2-column deals (keeps sections tight on small screens)
+@media (max-width:767.98px){.main-slider{padding-bottom:32px}.discover-now{margin-bottom:44px}.discover-now__container{gap:16px}.monthly-deals{padding-bottom:64px}.monthly-deals__title{margin-bottom:12px}.monthly-deals__items{padding-top:32px;row-gap:56px}.touch .monthly-deals__items{row-gap:96px}}
+@media (max-width:479.98px){.monthly-deals__items{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px;row-gap:48px}.touch .monthly-deals__items{row-gap:84px}.item-monthly-deal{padding:0 10px 14px}.item-monthly-deal__image-ibg{margin-top:-24px}.item-monthly-deal__body{padding-top:14px}.item-monthly-deal__title{font-size:17px;line-height:1.3}.item-monthly-deal__sale{font-size:13px}.item-monthly-deal__price{font-size:17px}.item-monthly-deal__price_old{font-size:13px}.item-monthly-deal__actions{gap:6px;padding:12px 0}.item-monthly-deal__favorite{flex:0 0 36px;height:36px}.item-monthly-deal__cart{padding:0 6px;font-size:13px;min-height:36px}.touch .item-monthly-deal::before{height:calc(100% + 60px)}}
