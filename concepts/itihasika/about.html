@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600;700;800&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=20">
+<link rel="stylesheet" href="assets/site.css?v=21">
 <style>
 .hero__bg img{object-position:62% 30%}
 
@@ -77,13 +77,40 @@ img.quote__av{object-fit:cover;background:var(--grey)}
 .why{display:grid;gap:20px}
 @media (min-width:700px){.why{grid-template-columns:1fr 1fr}}
 @media (min-width:1150px){.why{grid-template-columns:repeat(4,1fr)}}
-@media (max-width:1149px){.team,.why{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;gap:20px;padding:10px 0 30px}.team>*,.why>*{flex:0 0 min(372px,36vw);scroll-snap-align:start}}
-@media (max-width:640px){.team>*,.why>*{flex-basis:80vw}}
-/* team sliders (tablet + phone): smaller centred portrait, equal-height cards, "Off duty" pinned to the bottom */
+/* tablet + phone: team and reasons sit in a two-column grid (Variant B) */
 @media (max-width:1149px){
-.member__img{width:min(74%,264px);margin:8px auto 0;background:none}
-.member__body{flex:1;grid-template-rows:auto 1fr auto;padding-top:18px}
-.member .off{min-height:calc(2lh + 10px)}
+.team,.why{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.member__img{width:100%;margin:0;background:none}
+.member__body{flex:1;align-content:start}
+}
+@media (max-width:759px){
+.member__img{padding:12px 12px 0}
+.member__img img{border-radius:12px}
+.role{left:20px;bottom:6px;font-size:11px;padding:4px 10px}
+.member__body{padding:14px 12px 16px;gap:6px}
+.member h3{font-size:19px}
+.member p{font-size:13px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden}
+.member .off{display:none}
+.why__b{padding:14px 12px 16px;gap:6px}
+.why h3{font-size:14.5px}
+.why p{font-size:13px;line-height:1.55}
+}
+@media (min-width:760px) and (max-width:1149px){
+.member{display:grid;grid-template-columns:150px 1fr;align-items:start;padding:20px}
+.member__img{border-radius:14px;overflow:visible}
+.member__img img{border-radius:14px}
+.role{left:50%;transform:translateX(-50%);bottom:-12px;white-space:nowrap}
+.member__body{padding:0 0 0 20px;gap:8px}
+.member h3{font-size:22px}
+.member p{font-size:14px}
+}
+/* moments: a photo mosaic instead of a carousel on tablet and phone */
+@media (max-width:1149px){
+.car .arr{display:none}
+.car .car__track{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;overflow:visible;padding:0}
+.car .car__track figure{grid-column:span 2;aspect-ratio:1/1;border-radius:14px}
+.car .car__track figure:nth-child(n+4){grid-column:span 3;aspect-ratio:3/2}
+.car .car__track img{object-fit:contain;padding:6px}
 }
 .why article{overflow:hidden;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s}
 .why article:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(20,20,20,.14)}
@@ -276,7 +303,7 @@ img.quote__av{object-fit:cover;background:var(--grey)}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
 <script>window.gsap && gsap.registerPlugin(ScrollTrigger);</script>
-<script src="assets/site.js?v=20"></script>
+<script src="assets/site.js?v=21"></script>
 <script>
 (function(){
   // carousel arrows

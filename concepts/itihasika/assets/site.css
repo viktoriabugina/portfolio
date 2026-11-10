@@ -187,7 +187,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .bk{container-type:inline-size}
 @container (max-width:315px){.stores{grid-template-columns:1fr;max-width:210px;margin-inline:auto}}
 
-/* rails: card rows that become swipe sliders on tablet and phone (as in the Figma) */
+/* rails: card rows; on tablet and phone they become grids, .rail--swipe ones stay swipe sliders */
 .rail{display:grid;gap:clamp(18px,2vw,28px);grid-template-columns:repeat(var(--cols,4),minmax(0,1fr))}
 .dots{display:none;justify-content:center;margin-top:4px;color:var(--ink)}
 .dots button{width:36px;height:36px;border:0;background:none;display:grid;place-items:center;cursor:pointer;padding:0;color:inherit}
@@ -195,10 +195,10 @@ button,input,select,textarea{font:inherit;color:inherit}
 .dots button[aria-current="true"]::before{width:22px;opacity:1}
 .dots--light{color:#fff}
 @media (max-width:1149px){
-  .rail{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:var(--cw,min(340px,80vw));gap:16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;margin-inline:calc(var(--gut) * -1);padding:8px var(--gut) 14px;scroll-padding-inline:var(--gut)}
-  .rail::-webkit-scrollbar{display:none}
-  .rail>*{scroll-snap-align:start;min-width:0}
-  .dots{display:flex}
+  .rail--swipe{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:var(--cw,min(340px,80vw));gap:16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;margin-inline:calc(var(--gut) * -1);padding:8px var(--gut) 14px;scroll-padding-inline:var(--gut)}
+  .rail--swipe::-webkit-scrollbar{display:none}
+  .rail--swipe>*{scroll-snap-align:start;min-width:0}
+  .rail--swipe+.dots{display:flex}
 }
 
 /* plan switch (Monthly / Annually), from the Films and Home Figma */
@@ -242,4 +242,49 @@ button,input,select,textarea{font:inherit;color:inherit}
   .foot__tog[aria-expanded="true"]::after{transform:translateY(2px) rotate(-135deg)}
   .foot__top>div:nth-child(n+2):not(.open)>ul{display:none}
   .foot__top>div.open>ul{padding-bottom:18px}
+}
+
+/* grid layout (tablet + phone): rows of cards instead of sliders */
+.bk__buy{display:none}
+@media (max-width:1149px){
+  .rail:not(.rail--swipe){grid-template-columns:repeat(var(--g,2),minmax(0,1fr));gap:26px 14px}
+  .books,.books--4,.stories .rail{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .bk{background:#fff;border-radius:16px;box-shadow:0 8px 24px rgba(20,20,20,.08);overflow:hidden;align-items:stretch;text-align:left;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+  .bk__cover{background:#F2F1EE;padding:18px 12px 8px;perspective:none}
+  .stories .bk__cover{margin-top:0}
+  .bk__cover img{filter:drop-shadow(0 10px 10px rgba(0,0,0,.16));transition:transform .45s var(--ease)}
+  .bk .age{left:10px;top:10px;width:auto;height:auto;border-radius:999px;padding:6px 10px;display:flex;gap:4px;font-family:var(--f-sans);font-size:11px;font-weight:600;letter-spacing:.02em;box-shadow:0 4px 10px rgba(75,163,227,.35)}
+  .bk .age b{display:inline;font-size:11px}
+  .bk h3{font-size:15px;line-height:1.35;margin:14px 14px 0;text-align:left}
+  .bk>p,.bk .stores{display:none}
+  .bk__buy{display:grid;gap:12px;padding:6px 14px 14px;margin-top:auto}
+  .bk__buy span{font-size:13px;color:var(--soft)}
+  .bk__btn{display:flex;align-items:center;justify-content:center;min-height:42px;border-radius:10px;background:var(--blue);color:#fff;font-size:14px;font-weight:600;transition:background .25s}
+  .bk:hover,.bk:focus-within{transform:translateY(-4px);box-shadow:0 18px 36px rgba(20,20,20,.14)}
+  .bk:hover .bk__cover img{transform:translateY(-6px) rotate(-2deg)}
+  .bk:hover .bk__btn{background:var(--blue-d)}
+  .bk:active{transform:scale(.98)}
+}
+@media (min-width:760px) and (max-width:1149px){
+  .books{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .books--4,.stories .rail{grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+}
+/* desktop: the book under the pointer lifts onto its own card, so it is clear which one is picked */
+@media (min-width:1150px){
+  .bk{border-radius:22px;padding:18px 14px 22px;margin:-18px -14px -22px;transition:background .35s,box-shadow .35s var(--ease),transform .35s var(--ease)}
+  .bk .age{transition:transform .35s var(--ease)}
+  .bk:hover,.bk:focus-within{background:#fff;box-shadow:0 0 0 1px rgba(20,20,20,.06),0 26px 54px rgba(20,20,20,.16);transform:translateY(-6px)}
+  .bk:hover .bk__cover img{transform:translateY(-10px) rotate(-2deg) scale(1.03)}
+  .bk:hover .age{transform:scale(1.1) rotate(-8deg)}
+  .bk:hover h3 a{color:var(--red)}
+}
+@media (prefers-reduced-motion:reduce){.bk,.bk:hover{transform:none}}
+
+/* films and video cards in the grid: left aligned, titles wrap to two lines */
+@media (max-width:1149px){
+  .rail .mv,.rail .mv p{text-align:left}
+  .rail .mv h3{font-size:15px}
+  .rail .mv p{font-size:13px}
+  .rail .vid h3 a{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  .rail .vid h3{font-size:14px}
 }
