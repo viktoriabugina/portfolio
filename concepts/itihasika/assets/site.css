@@ -288,3 +288,11 @@ button,input,select,textarea{font:inherit;color:inherit}
   .rail .vid h3 a{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
   .rail .vid h3{font-size:14px}
 }
+
+/* desktop: book cards line up row by row: titles and texts start together, store badges sit on one line */
+@media (min-width:1150px){
+  .books,.stories .rail{align-items:stretch}
+  .bk h3{min-height:calc(1.3em + 0px)}
+  .bk>p{min-height:2lh;text-wrap:pretty}
+  .bk .stores{margin-top:auto;padding-top:16px}
+}
