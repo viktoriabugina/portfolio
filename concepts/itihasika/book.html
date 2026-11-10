@@ -50,12 +50,12 @@
 .shop{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .shop a{display:flex;align-items:stretch;min-height:58px;border-radius:10px;background:var(--blue);color:#fff;overflow:hidden;transition:transform .25s,background .25s,box-shadow .25s}
 .shop a:hover{background:var(--blue-d);transform:translateY(-2px);box-shadow:0 10px 24px rgba(75,163,227,.3)}
-.shop i{flex:0 0 46%;background:#fff;display:grid;place-items:center;padding:0 10px;border:2px solid var(--blue);border-radius:10px 0 0 10px}
+.shop i{flex:0 0 40%;background:#fff;display:grid;place-items:center;padding:0 10px;border:2px solid var(--blue);border-radius:10px 0 0 10px}
 .shop i img{max-height:22px;width:auto;max-width:100%}
-.shop span{display:grid;align-content:center;padding:6px 12px;line-height:1.1;min-width:0}
+.shop span{display:grid;align-content:center;padding:6px 10px;line-height:1.1;min-width:0}
 .shop small{font-size:12px;opacity:.92;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .shop b{font-family:var(--f-hero);font-size:22px;font-weight:700}
-@media (max-width:359px){.shop{grid-template-columns:1fr}}
+@media (max-width:440px){.shop{grid-template-columns:1fr}}
 @media (max-width:420px){.shop small{font-size:11px}.shop b{font-size:20px}.shop i{padding:0 7px}}
 .note{font-size:12.5px;color:var(--mute);margin-top:10px;text-align:center}
 .inside__grid{display:grid;gap:clamp(30px,5vw,64px);align-items:center}

@@ -79,6 +79,12 @@ img.quote__av{object-fit:cover;background:var(--grey)}
 @media (min-width:1150px){.why{grid-template-columns:repeat(4,1fr)}}
 @media (max-width:1149px){.team,.why{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;gap:20px;padding:10px 0 30px}.team>*,.why>*{flex:0 0 min(372px,36vw);scroll-snap-align:start}}
 @media (max-width:640px){.team>*,.why>*{flex-basis:80vw}}
+/* team sliders (tablet + phone): smaller centred portrait, equal-height cards, "Off duty" pinned to the bottom */
+@media (max-width:1149px){
+.member__img{width:min(74%,264px);margin:8px auto 0;background:none}
+.member__body{flex:1;grid-template-rows:auto 1fr auto;padding-top:18px}
+.member .off{min-height:calc(2lh + 10px)}
+}
 .why article{overflow:hidden;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s}
 .why article:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(20,20,20,.14)}
 .why .ph{aspect-ratio:16/10;overflow:hidden;background:var(--grey)}
