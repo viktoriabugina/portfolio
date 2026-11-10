@@ -28,6 +28,9 @@
 .why__text em{font-weight:500}
 .why__img{display:grid;justify-items:center;gap:22px}
 .why__img img{width:100%;max-width:640px}
+.why__dev{position:relative;display:block;width:100%;max-width:640px}
+.why__dev img{display:block}
+.why__screen{position:absolute;left:40.25%;top:30%;width:51.9%;height:61.9%;object-fit:cover;border-radius:3px;background:#111}
 @media (min-width:1000px){.why__grid{grid-template-columns:1.05fr .95fr}}
 
 .voices .rail{--cols:3;--cw:min(360px,84vw)}
@@ -127,7 +130,7 @@
       <span class="label rv">What makes us unique</span>
       <h2 class="serif why__text rv" data-d="1" id="why-title">Most children meet Indian history as a list of dates. We hand them <em>the story</em> instead — <em>kings and rivers</em>, verses and voyages — told with the craft of a <em>picture book</em> and the honesty of a good teacher.</h2>
     </div>
-    <figure class="why__img rv" data-d="1"><span class="label label--both">Why Itihasika</span><img src="assets/img/home-why-collage.jpg" alt="The History of India for curious kids book next to a tablet playing an Itihasika film" width="800" height="520" loading="lazy"></figure>
+    <figure class="why__img rv" data-d="1"><span class="label label--both">Why Itihasika</span><span class="why__dev"><img src="assets/img/home-why-collage.jpg" alt="The History of India for curious kids book next to a tablet playing an Itihasika film" width="800" height="520" loading="lazy"><video class="why__screen" autoplay muted loop playsinline preload="none" poster="assets/img/home-hero-rider.jpg" aria-hidden="true"><source src="assets/video/home-hero.mp4" type="video/mp4"></video></span></figure>
   </div>
 </section>
 <section class="sec sec--grey voices" aria-labelledby="voices-title">
