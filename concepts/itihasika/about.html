@@ -59,6 +59,7 @@
 .team{display:grid;gap:24px}
 @media (min-width:640px){.team{grid-template-columns:1fr 1fr}}
 @media (min-width:1150px){.team{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:999px){.team,.why{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;gap:20px;padding:10px 0 30px}.team>*,.why>*{flex:0 0 min(372px,80vw);scroll-snap-align:start}}
 .member{overflow:hidden;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s}
 .member:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(20,20,20,.14)}
 .member__img{position:relative;aspect-ratio:1/1;background:var(--grey);overflow:hidden}
@@ -76,6 +77,7 @@ img.quote__av{object-fit:cover;background:var(--grey)}
 .why{display:grid;gap:20px}
 @media (min-width:700px){.why{grid-template-columns:1fr 1fr}}
 @media (min-width:1150px){.why{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:999px){.team,.why{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;gap:20px;padding:10px 0 30px}.team>*,.why>*{flex:0 0 min(372px,80vw);scroll-snap-align:start}}
 .why article{overflow:hidden;display:flex;flex-direction:column;transition:transform .4s var(--ease),box-shadow .4s}
 .why article:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(20,20,20,.14)}
 .why .ph{aspect-ratio:16/10;overflow:hidden;background:var(--grey)}
