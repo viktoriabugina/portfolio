@@ -294,3 +294,10 @@ button,input,select,textarea{font:inherit;color:inherit}
 .buy-sheet .store small{font-size:14px}
 .buy-sheet .store b{font-size:17px}
 @media (prefers-reduced-motion:reduce){.buy-sheet__in{transition:none}}
+
+/* Book cards in a row line up part by part: covers, titles, texts and the first store button
+   sit on the same lines even when one book has more stores or a longer text. */
+@media (min-width:1150px){
+  .rail>.bk,.books>.bk{display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:0;justify-items:center;align-content:start}
+  .rail>.bk .stores,.books>.bk .stores{margin-top:0;padding-top:18px;align-self:start}
+}
