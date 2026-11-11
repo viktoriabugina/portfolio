@@ -97,6 +97,21 @@
     v.addEventListener('ended', () => { t.classList.remove('playing'); v.controls = false; v.load(); });
   });
 })();
+// hero background and the tablet under "Why Itihasika": make sure the clips really play on phones
+// (iOS can hold back autoplay until the page is touched), and rest them while off-screen
+(() => {
+  const clips = [...document.querySelectorAll('.hero__bg video, .why__screen')];
+  if (!clips.length || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const kick = v => { v.muted = true; v.defaultMuted = true; v.setAttribute('playsinline', ''); const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+  const seen = new Set();
+  const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { seen.add(e.target); kick(e.target); } else { seen.delete(e.target); e.target.pause(); }
+  }), {threshold: .15}) : null;
+  clips.forEach(v => { v.preload = 'auto'; io ? io.observe(v) : kick(v); });
+  const retry = () => clips.forEach(v => { if (v.paused && (!io || seen.has(v))) kick(v); });
+  ['touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(t => addEventListener(t, retry, {once: true, passive: true}));
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) retry(); });
+})();
 // "Buy" on tablet and phone: a bottom sheet with the book's stores, one more tap to Amazon
 (() => {
   const btns = document.querySelectorAll('.bk__btn'); if (!btns.length || !window.HTMLDialogElement) return;
