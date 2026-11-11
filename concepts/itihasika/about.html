@@ -148,6 +148,14 @@ img.quote__av{object-fit:cover;background:var(--grey)}
 .tl__phw{max-width:none}
 .tl__ph{max-width:none}
 }
+/* phone: a bigger headline with natural, balanced line breaks, sitting in the lower third over a dark fade */
+@media (max-width:599px){
+.hero__in{justify-content:flex-end;padding-bottom:64px}
+.hero::after{background:linear-gradient(180deg,rgba(10,10,14,.5) 0%,rgba(10,10,14,0) 22%,rgba(10,10,14,.15) 45%,rgba(10,10,14,.88) 100%)}
+.hero h1{font-size:clamp(32px,9.6vw,40px);line-height:1.06;letter-spacing:-.02em;text-wrap:balance;margin-top:14px!important}
+.hero h1 .ln,.hero h1 .ln>span{display:inline;overflow:visible;padding:0}
+.hero h1 .ln+.ln::before{content:" "}
+}
 </style>
 </head>
 <body>
