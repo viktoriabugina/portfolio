@@ -87,10 +87,14 @@
     gsap.from('.hdr', {y:-30, opacity:0, duration:.9, ease:'power3.out'});
   }
 })();
-// background videos stay still for people who turn motion off; the trailer plays in place
+// background film clips always play: muted, looping, inline. Phones in Low Power Mode refuse
+// autoplay, so the clip starts on the first touch or scroll instead of staying a still frame.
 (() => {
-  const rm = matchMedia('(prefers-reduced-motion: reduce)');
-  document.querySelectorAll('video[autoplay]').forEach(v => { if (rm.matches) { v.removeAttribute('autoplay'); v.pause(); } });
+  const bg = [...document.querySelectorAll('video[autoplay]')];
+  const start = () => bg.forEach(v => { v.muted = true; v.playsInline = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); });
+  start();
+  ['touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(ev => addEventListener(ev, start, {once: true, passive: true}));
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) start(); });
   document.querySelectorAll('.trailer').forEach(t => {
     const v = t.querySelector('video'), b = t.querySelector('.btn'); if (!v || !b) return;
     b.addEventListener('click', () => { t.classList.add('playing'); v.controls = true; v.play(); });
