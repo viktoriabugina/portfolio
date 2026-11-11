@@ -1,0 +1,88 @@
+/* Home page: sections between the hero and the footer. Matches the approved Home design for desktop, tablet and phone. */
+.store small{font-size:11px}
+.stats span{font-size:11px}
+
+.hhero .hero__bg img{object-position:62% 40%}
+.hhero::after{background:linear-gradient(90deg,rgba(10,10,14,.85) 0%,rgba(10,10,14,.6) 45%,rgba(10,10,14,.15) 85%),linear-gradient(180deg,rgba(10,10,14,.5) 0%,transparent 30%,transparent 65%,rgba(10,10,14,.65) 100%)}
+
+@media (max-width:759px){.hhero .hero__bg img{object-position:70% 30%}.hhero::after{background:linear-gradient(180deg,rgba(10,10,14,.55) 0%,rgba(10,10,14,.35) 35%,rgba(10,10,14,.85) 75%)}.hhero .hero__cta .btn{flex:1 1 100%}}
+
+.why__grid{display:grid;gap:clamp(30px,5vw,60px);align-items:center}
+.why__text{font-weight:400;font-size:clamp(23px,2.5vw,40px);line-height:1.45;margin-top:22px;letter-spacing:0}
+.why__text em{font-weight:500}
+.why__img{display:grid;justify-items:center;gap:22px}
+.why__img img{width:100%;max-width:640px}
+.why__dev{position:relative;display:block;width:100%;max-width:640px}
+.why__dev img{display:block}
+.why__screen{position:absolute;left:40.25%;top:30%;width:51.9%;height:61.9%;object-fit:cover;border-radius:3px;background:#111}
+@media (min-width:1000px){.why__grid{grid-template-columns:1.05fr .95fr}}
+
+.voices .rail{--cols:3;--cw:min(360px,84vw)}
+.quote__av{object-fit:cover}
+
+.jour__grid{display:grid;gap:clamp(30px,4vw,56px) clamp(30px,4vw,56px);align-items:start;grid-template-areas:"head" "tl" "img" "sub"}
+.jour__grid>*{min-width:0}
+.j-head{grid-area:head}.j-sub{grid-area:sub}.j-tl{grid-area:tl}.j-img{grid-area:img}
+.jour .sub{margin-top:10px}
+.j-sub h3.serif{font-weight:600}
+.jour .plan-row{margin-top:22px}
+.jour .tl{gap:6px}
+.jour .tl button{all:unset;display:block;cursor:pointer;padding:8px 0;min-height:36px;border-radius:6px}
+.jour .tl button:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+.jour .tl li::before{top:15px}
+.jour .tl button:hover h3{color:var(--red)}
+.jour__img{display:grid;place-items:center;min-height:clamp(240px,30vw,460px)}
+.jour__img img{max-height:clamp(240px,30vw,460px);width:auto;filter:drop-shadow(0 24px 30px rgba(0,0,0,.22));transition:opacity .35s var(--ease),transform .5s var(--ease)}
+.jour__img img.swap{opacity:0;transform:translateY(12px) scale(.97)}
+@media (min-width:1150px){.jour__grid{grid-template-columns:1.05fr 1fr .75fr;grid-template-areas:"head tl img" "sub tl img";grid-template-rows:auto 1fr}.j-sub{margin-top:-10px}}
+@media (min-width:760px) and (max-width:1149px){.jour__grid{grid-template-columns:1.2fr .8fr;grid-template-areas:"head head" "tl img" "sub sub"}}
+/* phone: list and statue side by side, so changing the era visibly changes the statue */
+@media (max-width:759px){.jour__grid{grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);grid-template-areas:"head head" "tl img" "sub sub";column-gap:10px}.jour__img{min-height:0;align-self:center}.jour__img img{max-height:250px;max-width:100%;height:auto}.jour .tl h3{font-size:clamp(17px,4.8vw,20px)}.jour .tl p{font-size:13px}}
+#eras .tl__fill{transition:transform .7s var(--ease)}
+#eras li h3{transition:color .3s}
+@media (max-width:1149px){.j-head,.j-sub{text-align:center}.j-head .sub,.j-sub .sub{margin-inline:auto}.jour .plan-row{justify-content:center}.j-head .sub{text-transform:uppercase;letter-spacing:.06em;font-size:13px;font-weight:500}}
+
+.mv{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;align-content:start}
+.mv__img{display:block;border-radius:14px;overflow:hidden;aspect-ratio:16/9;background:#111;box-shadow:var(--shadow);margin-bottom:12px}
+.mv__img img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.mv__img:hover img{transform:scale(1.05)}
+.mv h3{font-weight:700;font-size:17px;line-height:1.3}
+.mv h3 a{display:inline-block;padding:8px 0;margin:-2px 0}
+.mv h3 a:hover{color:var(--red)}
+.mv p{font-size:14px;color:var(--soft)}
+.movies .rail{--cw:min(330px,80vw)}
+.head--row .link{display:inline-flex;align-items:center;min-height:36px}
+
+.stories .rail{--cw:min(300px,78vw);row-gap:40px}
+.stories .bk__cover{margin-top:10px}
+
+/* tablet and phone follow the Home tablet/mobile Figma */
+.t-m{display:none}
+@media (max-width:1149px){.t-d{display:none}.t-m{display:inline}.jour .tl p:empty{display:none}}
+.stats-strip{display:none}
+@media (min-width:760px){.why__grid{grid-template-columns:1.05fr .95fr}}
+@media (max-width:759px){
+  .hhero .hero__in{padding-bottom:40px}
+  .hhero .hero__cta{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .hhero .hero__cta .btn{flex:none;white-space:normal;text-align:center;line-height:1.2;padding:6px 10px;min-height:50px;font-size:12.5px}
+  .hhero .stats{display:none}
+  .stats-strip{display:grid;grid-template-columns:repeat(3,1fr);background:#fff;padding:22px var(--gut);border-bottom:1px solid var(--line);text-align:center}
+  .stats-strip div{display:grid;gap:2px}.stats-strip div+div{border-left:1px solid var(--line)}
+  .stats-strip b{font-family:var(--f-hero);font-weight:700;font-size:26px;line-height:1.1;color:var(--yellow)}
+  .stats-strip span{font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
+  .why__grid>div:first-child{text-align:center}
+  .why .label{justify-content:center}.why .label::after{content:"";width:20px;height:1.5px;background:currentColor}
+  .why__text{font-size:18px;line-height:1.75}
+  .mv,.mv p{text-align:center}
+  .chart__grid>div:first-child{text-align:center}.chart .jform{margin-inline:auto}.chart .label{justify-content:center}
+}
+@media (max-width:1149px){
+  .movies .head--row,.stories .head--row{flex-direction:column;align-items:center;text-align:center}
+  .movies .head--row .sub,.stories .head--row .sub{margin-inline:auto}
+  .chart__img{order:-1}
+  .stories .stores{grid-template-columns:1fr 1fr;max-width:none}
+  .stories .rail{--cw:min(340px,84vw)}
+}
+@media (min-width:760px) and (max-width:1149px){
+  .movies .rail,.stories .rail,.voices .rail{--cw:calc((100vw - 2 * var(--gut) - 16px) / 2)}
+}
