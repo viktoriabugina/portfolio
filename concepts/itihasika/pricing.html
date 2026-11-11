@@ -43,14 +43,23 @@
 .pc__list li{display:flex;gap:10px;font-size:15px;line-height:1.45}
 .pc__list svg{flex:none;width:20px;height:20px;margin-top:1px;color:var(--blue)}
 .pc .btn{margin-top:auto;width:100%;min-height:54px;font-size:15px}
-.pc--best{background:var(--navy);color:#fff;box-shadow:0 30px 70px rgba(18,26,44,.35);transform:translateY(-14px)}
-.pc--best:hover{transform:translateY(-20px)}
-.pc--best .pc__note,.pc--best .pc__price span{color:rgba(255,255,255,.65)}
-.pc--best .pc__sub{color:var(--yellow)}
-.pc--best .pc__list{border-color:rgba(255,255,255,.15)}
-.pc--best .pc__list svg{color:var(--yellow)}
+.pc{cursor:pointer;outline:none;border:2px solid transparent;transition:transform .4s var(--ease),box-shadow .4s var(--ease),background .35s,color .35s,border-color .35s}
+.pc:focus-visible{border-color:var(--blue)}
+.pc .pc__list svg{transition:color .35s}
+.pc .btn{background:transparent;border-color:var(--ink);color:var(--ink)}
+.pc.is-active{background:var(--navy);color:#fff;box-shadow:0 30px 70px rgba(18,26,44,.35);transform:translateY(-14px);border-color:var(--yellow)}
+.pc.is-active:hover{transform:translateY(-18px)}
+.pc.is-active .pc__note,.pc.is-active .pc__price span{color:rgba(255,255,255,.65)}
+.pc.is-active .pc__sub{color:var(--yellow)}
+.pc.is-active .pc__list{border-color:rgba(255,255,255,.15)}
+.pc.is-active .pc__list svg{color:var(--yellow)}
+.pc.is-active .btn{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
+.pc.is-active .pc__icon{background:rgba(255,255,255,.12)}
+.pc__pick{position:absolute;top:24px;right:24px;width:24px;height:24px;border-radius:50%;border:2px solid var(--line);transition:background .3s,border-color .3s}
+.pc.is-active .pc__pick{border-color:var(--yellow);background:var(--yellow) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5 10.5l3.2 3.2L15 7' fill='none' stroke='%23141414' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+.pc--gift .pc__pick{display:none}
 .pc__badge{position:absolute;top:-16px;left:50%;transform:translateX(-50%);background:var(--yellow);color:var(--ink);font-weight:700;font-size:13px;letter-spacing:.02em;border-radius:999px;padding:8px 16px;white-space:nowrap;box-shadow:0 8px 20px rgba(245,197,55,.4)}
-.pc--gift .pc__icon{position:absolute;top:22px;right:22px;width:46px;height:46px;border-radius:50%;background:var(--peach);display:grid;place-items:center;font-size:22px}
+.pc--gift .pc__icon{position:absolute;top:18px;right:18px;transition:background .35s;width:46px;height:46px;border-radius:50%;background:var(--peach);display:grid;place-items:center;font-size:22px}
 .pfine{text-align:center;font-size:13px;color:var(--mute);margin-top:30px}
 .pfine a{text-decoration:underline;text-underline-offset:3px}
 /* free vs premium */
@@ -96,8 +105,11 @@
 .pcta p{color:rgba(255,255,255,.75);margin:14px auto 28px;max-width:44ch}
 .pcta .btns{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
 @media (max-width:1149px){
-.pgrid{grid-template-columns:1fr;max-width:520px}
-.pc--best{order:-1;transform:none}.pc--best:hover{transform:translateY(-6px)}
+.pgrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:none}
+.pc{padding:22px 18px}
+.pc__price b{font-size:clamp(36px,4.6vw,48px)}
+.pc__list li{font-size:14px}
+.pc__pick{top:18px;right:16px}
 .plans .wrap{margin-top:-80px}
 .lib{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:min(200px,46vw);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-inline:calc(var(--gut) * -1);padding:0 var(--gut) 8px;scroll-padding-inline:var(--gut)}
 .lib::-webkit-scrollbar{display:none}
@@ -106,7 +118,7 @@
 .gift__img{order:-1}
 }
 @media (min-width:600px) and (max-width:1149px){.gift__img{aspect-ratio:5/3}}
-@media (min-width:760px) and (max-width:1149px){.pgrid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:none}.pc--best{grid-column:1/-1}.pc--best .pc__list{grid-template-columns:1fr 1fr;column-gap:24px}}
+
 @media (max-width:599px){
 .phero h1{font-size:clamp(32px,9.4vw,40px);line-height:1.06}
 .phero .hero__in{min-height:0;padding-top:118px;padding-bottom:116px}
@@ -114,6 +126,8 @@
 .pgrid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:84%;max-width:none;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-inline:calc(var(--gut) * -1);padding:20px var(--gut) 18px;scroll-padding-inline:var(--gut)}
 .pgrid::-webkit-scrollbar{display:none}
 .pgrid>*{scroll-snap-align:center}
+.pgrid .pc[data-plan=year]{order:-1}
+.pc,.pc.is-active,.pc.is-active:hover{transform:none}
 .pgrid+.dots{display:flex}
 .pc__badge{font-size:12px}
 .cmp th,.cmp td{padding:13px 10px;font-size:14px}
@@ -121,7 +135,7 @@
 .gift .btns .btn{flex:1}
 }
 @media (min-width:600px){#planDots{display:none!important}}
-@media (prefers-reduced-motion:reduce){.pc,.pc:hover,.pc--best,.lib figure,.lib img{transition:none;transform:none}}
+@media (prefers-reduced-motion:reduce){.pc,.pc:hover,.pc.is-active,.lib figure,.lib img{transition:none;transform:none}}
 </style>
 
 </head>
@@ -152,26 +166,26 @@
 <section class="plans" aria-labelledby="plans-title">
   <div class="wrap">
     <h2 class="sr" id="plans-title">Plans</h2>
-    <div class="pgrid" data-dots="planDots">
-      <article class="pc rv">
+    <div class="pgrid" data-dots="planDots" role="radiogroup" aria-label="Choose a plan">
+      <article class="pc rv" data-plan="month" role="radio" aria-checked="false" tabindex="0"><span class="pc__pick" aria-hidden="true"></span>
         <h3 class="pc__name">Monthly</h3><p class="pc__note">Billed every month</p>
         <p class="pc__price"><b>$9.99</b><span>/ month</span></p><p class="pc__sub">Cancel anytime</p>
         <ul class="pc__list"><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Every film, from the Indus valley to modern India</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>All films in English and Hindi</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>New films every month</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Watch on phone, tablet, computer and TV</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>No ads, ever</span></li></ul>
-        <a class="btn btn--line" href="https://www.itihasika.com/">Start monthly</a>
+        <a class="btn" href="https://www.itihasika.com/">Start monthly</a>
       </article>
-      <article class="pc pc--best rv" data-d="1">
+      <article class="pc is-active rv" data-d="1" data-plan="year" role="radio" aria-checked="true" tabindex="0"><span class="pc__pick" aria-hidden="true"></span>
         <span class="pc__badge">Best value: 2 months free</span>
         <h3 class="pc__name">Yearly</h3><p class="pc__note">Billed once a year</p>
         <p class="pc__price"><b>$101</b><span>/ year</span></p><p class="pc__sub">Just $8.42 a month</p>
         <ul class="pc__list"><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Every film, from the Indus valley to modern India</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>All films in English and Hindi</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>New films every month</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Watch on phone, tablet, computer and TV</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>No ads, ever</span></li></ul>
-        <a class="btn btn--yellow" href="https://www.itihasika.com/">Subscribe yearly</a>
+        <a class="btn" href="https://www.itihasika.com/">Subscribe yearly</a>
       </article>
-      <article class="pc pc--gift rv" data-d="2">
+      <article class="pc pc--gift rv" data-d="2" data-plan="gift" role="radio" aria-checked="false" tabindex="0">
         <span class="pc__icon" aria-hidden="true">🎁</span>
         <h3 class="pc__name">Gift a year</h3><p class="pc__note">For family and friends</p>
         <p class="pc__price"><b>$101</b><span>/ one year</span></p><p class="pc__sub">Sent by email, ready to open</p>
         <ul class="pc__list"><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>A full year of Itihasika TV</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Choose the date it arrives</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Add a personal message</span></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>No auto-renewal for the recipient</span></li></ul>
-        <a class="btn btn--blue" href="https://www.itihasika.com/">Gift membership</a>
+        <a class="btn" href="https://www.itihasika.com/">Gift membership</a>
       </article>
     </div>
     <div class="dots dots--x" id="planDots" role="group" aria-label="Plans"></div>
@@ -198,5 +212,15 @@
 <script>window.gsap && gsap.registerPlugin(ScrollTrigger);</script>
 <script src="assets/site.js?v=26"></script>
 
+<script>
+(function(){
+  // plan cards: the one you pick turns dark with a yellow button, like a selected plan
+  const cards=[...document.querySelectorAll('.pc[role=radio]')];
+  const pick=c=>cards.forEach(x=>{const on=x===c;x.classList.toggle('is-active',on);x.setAttribute('aria-checked',on);});
+  cards.forEach(c=>{c.addEventListener('click',e=>{if(!c.classList.contains('is-active')&&e.target.closest('a'))e.preventDefault();pick(c);});
+    c.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){if(e.target===c){e.preventDefault();pick(c);}}
+      if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const i=cards.indexOf(c)+(e.key==='ArrowRight'?1:-1);const n=cards[(i+cards.length)%cards.length];n.focus();pick(n);}});});
+})();
+</script>
 </body>
 </html>
