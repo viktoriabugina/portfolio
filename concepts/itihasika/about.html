@@ -138,6 +138,16 @@ img.quote__av{object-fit:cover;background:var(--grey)}
 .tl__phw .tl__ph{margin-top:0;border-radius:0;box-shadow:none;transform:scale(1.18);transform-origin:50% 50%}
 }
 @media (prefers-reduced-motion:reduce){.tl__phw{clip-path:none}.tl__phw .tl__ph{transform:none}.tl li.ping::after{animation:none}}
+/* phone + tablet: the stages stack like cards; each one sticks under the header and the next slides up over it */
+@media (max-width:999px){
+.tl{gap:28px;padding-left:0;padding-bottom:8px}
+.tl::before,.tl__fill,.tl li::before,.tl li::after{display:none}
+.tl li{position:sticky;top:calc(84px + var(--i,0) * 14px);align-self:start;background:#FBF6EA;border:1px solid rgba(210,82,46,.14);border-radius:22px;padding:18px 18px 20px;box-shadow:0 -6px 30px rgba(60,40,20,.10);transform-origin:50% 0;will-change:transform}
+.tl li h3{color:var(--red)}
+.tl li .tl__age{background:var(--red);color:#fff;border-color:var(--red)}
+.tl__phw{max-width:none}
+.tl__ph{max-width:none}
+}
 </style>
 </head>
 <body>
@@ -191,9 +201,9 @@ img.quote__av{object-fit:cover;background:var(--grey)}
       </div>
       <div class="in__right">
         <ol class="tl" id="tl"><span class="tl__fill" id="tlFill" aria-hidden="true"></span>
-          <li class="on"><span class="tl__age">Ages 3–6</span><h3>Crawl: build a strong foundation</h3><p>Kids first learn the heroes, festivals and ideas of their heritage, one letter and one story at a time.</p><span class="tl__phw"><img class="tl__ph" src="https://images.unsplash.com/photo-1730130596425-197566414dc4?w=800&amp;h=450&amp;fit=crop&amp;q=80" alt="Parents celebrating a festival at home with their toddler" width="800" height="450" loading="lazy"></span></li>
-          <li><span class="tl__age">Ages 7–9</span><h3>Walk: reinforce it together</h3><p>We advance to the Epics, the Gita and the core civilizational narrative.</p><span class="tl__phw"><img class="tl__ph" src="https://images.unsplash.com/photo-1783873231697-3909aeda2381?w=800&amp;h=450&amp;fit=crop&amp;q=80" alt="A father and his young daughter learning together on the sofa" width="800" height="450" loading="lazy"></span></li>
-          <li><span class="tl__age">Ages 10–13</span><h3>Run: dive deeper</h3><p>Our OTT has hyper-real videos that cover the entire chronology of Indian history, which the entire family can enjoy together.</p><span class="tl__phw"><img class="tl__ph" src="https://images.unsplash.com/photo-1614112163164-e8749a2e7628?w=800&amp;h=450&amp;fit=crop&amp;q=80" alt="A father and his children watching a video together" width="800" height="450" loading="lazy"></span></li>
+          <li class="on" style="--i:0"><span class="tl__age">Ages 3–6</span><h3>Crawl: build a strong foundation</h3><p>Kids first learn the heroes, festivals and ideas of their heritage, one letter and one story at a time.</p><span class="tl__phw"><img class="tl__ph" src="https://images.unsplash.com/photo-1730130596425-197566414dc4?w=800&amp;h=450&amp;fit=crop&amp;q=80" alt="Parents celebrating a festival at home with their toddler" width="800" height="450" loading="lazy"></span></li>
+          <li style="--i:1"><span class="tl__age">Ages 7–9</span><h3>Walk: reinforce it together</h3><p>We advance to the Epics, the Gita and the core civilizational narrative.</p><span class="tl__phw"><img class="tl__ph" src="https://images.unsplash.com/photo-1783873231697-3909aeda2381?w=800&amp;h=450&amp;fit=crop&amp;q=80" alt="A father and his young daughter learning together on the sofa" width="800" height="450" loading="lazy"></span></li>
+          <li style="--i:2"><span class="tl__age">Ages 10–13</span><h3>Run: dive deeper</h3><p>Our OTT has hyper-real videos that cover the entire chronology of Indian history, which the entire family can enjoy together.</p><span class="tl__phw"><img class="tl__ph" src="https://images.unsplash.com/photo-1614112163164-e8749a2e7628?w=800&amp;h=450&amp;fit=crop&amp;q=80" alt="A father and his children watching a video together" width="800" height="450" loading="lazy"></span></li>
         </ol>
         <figure class="in__img rv" id="tlImg" data-i="0">
           <img class="on" src="https://images.unsplash.com/photo-1730130596425-197566414dc4?w=900&amp;h=1100&amp;fit=crop&amp;q=80" alt="Parents celebrating a festival at home with their toddler" width="900" height="1100" loading="lazy">
@@ -322,7 +332,10 @@ img.quote__av{object-fit:cover;background:var(--grey)}
   });
   mm.add('(max-width:999px)', () => {
     // the line grows with the scroll; each stage switches on (with a ping on its dot) when it reaches the middle of the screen
-    gsap.to('#tlFill', {scaleY:1, ease:'none', scrollTrigger:{trigger:'#tl', start:'top 60%', end:'bottom 60%', scrub:true}});
+    // each card shrinks and fades back a little while the next one slides over it
+    items.forEach((l, i) => { const nx = items[i + 1]; if (!nx) return;
+      const st = {trigger:nx, start:'top bottom', end:'top ' + (84 + (i + 1) * 14) + 'px', scrub:true};
+      gsap.to(l, {scale:.92, ease:'none', scrollTrigger:st}); gsap.to(l.children, {opacity:.4, ease:'none', scrollTrigger:{...st}}); });
     items.forEach((l, i) => {
       if (i) l.classList.remove('on');
       ScrollTrigger.create({trigger:l, start:'top 60%', onEnter:() => { l.classList.add('on','ping'); setTimeout(() => l.classList.remove('ping'), 1200); }, onLeaveBack:() => { if (i) l.classList.remove('on'); }});
