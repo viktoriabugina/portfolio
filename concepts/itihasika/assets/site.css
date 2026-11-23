@@ -294,3 +294,11 @@ button,input,select,textarea{font:inherit;color:inherit}
 .buy-sheet .store small{font-size:14px}
 .buy-sheet .store b{font-size:17px}
 @media (prefers-reduced-motion:reduce){.buy-sheet__in{transition:none}}
+
+/* desktop: "Pillars" shows 3 books like the row above; the 4th is reached by horizontal scroll */
+@media (min-width:1150px){
+  .books--4{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 2*clamp(18px,2.4vw,30px))/3);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px}
+  .books--4::-webkit-scrollbar{display:none}
+  .books--4>*{scroll-snap-align:start;min-width:0}
+  .books--4+.dots{display:flex}
+}
