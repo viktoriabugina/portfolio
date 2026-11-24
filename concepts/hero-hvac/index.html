@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Cielo Heating &amp; Air - animated hero concept</title>
+<meta name="description" content="Concept: interactive airflow hero for an HVAC company. Single self-contained HTML file for a WordPress Custom HTML block.">
+<style>html,body{margin:0;background:#071826}.demo-badge{position:fixed;top:max(10px,env(safe-area-inset-top));right:10px;z-index:50;font:600 11px/1 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#dbeefa;background:rgba(7,24,38,.72);border:1px solid rgba(255,255,255,.18);padding:7px 10px;border-radius:999px}</style>
+</head>
+<body>
+<span class="demo-badge">Concept demo &middot; fictional brand</span>
+<!-- ===== BEGIN HERO: paste everything down to END HERO into a WordPress Custom HTML block ===== -->
+<style>
+/* All rules are scoped under .cl-hero so the theme cannot break them and they cannot break the theme */
+.cl-hero{--cl-accent:#7cf0d0;--cl-accent-ink:#04231b;--cl-ink:#eef8ff;--cl-mute:#a9c3d4;--cl-font:"Avenir Next","Segoe UI Variable Display","Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;position:relative;isolation:isolate;overflow:hidden;box-sizing:border-box;width:100%;min-height:640px;min-height:min(100svh,860px);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:96px clamp(20px,6vw,88px) 84px;color:var(--cl-ink);font-family:var(--cl-font);text-align:center;background:radial-gradient(90% 80% at 50% 0%,#0f4d73 0%,rgba(15,77,115,0) 62%),linear-gradient(180deg,#09202f 0%,#071826 100%);transition:--cl-x .6s}
+.cl-hero[data-mode="warm"]{--cl-accent:#ffb347;--cl-accent-ink:#2a1500}
+.cl-hero *,.cl-hero *::before,.cl-hero *::after{box-sizing:border-box}
+.cl-hero .cl-warm{position:absolute;left:0;top:0;width:100%;height:100%;z-index:0;opacity:0;transition:opacity .9s ease;background:radial-gradient(90% 80% at 50% 100%,#7a2a12 0%,rgba(122,42,18,0) 62%),linear-gradient(180deg,#1d0f0b 0%,#2a120b 100%);pointer-events:none}
+.cl-hero[data-mode="warm"] .cl-warm{opacity:1}
+.cl-hero .cl-canvas{position:absolute;left:0;top:0;width:100%;height:100%;display:block;z-index:1;pointer-events:none}
+.cl-hero .cl-copy{position:relative;z-index:3;width:100%;max-width:780px}
+.cl-hero .cl-brand{margin:0 0 26px;font-size:15px;font-weight:700;letter-spacing:.02em;display:inline-flex;align-items:center;gap:10px}
+.cl-hero .cl-brand svg{width:26px;height:26px;flex:none}
+.cl-hero .cl-eyebrow{margin:0 0 16px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--cl-accent);transition:color .6s}
+.cl-hero .cl-title{margin:0 0 18px;font-family:var(--cl-font);font-size:clamp(2.4rem,6.2vw + .3rem,5.2rem);line-height:1.02;font-weight:800;letter-spacing:-.03em;color:var(--cl-ink);text-wrap:balance}
+.cl-hero .cl-title span{color:var(--cl-accent);transition:color .6s}
+.cl-hero .cl-sub{margin:0 auto 28px;max-width:50ch;font-size:clamp(1rem,.5vw + .9rem,1.2rem);line-height:1.5;color:var(--cl-mute)}
+.cl-hero .cl-dial{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px;margin:0 0 26px}
+.cl-hero .cl-toggle{display:inline-flex;padding:4px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(6px)}
+.cl-hero .cl-opt{appearance:none;border:0;margin:0;cursor:pointer;min-height:44px;padding:0 22px;border-radius:999px;background:transparent;color:var(--cl-mute);font:700 .95rem/1 var(--cl-font);transition:background-color .35s,color .35s;-webkit-tap-highlight-color:transparent}
+.cl-hero .cl-opt[aria-pressed="true"]{background:var(--cl-accent);color:var(--cl-accent-ink)}
+.cl-hero .cl-temp{min-width:96px;font-size:2.1rem;font-weight:300;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--cl-ink)}
+.cl-hero .cl-temp small{font-size:.9rem;font-weight:600;color:var(--cl-mute);margin-left:2px}
+.cl-hero .cl-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:0 0 26px}
+.cl-hero .cl-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 28px;border-radius:999px;font:700 1.02rem/1 var(--cl-font);text-decoration:none;transition:transform .25s cubic-bezier(.22,1,.36,1),background-color .5s,color .5s,border-color .3s}
+.cl-hero .cl-btn svg{width:20px;height:20px;flex:none}
+.cl-hero .cl-btn--main{background:var(--cl-accent);color:var(--cl-accent-ink)}
+.cl-hero .cl-btn--main:hover{transform:translateY(-2px)}
+.cl-hero .cl-btn--ghost{color:var(--cl-ink);border:1.5px solid rgba(238,248,255,.35);background:rgba(7,24,38,.35)}
+.cl-hero .cl-btn--ghost:hover{border-color:var(--cl-accent);color:var(--cl-accent)}
+.cl-hero .cl-btn:focus-visible,.cl-hero .cl-opt:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.cl-hero .cl-trust{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;margin:0;padding:0;list-style:none;font-size:.92rem;color:var(--cl-mute)}
+.cl-hero .cl-trust li{margin:0;display:flex;align-items:center;gap:8px}
+.cl-hero .cl-trust i{width:6px;height:6px;border-radius:50%;background:var(--cl-accent);transition:background-color .6s}
+.cl-hero .cl-hint{position:absolute;left:16px;right:16px;bottom:18px;z-index:3;margin:0;text-align:center;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(224,240,250,.7);pointer-events:none}
+.cl-hero .cl-copy>*{animation:cl-rise .9s cubic-bezier(.22,1,.36,1) both}
+.cl-hero .cl-copy>:nth-child(2){animation-delay:.07s}
+.cl-hero .cl-copy>:nth-child(3){animation-delay:.14s}
+.cl-hero .cl-copy>:nth-child(4){animation-delay:.21s}
+.cl-hero .cl-copy>:nth-child(5){animation-delay:.28s}
+.cl-hero .cl-copy>:nth-child(6){animation-delay:.35s}
+.cl-hero .cl-copy>:nth-child(7){animation-delay:.42s}
+@keyframes cl-rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@media (max-width:480px){.cl-hero .cl-btn{width:100%}.cl-hero .cl-title{font-size:2.4rem}.cl-hero{padding-top:84px}}
+@media (prefers-reduced-motion:reduce){.cl-hero .cl-copy>*{animation:none}.cl-hero .cl-warm,.cl-hero .cl-btn,.cl-hero .cl-opt{transition:none}}
+</style>
+<section class="cl-hero" id="cl-hero" data-mode="cool" aria-label="Cielo Heating and Air">
+<div class="cl-warm" aria-hidden="true"></div>
+<canvas class="cl-canvas" aria-hidden="true"></canvas>
+<div class="cl-copy">
+<p class="cl-brand"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="#7cf0d0" stroke-width="2.4"/><path d="M6 13c4-4 7 4 11 0s6 2 9-1M6 20c4-4 7 4 11 0s6 2 9-1" fill="none" stroke="#7cf0d0" stroke-width="2" stroke-linecap="round"/></svg>Cielo Heating &amp; Air</p>
+<p class="cl-eyebrow">AC &amp; heating &middot; San Antonio, TX</p>
+<h1 class="cl-title">Cool in minutes. <span>Warm all night.</span></h1>
+<p class="cl-sub">Repairs, tune-ups and full system replacements for San Antonio homes. Same-day diagnostics, a written quote before any work starts, financing when you need it.</p>
+<div class="cl-dial">
+<div class="cl-toggle" role="group" aria-label="Preview the air: cooling or heating">
+<button class="cl-opt" type="button" data-mode="cool" aria-pressed="true">Cooling</button>
+<button class="cl-opt" type="button" data-mode="warm" aria-pressed="false">Heating</button>
+</div>
+<span class="cl-temp" aria-hidden="true"><b>72</b><small>&deg;F</small></span>
+</div>
+<div class="cl-actions">
+<a class="cl-btn cl-btn--main" href="tel:+12105550188"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call (210) 555-0188</a>
+<a class="cl-btn cl-btn--ghost" href="#quote">Get a free quote</a>
+</div>
+<ul class="cl-trust">
+<li><i></i>Same-day service</li>
+<li><i></i>Upfront written quotes</li>
+<li><i></i>Financing available</li>
+</ul>
+</div>
+<p class="cl-hint">Move through the air &middot; tap to send a gust</p>
+</section>
+<script>
+/* Cielo hero. Self-contained: no jQuery, no libraries, no globals. */
+(function(){
+var root=document.getElementById('cl-hero');
+if(!root||root.getAttribute('data-cl-ready')){return;}
+root.setAttribute('data-cl-ready','1');
+var cv=root.querySelector('.cl-canvas');
+var ctx=cv.getContext('2d');
+var temp=root.querySelector('.cl-temp b');
+var opts=root.querySelectorAll('.cl-opt');
+var mq=window.matchMedia('(prefers-reduced-motion: reduce)');
+var reduce=mq.matches;
+var W=0,H=0,dpr=1;
+var parts=[],gusts=[];
+var m=0,target=0,t=0,shown=72,tempTarget=72;
+var ptr={x:-999,y:-999,on:false};
+var running=false,visible=true,last=0;
+var COOL=[[140,222,255],[120,240,212]];
+var WARM=[[255,176,92],[255,112,84]];
+function rnd(a,b){return a+Math.random()*(b-a);}
+function lerp(a,b,k){return a+(b-a)*k;}
+function make(p){
+p.x=rnd(0,W);p.y=rnd(0,H);
+p.life=rnd(2.2,5.5);p.age=0;
+p.sp=rnd(0.7,1.35);p.c=Math.random()<0.5?0:1;
+p.px=p.x;p.py=p.y;
+return p;
+}
+function resize(){
+var r=root.getBoundingClientRect();
+W=Math.round(r.width);H=Math.round(r.height);
+if(!W||!H){return;}
+dpr=Math.min(window.devicePixelRatio||1,W<700?1.5:2);
+cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);
+ctx.setTransform(dpr,0,0,dpr,0,0);
+var n=Math.round(Math.min(460,Math.max(120,W*H/3200)));
+if(W<700){n=Math.min(n,170);}
+parts=[];
+for(var i=0;i<n;i++){parts.push(make({}));}
+if(reduce){still();}
+}
+/* Flow field: cooling air drifts down and across, heated air rises */
+function angle(x,y){
+var base=lerp(0.38,-0.62,m);
+var s=0.0032;
+return base+Math.sin(x*s*1.3+t*0.18+Math.cos(y*s)*1.4)*1.1+Math.cos(y*s*1.7-t*0.14)*0.9;
+}
+function step(p,dt){
+var a=angle(p.x,p.y);
+var sp=lerp(95,62,m)*p.sp;
+var vx=Math.cos(a)*sp,vy=Math.sin(a)*sp;
+if(ptr.on){
+var dx=p.x-ptr.x,dy=p.y-ptr.y,d2=dx*dx+dy*dy,R=150;
+if(d2<R*R&&d2>1){var d=Math.sqrt(d2),f=1-d/R;f*=f;vx+=(-dy/d)*f*260+(dx/d)*f*70;vy+=(dx/d)*f*260+(dy/d)*f*70;}
+}
+for(var g=0;g<gusts.length;g++){
+var q=gusts[g],age=t-q.t0,gx=p.x-q.x,gy=p.y-q.y,gd=Math.sqrt(gx*gx+gy*gy)+1;
+var push=Math.exp(-gd/200)*Math.max(0,1-age/0.9)*520;
+vx+=gx/gd*push;vy+=gy/gd*push;
+}
+p.px=p.x;p.py=p.y;
+p.x+=vx*dt;p.y+=vy*dt;p.age+=dt;
+if(p.age>p.life||p.x<-20||p.x>W+20||p.y<-20||p.y>H+20){make(p);}
+}
+function draw(p){
+var f=p.age/p.life,al=Math.sin(Math.PI*Math.min(1,f))*0.85;
+var a=COOL[p.c],b=WARM[p.c];
+var r=Math.round(lerp(a[0],b[0],m)),g=Math.round(lerp(a[1],b[1],m)),bl=Math.round(lerp(a[2],b[2],m));
+ctx.strokeStyle='rgba('+r+','+g+','+bl+','+al.toFixed(3)+')';
+ctx.beginPath();ctx.moveTo(p.px,p.py);ctx.lineTo(p.x,p.y);ctx.stroke();
+}
+function fade(){
+ctx.globalCompositeOperation='destination-out';
+ctx.fillStyle='rgba(0,0,0,0.09)';
+ctx.fillRect(0,0,W,H);
+ctx.globalCompositeOperation='lighter';
+ctx.lineWidth=1.5;ctx.lineCap='round';
+}
+function update(dt){
+t+=dt;
+m+=(target-m)*Math.min(1,dt*2.2);
+if(Math.abs(shown-tempTarget)>0.05){shown+=(tempTarget-shown)*Math.min(1,dt*3);temp.textContent=Math.round(shown);}
+for(var g=gusts.length-1;g>=0;g--){if(t-gusts[g].t0>1){gusts.splice(g,1);}}
+for(var i=0;i<parts.length;i++){step(parts[i],dt);}
+}
+function render(){
+fade();
+for(var i=0;i<parts.length;i++){draw(parts[i]);}
+}
+/* Reduced motion: one still frame of the streamlines, no loop */
+function still(){
+ctx.clearRect(0,0,W,H);
+ctx.globalCompositeOperation='lighter';ctx.lineWidth=1.5;ctx.lineCap='round';
+for(var s=0;s<70;s++){
+for(var i=0;i<parts.length;i++){var p=parts[i];p.age=Math.min(p.age,p.life*0.5);step(p,0.045);if(s>38){draw(p);}}
+}
+}
+function frame(ts){
+if(!running){return;}
+var dt=Math.min(0.033,(ts-last)/1000||0.016);last=ts;
+update(dt);render();
+requestAnimationFrame(frame);
+}
+function start(){if(running||reduce||!visible||document.hidden){return;}running=true;last=performance.now();requestAnimationFrame(frame);}
+function stop(){running=false;}
+function setMode(mode){
+target=mode==='warm'?1:0;
+tempTarget=mode==='warm'?76:68;
+root.setAttribute('data-mode',mode);
+for(var i=0;i<opts.length;i++){opts[i].setAttribute('aria-pressed',opts[i].getAttribute('data-mode')===mode?'true':'false');}
+if(reduce){m=target;temp.textContent=tempTarget;still();}else{start();}
+}
+for(var i=0;i<opts.length;i++){opts[i].addEventListener('click',function(){setMode(this.getAttribute('data-mode'));});}
+root.addEventListener('pointermove',function(e){
+var r=root.getBoundingClientRect();
+ptr.x=e.clientX-r.left;ptr.y=e.clientY-r.top;ptr.on=true;start();
+});
+root.addEventListener('pointerleave',function(){ptr.on=false;});
+root.addEventListener('pointerdown',function(e){
+if(reduce){return;}
+if(e.target.closest&&e.target.closest('a,button')){return;}
+var r=root.getBoundingClientRect();
+gusts.push({x:e.clientX-r.left,y:e.clientY-r.top,t0:t});
+if(gusts.length>6){gusts.shift();}
+start();
+});
+if('IntersectionObserver' in window){
+new IntersectionObserver(function(en){visible=en[0].isIntersecting;if(visible){start();}else{stop();}},{threshold:0.05}).observe(root);
+}
+document.addEventListener('visibilitychange',function(){if(document.hidden){stop();}else{start();}});
+if(mq.addEventListener){mq.addEventListener('change',function(){reduce=mq.matches;if(reduce){stop();still();}else{start();}});}
+if(window.ResizeObserver){new ResizeObserver(resize).observe(root);}else{window.addEventListener('resize',resize);}
+resize();
+start();
+})();
+</script>
+<!-- ===== END HERO ===== -->
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Ampere &amp; Oak Electric - animated hero concept</title>
+<meta name="description" content="Concept: interactive circuit-board hero for an electrician. Single self-contained HTML file for a WordPress Custom HTML block.">
+<style>html,body{margin:0;background:#0a0c13}.demo-badge{position:fixed;top:max(10px,env(safe-area-inset-top));right:10px;z-index:50;font:600 11px/1 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#e6e9f5;background:rgba(10,12,19,.72);border:1px solid rgba(255,255,255,.18);padding:7px 10px;border-radius:999px}</style>
+</head>
+<body>
+<span class="demo-badge">Concept demo &middot; fictional brand</span>
+<!-- ===== BEGIN HERO: paste everything down to END HERO into a WordPress Custom HTML block ===== -->
+<style>
+/* All rules are scoped under .ao-hero so the theme cannot break them and they cannot break the theme */
+.ao-hero{--ao-yellow:#ffe14d;--ao-ink:#f4f5fb;--ao-mute:#a9aec6;--ao-font:"Avenir Next","Segoe UI Variable Display","Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;position:relative;isolation:isolate;overflow:hidden;box-sizing:border-box;width:100%;min-height:640px;min-height:min(100svh,860px);display:flex;flex-direction:column;justify-content:center;padding:96px clamp(20px,6vw,88px) 84px;color:var(--ao-ink);font-family:var(--ao-font);text-align:left;background:radial-gradient(70% 60% at 82% 30%,#1c2250 0%,rgba(28,34,80,0) 70%),linear-gradient(180deg,#0d1019 0%,#0a0c13 100%)}
+.ao-hero *,.ao-hero *::before,.ao-hero *::after{box-sizing:border-box}
+.ao-hero .ao-canvas{position:absolute;left:0;top:0;width:100%;height:100%;display:block;z-index:1;pointer-events:none}
+.ao-hero .ao-shade{position:absolute;left:0;top:0;width:100%;height:100%;z-index:2;pointer-events:none;background:radial-gradient(60% 70% at 22% 52%,rgba(10,12,19,.92) 0%,rgba(10,12,19,.55) 55%,rgba(10,12,19,0) 100%)}
+.ao-hero .ao-copy{position:relative;z-index:3;max-width:600px}
+.ao-hero .ao-brand{margin:0 0 26px;font-size:15px;font-weight:700;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
+.ao-hero .ao-brand svg{width:24px;height:24px;flex:none}
+.ao-hero .ao-eyebrow{margin:0 0 16px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ao-yellow)}
+.ao-hero .ao-title{margin:0 0 18px;font-family:var(--ao-font);font-size:clamp(2.4rem,5.6vw + .3rem,4.9rem);line-height:1.02;font-weight:800;letter-spacing:-.03em;color:var(--ao-ink);text-wrap:balance}
+.ao-hero .ao-title span{color:var(--ao-yellow)}
+.ao-hero .ao-sub{margin:0 0 30px;max-width:46ch;font-size:clamp(1rem,.5vw + .9rem,1.2rem);line-height:1.5;color:var(--ao-mute)}
+.ao-hero .ao-actions{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 28px}
+.ao-hero .ao-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 28px;border-radius:999px;font:700 1.02rem/1 var(--ao-font);text-decoration:none;transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s,border-color .25s,color .25s}
+.ao-hero .ao-btn svg{width:20px;height:20px;flex:none}
+.ao-hero .ao-btn--main{background:var(--ao-yellow);color:#1c1700;box-shadow:0 10px 32px -10px rgba(255,225,77,.55)}
+.ao-hero .ao-btn--main:hover{transform:translateY(-2px);box-shadow:0 16px 38px -10px rgba(255,225,77,.7)}
+.ao-hero .ao-btn--ghost{color:var(--ao-ink);border:1.5px solid rgba(244,245,251,.32);background:rgba(10,12,19,.4)}
+.ao-hero .ao-btn--ghost:hover{border-color:var(--ao-yellow);color:var(--ao-yellow)}
+.ao-hero .ao-btn:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.ao-hero .ao-trust{display:flex;flex-direction:column;gap:9px;margin:0;padding:0;list-style:none;font-size:.95rem;color:var(--ao-mute)}
+.ao-hero .ao-trust li{margin:0;display:flex;align-items:center;gap:10px}
+.ao-hero .ao-trust svg{width:16px;height:16px;flex:none;color:var(--ao-yellow)}
+.ao-hero .ao-hint{position:absolute;left:16px;right:16px;bottom:18px;z-index:3;margin:0;text-align:center;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(220,224,242,.7);pointer-events:none}
+.ao-hero .ao-copy>*{animation:ao-rise .9s cubic-bezier(.22,1,.36,1) both}
+.ao-hero .ao-copy>:nth-child(2){animation-delay:.07s}
+.ao-hero .ao-copy>:nth-child(3){animation-delay:.14s}
+.ao-hero .ao-copy>:nth-child(4){animation-delay:.21s}
+.ao-hero .ao-copy>:nth-child(5){animation-delay:.28s}
+.ao-hero .ao-copy>:nth-child(6){animation-delay:.35s}
+@keyframes ao-rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@media (max-width:480px){.ao-hero .ao-btn{width:100%}.ao-hero .ao-title{font-size:2.4rem}.ao-hero{padding-top:84px}.ao-hero .ao-shade{background:radial-gradient(90% 80% at 40% 50%,rgba(10,12,19,.9) 0%,rgba(10,12,19,.5) 70%,rgba(10,12,19,.1) 100%)}}
+@media (prefers-reduced-motion:reduce){.ao-hero .ao-copy>*{animation:none}.ao-hero .ao-btn{transition:none}}
+</style>
+<section class="ao-hero" id="ao-hero" aria-label="Ampere and Oak Electric">
+<canvas class="ao-canvas" aria-hidden="true"></canvas>
+<div class="ao-shade" aria-hidden="true"></div>
+<div class="ao-copy">
+<p class="ao-brand"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 2 5 13.5h6L10 22l9-12.5h-6.2L13.5 2Z" fill="#ffe14d"/></svg>Ampere &amp; Oak Electric</p>
+<p class="ao-eyebrow">Licensed electricians &middot; San Antonio, TX</p>
+<h1 class="ao-title">Wired right. <span>Powered up today.</span></h1>
+<p class="ao-sub">Panel upgrades, EV chargers, rewiring and emergency repairs. One licensed electrician, one fixed quote, and the lights back on before you ask twice.</p>
+<div class="ao-actions">
+<a class="ao-btn ao-btn--main" href="tel:+12105550167"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call (210) 555-0167</a>
+<a class="ao-btn ao-btn--ghost" href="#quote">Request a quote</a>
+</div>
+<ul class="ao-trust">
+<li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 2 5 13.5h6L10 22l9-12.5h-6.2L13.5 2Z"/></svg>Licensed &amp; insured</li>
+<li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 2 5 13.5h6L10 22l9-12.5h-6.2L13.5 2Z"/></svg>Emergency calls answered 24/7</li>
+<li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 2 5 13.5h6L10 22l9-12.5h-6.2L13.5 2Z"/></svg>Fixed quote before we start</li>
+</ul>
+</div>
+<p class="ao-hint">Move over the circuit &middot; tap to throw a spark</p>
+</section>
+<script>
+/* Ampere & Oak hero. Self-contained: no jQuery, no libraries, no globals. */
+(function(){
+var root=document.getElementById('ao-hero');
+if(!root||root.getAttribute('data-ao-ready')){return;}
+root.setAttribute('data-ao-ready','1');
+var cv=root.querySelector('.ao-canvas');
+var ctx=cv.getContext('2d');
+var mq=window.matchMedia('(prefers-reduced-motion: reduce)');
+var reduce=mq.matches;
+var W=0,H=0,dpr=1,G=56;
+var traces=[],pulses=[],sparks=[],rings=[];
+var ptr={x:-999,y:-999,on:false};
+var running=false,visible=true,last=0,t=0;
+var DIRS=[[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1],[0,-1],[1,-1]];
+function rnd(a,b){return a+Math.random()*(b-a);}
+function ri(a,b){return Math.floor(rnd(a,b+1));}
+/* Build orthogonal and 45-degree copper traces, biased to the right so the copy stays calm */
+function build(){
+traces=[];pulses=[];
+G=W<700?44:56;
+var n=W<700?12:Math.round(Math.min(34,W/46));
+var xmin=W<700?0:W*0.3;
+for(var i=0;i<n;i++){
+var x=Math.round(rnd(xmin,W)/G)*G,y=Math.round(rnd(0,H)/G)*G,dir=ri(0,7);
+var pts=[{x:x,y:y}],len=[0],total=0,segs=ri(4,9);
+for(var s=0;s<segs;s++){
+dir=(dir+[0,0,1,-1,2,-2][ri(0,5)]+8)%8;
+var L=G*ri(1,3),dx=DIRS[dir][0],dy=DIRS[dir][1];
+var k=dx&&dy?0.7071:1;
+x+=dx*L*k;y+=dy*L*k;
+if(x<-G||x>W+G||y<-G||y>H+G){break;}
+total+=L;pts.push({x:x,y:y});len.push(total);
+}
+if(pts.length<3){i--;continue;}
+var tr={pts:pts,len:len,total:total,glow:0};
+traces.push(tr);
+var np=ri(1,2);
+for(var p=0;p<np;p++){pulses.push({tr:tr,s:rnd(0,total),v:rnd(120,230),boost:0});}
+}
+}
+function pointAt(tr,s){
+if(s<0){s=0;}
+var l=tr.len,i=1;
+while(i<l.length-1&&l[i]<s){i++;}
+var a=tr.pts[i-1],b=tr.pts[i],f=(s-l[i-1])/((l[i]-l[i-1])||1);
+if(f>1){f=1;}
+return {x:a.x+(b.x-a.x)*f,y:a.y+(b.y-a.y)*f};
+}
+function segDist(px,py,a,b){
+var vx=b.x-a.x,vy=b.y-a.y,wx=px-a.x,wy=py-a.y,c=(wx*vx+wy*vy)/((vx*vx+vy*vy)||1);
+c=Math.max(0,Math.min(1,c));
+var dx=px-(a.x+vx*c),dy=py-(a.y+vy*c);
+return Math.sqrt(dx*dx+dy*dy);
+}
+function resize(){
+var r=root.getBoundingClientRect();
+W=Math.round(r.width);H=Math.round(r.height);
+if(!W||!H){return;}
+dpr=Math.min(window.devicePixelRatio||1,W<700?1.5:2);
+cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);
+ctx.setTransform(dpr,0,0,dpr,0,0);
+build();
+if(reduce){render();}
+}
+function update(dt){
+t+=dt;
+for(var i=0;i<traces.length;i++){
+var tr=traces[i],near=0;
+if(ptr.on){
+var dmin=1e9;
+for(var k=1;k<tr.pts.length;k++){var d=segDist(ptr.x,ptr.y,tr.pts[k-1],tr.pts[k]);if(d<dmin){dmin=d;}}
+near=Math.max(0,1-dmin/170);
+}
+tr.glow+=(near-tr.glow)*Math.min(1,dt*8);
+}
+for(var p=0;p<pulses.length;p++){
+var u=pulses[p];
+u.boost=Math.max(0,u.boost-dt);
+u.s+=u.v*(1+u.boost*1.6+u.tr.glow*0.8)*dt;
+if(u.s>u.tr.total+90){u.s=-rnd(0,120);u.v=rnd(120,230);}
+}
+for(var q=sparks.length-1;q>=0;q--){
+var s=sparks[q];s.vy+=520*dt;s.x+=s.vx*dt;s.y+=s.vy*dt;s.life-=dt;
+if(s.life<=0){sparks.splice(q,1);}
+}
+for(var r=rings.length-1;r>=0;r--){rings[r].r+=520*dt;rings[r].a-=dt*1.7;if(rings[r].a<=0){rings.splice(r,1);}}
+}
+function render(){
+ctx.clearRect(0,0,W,H);
+ctx.lineCap='round';ctx.lineJoin='round';
+var i,k;
+for(i=0;i<traces.length;i++){
+var tr=traces[i];
+ctx.beginPath();ctx.moveTo(tr.pts[0].x,tr.pts[0].y);
+for(k=1;k<tr.pts.length;k++){ctx.lineTo(tr.pts[k].x,tr.pts[k].y);}
+ctx.strokeStyle='rgba(120,134,220,'+(0.2+tr.glow*0.55).toFixed(3)+')';ctx.lineWidth=2;ctx.stroke();
+var e=tr.pts[tr.pts.length-1],b=tr.pts[0];
+ctx.lineWidth=1.6;
+ctx.beginPath();ctx.arc(e.x,e.y,4.5,0,6.283);ctx.stroke();
+ctx.beginPath();ctx.arc(b.x,b.y,2.6,0,6.283);ctx.fillStyle='rgba(120,134,220,'+(0.3+tr.glow*0.5).toFixed(3)+')';ctx.fill();
+}
+ctx.globalCompositeOperation='lighter';
+for(i=0;i<pulses.length;i++){
+var u=pulses[i],tail=84,seg=6;
+if(u.s<0||u.s>u.tr.total){continue;}
+for(k=0;k<seg;k++){
+var a0=pointAt(u.tr,u.s-tail*k/seg),a1=pointAt(u.tr,u.s-tail*(k+1)/seg);
+ctx.beginPath();ctx.moveTo(a0.x,a0.y);ctx.lineTo(a1.x,a1.y);
+ctx.strokeStyle='rgba(255,225,77,'+((1-k/seg)*0.9).toFixed(3)+')';ctx.lineWidth=2.6;ctx.stroke();
+}
+var h=pointAt(u.tr,u.s);
+var g=ctx.createRadialGradient(h.x,h.y,0,h.x,h.y,14);
+g.addColorStop(0,'rgba(255,248,200,.95)');g.addColorStop(1,'rgba(255,225,77,0)');
+ctx.fillStyle=g;ctx.beginPath();ctx.arc(h.x,h.y,14,0,6.283);ctx.fill();
+}
+for(i=0;i<sparks.length;i++){
+var s=sparks[i],al=Math.max(0,s.life/s.max);
+ctx.strokeStyle='rgba(255,'+Math.round(200+55*(1-al))+','+Math.round(80+150*(1-al))+','+al.toFixed(3)+')';
+ctx.lineWidth=1.8;ctx.beginPath();ctx.moveTo(s.x,s.y);ctx.lineTo(s.x-s.vx*0.035,s.y-s.vy*0.035);ctx.stroke();
+}
+for(i=0;i<rings.length;i++){ctx.strokeStyle='rgba(255,225,77,'+Math.max(0,rings[i].a).toFixed(3)+')';ctx.lineWidth=2;ctx.beginPath();ctx.arc(rings[i].x,rings[i].y,rings[i].r,0,6.283);ctx.stroke();}
+ctx.globalCompositeOperation='source-over';
+}
+function frame(ts){
+if(!running){return;}
+var dt=Math.min(0.033,(ts-last)/1000||0.016);last=ts;
+update(dt);render();
+requestAnimationFrame(frame);
+}
+function start(){if(running||reduce||!visible||document.hidden){return;}running=true;last=performance.now();requestAnimationFrame(frame);}
+function stop(){running=false;}
+root.addEventListener('pointermove',function(e){
+var r=root.getBoundingClientRect();
+ptr.x=e.clientX-r.left;ptr.y=e.clientY-r.top;ptr.on=true;start();
+});
+root.addEventListener('pointerleave',function(){ptr.on=false;});
+/* Tap: a spark burst, a shock ring, and every nearby pulse surges for a moment */
+root.addEventListener('pointerdown',function(e){
+if(reduce){return;}
+if(e.target.closest&&e.target.closest('a,button')){return;}
+var r=root.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
+for(var i=0;i<26;i++){var a=rnd(0,6.283),v=rnd(120,420);sparks.push({x:x,y:y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-120,life:rnd(.45,1),max:1});}
+for(var j=0;j<sparks.length;j++){sparks[j].max=Math.max(sparks[j].max,sparks[j].life);}
+rings.push({x:x,y:y,r:6,a:.9});
+for(var p=0;p<pulses.length;p++){
+var h=pointAt(pulses[p].tr,Math.max(0,pulses[p].s)),dx=h.x-x,dy=h.y-y;
+if(dx*dx+dy*dy<260*260){pulses[p].boost=1.2;}
+}
+start();
+});
+if('IntersectionObserver' in window){
+new IntersectionObserver(function(en){visible=en[0].isIntersecting;if(visible){start();}else{stop();}},{threshold:0.05}).observe(root);
+}
+document.addEventListener('visibilitychange',function(){if(document.hidden){stop();}else{start();}});
+if(mq.addEventListener){mq.addEventListener('change',function(){reduce=mq.matches;if(reduce){stop();render();}else{start();}});}
+if(window.ResizeObserver){new ResizeObserver(resize).observe(root);}else{window.addEventListener('resize',resize);}
+resize();
+start();
+})();
+</script>
+<!-- ===== END HERO ===== -->
+</body>
+</html>

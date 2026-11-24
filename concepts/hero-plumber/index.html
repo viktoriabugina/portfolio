@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Tidewell Plumbing - animated hero concept</title>
+<meta name="description" content="Concept: interactive animated hero for a plumbing company. Single self-contained HTML file for a WordPress Custom HTML block.">
+<style>html,body{margin:0;background:#04141c}.demo-badge{position:fixed;top:max(10px,env(safe-area-inset-top));right:10px;z-index:50;font:600 11px/1 system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#cfeaf5;background:rgba(4,20,28,.72);border:1px solid rgba(255,255,255,.18);padding:7px 10px;border-radius:999px}</style>
+</head>
+<body>
+<span class="demo-badge">Concept demo &middot; fictional brand</span>
+<!-- ===== BEGIN HERO: paste everything down to END HERO into a WordPress Custom HTML block ===== -->
+<style>
+/* All rules are scoped under .bl-hero so the theme cannot break them and they cannot break the theme */
+.bl-hero{--bl-water:#62d6ff;--bl-amber:#ffc233;--bl-ink:#f3fbff;--bl-mute:#a8c6d2;--bl-font:"Avenir Next","Segoe UI Variable Display","Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;position:relative;isolation:isolate;overflow:hidden;box-sizing:border-box;width:100%;min-height:640px;min-height:min(100svh,860px);display:flex;flex-direction:column;justify-content:flex-start;padding:clamp(72px,11vh,120px) clamp(20px,6vw,88px) 250px;color:var(--bl-ink);font-family:var(--bl-font);background:radial-gradient(120% 90% at 85% 0%,#0d4a5e 0%,rgba(13,74,94,0) 55%),linear-gradient(180deg,#05202c 0%,#04141c 100%);text-align:left}
+.bl-hero *,.bl-hero *::before,.bl-hero *::after{box-sizing:border-box}
+.bl-hero .bl-canvas{position:absolute;left:0;top:0;width:100%;height:100%;display:block;z-index:1;pointer-events:none}
+.bl-hero .bl-pipes{position:absolute;left:0;top:0;width:100%;height:100%;display:block;z-index:2;pointer-events:none;overflow:visible}
+.bl-hero .bl-copy{position:relative;z-index:3;max-width:580px}
+.bl-hero .bl-brand{display:flex;align-items:center;gap:10px;margin:0 0 28px;font-size:15px;font-weight:700;letter-spacing:.02em;color:var(--bl-ink)}
+.bl-hero .bl-brand svg{width:26px;height:26px;flex:none}
+.bl-hero .bl-eyebrow{display:flex;align-items:center;gap:10px;margin:0 0 18px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--bl-water)}
+.bl-hero .bl-eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--bl-amber);box-shadow:0 0 0 0 rgba(255,194,51,.6);animation:bl-ping 2s ease-out infinite}
+.bl-hero .bl-title{margin:0 0 18px;font-family:var(--bl-font);font-size:clamp(2.3rem,5.4vw + .4rem,4.7rem);line-height:1.02;font-weight:800;letter-spacing:-.028em;color:var(--bl-ink);text-wrap:balance}
+.bl-hero .bl-title span{display:block;color:var(--bl-water)}
+.bl-hero .bl-sub{margin:0 0 30px;max-width:46ch;font-size:clamp(1rem,.5vw + .9rem,1.2rem);line-height:1.5;color:var(--bl-mute)}
+.bl-hero .bl-actions{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 28px}
+.bl-hero .bl-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border-radius:999px;font:700 1.02rem/1 var(--bl-font);text-decoration:none;transition:transform .25s cubic-bezier(.22,1,.36,1),background-color .25s,box-shadow .25s}
+.bl-hero .bl-btn svg{width:20px;height:20px;flex:none}
+.bl-hero .bl-btn--call{background:var(--bl-amber);color:#1b1300;box-shadow:0 10px 30px -10px rgba(255,194,51,.6)}
+.bl-hero .bl-btn--call:hover{transform:translateY(-2px);box-shadow:0 16px 36px -10px rgba(255,194,51,.75)}
+.bl-hero .bl-btn--ghost{color:var(--bl-ink);border:1.5px solid rgba(243,251,255,.35);background:rgba(4,20,28,.35)}
+.bl-hero .bl-btn--ghost:hover{border-color:var(--bl-water);color:var(--bl-water)}
+.bl-hero .bl-btn:focus-visible,.bl-hero .bl-valve:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.bl-hero .bl-trust{display:flex;flex-direction:column;gap:9px;margin:0;padding:0;list-style:none;font-size:.95rem;color:var(--bl-mute)}
+.bl-hero .bl-trust li{display:flex;align-items:center;gap:10px;margin:0}
+.bl-hero .bl-trust svg{width:18px;height:18px;flex:none;color:var(--bl-water)}
+.bl-hero .bl-valve{position:absolute;z-index:4;width:56px;height:56px;margin:0;padding:0;border:0;border-radius:50%;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.bl-hero .bl-hint{position:absolute;left:16px;right:16px;bottom:14px;z-index:3;margin:0;text-align:center;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(228,246,252,.82);pointer-events:none}
+.bl-hero .bl-p3{fill:none;stroke-dasharray:26 190;animation:bl-flow 2.6s linear infinite;transition:opacity .5s}
+.bl-hero.bl-off .bl-p3{opacity:0;animation-play-state:paused}
+.bl-hero .bl-wheel{transform-box:fill-box;transform-origin:center;transition:transform .8s cubic-bezier(.3,.7,.2,1)}
+.bl-hero.bl-off .bl-wheel{transform:rotate(200deg)}
+.bl-hero .bl-copy>*{animation:bl-rise .9s cubic-bezier(.22,1,.36,1) both}
+.bl-hero .bl-copy>:nth-child(2){animation-delay:.08s}
+.bl-hero .bl-copy>:nth-child(3){animation-delay:.16s}
+.bl-hero .bl-copy>:nth-child(4){animation-delay:.24s}
+.bl-hero .bl-copy>:nth-child(5){animation-delay:.32s}
+.bl-hero .bl-copy>:nth-child(6){animation-delay:.4s}
+@keyframes bl-rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes bl-flow{to{stroke-dashoffset:-216}}
+@keyframes bl-ping{70%{box-shadow:0 0 0 10px rgba(255,194,51,0)}100%{box-shadow:0 0 0 0 rgba(255,194,51,0)}}
+@media (min-width:900px){.bl-hero{padding-bottom:170px}.bl-hero .bl-actions{margin-bottom:34px}.bl-hero .bl-hint{font-size:12px}}
+@media (max-width:480px){.bl-hero .bl-btn{width:100%}.bl-hero .bl-title{font-size:2.35rem}}
+@media (prefers-reduced-motion:reduce){.bl-hero .bl-p3,.bl-hero .bl-eyebrow i{animation:none}.bl-hero .bl-copy>*{animation:none}.bl-hero .bl-wheel,.bl-hero .bl-btn{transition:none}}
+</style>
+<section class="bl-hero" id="bl-hero" aria-label="Tidewell Plumbing">
+<canvas class="bl-canvas" aria-hidden="true"></canvas>
+<svg class="bl-pipes" aria-hidden="true" focusable="false"></svg>
+<div class="bl-copy">
+<p class="bl-brand"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C16 3 6 14.2 6 20.2A10 10 0 0 0 26 20.2C26 14.2 16 3 16 3Z" fill="#62d6ff"/><path d="M11.5 20.5a4.6 4.6 0 0 0 4.2 4.6" fill="none" stroke="#04141c" stroke-width="2" stroke-linecap="round"/></svg>Tidewell Plumbing</p>
+<p class="bl-eyebrow"><i></i>24/7 emergency plumbers &middot; San Antonio, TX</p>
+<h1 class="bl-title">Leak at 2&nbsp;a.m.? <span>We&rsquo;re already on the way.</span></h1>
+<p class="bl-sub">Burst pipes, backed-up drains, no hot water. A licensed plumber at your door today, with the price agreed before we touch a wrench.</p>
+<div class="bl-actions">
+<a class="bl-btn bl-btn--call" href="tel:+12105550142"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Call (210) 555-0142</a>
+<a class="bl-btn bl-btn--ghost" href="#book">Book a visit</a>
+</div>
+<ul class="bl-trust">
+<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Licensed &amp; insured</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Same-day service across Bexar County</li>
+<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Upfront pricing, no surprise fees</li>
+</ul>
+</div>
+<button class="bl-valve" type="button" aria-pressed="false" aria-label="Shut off the water supply (interactive demo)"></button>
+<p class="bl-hint" aria-live="polite">Tap anywhere to drop water &middot; tap the red valve to shut it off</p>
+</section>
+<script>
+/* Tidewell hero. Self-contained: no jQuery, no libraries, no globals. */
+(function(){
+var root=document.getElementById('bl-hero');
+if(!root||root.getAttribute('data-bl-ready')){return;}
+root.setAttribute('data-bl-ready','1');
+var cv=root.querySelector('.bl-canvas');
+var ctx=cv.getContext('2d');
+var svg=root.querySelector('.bl-pipes');
+var copy=root.querySelector('.bl-copy');
+var valveBtn=root.querySelector('.bl-valve');
+var hint=root.querySelector('.bl-hint');
+var HINT=hint.textContent;
+var NS='http://www.w3.org/2000/svg';
+var mq=window.matchMedia('(prefers-reduced-motion: reduce)');
+var reduce=mq.matches;
+var W=0,H=0,dpr=1,pw=22,poolH=100,poolY=0,dropR=4;
+var joint={x:0,y:0};
+var drops=[],spray=[],ripples=[],bubbles=[];
+var bead=0,nextIn=1.1,spurtIn=6,t=0,off=false;
+var running=false,visible=true,last=0,lastMove=0;
+function rnd(a,b){return a+Math.random()*(b-a);}
+function el(name,attrs){var n=document.createElementNS(NS,name);for(var k in attrs){n.setAttribute(k,attrs[k]);}svg.appendChild(n);return n;}
+/* Geometry: pipes are rebuilt from the real hero size, so the drip always lines up */
+function layout(){
+var r=root.getBoundingClientRect();
+W=Math.round(r.width);H=Math.round(r.height);
+if(!W||!H){return;}
+dpr=Math.min(window.devicePixelRatio||1,W<700?1.5:2);
+cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);
+ctx.setTransform(dpr,0,0,dpr,0,0);
+var wide=W>=900;
+pw=wide?24:16;
+dropR=wide?4.6:3.6;
+poolH=wide?Math.round(Math.min(150,H*0.17)):72;
+poolY=H-poolH;
+var d,y1,vx,vy,rot,wx,wy,half=pw/2;
+if(wide){
+var cr=copy.getBoundingClientRect();
+var x0=W-Math.max(72,W*0.085);
+var rad=pw*1.4;
+var x2=Math.max(W*0.5,cr.right-r.left+90);
+y1=Math.max(170,H*0.34);
+joint.x=x2+(x0-rad-x2)*0.5;
+vx=x0;vy=y1*0.45;rot=-90;
+d='M'+x0+' -30L'+x0+' '+(y1-rad)+'Q'+x0+' '+y1+' '+(x0-rad)+' '+y1+'L'+x2+' '+y1;
+}else{
+y1=poolY-92;
+joint.x=W*0.46;
+vx=W*0.8;vy=y1;rot=0;
+d='M'+(W+30)+' '+y1+'L-30 '+y1;
+}
+joint.y=y1;
+while(svg.firstChild){svg.removeChild(svg.firstChild);}
+svg.setAttribute('viewBox','0 0 '+W+' '+H);
+el('path',{d:d,fill:'none',stroke:'rgba(0,0,0,.3)','stroke-width':pw+10,transform:'translate(0 7)'});
+el('path',{d:d,fill:'none',stroke:'#4a210e','stroke-width':pw+4});
+el('path',{d:d,fill:'none',stroke:'#b8642f','stroke-width':pw});
+el('path',{d:d,fill:'none',stroke:'#e69a62','stroke-width':pw*0.42,opacity:'.55'});
+el('path',{d:d,class:'bl-p3',stroke:'#fff4e4','stroke-width':pw*0.2,opacity:'.55'});
+/* pipe clamps */
+if(wide){
+var cs=[H*0.1,y1*0.78];
+for(var i=0;i<cs.length;i++){el('rect',{x:vx-half-6,y:cs[i]-4,width:pw+12,height:8,rx:3,fill:'#3b1a0b'});}
+el('rect',{x:x2-10,y:y1-half-16,width:12,height:pw+32,rx:3,fill:'#3b1a0b'});
+}else{
+var cx2=[W*0.1,W*0.68];
+for(var j=0;j<cx2.length;j++){el('rect',{x:cx2[j]-4,y:y1-half-6,width:8,height:pw+12,rx:3,fill:'#3b1a0b'});}
+}
+/* leaking joint */
+el('rect',{x:joint.x-8,y:y1-half-6,width:16,height:pw+12,rx:4,fill:'#8a4521',stroke:'#3b1a0b','stroke-width':2});
+el('circle',{cx:joint.x,cy:y1-half+1,r:1.8,fill:'#f0c29c'});
+el('circle',{cx:joint.x,cy:y1+half-1,r:1.8,fill:'#f0c29c'});
+el('ellipse',{cx:joint.x,cy:y1+half+9,rx:8,ry:3,fill:'rgba(98,214,255,.55)'});
+/* shut-off valve */
+var g=el('g',{transform:'translate('+vx+' '+vy+') rotate('+rot+')'});
+function add(parent,name,attrs){var n=document.createElementNS(NS,name);for(var k in attrs){n.setAttribute(k,attrs[k]);}parent.appendChild(n);return n;}
+var top=half+5;
+add(g,'rect',{x:-15,y:-top,width:30,height:pw+10,rx:5,fill:'#9c5226',stroke:'#3b1a0b','stroke-width':2});
+add(g,'rect',{x:-6,y:-top-9,width:12,height:11,rx:2,fill:'#7a3d1b'});
+add(g,'rect',{x:-2,y:-top-27,width:4,height:20,fill:'#d9a373'});
+var wg=add(g,'g',{transform:'translate(0 '+(-top-31)+')'});
+var wh=add(wg,'g',{'class':'bl-wheel'});
+add(wh,'circle',{r:15,fill:'rgba(224,70,58,.12)',stroke:'#e0463a','stroke-width':4});
+add(wh,'path',{d:'M-15 0H15M0 -15V15',stroke:'#e0463a','stroke-width':3,'stroke-linecap':'round'});
+add(wh,'circle',{r:3.4,fill:'#ff8d80'});
+if(rot===0){wx=vx;wy=vy-top-31;}else{wx=vx-top-31;wy=vy;}
+valveBtn.style.left=(wx-28)+'px';valveBtn.style.top=(wy-28)+'px';
+/* water pool bubbles */
+bubbles=[];
+var nb=W<700?4:7;
+for(var b=0;b<nb;b++){bubbles.push({x:rnd(20,W-20),y:rnd(poolY+10,H),r:rnd(1.5,3.4),v:rnd(10,26)});}
+}
+/* Water surface: two sine waves plus travelling ripples */
+function surf(x){
+var y=poolY+Math.sin(x*0.011+t*0.9)*2.4+Math.sin(x*0.026-t*1.35)*1.5;
+for(var i=0;i<ripples.length;i++){
+var q=ripples[i],age=t-q.t0,dx=Math.abs(x-q.x);
+var env=Math.exp(-age*1.5)*Math.exp(-dx*0.011);
+if(env>0.01){y+=q.a*env*Math.sin(dx*0.085-age*9.5);}
+}
+return y;
+}
+function ripple(x,a){ripples.push({x:x,t0:t,a:a});if(ripples.length>22){ripples.shift();}}
+function burst(x,y,n,power){
+for(var i=0;i<n;i++){spray.push({x:x,y:y,vx:rnd(-90,90),vy:-rnd(90,230)*power,r:rnd(1.1,2.3)});}
+}
+function drawDrop(x,y,r){
+ctx.save();ctx.translate(x,y);
+ctx.beginPath();ctx.moveTo(0,-r*2.2);
+ctx.bezierCurveTo(r*1.1,-r*.6,r*1.1,r,0,r);
+ctx.bezierCurveTo(-r*1.1,r,-r*1.1,-r*.6,0,-r*2.2);
+ctx.fillStyle='rgba(150,226,255,.96)';ctx.fill();
+ctx.beginPath();ctx.arc(-r*.3,0,r*.28,0,6.283);ctx.fillStyle='rgba(255,255,255,.85)';ctx.fill();
+ctx.restore();
+}
+function update(dt){
+t+=dt;
+if(off){bead=Math.max(0,bead-dt*1.6);}
+else{
+bead+=dt/nextIn;
+if(bead>=1){drops.push({x:joint.x,y:joint.y+pw/2+7,vy:50,r:dropR});bead=0;nextIn=rnd(.9,1.7);}
+spurtIn-=dt;
+if(spurtIn<=0){spurtIn=rnd(7,11);for(var s=0;s<3;s++){drops.push({x:joint.x+rnd(-2,2),y:joint.y+pw/2+7-s*20,vy:90,r:dropR*.85});}}
+}
+for(var i=drops.length-1;i>=0;i--){
+var d=drops[i];d.vy+=1500*dt;d.y+=d.vy*dt;
+if(d.y>=surf(d.x)){ripple(d.x,Math.min(9,Math.max(2.2,d.vy*0.011)));burst(d.x,poolY,3+Math.round(Math.random()*3),Math.min(1,d.vy/800));drops.splice(i,1);}
+}
+for(var k=spray.length-1;k>=0;k--){
+var p=spray[k];p.vy+=1400*dt;p.x+=p.vx*dt;p.y+=p.vy*dt;
+if(p.vy>0&&p.y>=surf(p.x)){spray.splice(k,1);}
+}
+for(var q=ripples.length-1;q>=0;q--){if(t-ripples[q].t0>3){ripples.splice(q,1);}}
+for(var b=0;b<bubbles.length;b++){
+var u=bubbles[b];u.y-=u.v*dt;
+if(u.y<surf(u.x)+4){u.x=rnd(20,W-20);u.y=H-rnd(2,poolH*.4);}
+}
+}
+function render(){
+ctx.clearRect(0,0,W,H);
+var step=W<700?8:5,x;
+/* back wave */
+ctx.beginPath();ctx.moveTo(0,H);
+for(x=0;x<=W+step;x+=step){ctx.lineTo(x,poolY-9+Math.sin(x*0.016-t*0.7)*3);}
+ctx.lineTo(W,H);ctx.closePath();ctx.fillStyle='rgba(40,140,185,.3)';ctx.fill();
+/* front body */
+var g=ctx.createLinearGradient(0,poolY-6,0,H);
+g.addColorStop(0,'rgba(98,214,255,.66)');g.addColorStop(.35,'rgba(30,120,165,.88)');g.addColorStop(1,'rgba(6,50,74,.97)');
+ctx.beginPath();ctx.moveTo(0,H);
+for(x=0;x<=W+step;x+=step){ctx.lineTo(x,surf(x));}
+ctx.lineTo(W,H);ctx.closePath();ctx.fillStyle=g;ctx.fill();
+ctx.beginPath();
+for(x=0;x<=W+step;x+=step){if(x===0){ctx.moveTo(x,surf(x));}else{ctx.lineTo(x,surf(x));}}
+ctx.strokeStyle='rgba(205,244,255,.9)';ctx.lineWidth=1.6;ctx.stroke();
+ctx.strokeStyle='rgba(220,248,255,.4)';ctx.lineWidth=1;
+for(var b=0;b<bubbles.length;b++){ctx.beginPath();ctx.arc(bubbles[b].x,bubbles[b].y,bubbles[b].r,0,6.283);ctx.stroke();}
+/* bead forming at the joint */
+if(bead>0.02){var br=1+bead*dropR*0.95;drawDrop(joint.x,joint.y+pw/2+6+br*1.1,br);}
+for(var i=0;i<drops.length;i++){drawDrop(drops[i].x,drops[i].y,drops[i].r);}
+ctx.fillStyle='rgba(190,238,255,.9)';
+for(var k=0;k<spray.length;k++){ctx.beginPath();ctx.arc(spray[k].x,spray[k].y,spray[k].r,0,6.283);ctx.fill();}
+}
+function staticFrame(){bead=0.7;t=1;ripples=[];drops=[];spray=[];render();}
+function frame(ts){
+if(!running){return;}
+var dt=Math.min(0.033,(ts-last)/1000||0.016);last=ts;
+update(dt);render();
+requestAnimationFrame(frame);
+}
+function start(){if(running||reduce||!visible||document.hidden){return;}running=true;last=performance.now();requestAnimationFrame(frame);}
+function stop(){running=false;}
+function relayout(){layout();if(reduce){staticFrame();}else{render();}}
+/* Interaction: tap drops a droplet that falls into the pool, moving over the pool ripples it */
+root.addEventListener('pointerdown',function(e){
+if(reduce){return;}
+if(e.target.closest&&e.target.closest('a,button')){return;}
+var r=root.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
+if(y>=poolY-8){ripple(x,rnd(5,9));burst(x,poolY,5,.8);}
+else{drops.push({x:x,y:y,vy:0,r:dropR*1.15});}
+start();
+});
+root.addEventListener('pointermove',function(e){
+if(reduce){return;}
+var now=performance.now();if(now-lastMove<80){return;}
+var r=root.getBoundingClientRect();
+if(e.clientY-r.top<poolY-30){return;}
+lastMove=now;ripple(e.clientX-r.left,1.8);start();
+});
+valveBtn.addEventListener('click',function(){
+off=!off;
+root.classList.toggle('bl-off',off);
+valveBtn.setAttribute('aria-pressed',off?'true':'false');
+hint.textContent=off?'Water is off. Tap the valve to turn it back on.':HINT;
+if(!off){bead=0;}
+if(reduce){bead=off?0:0.7;render();}else{start();}
+});
+if('IntersectionObserver' in window){
+new IntersectionObserver(function(en){visible=en[0].isIntersecting;if(visible){start();}else{stop();}},{threshold:0.05}).observe(root);
+}
+document.addEventListener('visibilitychange',function(){if(document.hidden){stop();}else{start();}});
+if(mq.addEventListener){mq.addEventListener('change',function(){reduce=mq.matches;if(reduce){stop();staticFrame();}else{start();}});}
+if(window.ResizeObserver){new ResizeObserver(relayout).observe(root);}else{window.addEventListener('resize',relayout);}
+window.addEventListener('load',relayout);
+relayout();
+start();
+})();
+</script>
+<!-- ===== END HERO ===== -->
+</body>
+</html>
