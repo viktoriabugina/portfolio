@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Cavallo Estates - VIP registration landing page concept</title>
+<meta name="description" content="Concept: mobile-first pre-construction landing page built to turn paid Google Ads traffic into registered VIP leads.">
+<style>
+:root{--bg:#f6f1e7;--paper:#fffdf8;--ink:#1c2a22;--mute:#5b6a61;--green:#1f4a38;--green-d:#14332a;--brass:#b98b3e;--brass-d:#8f6a28;--line:#e2d9c6;--ok:#1d7a4a;--err:#b3261e;--serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;--sans:"Avenir Next","Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;padding-bottom:72px}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:8px;background:#000;color:#fff;padding:8px 12px;z-index:100}
+.skip:focus{left:8px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacing:-.01em;margin:0 0 .5em;text-wrap:balance}
+h2{font-size:clamp(1.9rem,3.6vw + .4rem,3.1rem)}
+.eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--brass-d);margin:0 0 14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border-radius:999px;border:0;font:700 1rem/1 var(--sans);cursor:pointer;text-decoration:none;transition:transform .2s,background .2s,box-shadow .2s}
+.btn--main{background:var(--brass);color:#1a1205;box-shadow:0 10px 26px rgba(185,139,62,.35)}
+.btn--main:hover{transform:translateY(-2px);background:#c79a4b}
+.btn--green{background:var(--green);color:#fff}
+.btn--green:hover{background:var(--green-d)}
+.btn--line{background:transparent;border:1.5px solid currentColor}
+.btn:focus-visible,input:focus-visible,select:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #f2c45f;outline-offset:2px}
+/* top promo banner */
+.promo{background:var(--green-d);color:#f3e7cc;font-size:.88rem;display:flex;align-items:center;justify-content:center;gap:12px;padding:9px 44px 9px 16px;position:relative;text-align:center}
+.promo a{color:#fff;font-weight:700}
+.promo button{position:absolute;right:6px;top:50%;transform:translateY(-50%);width:36px;height:36px;border:0;background:transparent;color:#f3e7cc;font-size:20px;cursor:pointer}
+.promo[hidden]{display:none}
+/* header */
+.top{position:absolute;left:0;right:0;z-index:5}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
+.logo{font-family:var(--serif);font-size:1.35rem;color:#fff;text-decoration:none;letter-spacing:.04em;display:flex;align-items:center;gap:10px}
+.logo svg{width:28px;height:28px}
+.nav{display:none;gap:28px}
+.nav a{color:#efe6d2;text-decoration:none;font-size:.92rem}
+.nav a:hover{color:#fff}
+.top .btn{min-height:44px;padding:0 20px;font-size:.92rem}
+@media(max-width:520px){.top .btn{display:none}}
+@media(min-width:900px){.nav{display:flex}}
+/* hero */
+.hero{position:relative;min-height:min(900px,100svh);color:#fff;background:linear-gradient(180deg,#0f2a22 0%,#1d4636 48%,#c58a4a 100%);overflow:hidden;display:flex;align-items:flex-end}
+.hero-art{position:absolute;inset:0;width:100%;height:100%}
+.hero-art .win{animation:glow 5s ease-in-out infinite}
+.hero-art .win:nth-child(2n){animation-delay:-1.6s}
+.hero-art .win:nth-child(3n){animation-delay:-3.1s}
+@keyframes glow{0%,100%{opacity:.75}50%{opacity:1}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,22,17,.55) 0%,rgba(8,22,17,0) 38%,rgba(8,22,17,.55) 100%);pointer-events:none}
+.hero .wrap{position:relative;z-index:2;padding:130px 0 56px;display:grid;gap:34px}
+.hero h1{font-size:clamp(2.5rem,6vw + .5rem,5.1rem);max-width:15ch;color:#fff}
+.hero h1 em{font-style:italic;color:#f3cf8b}
+.price-anchor{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin:0 0 22px}
+.price-anchor small{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:#e6d6b1}
+.price-anchor strong{font-family:var(--serif);font-size:clamp(1.9rem,3vw + .6rem,2.8rem);font-weight:600}
+.hero p.lead{max-width:46ch;font-size:1.1rem;color:#efe6d2;margin:0 0 26px}
+.trust{display:flex;flex-wrap:wrap;gap:8px 20px;margin:24px 0 0;padding:0;list-style:none;font-size:.9rem;color:#e6d6b1}
+.trust li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--brass);margin-right:9px;vertical-align:middle}
+/* form card */
+.card{background:var(--paper);color:var(--ink);border-radius:22px;padding:26px;box-shadow:0 30px 70px rgba(0,0,0,.35)}
+.card h2{font-size:1.65rem;margin-bottom:6px}
+.card p.sm{font-size:.92rem;color:var(--mute);margin:0 0 18px}
+.field{display:grid;gap:6px;margin:0 0 14px}
+.field label{font-size:.82rem;font-weight:700;color:var(--ink)}
+.field input,.field select{width:100%;min-height:50px;padding:0 14px;border:1.5px solid #cfc4ac;border-radius:12px;background:#fff;font:1rem var(--sans);color:var(--ink)}
+.field input:focus,.field select:focus{border-color:var(--green)}
+.field .msg{font-size:.8rem;color:var(--err);min-height:1em}
+.field.bad input,.field.bad select{border-color:var(--err)}
+.legal{font-size:.74rem;color:var(--mute);margin:12px 0 0}
+.card .btn{width:100%}
+.done{display:none;text-align:center;padding:10px 0}
+.done .tick{width:60px;height:60px;border-radius:50%;background:var(--ok);margin:0 auto 14px;display:grid;place-items:center}
+.done .tick svg{width:30px;height:30px}
+.done h2{font-size:1.7rem}
+.done ul{list-style:none;padding:0;margin:16px 0;text-align:left;display:grid;gap:8px;font-size:.92rem}
+.done li{display:flex;gap:10px}
+.done li b{color:var(--ok)}
+.card.is-done form{display:none}
+.card.is-done .done{display:block}
+@media(min-width:960px){.hero .wrap{grid-template-columns:1.15fr .85fr;align-items:end;gap:60px}}
+/* sections */
+section{padding:clamp(64px,9vw,120px) 0}
+.sec-head{max-width:640px;margin-bottom:44px}
+.sec-head p{color:var(--mute);font-size:1.05rem;margin:0}
+.cols{display:grid;gap:20px}
+.col{background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.col .pic{aspect-ratio:4/3;background:#cdbf9f}
+.col .pic svg{width:100%;height:100%}
+.col .body{padding:22px 22px 26px;display:grid;gap:8px}
+.col h3{font-size:1.5rem;margin:0}
+.col .from{color:var(--brass-d);font-weight:700;font-size:.95rem}
+.col p{margin:0;color:var(--mute);font-size:.95rem}
+@media(min-width:800px){.cols{grid-template-columns:repeat(3,1fr)}}
+/* gated plans */
+.plans{background:var(--green-d);color:#f3ead4}
+.plans h2,.plans .sec-head p{color:#f3ead4}
+.plans .eyebrow{color:#e0b868}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 24px}
+.tab{min-height:44px;padding:0 20px;border-radius:999px;border:1.5px solid rgba(243,234,212,.4);background:transparent;color:#f3ead4;font:600 .95rem var(--sans);cursor:pointer}
+.tab[aria-selected="true"]{background:#f3ead4;color:var(--green-d);border-color:#f3ead4}
+.plan-grid{display:grid;gap:24px;position:relative}
+.plan-fig{background:#fffdf8;border-radius:18px;padding:18px;color:var(--ink)}
+.plan-fig svg{width:100%;height:auto}
+.plan-info{display:grid;align-content:start;gap:14px}
+.spec{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.spec div{background:rgba(255,255,255,.07);border-radius:14px;padding:14px;text-align:center}
+.spec b{display:block;font-family:var(--serif);font-size:1.5rem;color:#fff}
+.spec span{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:#d7c79c}
+.prices{width:100%;border-collapse:collapse;font-size:.95rem}
+.prices th,.prices td{text-align:left;padding:11px 8px;border-bottom:1px solid rgba(243,234,212,.2)}
+.prices th{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:#d7c79c;font-weight:700}
+.gate{transition:filter .5s,opacity .5s}
+.plans.locked .gate{filter:blur(9px);opacity:.55;pointer-events:none;user-select:none}
+.lock{display:none;position:absolute;inset:0;place-items:center;text-align:center;z-index:3}
+.plans.locked .lock{display:grid}
+.lock div{background:var(--paper);color:var(--ink);padding:26px 28px;border-radius:20px;max-width:380px;box-shadow:0 24px 60px rgba(0,0,0,.4);margin:0 16px}
+.lock h3{font-size:1.5rem}
+.lock p{margin:0 0 16px;color:var(--mute);font-size:.95rem}
+@media(min-width:900px){.plan-grid{grid-template-columns:1.1fr .9fr;align-items:start}}
+/* location */
+.loc{display:grid;gap:30px;align-items:center}
+.map{background:#e8e0cc;border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.map svg{width:100%;height:auto}
+.times{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:0}
+.times li{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:1rem}
+.times b{font-family:var(--serif);font-size:1.15rem;color:var(--green)}
+@media(min-width:900px){.loc{grid-template-columns:1fr 1.1fr;gap:60px}}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.gal figure{margin:0;border-radius:16px;overflow:hidden;position:relative;aspect-ratio:1/1}
+.gal figure:nth-child(1),.gal figure:nth-child(4){aspect-ratio:4/5}
+.gal svg{width:100%;height:100%;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.gal figure:hover svg{transform:scale(1.06)}
+.gal figcaption{position:absolute;left:12px;bottom:10px;font-size:.78rem;color:#fff;background:rgba(10,24,18,.55);padding:4px 10px;border-radius:99px}
+@media(min-width:800px){.gal{grid-template-columns:repeat(3,1fr)}}
+/* booking */
+.book{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cal{display:grid;gap:26px}
+.calbox{background:var(--bg);border-radius:20px;padding:20px;border:1px solid var(--line)}
+.calbox .mh{display:flex;justify-content:space-between;align-items:center;margin:0 0 12px;font-family:var(--serif);font-size:1.25rem}
+.dow,.days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.dow{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+.day{min-height:44px;border:0;border-radius:12px;background:transparent;font:600 .95rem var(--sans);color:var(--ink);cursor:pointer}
+.day:hover:not(:disabled){background:#e6dcc3}
+.day:disabled{color:#b9b09b;cursor:not-allowed}
+.day[aria-pressed="true"]{background:var(--green);color:#fff}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 0 16px}
+.slot{min-height:46px;border-radius:12px;border:1.5px solid #cfc4ac;background:#fff;font:600 .92rem var(--sans);cursor:pointer}
+.slot[aria-pressed="true"]{background:var(--green);color:#fff;border-color:var(--green)}
+.confirm{min-height:1.5em;font-weight:600;color:var(--ok);margin:12px 0 0}
+@media(min-width:900px){.cal{grid-template-columns:1fr 1fr;gap:50px;align-items:start}}
+/* footer */
+footer{background:var(--green-d);color:#cdbf9f;padding:46px 0 30px;font-size:.84rem}
+footer .wrap{display:grid;gap:14px}
+footer strong{font-family:var(--serif);color:#f3ead4;font-size:1.3rem;font-weight:600}
+/* mobile bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:8px;padding:8px max(10px,env(safe-area-inset-left)) calc(8px + env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-right));background:rgba(255,253,248,.95);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+.bar a{min-height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:.92rem;text-decoration:none}
+.bar svg{width:18px;height:18px}
+.bar .c{background:var(--green);color:#fff}
+.bar .w{background:#25a85a;color:#fff}
+.bar .v{background:var(--brass);color:#1a1205}
+@media(min-width:900px){.bar{display:none}body{padding-bottom:0}}
+/* exit modal */
+.modal{position:fixed;inset:0;z-index:80;background:rgba(10,22,17,.6);display:none;place-items:center;padding:16px}
+.modal.open{display:grid}
+.modal .box{background:var(--paper);border-radius:22px;max-width:440px;width:100%;padding:32px 28px;text-align:center;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.modal .x{position:absolute;right:10px;top:10px;width:44px;height:44px;border:0;background:transparent;font-size:24px;cursor:pointer}
+.modal h2{font-size:1.9rem}
+.modal p{color:var(--mute);margin:0 0 20px}
+/* ribbon */
+.ribbon{position:fixed;top:auto;left:10px;bottom:84px;z-index:60;font:600 11px/1 system-ui,sans-serif;background:rgba(20,51,42,.92);color:#f3e7cc;padding:8px 12px;border-radius:99px;pointer-events:none}
+@media(min-width:900px){.ribbon{bottom:12px;left:auto;right:12px}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="promo" id="promo"><span>VIP list closes before the public release. <a href="#register">Register for first access</a></span><button type="button" id="promoX" aria-label="Dismiss banner">&times;</button></div>
+<header class="top"><div class="wrap">
+<a class="logo" href="#"><svg viewBox="0 0 32 32" fill="none" stroke="#f3cf8b" stroke-width="2" aria-hidden="true"><path d="M3 15 16 4l13 11M7 13v15h18V13M13 28V19h6v9"/></svg>Cavallo Estates</a>
+<nav class="nav" aria-label="Main"><a href="#collections">Collections</a><a href="#plans">Floor plans</a><a href="#location">Location</a><a href="#gallery">Gallery</a><a href="#book">Book a visit</a></nav>
+<a class="btn btn--main" href="#register">Get VIP Access</a>
+</div></header>
+<main id="main">
+<section class="hero" style="padding:0">
+<svg class="hero-art" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+<defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#17352b"/><stop offset="1" stop-color="#0c1f18"/></linearGradient><radialGradient id="sun" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffd9a0" stop-opacity=".9"/><stop offset="1" stop-color="#ffd9a0" stop-opacity="0"/></radialGradient></defs>
+<circle cx="1080" cy="560" r="340" fill="url(#sun)"/>
+<path d="M0 640c180-40 340-60 520-40s340 50 520 20 280-50 400-30v310H0z" fill="#16352a"/>
+<g fill="url(#g1)"><path d="M820 720V470l130-90 130 90v250z"/><path d="M1060 720V520l110-70 110 70v200z"/><path d="M640 720V560l90-60 90 60v160z"/></g>
+<g fill="#0a1812"><path d="M800 472 950 366l150 106-14 14-136-96-136 96z"/><path d="M1044 522l126-84 126 84-12 12-114-72-114 72z"/></g>
+<g fill="#ffd18a"><rect class="win" x="850" y="520" width="34" height="48" rx="3"/><rect class="win" x="910" y="520" width="34" height="48" rx="3"/><rect class="win" x="970" y="520" width="34" height="48" rx="3"/><rect class="win" x="880" y="620" width="34" height="48" rx="3"/><rect class="win" x="1100" y="560" width="30" height="42" rx="3"/><rect class="win" x="1160" y="560" width="30" height="42" rx="3"/><rect class="win" x="1100" y="640" width="30" height="42" rx="3"/><rect class="win" x="680" y="590" width="28" height="40" rx="3"/></g>
+<g fill="#0b1a14"><path d="M100 760c0-90 22-150 36-150s36 60 36 150zM260 770c0-70 18-120 30-120s30 50 30 120zM1330 760c0-90 22-150 36-150s36 60 36 150z"/></g>
+<rect y="720" width="1440" height="180" fill="#0c1f18" fill-opacity=".0"/>
+</svg>
+<div class="wrap">
+<div>
+<p class="eyebrow" style="color:#e9c67f">Pre-construction &middot; Greater Toronto Area</p>
+<h1>Be first in line at <em>Cavallo Estates</em></h1>
+<div class="price-anchor"><small>Homes from</small><strong>$1,189,990*</strong></div>
+<p class="lead">Register for VIP access to floor plans, the price list and first selection, before the public release.</p>
+<a class="btn btn--main" href="#register">Get VIP Access</a>
+<ul class="trust"><li>Floor plans and pricing unlocked instantly</li><li>No obligation</li><li>Private appointments</li></ul>
+</div>
+<div class="card" id="register">
+<form id="vip" novalidate>
+<h2>Join the VIP list</h2>
+<p class="sm">Takes 20 seconds. Unlocks floor plans and the price list.</p>
+<div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" autocomplete="name" required><span class="msg" aria-live="polite"></span></div>
+<div class="field"><label for="f-mail">Email</label><input id="f-mail" name="email" type="email" autocomplete="email" inputmode="email" required><span class="msg" aria-live="polite"></span></div>
+<div class="field"><label for="f-tel">Phone</label><input id="f-tel" name="phone" type="tel" autocomplete="tel" inputmode="tel" required><span class="msg" aria-live="polite"></span></div>
+<div class="field"><label for="f-type">I am a</label><select id="f-type" name="type" required><option value="">Choose one</option><option>First-time buyer</option><option>Move-up buyer</option><option>Downsizer</option><option>Investor</option><option>Realtor</option></select><span class="msg" aria-live="polite"></span></div>
+<button class="btn btn--main" type="submit">Get VIP Access</button>
+<p class="legal">By registering you agree to be contacted about Cavallo Estates. Realtors welcome. *Sample figures for this concept.</p>
+</form>
+<div class="done" role="status" aria-live="polite">
+<div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+<h2>You are on the VIP list</h2>
+<p class="sm" id="doneName">Floor plans and the price list are now unlocked.</p>
+<ul><li><b>&#10003;</b> Lead sent instantly to the agent's email and CRM (demo: simulated)</li><li><b>&#10003;</b> Floor plans and price list unlocked below</li><li><b>&#10003;</b> Pick a private appointment time</li></ul>
+<a class="btn btn--green" href="#plans">View floor plans</a>
+</div>
+</div>
+</div>
+</section>
+
+<section id="collections"><div class="wrap">
+<div class="sec-head reveal"><p class="eyebrow">Collections</p><h2>Three ways to live at Cavallo</h2><p>Sample copy. Each collection is designed around how families actually use a home.</p></div>
+<div class="cols">
+<article class="col reveal"><div class="pic"><svg viewBox="0 0 400 300" role="img" aria-label="Townhome elevation"><rect width="400" height="300" fill="#d8c9a6"/><rect y="230" width="400" height="70" fill="#8a9a6a"/><g fill="#f4ecd8"><rect x="40" y="110" width="90" height="120"/><rect x="155" y="100" width="90" height="130"/><rect x="270" y="110" width="90" height="120"/></g><g fill="#1f4a38"><path d="M32 112 85 70l53 42zM147 102l53-42 53 42zM262 112l53-42 53 42z"/></g><g fill="#2b3b34"><rect x="68" y="170" width="24" height="60"/><rect x="183" y="170" width="24" height="60"/><rect x="298" y="170" width="24" height="60"/></g><g fill="#f0c36d"><rect x="56" y="130" width="18" height="22"/><rect x="100" y="130" width="18" height="22"/><rect x="171" y="130" width="18" height="22"/><rect x="215" y="130" width="18" height="22"/><rect x="286" y="130" width="18" height="22"/><rect x="330" y="130" width="18" height="22"/></g></svg></div><div class="body"><h3>Townhomes</h3><span class="from">From $1,189,990*</span><p>3 and 4 bedrooms, double garage, private terrace.</p></div></article>
+<article class="col reveal"><div class="pic"><svg viewBox="0 0 400 300" role="img" aria-label="Detached home elevation"><rect width="400" height="300" fill="#d8c9a6"/><rect y="235" width="400" height="65" fill="#8a9a6a"/><rect x="90" y="120" width="220" height="115" fill="#f4ecd8"/><path d="M70 124 200 52l130 72z" fill="#1f4a38"/><rect x="250" y="150" width="70" height="85" fill="#eadfc4"/><rect x="186" y="170" width="28" height="65" fill="#2b3b34"/><g fill="#f0c36d"><rect x="116" y="150" width="26" height="30"/><rect x="150" y="150" width="26" height="30"/><rect x="226" y="150" width="20" height="30"/><rect x="262" y="170" width="40" height="30"/></g></svg></div><div class="body"><h3>Detached</h3><span class="from">From $1,749,990*</span><p>4 and 5 bedrooms on generous lots with 10 ft ceilings.</p></div></article>
+<article class="col reveal"><div class="pic"><svg viewBox="0 0 400 300" role="img" aria-label="Estate lot"><rect width="400" height="300" fill="#cfc19c"/><rect y="220" width="400" height="80" fill="#7e9163"/><rect x="70" y="100" width="260" height="120" fill="#f4ecd8"/><path d="M50 104 200 30l150 74z" fill="#14332a"/><rect x="40" y="150" width="60" height="70" fill="#eadfc4"/><rect x="300" y="150" width="60" height="70" fill="#eadfc4"/><rect x="180" y="160" width="40" height="60" fill="#2b3b34"/><g fill="#f0c36d"><rect x="96" y="130" width="28" height="34"/><rect x="140" y="130" width="28" height="34"/><rect x="232" y="130" width="28" height="34"/><rect x="276" y="130" width="28" height="34"/></g><g fill="#2d5a3c"><circle cx="30" cy="190" r="26"/><circle cx="372" cy="190" r="26"/></g></svg></div><div class="body"><h3>Estate lots</h3><span class="from">From $2,490,000*</span><p>Half-acre premiums with room for a pool and guest suite.</p></div></article>
+</div></div></section>
+
+<section class="plans locked" id="plans"><div class="wrap">
+<div class="sec-head"><p class="eyebrow">VIP access</p><h2>Floor plans and price list</h2><p>Register once and everything on this page unlocks.</p></div>
+<div class="plan-grid">
+<div class="gate">
+<div class="tabs" role="tablist" aria-label="Floor plans">
+<button class="tab" role="tab" aria-selected="true" data-p="0" id="t0">The Marlow</button><button class="tab" role="tab" aria-selected="false" data-p="1" id="t1">The Ashby</button><button class="tab" role="tab" aria-selected="false" data-p="2" id="t2">The Halden</button>
+</div>
+<div class="plan-fig"><svg id="planSvg" viewBox="0 0 400 260" role="img" aria-label="Floor plan"></svg></div>
+</div>
+<div class="plan-info gate">
+<h3 id="pName" style="font-size:2rem;margin:0">The Marlow</h3>
+<div class="spec"><div><b id="pBeds">3</b><span>Beds</span></div><div><b id="pBaths">2.5</b><span>Baths</span></div><div><b id="pSf">2,140</b><span>Sq ft</span></div></div>
+<table class="prices"><thead><tr><th>Home</th><th>Size</th><th>From</th></tr></thead><tbody>
+<tr><td>The Marlow</td><td>2,140 sq ft</td><td>$1,189,990</td></tr>
+<tr><td>The Ashby</td><td>2,780 sq ft</td><td>$1,749,990</td></tr>
+<tr><td>The Halden</td><td>3,460 sq ft</td><td>$2,490,000</td></tr></tbody></table>
+<a class="btn btn--main" href="#book">Book a private appointment</a>
+</div>
+<div class="lock"><div><h3>Unlock with VIP access</h3><p>Floor plans and the full price list are shared with registered buyers.</p><a class="btn btn--main" href="#register">Get VIP Access</a></div></div>
+</div></div></section>
+
+<section id="location"><div class="wrap loc">
+<div class="reveal"><p class="eyebrow">Location</p><h2>Quiet, and still close to everything</h2><p style="color:var(--mute)">Sample distances for this concept.</p>
+<ul class="times"><li><span>Highway 400</span><b>8 min</b></li><li><span>GO Station</span><b>12 min</b></li><li><span>Top-rated schools</span><b>6 min</b></li><li><span>Golf and conservation trails</span><b>4 min</b></li><li><span>Downtown Toronto</span><b>45 min</b></li></ul></div>
+<div class="map reveal"><svg viewBox="0 0 520 400" role="img" aria-label="Stylized area map"><rect width="520" height="400" fill="#e8e0cc"/><path d="M0 300c120-30 200 20 300-10s160-60 220-30v140H0z" fill="#cfd8b8"/><path d="M-10 120C90 150 180 90 300 120s160 10 240-20" stroke="#fff" stroke-width="14" fill="none"/><path d="M180-10c10 120 40 200 90 420" stroke="#fff" stroke-width="10" fill="none"/><path d="M420-10c-20 120-10 240 30 420" stroke="#f5efe0" stroke-width="7" fill="none"/><circle cx="300" cy="190" r="70" fill="#1f4a38" fill-opacity=".12"/><g fill="#b98b3e"><path d="M300 150a22 22 0 0 1 22 22c0 16-22 40-22 40s-22-24-22-40a22 22 0 0 1 22-22z"/></g><circle cx="300" cy="172" r="8" fill="#fff"/><g font-family="system-ui" font-size="12" fill="#1c2a22"><text x="322" y="168" font-weight="700">Cavallo Estates</text><text x="110" y="108">Hwy 400</text><text x="370" y="300">Conservation area</text><text x="190" y="260">GO Station</text></g><g fill="#1f4a38"><circle cx="205" cy="246" r="6"/><circle cx="130" cy="180" r="5"/><circle cx="410" cy="250" r="5"/></g></svg></div>
+</div></section>
+
+<section id="gallery" style="padding-top:0"><div class="wrap">
+<div class="sec-head reveal"><p class="eyebrow">Gallery</p><h2>The look and feel</h2><p>Placeholder artwork. Final renderings and photography replace these.</p></div>
+<div class="gal reveal">
+<figure><svg viewBox="0 0 300 375" preserveAspectRatio="xMidYMid slice"><rect width="300" height="375" fill="#e7dcc0"/><rect y="250" width="300" height="125" fill="#7e9163"/><rect x="50" y="130" width="200" height="125" fill="#f6efdc"/><path d="M36 134 150 66l114 68z" fill="#1f4a38"/><rect x="132" y="190" width="36" height="65" fill="#2b3b34"/></svg><figcaption>Front elevation</figcaption></figure>
+<figure><svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice"><rect width="300" height="300" fill="#efe6d0"/><rect x="0" y="180" width="300" height="120" fill="#c9b78d"/><rect x="40" y="60" width="220" height="130" fill="#fffdf8" stroke="#d9cdb0"/><rect x="60" y="80" width="80" height="90" fill="#cfe0e6"/><rect x="160" y="80" width="80" height="90" fill="#cfe0e6"/><rect x="100" y="205" width="100" height="48" rx="8" fill="#1f4a38"/></svg><figcaption>Great room</figcaption></figure>
+<figure><svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice"><rect width="300" height="300" fill="#f4ecd8"/><rect x="30" y="120" width="240" height="90" fill="#d7c7a1"/><rect x="30" y="210" width="240" height="14" fill="#14332a"/><g fill="#fffdf8"><rect x="50" y="136" width="60" height="60"/><rect x="120" y="136" width="60" height="60"/><rect x="190" y="136" width="60" height="60"/></g><circle cx="80" cy="70" r="14" fill="#b98b3e"/><circle cx="150" cy="70" r="14" fill="#b98b3e"/><circle cx="220" cy="70" r="14" fill="#b98b3e"/></svg><figcaption>Chef's kitchen</figcaption></figure>
+<figure><svg viewBox="0 0 300 375" preserveAspectRatio="xMidYMid slice"><rect width="300" height="375" fill="#16362c"/><circle cx="220" cy="90" r="46" fill="#f3cf8b" fill-opacity=".85"/><path d="M0 260c60-30 120-30 180-10s90 10 120-10v135H0z" fill="#0c1f18"/><rect x="90" y="190" width="120" height="80" fill="#0a1812"/><path d="M80 196 150 150l70 46z" fill="#050d0a"/><rect x="108" y="214" width="20" height="26" fill="#ffd18a"/><rect x="172" y="214" width="20" height="26" fill="#ffd18a"/></svg><figcaption>Twilight</figcaption></figure>
+<figure><svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice"><rect width="300" height="300" fill="#d9e4d2"/><circle cx="90" cy="110" r="52" fill="#2d5a3c"/><circle cx="200" cy="130" r="64" fill="#3b7050"/><rect x="0" y="230" width="300" height="70" fill="#7e9163"/><path d="M0 250c80-20 160-20 300 0" stroke="#e7dcc0" stroke-width="14" fill="none"/></svg><figcaption>Trails and green space</figcaption></figure>
+<figure><svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice"><rect width="300" height="300" fill="#f6efdc"/><rect x="40" y="50" width="220" height="200" fill="#fffdf8" stroke="#d9cdb0"/><rect x="60" y="70" width="180" height="90" fill="#cfe0e6"/><rect x="60" y="180" width="80" height="50" fill="#b98b3e" fill-opacity=".5"/><rect x="160" y="180" width="80" height="50" fill="#1f4a38" fill-opacity=".6"/></svg><figcaption>Primary suite</figcaption></figure>
+</div></div></section>
+
+<section class="book" id="book"><div class="wrap cal">
+<div><p class="eyebrow">VIP appointments</p><h2>Book a private visit</h2><p style="color:var(--mute);max-width:42ch">Choose a day and time. In the live version this is your Calendly (or similar) calendar embedded here, and each booking lands in your inbox and CRM.</p></div>
+<div class="calbox"><div class="mh"><span id="monthLabel"></span></div><div class="dow" aria-hidden="true"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div><div class="days" id="days" role="group" aria-label="Choose a day"></div>
+<p style="font-weight:700;margin:18px 0 8px;font-size:.9rem">Available times</p>
+<div class="slots" id="slots"><button class="slot" type="button" aria-pressed="false">10:00 AM</button><button class="slot" type="button" aria-pressed="false">11:30 AM</button><button class="slot" type="button" aria-pressed="false">1:00 PM</button><button class="slot" type="button" aria-pressed="false">2:30 PM</button><button class="slot" type="button" aria-pressed="false">4:00 PM</button><button class="slot" type="button" aria-pressed="false">5:30 PM</button></div>
+<button class="btn btn--green" type="button" id="bookBtn" style="width:100%">Request this time</button><p class="confirm" id="bookMsg" role="status" aria-live="polite"></p></div>
+</div></section>
+</main>
+<footer><div class="wrap"><strong>Cavallo Estates</strong><p style="margin:0">Concept demo built to show structure and functionality for a VIP-registration landing page. All text, prices, plans and images are placeholders. Not an offering. Illustrations are artist concepts.</p></div></footer>
+
+<nav class="bar" aria-label="Quick actions">
+<a class="c" href="tel:+14165550142"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Call</a>
+<a class="w" href="https://wa.me/14165550142" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.6-4.8A9 9 0 1 1 8 19.6z"/></svg>WhatsApp</a>
+<a class="v" href="#register">VIP Access</a>
+</nav>
+<div class="modal" id="exit" role="dialog" aria-modal="true" aria-labelledby="exT"><div class="box"><button class="x" type="button" id="exX" aria-label="Close">&times;</button><h2 id="exT">Before you go</h2><p>VIP buyers see floor plans and pricing first. It takes 20 seconds and there is no obligation.</p><a class="btn btn--main" href="#register" id="exGo">Get VIP Access</a></div></div>
+<span class="ribbon">Concept demo &middot; sample content</span>
+<script>
+(function(){
+/* Scroll reveals */
+var rv=[].slice.call(document.querySelectorAll('.reveal'));
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});rv.forEach(function(n){io.observe(n)})}else{rv.forEach(function(n){n.classList.add('in')})}
+/* Promo banner */
+var promo=document.getElementById('promo');document.getElementById('promoX').addEventListener('click',function(){promo.hidden=true});
+/* Floor plans */
+var plans=[
+{n:'The Marlow',b:3,ba:'2.5',sf:'2,140',r:[[20,20,170,120,'Great room'],[190,20,190,120,'Kitchen'],[20,140,120,100,'Primary'],[140,140,110,100,'Bed 2'],[250,140,130,100,'Bed 3']]},
+{n:'The Ashby',b:4,ba:'3.5',sf:'2,780',r:[[20,20,200,110,'Great room'],[220,20,160,110,'Kitchen'],[20,130,110,110,'Primary'],[130,130,90,110,'Bed 2'],[220,130,80,110,'Bed 3'],[300,130,80,110,'Bed 4']]},
+{n:'The Halden',b:5,ba:'4.5',sf:'3,460',r:[[20,20,150,100,'Great room'],[170,20,100,100,'Kitchen'],[270,20,110,100,'Study'],[20,120,130,120,'Primary'],[150,120,80,120,'Bed 2'],[230,120,70,120,'Bed 3'],[300,120,80,120,'Guest suite']]}];
+var svg=document.getElementById('planSvg'),tabs=[].slice.call(document.querySelectorAll('.tab'));
+function draw(i){var p=plans[i],h='<rect x="10" y="10" width="380" height="240" fill="none" stroke="#1c2a22" stroke-width="4"/>';p.r.forEach(function(r,k){h+='<rect x="'+r[0]+'" y="'+r[1]+'" width="'+r[2]+'" height="'+r[3]+'" fill="'+(k%2?'#f3ead4':'#e9dfc4')+'" stroke="#1c2a22" stroke-width="2"/><text x="'+(r[0]+r[2]/2)+'" y="'+(r[1]+r[3]/2+4)+'" text-anchor="middle" font-family="system-ui" font-size="12" fill="#1c2a22">'+r[4]+'</text>'});svg.innerHTML=h;
+document.getElementById('pName').textContent=p.n;document.getElementById('pBeds').textContent=p.b;document.getElementById('pBaths').textContent=p.ba;document.getElementById('pSf').textContent=p.sf;
+tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===i?'true':'false')})}
+tabs.forEach(function(t,k){t.addEventListener('click',function(){draw(k)});t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){var n=(k+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length;tabs[n].focus();draw(n)}})});
+draw(0);
+/* VIP form (demo: validates and simulates the lead) */
+var form=document.getElementById('vip'),card=document.getElementById('register'),planSec=document.getElementById('plans');
+function setBad(el,msg){var f=el.closest('.field');f.classList.toggle('bad',!!msg);f.querySelector('.msg').textContent=msg||''}
+function check(){var ok=true,n=form.name,m=form.email,t=form.phone,y=form.type;
+if(n.value.trim().length<2){setBad(n,'Please enter your name');ok=false}else setBad(n,'');
+if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(m.value.trim())){setBad(m,'Enter a valid email');ok=false}else setBad(m,'');
+if(t.value.replace(/\D/g,'').length<10){setBad(t,'Enter a 10-digit phone number');ok=false}else setBad(t,'');
+if(!y.value){setBad(y,'Choose one');ok=false}else setBad(y,'');return ok}
+form.addEventListener('submit',function(e){e.preventDefault();if(!check()){var b=form.querySelector('.bad input,.bad select');if(b)b.focus();return}
+document.getElementById('doneName').textContent='Thank you, '+form.name.value.trim().split(' ')[0]+'. Floor plans and the price list are now unlocked.';
+card.classList.add('is-done');planSec.classList.remove('locked');try{sessionStorage.setItem('vip','1')}catch(x){}
+document.getElementById('exit').classList.remove('open')});
+try{if(sessionStorage.getItem('vip')==='1'){planSec.classList.remove('locked')}}catch(x){}
+/* Booking calendar (demo of an embedded scheduler) */
+var days=document.getElementById('days'),mLabel=document.getElementById('monthLabel'),sel=null,slot=null;
+var now=new Date(),yr=now.getFullYear(),mo=now.getMonth();
+var first=new Date(yr,mo,1),dim=new Date(yr,mo+1,0).getDate(),today=now.getDate();
+mLabel.textContent=first.toLocaleString('en-CA',{month:'long',year:'numeric'});
+var h='';for(var i=0;i<first.getDay();i++)h+='<span></span>';
+for(var d=1;d<=dim;d++){var wd=new Date(yr,mo,d).getDay();var off=d<=today||wd===1;h+='<button type="button" class="day" data-d="'+d+'" aria-pressed="false"'+(off?' disabled':'')+'>'+d+'</button>'}
+days.innerHTML=h;
+days.addEventListener('click',function(e){var b=e.target.closest('.day');if(!b||b.disabled)return;[].forEach.call(days.querySelectorAll('.day'),function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');sel=+b.dataset.d});
+var sl=[].slice.call(document.querySelectorAll('.slot'));
+sl.forEach(function(s){s.addEventListener('click',function(){sl.forEach(function(x){x.setAttribute('aria-pressed','false')});s.setAttribute('aria-pressed','true');slot=s.textContent})});
+document.getElementById('bookBtn').addEventListener('click',function(){var m=document.getElementById('bookMsg');
+if(!sel||!slot){m.style.color='var(--err)';m.textContent='Pick a day and a time first.';return}
+m.style.color='var(--ok)';m.textContent='Requested: '+mLabel.textContent.split(' ')[0]+' '+sel+' at '+slot+'. (Demo: in the live site this books on your calendar and notifies you.)'});
+/* Exit-intent offer: desktop only, once, only if not yet registered */
+var shown=false;
+document.addEventListener('mouseout',function(e){if(shown||e.clientY>8||e.relatedTarget||window.innerWidth<900)return;if(card.classList.contains('is-done'))return;shown=true;document.getElementById('exit').classList.add('open')});
+function closeEx(){document.getElementById('exit').classList.remove('open')}
+document.getElementById('exX').addEventListener('click',closeEx);document.getElementById('exGo').addEventListener('click',closeEx);
+document.getElementById('exit').addEventListener('click',function(e){if(e.target===this)closeEx()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeEx()});
+})();
+</script>
+</body>
+</html>

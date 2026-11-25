@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>4Point Marketing - roofing agency website concept</title>
+<meta name="description" content="Concept: premium conversion-focused homepage for a marketing agency that serves established roofing companies.">
+<style>
+:root{--bg:#0d1014;--bg2:#141922;--card:#171d27;--ink:#f2f4f7;--mute:#9aa6b5;--line:#252d3a;--ember:#ff6a2b;--ember-d:#d94f14;--steel:#7fb2ff;--ok:#3ddc97;--err:#ff6b6b;--sans:"Avenir Next","Segoe UI Variable Display","Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55}
+a{color:inherit}
+svg{display:block;max-width:100%}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:8px;background:#fff;color:#000;padding:8px 12px;z-index:100}.skip:focus{left:8px}
+h1,h2,h3{margin:0 0 .5em;line-height:1.04;letter-spacing:-.025em;font-weight:800;text-wrap:balance}
+h2{font-size:clamp(1.9rem,3.4vw + .5rem,3.1rem)}
+.eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ember);margin:0 0 14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 28px;border:0;border-radius:999px;font:700 1rem/1 var(--sans);cursor:pointer;text-decoration:none;transition:transform .2s,background .2s,box-shadow .2s}
+.btn--main{background:var(--ember);color:#fff;box-shadow:0 12px 30px rgba(255,106,43,.32)}
+.btn--main:hover{transform:translateY(-2px);background:#ff7a40}
+.btn--ghost{border:1.5px solid rgba(242,244,247,.35);color:var(--ink);background:transparent}
+.btn--ghost:hover{border-color:#fff}
+.btn:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid var(--steel);outline-offset:2px}
+/* header */
+.top{position:fixed;left:0;right:0;top:0;z-index:30;transition:background .3s,backdrop-filter .3s,border-color .3s;border-bottom:1px solid transparent}
+.top.solid{background:rgba(13,16,20,.82);backdrop-filter:blur(12px);border-color:var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{white-space:nowrap;display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.1rem;text-decoration:none;letter-spacing:-.01em}
+.logo svg{width:30px;height:30px}
+.nav{display:none;gap:28px}.nav a{color:var(--mute);text-decoration:none;font-size:.92rem}.nav a:hover{color:#fff}
+.top .btn{min-height:44px;padding:0 20px;font-size:.9rem}
+@media(min-width:900px){.nav{display:flex}}
+@media(max-width:440px){.top .btn{padding:0 14px}}
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:radial-gradient(90% 70% at 70% 100%,#241a17 0%,var(--bg) 60%)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero .wrap{position:relative;z-index:2;padding:120px 0 90px}
+@media(max-width:899px){.hero .wrap{padding-bottom:230px}}
+.hero h1{font-size:clamp(2.6rem,6.6vw + .3rem,5.6rem);max-width:13ch}
+.hero h1 span{color:var(--ember)}
+.hero p.lead{max-width:44ch;font-size:clamp(1.02rem,.6vw + .9rem,1.25rem);color:#c7d0db;margin:0 0 30px}
+.acts{display:flex;flex-wrap:wrap;gap:12px}
+.hint{margin:26px 0 0;font-size:.82rem;color:var(--mute)}
+.hint b{color:#c7d0db}
+.proof{display:flex;flex-wrap:wrap;gap:10px 26px;margin:34px 0 0;padding:0;list-style:none;font-size:.88rem;color:var(--mute)}
+.proof li::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--ember);margin-right:9px}
+/* sections */
+section{padding:clamp(70px,10vw,130px) 0}
+.sec-head{max-width:680px;margin-bottom:46px}
+.sec-head p{color:var(--mute);font-size:1.08rem;margin:0}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.stat{background:var(--bg2);padding:28px 22px}
+.stat b{display:block;font-size:clamp(2rem,3.4vw + .6rem,3.2rem);letter-spacing:-.03em;color:#fff;font-variant-numeric:tabular-nums}
+.stat span{font-size:.88rem;color:var(--mute)}
+@media(min-width:800px){.stats{grid-template-columns:repeat(4,1fr)}}
+.note{font-size:.78rem;color:var(--mute);margin:12px 4px 0}
+.split{display:grid;gap:34px}
+@media(min-width:900px){.split{grid-template-columns:1fr 1fr;gap:70px;align-items:center}}
+.pain{display:grid;gap:12px}
+.pain li{list-style:none;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;display:flex;gap:14px;color:#c7d0db}
+.pain li::before{content:"\00D7";color:var(--err);font-weight:800;font-size:1.3rem;line-height:1}
+.pain{padding:0;margin:0}
+.steps{display:grid;gap:18px;counter-reset:s}
+.step{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s}
+.step:hover{transform:translateY(-4px);border-color:#3a4558}
+.step::before{counter-increment:s;content:"0" counter(s);position:absolute;right:20px;top:12px;font-size:3.6rem;font-weight:800;color:#1f2733}
+.step h3{font-size:1.4rem;position:relative}
+.step p{margin:0;color:var(--mute);position:relative}
+.step .tag{display:inline-block;margin-top:16px;font-size:.78rem;font-weight:700;color:var(--ember);position:relative}
+@media(min-width:900px){.steps{grid-template-columns:repeat(3,1fr)}}
+.svc{display:grid;gap:14px}
+.svc div{display:flex;gap:16px;background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:20px}
+.svc svg{width:34px;height:34px;flex:none;color:var(--ember)}
+.svc b{display:block;margin-bottom:2px}
+.svc span{color:var(--mute);font-size:.94rem}
+@media(min-width:800px){.svc{grid-template-columns:repeat(2,1fr)}}
+.case{background:linear-gradient(135deg,#1c2330,#141922);border:1px solid var(--line);border-radius:26px;padding:clamp(24px,4vw,46px);display:grid;gap:28px}
+.case blockquote{margin:0;font-size:clamp(1.2rem,1.6vw + .8rem,1.7rem);line-height:1.3;font-weight:600;letter-spacing:-.01em}
+.case cite{display:block;margin-top:14px;font-size:.88rem;color:var(--mute);font-style:normal;font-weight:400}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center}
+.nums div{background:rgba(255,255,255,.04);border-radius:16px;padding:18px 8px}
+.nums b{display:block;font-size:clamp(1.4rem,2vw + .6rem,2.2rem);color:var(--ember)}
+.nums span{font-size:.76rem;color:var(--mute)}
+@media(min-width:900px){.case{grid-template-columns:1.2fr 1fr;align-items:center}}
+/* cta */
+.cta{background:radial-gradient(80% 90% at 20% 0%,#2a1a14,var(--bg));border-top:1px solid var(--line)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:26px}
+.field{display:grid;gap:6px;margin:0 0 14px}
+.field label{font-size:.82rem;font-weight:700}
+.field input,.field select{min-height:50px;padding:0 14px;border-radius:12px;border:1.5px solid #323c4c;background:#0f141b;color:var(--ink);font:1rem var(--sans);width:100%}
+.field input:focus,.field select:focus{border-color:var(--ember)}
+.field .msg{font-size:.8rem;color:var(--err);min-height:1em}
+.field.bad input,.field.bad select{border-color:var(--err)}
+.card .btn{width:100%}
+.fine{font-size:.76rem;color:var(--mute);margin:12px 0 0}
+.thanks{display:none}
+.card.is-done form{display:none}.card.is-done .thanks{display:block}
+.thanks h3{font-size:1.6rem;color:var(--ok)}
+.slotrow{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:14px 0}
+.slotrow button{min-height:46px;border-radius:12px;border:1.5px solid #323c4c;background:#0f141b;color:var(--ink);font:600 .92rem var(--sans);cursor:pointer}
+.slotrow button[aria-pressed="true"]{background:var(--ember);border-color:var(--ember);color:#fff}
+.ghl{border:1.5px dashed #3a4558;border-radius:14px;padding:14px;color:var(--mute);font-size:.84rem;margin:0 0 16px}
+@media(min-width:900px){.cta .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}}
+footer{padding:36px 0 40px;border-top:1px solid var(--line);color:var(--mute);font-size:.84rem}
+.ribbon{position:fixed;left:10px;bottom:10px;z-index:60;font:600 11px/1 system-ui,sans-serif;background:rgba(255,106,43,.95);color:#fff;padding:8px 12px;border-radius:99px;pointer-events:none}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top" id="top"><div class="wrap">
+<a class="logo" href="#"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M3 18 16 5l13 13" stroke="#ff6a2b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 18v9h16v-9" stroke="#f2f4f7" stroke-width="3" stroke-linejoin="round"/><circle cx="16" cy="21" r="2.4" fill="#ff6a2b"/></svg>4Point Marketing</a>
+<nav class="nav" aria-label="Main"><a href="#system">The system</a><a href="#services">Services</a><a href="#results">Results</a><a href="#call">Book a call</a></nav>
+<a class="btn btn--main" href="#call">Book a call</a>
+</div></header>
+<main id="main">
+<section class="hero" style="padding:0">
+<canvas id="rain" aria-hidden="true"></canvas>
+<div class="wrap">
+<p class="eyebrow">Marketing for established roofing companies</p>
+<h1>Your crews are ready. <span>Fill the calendar.</span></h1>
+<p class="lead">We build the websites, ads and follow-up systems that turn homeowners into booked roof inspections for roofing companies doing $2M to $15M+ a year.</p>
+<div class="acts"><a class="btn btn--main" href="#call">Book a strategy call</a><a class="btn btn--ghost" href="#system">See how it works</a></div>
+<ul class="proof"><li>Built only for roofing</li><li>Booked inspections, not clicks</li><li>One team, one dashboard</li></ul>
+<p class="hint"><b>Try it:</b> move your cursor or tap the screen. The roof is storm-tested.</p>
+</div>
+</section>
+
+<section><div class="wrap">
+<div class="stats reveal"><div class="stat"><b data-n="3.4" data-d="1" data-s="x">0</b><span>Sample: average lead growth in 6 months</span></div><div class="stat"><b data-n="41" data-s="%">0</b><span>Sample: lower cost per booked inspection</span></div><div class="stat"><b data-n="9" data-s=" min">0</b><span>Sample: median speed to first call-back</span></div><div class="stat"><b data-n="24" data-s="/7">0</b><span>Sample: lead capture, every storm season</span></div></div>
+<p class="note">All figures on this concept page are placeholders. Real numbers and case studies replace them.</p>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap split">
+<div class="reveal"><p class="eyebrow">The problem</p><h2>Most agencies sell leads. You need inspections on the calendar.</h2><p style="color:var(--mute);font-size:1.08rem;margin:0">A roofing owner at $5M does not have time for dashboards of clicks and impressions. You need a phone that rings and crews that stay booked.</p></div>
+<ul class="pain reveal"><li>Leads arrive, then go cold because nobody calls back in five minutes.</li><li>A generic template that looks like every other roofer in town.</li><li>Ad spend that jumps every storm season with no clear return.</li><li>Reports full of vanity numbers and no booked jobs.</li></ul>
+</div></section>
+
+<section id="system" style="background:var(--bg2);border-block:1px solid var(--line)"><div class="wrap">
+<div class="sec-head reveal"><p class="eyebrow">The system</p><h2>Three parts. One goal: booked sales meetings.</h2><p>Every piece is built around the homeowner's decision, from the first search to the signed estimate.</p></div>
+<div class="steps">
+<article class="step reveal"><h3>A site that earns trust</h3><p>A fast, premium website written for homeowners and built to convert, with reviews, financing and storm-damage paths in the first screen.</p><span class="tag">Design, copy, speed</span></article>
+<article class="step reveal"><h3>Traffic that is ready to buy</h3><p>Google and Meta campaigns focused on high-intent roof repair and replacement, with spend that follows the weather.</p><span class="tag">Ads, local SEO, GBP</span></article>
+<article class="step reveal"><h3>Follow-up that never sleeps</h3><p>Instant text and call routing, calendar booking and reminders, all wired into one pipeline so no lead goes cold.</p><span class="tag">CRM, calendar, automation</span></article>
+</div></div></section>
+
+<section id="services"><div class="wrap">
+<div class="sec-head reveal"><p class="eyebrow">Services</p><h2>Everything a growing roofer needs, under one roof.</h2></div>
+<div class="svc reveal">
+<div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg><p style="margin:0"><b>Website design and build</b><span>Premium, mobile-first, animated where it helps and fast everywhere.</span></p></div>
+<div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><p style="margin:0"><b>Local SEO and Google Business Profile</b><span>Show up when homeowners search roof repair near them.</span></p></div>
+<div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg><p style="margin:0"><b>Paid media</b><span>Google, Meta and Local Services Ads managed for cost per inspection.</span></p></div>
+<div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/></svg><p style="margin:0"><b>Lead follow-up automation</b><span>Speed-to-lead texts, calls and reminders inside your CRM.</span></p></div>
+</div></div></section>
+
+<section id="results" style="background:var(--bg2);border-block:1px solid var(--line)"><div class="wrap">
+<div class="sec-head reveal"><p class="eyebrow">Results</p><h2>What good looks like.</h2></div>
+<div class="case reveal"><div><blockquote>"Sample testimonial. This block holds a real quote from a roofing owner and a short story of the first 90 days."<cite>Placeholder name, Roofing Co., Texas</cite></blockquote></div>
+<div class="nums"><div><b>+212%</b><span>Booked inspections</span></div><div><b>-38%</b><span>Cost per lead</span></div><div><b>4.9</b><span>Review rating</span></div></div></div>
+</div></section>
+
+<section class="cta" id="call"><div class="wrap">
+<div class="reveal"><p class="eyebrow">Next step</p><h2>Let's map your next 90 days.</h2><p style="color:var(--mute);font-size:1.08rem;max-width:40ch">A 30-minute call. We look at your site, your market and your numbers, then tell you plainly what would move the needle.</p></div>
+<div class="card" id="card">
+<form id="f" novalidate>
+<div class="field"><label for="n">Your name</label><input id="n" autocomplete="name" required><span class="msg" aria-live="polite"></span></div>
+<div class="field"><label for="c">Company</label><input id="c" autocomplete="organization" required><span class="msg" aria-live="polite"></span></div>
+<div class="field"><label for="e">Work email</label><input id="e" type="email" inputmode="email" autocomplete="email" required><span class="msg" aria-live="polite"></span></div>
+<div class="field"><label for="r">Annual revenue</label><select id="r" required><option value="">Choose a range</option><option>Under $2M</option><option>$2M to $5M</option><option>$5M to $15M</option><option>$15M+</option></select><span class="msg" aria-live="polite"></span></div>
+<button class="btn btn--main" type="submit">Book a strategy call</button>
+<p class="fine">No spam. Your details go straight to our team.</p>
+</form>
+<div class="thanks" role="status" aria-live="polite"><h3>Request received</h3><p style="color:var(--mute);margin:0 0 12px">Pick a time that suits you. We confirm by email.</p>
+<div class="ghl">Placeholder: your GoHighLevel calendar and contact form embed here, with submissions landing in your CRM.</div>
+<div class="slotrow" id="slots"><button type="button" aria-pressed="false">Tomorrow 10:00</button><button type="button" aria-pressed="false">Tomorrow 14:30</button><button type="button" aria-pressed="false">Thursday 11:00</button><button type="button" aria-pressed="false">Thursday 16:00</button></div>
+<button class="btn btn--main" type="button" id="bk">Confirm time</button><p class="fine" id="bkm" role="status" aria-live="polite"></p></div>
+</div>
+</div></section>
+</main>
+<footer><div class="wrap">Concept homepage for a marketing agency serving roofing companies. All names, figures and quotes are placeholders. 4Point Marketing branding is not final.</div></footer>
+<span class="ribbon">Concept demo &middot; placeholder content</span>
+<script>
+(function(){
+var top=document.getElementById('top');function sc(){top.classList.toggle('solid',window.scrollY>30)}addEventListener('scroll',sc,{passive:true});sc();
+var rv=[].slice.call(document.querySelectorAll('.reveal'));
+function count(el){var t=+el.dataset.n,d=+el.dataset.d||0,s=el.dataset.s||'',t0=null;function f(ts){if(!t0)t0=ts;var k=Math.min(1,(ts-t0)/1200),e=1-Math.pow(1-k,3);el.textContent=(t*e).toFixed(d)+s;if(k<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
+var red=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function seen(n){n.classList.add('in');[].forEach.call(n.querySelectorAll('[data-n]'),function(c){if(red)c.textContent=(+c.dataset.n).toFixed(+c.dataset.d||0)+(c.dataset.s||'');else count(c)})}
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){seen(e.target);io.unobserve(e.target)}})},{threshold:.15});rv.forEach(function(n){io.observe(n)})}else rv.forEach(seen);
+/* Rain on a shingled roof */
+var cv=document.getElementById('rain'),cx=cv.getContext('2d'),W=0,H=0,dpr=1,drops=[],sp=[],roof=null,ptr={x:-999,y:-999,on:false},vis=true,run=false,last=0;
+function layout(){var r=cv.getBoundingClientRect();dpr=Math.min(window.devicePixelRatio||1,r.width<700?1.5:2);W=r.width;H=r.height;cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);cx.setTransform(dpr,0,0,dpr,0,0);
+var wide=W>=900,ax=wide?W*.74:W*.5,hw=wide?W*.3:W*.6,sl=wide?.62:.4,ay=wide?H*.38:H-hw*sl-24;roof={ax:ax,ay:ay,hw:hw,sl:sl,y1:ay+hw*sl};
+var n=Math.round(Math.min(220,Math.max(70,W*H/9000)));drops=[];for(var i=0;i<n;i++)drops.push(mk(true));sp=[];if(red)draw(0)}
+function mk(init){return{x:Math.random()*W,y:init?Math.random()*H:-20-Math.random()*60,v:520+Math.random()*320,l:10+Math.random()*14,a:.18+Math.random()*.4}}
+function roofY(x){var dx=Math.abs(x-roof.ax);if(dx>roof.hw)return null;return roof.ay+dx*roof.sl}
+function step(dt){for(var i=0;i<drops.length;i++){var d=drops[i];d.y+=d.v*dt;d.x+=60*dt;
+if(ptr.on){var px=d.x-ptr.x,py=d.y-ptr.y,q=px*px+py*py;if(q<9000){var k=Math.sqrt(q)||1;d.x+=px/k*220*dt;d.y-=d.v*dt*.5}}
+var ry=roofY(d.x);if(ry!==null&&d.y>=ry&&d.y-d.v*dt<=ry+4){for(var j=0;j<3;j++)sp.push({x:d.x,y:ry,vx:(Math.random()-.5)*160+(d.x<roof.ax?-70:70),vy:-60-Math.random()*90,t:.5});Object.assign(d,mk(false))}
+else if(d.y>H+20)Object.assign(d,mk(false))}
+for(var s=sp.length-1;s>=0;s--){var p=sp[s];p.t-=dt;p.vy+=420*dt;p.x+=p.vx*dt;p.y+=p.vy*dt;if(p.t<=0)sp.splice(s,1)}}
+function draw(){cx.clearRect(0,0,W,H);var r=roof;
+cx.save();cx.beginPath();cx.moveTo(r.ax,r.ay-6);cx.lineTo(r.ax+r.hw,r.y1);cx.lineTo(r.ax-r.hw,r.y1);cx.closePath();
+var g=cx.createLinearGradient(0,r.ay,0,r.y1);g.addColorStop(0,'#232a35');g.addColorStop(1,'#12161d');cx.fillStyle=g;cx.fill();cx.clip();
+cx.strokeStyle='rgba(255,255,255,.07)';cx.lineWidth=1;var rows=Math.round((r.y1-r.ay)/16);for(var i=1;i<=rows;i++){var y=r.ay+i*16;cx.beginPath();cx.moveTo(r.ax-r.hw,y);cx.lineTo(r.ax+r.hw,y);cx.stroke();for(var x=r.ax-r.hw-(i%2?0:14);x<r.ax+r.hw;x+=28){cx.beginPath();cx.moveTo(x,y);cx.lineTo(x,y+16);cx.stroke()}}
+cx.restore();
+cx.fillStyle='#10141b';cx.fillRect(r.ax-r.hw*.82,r.y1,r.hw*1.64,Math.max(0,H-r.y1));cx.fillStyle='#ffc27a';var ww=Math.min(46,r.hw*.14);cx.globalAlpha=.85;cx.fillRect(r.ax-r.hw*.5,r.y1+30,ww,ww*1.2);cx.fillRect(r.ax+r.hw*.5-ww,r.y1+30,ww,ww*1.2);cx.globalAlpha=1;
+cx.strokeStyle='#ff6a2b';cx.lineWidth=3;cx.lineCap='round';cx.beginPath();cx.moveTo(r.ax-r.hw,r.y1);cx.lineTo(r.ax,r.ay-6);cx.lineTo(r.ax+r.hw,r.y1);cx.stroke();
+cx.strokeStyle='rgba(160,200,255,1)';cx.lineWidth=1.2;for(var k=0;k<drops.length;k++){var d=drops[k];cx.globalAlpha=d.a;cx.beginPath();cx.moveTo(d.x,d.y);cx.lineTo(d.x-d.l*.12,d.y-d.l);cx.stroke()}
+cx.globalAlpha=1;cx.fillStyle='rgba(190,220,255,.8)';for(var m=0;m<sp.length;m++){var p=sp[m];cx.globalAlpha=Math.max(0,p.t*1.6);cx.fillRect(p.x,p.y,2,2)}cx.globalAlpha=1}
+function loop(ts){if(!run)return;var dt=Math.min(.05,(ts-last)/1000||.016);last=ts;step(dt);draw();requestAnimationFrame(loop)}
+function go(){if(red||run||!vis||document.hidden)return;run=true;last=performance.now();requestAnimationFrame(loop)}
+function halt(){run=false}
+layout();if(red)draw();else go();
+if('ResizeObserver' in window)new ResizeObserver(function(){layout()}).observe(cv);else addEventListener('resize',layout);
+if('IntersectionObserver' in window)new IntersectionObserver(function(e){vis=e[0].isIntersecting;vis?go():halt()}).observe(cv);
+document.addEventListener('visibilitychange',function(){document.hidden?halt():go()});
+function pt(e){var r=cv.getBoundingClientRect();ptr.x=e.clientX-r.left;ptr.y=e.clientY-r.top;ptr.on=true}
+cv.parentNode.addEventListener('pointermove',pt);cv.parentNode.addEventListener('pointerdown',function(e){pt(e);for(var i=0;i<drops.length;i++){var d=drops[i];var dx=d.x-ptr.x,dy=d.y-ptr.y;if(dx*dx+dy*dy<40000){d.x+=dx*.6}}});
+cv.parentNode.addEventListener('pointerleave',function(){ptr.on=false});
+/* Form */
+var f=document.getElementById('f'),card=document.getElementById('card');
+function bad(el,m){var w=el.closest('.field');w.classList.toggle('bad',!!m);w.querySelector('.msg').textContent=m||''}
+f.addEventListener('submit',function(e){e.preventDefault();var ok=true,n=f.n,c=f.c,em=f.e,r=f.r;
+if(n.value.trim().length<2){bad(n,'Please enter your name');ok=false}else bad(n,'');
+if(c.value.trim().length<2){bad(c,'Please enter your company');ok=false}else bad(c,'');
+if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value.trim())){bad(em,'Enter a valid email');ok=false}else bad(em,'');
+if(!r.value){bad(r,'Choose a range');ok=false}else bad(r,'');
+if(!ok){var b=f.querySelector('.bad input,.bad select');if(b)b.focus();return}
+card.classList.add('is-done')});
+var sl=[].slice.call(document.querySelectorAll('#slots button')),pick=null;
+sl.forEach(function(b){b.addEventListener('click',function(){sl.forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed','true');pick=b.textContent})});
+document.getElementById('bk').addEventListener('click',function(){var m=document.getElementById('bkm');m.textContent=pick?'Requested: '+pick+'. (Demo: the live site books on your calendar and notifies your team.)':'Pick a time first.'});
+})();
+</script>
+</body>
+</html>
