@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Cedar &amp; Salt - home wellness recommendation site concept</title>
+<meta name="description" content="Concept: architectural editorial homepage for a home wellness recommendation brand, with a working rule-based quiz, affiliate click tracking and consent-based newsletter signup.">
+<style>
+:root{--lime:#ece6da;--paper:#f7f3ea;--ink:#241f1a;--mute:#6d655a;--cedar:#8a4b2e;--cedar-d:#6c3920;--olive:#5c6240;--olive-d:#454a2f;--line:#d9d1c1;--err:#a3342a;--serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;--sans:"Avenir Next","Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.6}
+a{color:inherit}
+svg{display:block;max-width:100%}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:8px;background:#000;color:#fff;padding:8px 12px;z-index:100}.skip:focus{left:8px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.012em;line-height:1.08;margin:0 0 .5em;text-wrap:balance}
+h1{font-size:clamp(2.7rem,6.4vw + .3rem,5.6rem)}
+h1 em,h2 em{font-style:italic;color:var(--cedar)}
+h2{font-size:clamp(2rem,3.4vw + .5rem,3.2rem)}
+.kicker{font:700 .72rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--olive);margin:0 0 18px;display:flex;align-items:center;gap:12px}
+.kicker::before{content:"";width:34px;height:1px;background:currentColor}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);font:600 .95rem/1 var(--sans);letter-spacing:.02em;cursor:pointer;text-decoration:none;transition:background .25s,color .25s,transform .25s}
+.btn:hover{background:var(--cedar);border-color:var(--cedar)}
+.btn--line{background:transparent;color:var(--ink)}
+.btn--line:hover{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.btn--olive{background:var(--olive);border-color:var(--olive)}.btn--olive:hover{background:var(--olive-d);border-color:var(--olive-d)}
+.btn:focus-visible,a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #c98b2a;outline-offset:3px}
+header{position:sticky;top:0;z-index:20;background:rgba(247,243,234,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:var(--serif);font-size:1.5rem;text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.logo i{color:var(--cedar)}
+nav{display:none;gap:30px}nav a{text-decoration:none;font-size:.9rem;color:var(--mute)}nav a:hover{color:var(--ink)}
+@media(min-width:900px){nav{display:flex}}
+header .btn{min-height:42px;padding:0 18px;font-size:.85rem}
+/* hero */
+.hero{padding:clamp(44px,7vw,96px) 0 clamp(50px,7vw,90px)}
+.hero .wrap{display:grid;gap:44px;align-items:center}
+.hero p.lead{font-size:clamp(1.05rem,.6vw + .95rem,1.3rem);color:var(--mute);max-width:44ch;margin:0 0 30px}
+.acts{display:flex;flex-wrap:wrap;gap:12px}
+.facade{background:var(--lime);border:1px solid var(--line);aspect-ratio:4/5;position:relative;overflow:hidden}
+.facade svg{width:100%;height:100%}
+.facade .sun{animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translateX(-16px)}to{transform:translateX(16px)}}
+.facade figcaption{position:absolute;left:14px;bottom:12px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+@media(min-width:900px){.hero .wrap{grid-template-columns:1.15fr .85fr;gap:70px}}
+.assure{display:flex;flex-wrap:wrap;gap:8px 26px;margin:34px 0 0;padding:0;list-style:none;font-size:.86rem;color:var(--mute)}
+.assure li::before{content:"";display:inline-block;width:6px;height:6px;background:var(--cedar);margin-right:10px;vertical-align:middle}
+section{padding:clamp(60px,9vw,120px) 0}
+.sec-head{max-width:640px;margin-bottom:44px}.sec-head p{color:var(--mute);font-size:1.05rem;margin:0}
+/* quiz */
+.quiz{background:var(--lime);border-block:1px solid var(--line)}
+.quiz .wrap{display:grid;gap:40px}
+.qcard{background:var(--paper);border:1px solid var(--line);padding:clamp(22px,3.4vw,40px)}
+fieldset{border:0;padding:0;margin:0 0 26px}
+legend{font-family:var(--serif);font-size:1.3rem;padding:0;margin:0 0 12px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{position:relative}
+.opts input{position:absolute;opacity:0;inset:0;cursor:pointer}
+.opts span{display:inline-flex;align-items:center;min-height:46px;padding:0 18px;border:1.5px solid var(--line);background:#fff;font-size:.94rem;cursor:pointer;transition:all .2s}
+.opts input:checked+span{background:var(--olive);border-color:var(--olive);color:#fff}
+.opts input:focus-visible+span{outline:3px solid #c98b2a;outline-offset:2px}
+.opts span:hover{border-color:var(--olive)}
+.result{display:none;margin-top:6px;border-top:1px solid var(--line);padding-top:24px}
+.result.on{display:block}
+.result h3{font-size:1.9rem}
+.result .why{color:var(--mute);margin:0 0 16px}
+.err{color:var(--err);font-size:.88rem;min-height:1.3em;margin:0 0 10px}
+@media(min-width:900px){.quiz .wrap{grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}}
+/* picks */
+.grid{display:grid;gap:22px}
+.pick{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .35s,border-color .35s}
+.pick:hover{transform:translateY(-4px);border-color:var(--olive)}
+.pick .art{aspect-ratio:5/4;background:var(--lime);border-bottom:1px solid var(--line)}
+.pick .art svg{width:100%;height:100%}
+.pick .body{padding:22px;display:grid;gap:10px;flex:1;align-content:start}
+.pick h3{font-size:1.5rem;margin:0}
+.pick .tag{font:700 .68rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--olive)}
+.pick p{margin:0;color:var(--mute);font-size:.95rem}
+.pick .row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:6px}
+.pick .price{font-family:var(--serif);font-size:1.25rem}
+.pick a.aff{font-weight:700;font-size:.88rem;color:var(--cedar);text-underline-offset:4px}
+@media(min-width:760px){.grid{grid-template-columns:repeat(3,1fr)}}
+.pick.hl{outline:3px solid var(--cedar);outline-offset:-3px}
+/* feature */
+.feature{background:var(--olive-d);color:#efe9da}
+.feature .wrap{display:grid;gap:40px}
+.feature h2{color:#fff}.feature h2 em{color:#e4b58f}
+.feature p{color:#d8d4c0}
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0}
+.pc div{background:rgba(255,255,255,.07);padding:18px}
+.pc b{display:block;font:700 .72rem/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;color:#e4b58f}
+.pc ul{margin:0;padding-left:18px;font-size:.92rem}
+.spec{border:1px solid rgba(255,255,255,.2);padding:22px;display:grid;gap:10px}
+.spec div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:10px;font-size:.94rem}
+.spec div:last-child{border:0;padding:0}
+@media(min-width:900px){.feature .wrap{grid-template-columns:1.1fr .9fr;gap:80px;align-items:center}}
+/* guides */
+.guides{display:grid;gap:0;border-top:1px solid var(--line)}
+.guide{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:baseline;padding:22px 0;border-bottom:1px solid var(--line);text-decoration:none;transition:padding .3s}
+.guide:hover{padding-left:12px}
+.guide b{font-family:var(--serif);font-weight:500;font-size:1.3rem;letter-spacing:-.01em}
+.guide small{color:var(--mute);font-size:.82rem}
+.guide .n{font-family:var(--serif);color:var(--cedar);font-size:1rem}
+.guide .go{color:var(--cedar)}
+@media(max-width:560px){.guide{grid-template-columns:auto 1fr}.guide .go{display:none}}
+/* pros */
+.pros{background:var(--lime);border-block:1px solid var(--line)}
+.pros .wrap{display:grid;gap:30px;align-items:center}
+.pros ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;color:var(--mute)}
+.pros li::before{content:"\2192";color:var(--cedar);margin-right:10px}
+@media(min-width:900px){.pros .wrap{grid-template-columns:1.2fr .8fr;gap:70px}}
+/* news */
+.news{display:grid;gap:30px}
+.nform{display:grid;gap:14px;max-width:520px}
+.nform input[type=email]{min-height:52px;padding:0 16px;border:1.5px solid var(--ink);background:#fff;font:1rem var(--sans);width:100%}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:.84rem;color:var(--mute)}
+.consent input{width:22px;height:22px;margin:1px 0 0;flex:none;accent-color:var(--olive)}
+.ok{display:none;color:var(--olive-d);font-weight:600}
+.nform.done form{display:none}.nform.done .ok{display:block}
+@media(min-width:900px){.news{grid-template-columns:1fr 1fr;gap:70px;align-items:center}}
+footer{background:var(--ink);color:#bdb4a3;padding:50px 0 100px;font-size:.84rem}
+footer .wrap{display:grid;gap:16px}
+footer strong{font-family:var(--serif);font-size:1.4rem;color:#fff;font-weight:500}
+.log{background:#171310;border:1px solid #3a322a;padding:14px;font:12px/1.5 ui-monospace,Menlo,Consolas,monospace;color:#9fc08a;max-height:130px;overflow:auto}
+.toast{position:fixed;left:50%;bottom:20px;transform:translate(-50%,30px);background:var(--ink);color:#fff;padding:12px 20px;font-size:.88rem;opacity:0;pointer-events:none;transition:all .3s;z-index:50;max-width:calc(100% - 32px);text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.ribbon{position:fixed;left:10px;bottom:10px;z-index:60;font:600 11px/1 system-ui,sans-serif;background:var(--cedar);color:#fff;padding:8px 12px;border-radius:99px;pointer-events:none}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><div class="wrap"><a class="logo" href="#">Cedar <i>&amp;</i> Salt</a>
+<nav aria-label="Main"><a href="#quiz">Find your match</a><a href="#picks">Top picks</a><a href="#guides">Buying guides</a><a href="#pros">For property pros</a></nav>
+<a class="btn" href="#quiz">Take the quiz</a></div></header>
+<main id="main">
+<section class="hero"><div class="wrap">
+<div><p class="kicker">Home wellness, edited</p>
+<h1>Calm homes are <em>designed,</em> not decorated.</h1>
+<p class="lead">Independent, plainly written recommendations for the air, water, light and sleep in your home. We test, compare and tell you what is worth buying.</p>
+<div class="acts"><a class="btn" href="#quiz">Find your match</a><a class="btn btn--line" href="#picks">See top picks</a></div>
+<ul class="assure"><li>Independent testing</li><li>Plain-English buying guides</li><li>No pay-to-rank</li></ul></div>
+<figure class="facade" style="margin:0"><svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Architectural elevation of a modern home with a cedar screen"><rect width="400" height="500" fill="#ece6da"/><circle class="sun" cx="290" cy="110" r="44" fill="#e4b58f" fill-opacity=".7"/><rect y="400" width="400" height="100" fill="#cfc7b3"/><rect x="60" y="170" width="280" height="230" fill="#f7f3ea" stroke="#241f1a" stroke-width="1.5"/><g stroke="#8a4b2e" stroke-width="5"><path d="M210 170v230M226 170v230M242 170v230M258 170v230M274 170v230M290 170v230M306 170v230M322 170v230"/></g><rect x="84" y="206" width="104" height="94" fill="#d8e0d2" stroke="#241f1a" stroke-width="1.5"/><path d="M136 206v94M84 253h104" stroke="#241f1a" stroke-width="1"/><rect x="84" y="330" width="60" height="70" fill="#5c6240"/><path d="M40 170h320" stroke="#241f1a" stroke-width="3"/><g fill="#5c6240"><circle cx="40" cy="392" r="22"/><circle cx="372" cy="396" r="16"/></g></svg><figcaption>Fig. 01 &middot; The ideal home</figcaption></figure>
+</div></section>
+
+<section class="quiz" id="quiz"><div class="wrap">
+<div class="reveal"><p class="kicker">Rule-based quiz</p><h2>Three questions. One honest recommendation.</h2><p style="color:var(--mute)">No account, no email. Answers stay in your browser. In the real site the rules are editable in the WordPress admin.</p></div>
+<form class="qcard reveal" id="qz" novalidate>
+<fieldset><legend>Where do you want the biggest change?</legend><div class="opts"><label><input type="radio" name="space" value="bed" required><span>Bedroom</span></label><label><input type="radio" name="space" value="bath"><span>Bathroom</span></label><label><input type="radio" name="space" value="home"><span>Whole home</span></label></div></fieldset>
+<fieldset><legend>What bothers you most?</legend><div class="opts"><label><input type="radio" name="need" value="dry" required><span>Dry air</span></label><label><input type="radio" name="need" value="allergy"><span>Allergens and dust</span></label><label><input type="radio" name="need" value="water"><span>Water quality</span></label><label><input type="radio" name="need" value="sleep"><span>Poor sleep</span></label></div></fieldset>
+<fieldset><legend>Your budget?</legend><div class="opts"><label><input type="radio" name="bud" value="1" required><span>Under $100</span></label><label><input type="radio" name="bud" value="2"><span>$100 to $300</span></label><label><input type="radio" name="bud" value="3"><span>$300 and up</span></label></div></fieldset>
+<p class="err" id="qerr" role="alert"></p>
+<button class="btn btn--olive" type="submit">Show my match</button>
+<div class="result" id="res" role="status" aria-live="polite"></div>
+</form>
+</div></section>
+
+<section id="picks"><div class="wrap">
+<div class="sec-head reveal"><p class="kicker">Top picks</p><h2>What we would buy <em>ourselves.</em></h2><p>Placeholder products and prices. Each link is an editable affiliate link with outbound click tracking.</p></div>
+<div class="grid" id="grid"></div>
+</div></section>
+
+<section class="feature"><div class="wrap">
+<div class="reveal"><p class="kicker" style="color:#e4b58f">Product page template</p><h2>Pick of the month: the <em>quiet humidifier.</em></h2><p>A single product template: a clear verdict, honest pros and cons, key specs and one outbound button. The same layout serves every product on the site.</p>
+<div class="pc"><div><b>Pros</b><ul><li>Under 28 dB on low</li><li>Easy-clean tank</li><li>Auto humidity control</li></ul></div><div><b>Cons</b><ul><li>Filters sold separately</li><li>No app</li></ul></div></div>
+<a class="btn" style="background:#fff;color:var(--ink);border-color:#fff" href="https://example.com/aff/humidifier?tag=cedarsalt" rel="sponsored noopener" data-p="Quiet humidifier (featured)">Check current price</a></div>
+<div class="spec reveal"><div><span>Room size</span><b>Up to 400 sq ft</b></div><div><span>Noise</span><b>27 dB</b></div><div><span>Tank</span><b>4 L</b></div><div><span>Our rating</span><b>9.1 / 10</b></div></div>
+</div></section>
+
+<section id="guides"><div class="wrap">
+<div class="sec-head reveal"><p class="kicker">Buying guide template</p><h2>Guides that end with a decision.</h2><p>Each guide has a contents list, a short method note and a clear pick for three budgets.</p></div>
+<div class="guides reveal">
+<a class="guide" href="#guides" data-g="How to choose an air purifier"><span class="n">01</span><span><b>How to choose an air purifier</b><br><small>9 min read &middot; Air</small></span><span class="go">Read &rarr;</span></a>
+<a class="guide" href="#guides" data-g="Do you really need a shower filter?"><span class="n">02</span><span><b>Do you really need a shower filter?</b><br><small>6 min read &middot; Water</small></span><span class="go">Read &rarr;</span></a>
+<a class="guide" href="#guides" data-g="Humidity, explained for bedrooms"><span class="n">03</span><span><b>Humidity, explained for bedrooms</b><br><small>7 min read &middot; Sleep</small></span><span class="go">Read &rarr;</span></a>
+</div></div></section>
+
+<section class="pros" id="pros"><div class="wrap">
+<div class="reveal"><p class="kicker">For property professionals</p><h2>Give every closing a <em>welcome guide.</em></h2><p style="color:var(--mute);max-width:46ch">Realtors, designers and property managers can share branded wellness guides with clients and earn from the same trusted picks.</p><a class="btn" href="#news">Join the professional list</a></div>
+<ul class="reveal"><li>Co-branded buyer guides</li><li>Simple referral links</li><li>Quarterly product briefings</li></ul>
+</div></section>
+
+<section id="news"><div class="wrap news">
+<div class="reveal"><p class="kicker">Newsletter</p><h2>One calm email, twice a month.</h2><p style="color:var(--mute)">New tests, price drops on our picks and nothing else.</p></div>
+<div class="nform reveal" id="nf"><form id="nfm" novalidate>
+<label for="em" style="font-weight:700;font-size:.85rem">Email</label>
+<input id="em" type="email" inputmode="email" autocomplete="email" required>
+<label class="consent"><input type="checkbox" id="co"><span>I agree to receive the Cedar &amp; Salt newsletter and can unsubscribe at any time.</span></label>
+<p class="err" id="nerr" role="alert"></p>
+<button class="btn btn--olive" type="submit">Subscribe</button></form>
+<p class="ok" role="status">Thank you. Please check your inbox to confirm.</p></div>
+</div></section>
+</main>
+<footer><div class="wrap"><strong>Cedar &amp; Salt</strong>
+<p style="margin:0;max-width:70ch"><b style="color:#fff">Affiliate disclosure.</b> We may earn a commission when you buy through links on this site, at no cost to you. Commissions never affect rankings. Concept demo: all products, prices, ratings and copy are placeholders.</p>
+<div><div style="font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px">Demo: outbound click log (analytics event sent on every affiliate click)</div><div class="log" id="log" aria-live="polite">waiting for a click...</div></div></div></footer>
+<div class="toast" id="toast" role="status"></div>
+<span class="ribbon">Concept demo &middot; placeholder content</span>
+<script>
+(function(){
+var P=[
+{id:'hum',n:'Quiet Mist Humidifier',t:'Air',pr:99,p:'Whisper-quiet, auto humidity control, easy-clean tank.',need:'dry',sp:['bed','home'],art:'M60 150h80v40H60zM100 150V90M80 90c0-20 40-20 40 0'},
+{id:'pur',n:'HEPA Air Purifier',t:'Air',pr:249,p:'True HEPA plus carbon, tuned for rooms up to 450 sq ft.',need:'allergy',sp:['bed','home'],art:'M70 70h60v120H70zM80 90h40M80 110h40M80 130h40'},
+{id:'shw',n:'Filtered Shower Head',t:'Water',pr:59,p:'Cuts chlorine, with a 6-month filter and a standard fit.',need:'water',sp:['bath'],art:'M60 80h80l-14 30H74zM84 124v14M100 124v22M116 124v14'},
+{id:'wlt',n:'Sunrise Alarm Light',t:'Sleep',pr:79,p:'Gentle 30-minute wake-up light with warm sunset mode.',need:'sleep',sp:['bed'],art:'M70 170a30 30 0 0 1 60 0zM100 120v-20M72 130l-12-12M128 130l12-12'},
+{id:'mon',n:'Air Quality Monitor',t:'Air',pr:129,p:'PM2.5, CO2 and humidity on one clear screen.',need:'allergy',sp:['home','bed'],art:'M64 80h72v100H64zM80 100h40v30H80zM80 146h40M80 160h24'},
+{id:'wh',n:'Whole-home Water Filter',t:'Water',pr:389,p:'Point-of-entry filtration, simple cartridge swap each year.',need:'water',sp:['home'],art:'M84 70h32v110H84zM74 70h52M74 180h52M100 90v70'}];
+var grid=document.getElementById('grid');
+grid.innerHTML=P.map(function(x){return '<article class="pick reveal" data-id="'+x.id+'"><div class="art"><svg viewBox="0 0 200 250" aria-hidden="true"><rect width="200" height="250" fill="#ece6da"/><path d="'+x.art+'" fill="#f7f3ea" stroke="#8a4b2e" stroke-width="3" stroke-linejoin="round"/><path d="M30 215h140" stroke="#241f1a" stroke-width="2"/></svg></div><div class="body"><span class="tag">'+x.t+'</span><h3>'+x.n+'</h3><p>'+x.p+'</p><div class="row"><span class="price">$'+x.pr+'</span><a class="aff" href="https://example.com/aff/'+x.id+'?tag=cedarsalt" rel="sponsored noopener" data-p="'+x.n+'">Check price &rarr;</a></div></div></article>'}).join('');
+/* Scroll reveals */
+var rv=[].slice.call(document.querySelectorAll('.reveal'));
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});rv.forEach(function(n){io.observe(n)})}else rv.forEach(function(n){n.classList.add('in')});
+/* Outbound click tracking (demo: logs instead of leaving the page) */
+var log=document.getElementById('log'),toast=document.getElementById('toast'),cnt=0,tt;
+window.dataLayer=window.dataLayer||[];
+function track(a){cnt++;var ev={event:'affiliate_click',product:a.getAttribute('data-p'),url:a.getAttribute('href')};window.dataLayer.push(ev);
+if(cnt===1)log.textContent='';log.textContent+=cnt+'. '+new Date().toLocaleTimeString('en-GB')+'  affiliate_click  "'+ev.product+'"\n';log.style.whiteSpace='pre-wrap';log.scrollTop=log.scrollHeight;
+toast.textContent='Click recorded for "'+ev.product+'". On the live site this opens the retailer.';toast.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove('on')},2800)}
+document.addEventListener('click',function(e){var a=e.target.closest('a[data-p]');if(a){e.preventDefault();track(a)}var g=e.target.closest('a[data-g]');if(g){e.preventDefault()}});
+/* Rule-based quiz */
+var qz=document.getElementById('qz'),res=document.getElementById('res'),qerr=document.getElementById('qerr');
+function val(n){var c=qz.querySelector('input[name="'+n+'"]:checked');return c?c.value:null}
+qz.addEventListener('submit',function(e){e.preventDefault();var sp=val('space'),nd=val('need'),bd=val('bud');
+if(!sp||!nd||!bd){qerr.textContent='Please answer all three questions.';return}qerr.textContent='';
+var cap={1:110,2:320,3:9999};
+var sc=P.map(function(x){var s=0;if(x.need===nd)s+=4;if(x.sp.indexOf(sp)>-1)s+=2;if(x.pr<=cap[bd])s+=3;else s-=3;return{x:x,s:s}}).sort(function(a,b){return b.s-a.s});
+var top=sc[0].x,why=[];if(top.need===nd)why.push('it solves '+({dry:'dry air',allergy:'allergens and dust',water:'water quality',sleep:'poor sleep'})[nd]);if(top.sp.indexOf(sp)>-1)why.push('it suits '+({bed:'a bedroom',bath:'a bathroom',home:'whole-home use'})[sp]);if(top.pr<=cap[bd])why.push('it fits your budget at $'+top.pr);
+else why.push('it is the closest match, though above your budget at $'+top.pr);
+res.innerHTML='<p class="kicker" style="margin-bottom:8px">Your match</p><h3>'+top.n+'</h3><p class="why">Because '+why.join(', ')+'.</p><a class="btn" href="https://example.com/aff/'+top.id+'?tag=cedarsalt" rel="sponsored noopener" data-p="'+top.n+' (quiz result)">Check current price</a>';
+res.classList.add('on');
+[].forEach.call(grid.children,function(c){c.classList.toggle('hl',c.getAttribute('data-id')===top.id)})});
+/* Newsletter with explicit consent */
+var nfm=document.getElementById('nfm'),nerr=document.getElementById('nerr');
+nfm.addEventListener('submit',function(e){e.preventDefault();var em=document.getElementById('em').value.trim(),co=document.getElementById('co').checked;
+if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){nerr.textContent='Please enter a valid email address.';document.getElementById('em').focus();return}
+if(!co){nerr.textContent='Please tick the consent box to subscribe.';return}
+nerr.textContent='';document.getElementById('nf').classList.add('done')});
+})();
+</script>
+</body>
+</html>
