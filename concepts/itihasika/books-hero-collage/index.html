@@ -770,14 +770,22 @@ body.page-contact:not(.page-courses):not(.page-hm) .chero h1 .cl{display:block}
 
 .page-books .bhero--collage{background:radial-gradient(55% 75% at 74% 50%,#2b3659 0%,#182039 55%,#10162a 100%)}
 .page-books .bhero--collage .bhero__img{display:none}
-.bcol{position:absolute;right:calc(3vw + 0px);top:50%;width:min(52vw,900px);aspect-ratio:100/80;transform:translateY(-46%) rotate(-3deg);z-index:1}
-.bcol .bk{position:absolute;width:27%;height:auto;transform:rotate(var(--r));filter:drop-shadow(0 14px 18px rgba(0,0,0,.45)) drop-shadow(0 2px 3px rgba(0,0,0,.35));transition:transform .35s cubic-bezier(.2,.7,.2,1)}
-.bcol .bk:hover{transform:rotate(0deg) scale(1.06);z-index:20!important}
+.bcol{position:absolute;right:calc(4vw + 0px);top:50%;width:min(52vw,880px);transform:translateY(-44%);z-index:1;display:flex;flex-direction:column;align-items:center}
+.bcol .row{position:relative;z-index:2;display:flex;justify-content:center;align-items:flex-end;width:100%}
+.bcol .row--back{gap:2.4%;width:84%}
+.bcol .row--front{gap:1.6%;margin-top:-5.2%;z-index:3}
+.bcol .bk{display:block;height:auto;filter:drop-shadow(0 10px 12px rgba(0,0,0,.4)) drop-shadow(0 2px 2px rgba(0,0,0,.3))}
+.bcol .row--back .bk{width:22.6%}
+.bcol .row--front .bk{width:15%}
+.bcol .slab{position:relative;width:100%;border-radius:10px;background:linear-gradient(180deg,#f6eed9 0,#f6eed9 22%,#dccdaa 22.5%,#c9b78c 100%);box-shadow:0 22px 40px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.7)}
+.bcol .slab--top{width:90%;height:clamp(40px,6.4vw,100px);z-index:1;margin-top:-1px}
+.bcol .slab--base{width:100%;height:clamp(26px,3.6vw,58px);z-index:1;margin-top:-1px;border-radius:12px}
+.bcol::before{content:"";position:absolute;left:-6%;right:-6%;top:10%;bottom:-12%;background:radial-gradient(closest-side,rgba(254,201,5,.16),transparent 72%);z-index:0}
 @media(min-width:1150px){.page-books .bhero{min-height:56.4vw}}
 @media(max-width:1149px){
  body.page-books .hero.bhero{min-height:0;padding-bottom:0}
  .page-books .bhero--collage .hero__in{display:block}
- .bcol{position:relative;right:auto;top:auto;width:min(92vw,760px);margin:34px auto 44px;transform:rotate(-3deg)}
+ .bcol{position:relative;right:auto;top:auto;width:min(92vw,760px);margin:34px auto 44px;transform:none}
 }
 </style>
 </head><body><div style="display:contents">
@@ -794,7 +802,7 @@ body.page-contact:not(.page-courses):not(.page-hm) .chero h1 .cl{display:block}
 <h1 class="hero-type"><span class="ln"><span>Stories that build</span></span><span class="ln"><span><span class="y">character</span> for</span></span><span class="ln"><span>inquisitive <span class="y">minds.</span></span></span></h1>
 <p class="lead">Illustrated books that introduce children ages 3 to 13 to the heroes, thinkers, festivals and epics of India. In paperback, Kindle and PDF.</p>
 </div>
-<div class="bcol" role="img" aria-label="All Itihasika books: My Mahabharata, My Ramayana, History of India for Curious Kids, the Bhagavad Gita for Kids and six ABC activity books"><img class="bk" src="img/My-Mahabharata.webp?v=2" alt="My Mahabharata" width="640" height="746" style="left:0.0%;top:0.0%;--r:-2deg;z-index:1"><img class="bk" src="img/My-Ramayana.webp?v=2" alt="My Ramayana" width="640" height="746" style="left:24.3%;top:0.0%;--r:1.5deg;z-index:2"><img class="bk" src="img/History-of-India-for-Curious-kids.webp?v=2" alt="History of India for Curious Kids" width="640" height="746" style="left:48.6%;top:0.0%;--r:-1deg;z-index:3"><img class="bk" src="img/Bhagavad-Gita-for-Kids.webp?v=2" alt="The Bhagavad Gita for Kids" width="640" height="746" style="left:72.9%;top:0.0%;--r:2deg;z-index:4"><img class="bk" src="img/ABC-of-Indian-history.webp?v=2" alt="ABC Activity Book of Indian History" width="640" height="746" style="left:12.0%;top:23.3%;--r:1.5deg;z-index:5"><img class="bk" src="img/ABC-of-Thinkers.webp?v=2" alt="ABC Activity Book of Indian Thinkers" width="640" height="746" style="left:36.3%;top:23.3%;--r:-2deg;z-index:6"><img class="bk" src="img/ABC-of-Incredible-India.webp?v=2" alt="ABC Activity Book of Incredible India" width="640" height="746" style="left:60.6%;top:23.3%;--r:1deg;z-index:7"><img class="bk" src="img/ABC-of-Devtas.webp?v=2" alt="ABC Activity Book of Gods" width="640" height="746" style="left:24.0%;top:46.6%;--r:-1.5deg;z-index:8"><img class="bk" src="img/ABC-of-Festivals.webp?v=2" alt="ABC Activity Book of Indian Festivals" width="640" height="746" style="left:48.3%;top:46.6%;--r:2deg;z-index:9"><img class="bk" src="img/ABC-of-Hindu-Dharma.webp?v=2" alt="ABC Activity Book of Hindu Dharma" width="640" height="746" style="left:72.6%;top:46.6%;--r:-1deg;z-index:10"></div></div>
+<div class="bcol" role="img" aria-label="All Itihasika books: My Mahabharata, My Ramayana, History of India for Curious Kids, the Bhagavad Gita for Kids and six ABC activity books"><div class="row row--back"><img class="bk" src="img/My-Mahabharata.webp?v=2" alt="My Mahabharata" width="602" height="671"><img class="bk" src="img/My-Ramayana.webp?v=2" alt="My Ramayana" width="602" height="671"><img class="bk" src="img/History-of-India-for-Curious-kids.webp?v=2" alt="History of India for Curious Kids" width="602" height="671"><img class="bk" src="img/Bhagavad-Gita-for-Kids.webp?v=2" alt="The Bhagavad Gita for Kids" width="602" height="671"></div><div class="slab slab--top"></div><div class="row row--front"><img class="bk" src="img/ABC-of-Indian-history.webp?v=2" alt="ABC Activity Book of Indian History" width="602" height="671"><img class="bk" src="img/ABC-of-Thinkers.webp?v=2" alt="ABC Activity Book of Indian Thinkers" width="602" height="671"><img class="bk" src="img/ABC-of-Incredible-India.webp?v=2" alt="ABC Activity Book of Incredible India" width="602" height="671"><img class="bk" src="img/ABC-of-Devtas.webp?v=2" alt="ABC Activity Book of Gods" width="602" height="671"><img class="bk" src="img/ABC-of-Festivals.webp?v=2" alt="ABC Activity Book of Indian Festivals" width="602" height="671"><img class="bk" src="img/ABC-of-Hindu-Dharma.webp?v=2" alt="ABC Activity Book of Hindu Dharma" width="602" height="671"></div><div class="slab slab--base"></div></div>
 </section></main></div>
 <script>document.body.classList.add("page-books","is-ready","loaded")</script>
 </body></html>
